@@ -1,0 +1,45 @@
+import { MetadataRoute } from "next";
+import { listProducts, listCategories, listBlogPosts } from "@/lib/queries";
+
+const BASE = "https://anabolenpro.com";
+
+export const revalidate = 3600;
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const [products, categories, blogs] = await Promise.all([
+    listProducts({ limit: 500 }),
+    listCategories(),
+    listBlogPosts(200),
+  ]);
+
+  const staticRoutes = [
+    { url: `${BASE}/`, changeFrequency: "daily" as const, priority: 1.0 },
+    { url: `${BASE}/winkel`, changeFrequency: "daily" as const, priority: 0.9 },
+    { url: `${BASE}/kennisbank`, changeFrequency: "weekly" as const, priority: 0.8 },
+    { url: `${BASE}/lab`, changeFrequency: "weekly" as const, priority: 0.7 },
+    { url: `${BASE}/over-ons`, changeFrequency: "monthly" as const, priority: 0.4 },
+    { url: `${BASE}/bezorging`, changeFrequency: "monthly" as const, priority: 0.4 },
+    { url: `${BASE}/contact`, changeFrequency: "monthly" as const, priority: 0.3 },
+  ];
+
+  const categoryRoutes = categories.map((c) => ({
+    url: `${BASE}/winkel/${c.slug}`,
+    changeFrequency: "daily" as const,
+    priority: 0.85,
+  }));
+
+  const productRoutes = products.map((p) => ({
+    url: `${BASE}/product/${p.categories?.slug || "winkel"}/${p.slug || p.sku}`,
+    changeFrequency: "weekly" as const,
+    priority: 0.75,
+  }));
+
+  const blogRoutes = blogs.map((b) => ({
+    url: `${BASE}/kennisbank/${b.slug}`,
+    lastModified: new Date(b.published_at),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticRoutes, ...categoryRoutes, ...productRoutes, ...blogRoutes];
+}

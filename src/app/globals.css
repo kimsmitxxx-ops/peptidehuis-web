@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * anabolenpro.com design tokens (uit Lovable design system).
+ * Cream canvas + clinical green accent — niet de gold-accent variant.
+ */
+:root {
+  /* Surfaces */
+  --color-background: #F4F2EA;
+  --color-surface: #E6EFE7;
+  --color-paper: #F1EFE7;
+  --color-paper-soft: #FBFAF6;
+  --color-paper-ink: #11241E;
+  --color-paper-ink-muted: #4B5B53;
+  --color-paper-border: #E4E2D8;
+
+  /* Primary (deep green panel) */
+  --color-primary: #11241E;
+  --color-primary-soft: #1A3329;
+  --color-primary-muted: #244A3C;
+  --color-primary-foreground: #F2F5F1;
+
+  /* Accent (vivid clinical green) */
+  --color-accent: #2BB36A;
+  --color-accent-soft: #3DDC84;
+  --color-accent-muted: #1F8E51;
+  --color-accent-foreground: #08120E;
+
+  /* Text */
+  --color-text: #11241E;
+  --color-text-muted: #4B5B53;
+  --color-text-subtle: #7A8983;
+  --color-foreground: #11241E;
+
+  /* Borders */
+  --color-border: #E4E2D8;
+  --color-border-strong: #CFCEC2;
+
+  /* Semantic */
+  --color-success: #1F8E51;
+  --color-success-soft: #DCF5E6;
+  --color-danger: #C24545;
+  --color-danger-soft: #FBE2E2;
+  --color-warning: #C97D2B;
+
+  --radius: 0.75rem;
+}
+
+html, body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: "Manrope", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: "Space Grotesk", "Manrope", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Utility-classes die de design components verwachten */
+.text-muted-foreground { color: var(--color-text-muted); }
+.bg-card { background: var(--color-paper-soft); }
+.text-card-foreground { color: var(--color-text); }
+.bg-muted { background: var(--color-surface); }
+.text-foreground { color: var(--color-foreground); }
