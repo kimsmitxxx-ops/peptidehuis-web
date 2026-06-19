@@ -13,10 +13,12 @@ export async function GET(req: NextRequest) {
     // Auto-create customer-row via RPC
     const { data: { user } } = await sb.auth.getUser();
     if (user?.email) {
-      await sb.rpc("find_or_create_customer_for_auth", {
-        p_email: user.email,
-        p_full_name: user.user_metadata?.full_name || null,
-      }).catch(() => null);
+      try {
+        await sb.rpc("find_or_create_customer_for_auth", {
+          p_email: user.email,
+          p_full_name: user.user_metadata?.full_name || null,
+        });
+      } catch {}
     }
   }
   return NextResponse.redirect(new URL(next, req.url));

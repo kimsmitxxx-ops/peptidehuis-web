@@ -12,9 +12,13 @@ export async function POST(req: NextRequest) {
   const { data: shop } = await supabase.from("shops").select("id").maybeSingle();
   if (!shop) return NextResponse.json({ error: "Shop niet gevonden" }, { status: 500 });
 
-  const { data: customerId } = await supabase.rpc("find_or_create_customer", {
-    p_shop_id: shop.id, p_email: email, p_name: name, p_phone: phone || null,
-  }).catch(() => ({ data: null }));
+  let customerId: string | null = null;
+  try {
+    const { data } = await supabase.rpc("find_or_create_customer", {
+      p_shop_id: shop.id, p_email: email, p_name: name, p_phone: phone || null,
+    });
+    customerId = data as string | null;
+  } catch {}
 
   const subtotal = items.reduce((s: number, it: any) => s + it.price_cents * it.qty, 0);
   const shipping = subtotal >= 7500 ? 0 : 595;
