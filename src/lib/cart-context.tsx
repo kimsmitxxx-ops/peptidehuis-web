@@ -14,6 +14,9 @@ type Ctx = {
   isOpen: boolean;
   open: () => void;
   close: () => void;
+  openCart: () => void;
+  closeCart: () => void;
+  setOpen: (v: boolean) => void;
 };
 
 const CartCtx = createContext<Ctx | null>(null);
@@ -21,7 +24,7 @@ const KEY = "anabolenpro.cart.v1";
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
-  const [isOpen, setOpen] = useState(false);
+  const [isOpen, setOpenState] = useState(false);
 
   useEffect(() => {
     try { const s = localStorage.getItem(KEY); if (s) setItems(JSON.parse(s)); } catch {}
@@ -34,7 +37,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       if (ex) return p.map((x) => x.id === it.id ? { ...x, qty: x.qty + qty } : x);
       return [...p, { ...it, qty }];
     });
-    setOpen(true);
+    setOpenState(true);
   };
   const remove = (id: string) => setItems((p) => p.filter((x) => x.id !== id));
   const setQty = (id: string, qty: number) =>
@@ -44,7 +47,15 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const count = items.reduce((s, x) => s + x.qty, 0);
 
   return (
-    <CartCtx.Provider value={{ items, add, remove, setQty, clear, total, count, isOpen, open: () => setOpen(true), close: () => setOpen(false) }}>
+    <CartCtx.Provider value={{
+      items, add, remove, setQty, clear, total, count,
+      isOpen,
+      open: () => setOpenState(true),
+      close: () => setOpenState(false),
+      openCart: () => setOpenState(true),
+      closeCart: () => setOpenState(false),
+      setOpen: setOpenState,
+    }}>
       {children}
     </CartCtx.Provider>
   );

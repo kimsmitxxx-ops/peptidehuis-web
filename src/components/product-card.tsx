@@ -1,40 +1,130 @@
-import Link from "next/link";
-import { formatEUR } from "@/lib/queries";
-import { AddToCartButton } from "./add-to-cart-button";
-import type { Product } from "@/lib/supabase";
+import { cn } from "@/lib/utils";
+import { PriceTag } from "./price-tag";
+import { Stars } from "./stars";
+import { Badge } from "./badge";
+import { Tag } from "./tag";
+import { ShoppingCart, Plus, Check } from "lucide-react";
+import type { MouseEvent } from "react";
 
-export function ProductCard({ p }: { p: Product }) {
-  const catSlug = p.categories?.slug || "winkel";
-  const href = `/product/${catSlug}/${p.slug || p.sku}`;
+export type ProductCardSize = "sm" | "md" | "lg";
+
+export interface ProductCardProps {
+  image: string;
+  name: string;
+  slug: string;
+  priceFrom: number;
+  ratingValue?: number;
+  ratingCount?: number;
+  inStock?: boolean;
+  tag?: string;
+  category?: string;
+  shortDescription?: string;
+  size?: ProductCardSize;
+  className?: string;
+  onAddToCart?: (slug: string) => void;
+}
+
+function toFeatures(text?: string): string[] {
+  if (!text) return [];
+  return text
+    .split(/(?:\.\s+|,\s+)/)
+    .map((s) => s.trim().replace(/\.$/, ""))
+    .filter((s) => s.length > 4)
+    .slice(0, 3);
+}
+
+export function ProductCard({
+  image,
+  name,
+  slug,
+  priceFrom,
+  ratingValue,
+  ratingCount,
+  inStock = true,
+  tag,
+  category,
+  shortDescription,
+  size = "md",
+  className,
+  onAddToCart,
+}: ProductCardProps) {
+  const isSm = size === "sm";
+  const features = toFeatures(shortDescription);
+
+  function handleAdd(e: MouseEvent<HTMLButtonElement>) {
+    e.preventDefault();
+    e.stopPropagation();
+    onAddToCart?.(slug);
+  }
+
   return (
-    <article className="group overflow-hidden rounded-2xl border border-paper-border bg-paper-soft transition hover:shadow-md">
-      <Link href={href} className="block">
-        <div className="aspect-square overflow-hidden bg-paper">
-          {p.image_url ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src={p.image_url} alt={p.name} className="h-full w-full object-cover transition-transform group-hover:scale-105" />
-          ) : (
-            <div className="flex h-full w-full items-center justify-center text-text-subtle">Geen foto</div>
-          )}
-        </div>
-        <div className="p-4">
-          <div className="flex items-center gap-2 text-[11px] text-text-muted">
-            {p.categories?.name && <span className="rounded-full bg-paper px-2 py-0.5">{p.categories.name}</span>}
-            {p.tags?.[0] && <span className="text-text-subtle">{p.tags[0]}</span>}
+    <article
+      data-slug={slug}
+      className={cn(
+        "group h-full bg-surface rounded-lg border border-border overflow-hidden transition-shadow flex flex-col",
+        size !== "sm" && "shadow-card hover:shadow-lift",
+        className,
+      )}
+    >
+      <div className="relative aspect-[4/3] bg-muted overflow-hidden shrink-0">
+        <img src={image} alt={name} className="w-full h-full object-cover transition-transform group-hover:scale-[1.02]" />
+        {category && (
+          <span className="absolute top-3 left-3 inline-flex items-center rounded-sm bg-primary/90 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-primary-foreground backdrop-blur-sm">
+            {category}
+          </span>
+        )}
+        {tag && (
+          <div className="absolute top-3 right-3">
+            <Tag variant="filled">{tag}</Tag>
           </div>
-          <h3 className="mt-2 line-clamp-2 font-medium leading-tight">{p.name}</h3>
-          {p.subtitle && <p className="mt-1 line-clamp-2 text-xs text-text-muted">{p.subtitle}</p>}
-        </div>
-      </Link>
-      <div className="flex items-center justify-between border-t border-paper-border bg-paper-soft p-4">
-        <div>
-          <p className="font-display text-lg">{formatEUR(p.price_cents)}</p>
-          {p.compare_at_cents && p.compare_at_cents > p.price_cents && (
-            <p className="text-xs text-text-subtle line-through">{formatEUR(p.compare_at_cents)}</p>
+        )}
+        {!inStock && (
+          <div className="absolute bottom-3 right-3">
+            <Badge variant="danger">Uitverkocht</Badge>
+          </div>
+        )}
+      </div>
+      <div className={cn("p-4 flex-1 flex flex-col gap-2", isSm && "p-3 gap-1.5")}>
+        <h3 className={cn(
+          "font-display font-medium text-text leading-tight line-clamp-2 min-h-[2.6em]",
+          isSm ? "text-base" : "text-base md:text-lg",
+        )}>
+          {name}
+        </h3>
+        {!isSm && (
+          <div className="min-h-[1.25rem]">
+            {ratingValue != null && <Stars value={ratingValue} size="sm" count={ratingCount} />}
+          </div>
+        )}
+        {!isSm && (
+          <ul className="mt-1 space-y-1 min-h-[4.5rem]">
+            {features.map((f) => (
+              <li key={f} className="flex items-start gap-2 text-[13px] text-text leading-snug line-clamp-1">
+                <Check size={14} strokeWidth={3} className="mt-0.5 shrink-0 text-accent-muted" />
+                <span className="truncate">{f}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        <div className="mt-auto pt-3 flex items-center justify-between gap-2">
+          <PriceTag variant={isSm ? "single" : "from"} price={priceFrom} priceFrom={priceFrom} className="text-base md:text-lg" />
+          {!isSm && (
+            <button
+              type="button"
+              aria-label={inStock ? `Voeg ${name} toe aan winkelmand` : "Op de wachtlijst"}
+              disabled={!inStock}
+              onClick={handleAdd}
+              className="inline-flex h-9 md:h-11 w-9 md:w-auto items-center justify-center md:gap-1.5 rounded-md bg-accent md:px-3 text-accent-foreground shadow-card transition-all hover:bg-accent-muted hover:shadow-lift active:scale-[0.97] disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
+            >
+              <Plus size={16} strokeWidth={3} className="hidden md:inline" />
+              <ShoppingCart size={16} strokeWidth={2.25} />
+            </button>
           )}
         </div>
-        <AddToCartButton product={p} size="sm" />
       </div>
     </article>
   );
 }
+
+export default ProductCard;
