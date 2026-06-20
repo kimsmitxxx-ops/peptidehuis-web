@@ -1,3 +1,4 @@
+"use client";
 import { cn } from "@/lib/utils";
 import { PriceTag } from "./price-tag";
 import { Stars } from "./stars";

@@ -70,7 +70,21 @@ export default async function CategoryPage({ params }: { params: { categorie: st
         <>
           <p className="mt-8 text-sm text-text-muted">{products.length} producten</p>
           <div className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {products.map((p) => <ProductCard key={p.id} p={p} />)}
+            {products.map((p) => (
+              <Link key={p.id} href={`/product/${p.categories?.slug || cat.slug}/${p.slug}`} className="block">
+                <ProductCard
+                  image={p.image_url || "/assets/cat-anabolen.png"}
+                  name={p.name}
+                  slug={p.slug}
+                  priceFrom={p.price_cents / 100}
+                  ratingValue={4.8}
+                  inStock={p.availability !== "OutOfStock"}
+                  tag={p.tags?.[0]}
+                  category={p.categories?.name}
+                  shortDescription={p.subtitle || undefined}
+                />
+              </Link>
+            ))}
           </div>
         </>
       )}

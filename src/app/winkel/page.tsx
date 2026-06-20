@@ -40,7 +40,21 @@ export default async function WinkelIndexPage() {
       {/* Alle producten */}
       <h2 className="mt-10 font-display text-xl">{allProducts.length} producten</h2>
       <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {allProducts.map((p) => <ProductCard key={p.id} p={p} />)}
+        {allProducts.map((p) => (
+          <Link key={p.id} href={`/product/${p.categories?.slug || "winkel"}/${p.slug}`} className="block">
+            <ProductCard
+              image={p.image_url || "/assets/cat-anabolen.png"}
+              name={p.name}
+              slug={p.slug}
+              priceFrom={p.price_cents / 100}
+              ratingValue={4.8}
+              inStock={p.availability !== "OutOfStock"}
+              tag={p.tags?.[0]}
+              category={p.categories?.name}
+              shortDescription={p.subtitle || undefined}
+            />
+          </Link>
+        ))}
       </div>
     </div>
   );
