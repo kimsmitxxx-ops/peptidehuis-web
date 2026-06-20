@@ -112,7 +112,21 @@ export default async function ProductDetailPage({ params }: { params: { categori
         <section className="mt-16">
           <h2 className="font-display text-2xl">Gerelateerde producten</h2>
           <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {related.filter((r) => r.id !== p.id).slice(0, 4).map((r) => <ProductCard key={r.id} p={r} />)}
+            {related.filter((r) => r.id !== p.id).slice(0, 4).map((r) => (
+              <Link key={r.id} href={`/product/${r.categories?.slug || params.categorie}/${r.slug}`} className="block">
+                <ProductCard
+                  image={r.image_url || "/assets/cat-anabolen.png"}
+                  name={r.name}
+                  slug={r.slug}
+                  priceFrom={r.price_cents / 100}
+                  ratingValue={4.8}
+                  inStock={r.availability !== "OutOfStock"}
+                  tag={r.tags?.[0]}
+                  category={r.categories?.name}
+                  shortDescription={r.subtitle || undefined}
+                />
+              </Link>
+            ))}
           </div>
         </section>
       )}

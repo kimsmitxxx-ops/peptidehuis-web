@@ -3,54 +3,58 @@
 @tailwind utilities;
 
 /*
- * anabolenpro.com design tokens (uit Lovable design system).
- * Cream canvas + clinical green accent — niet de gold-accent variant.
+ * anabolenpro.com design tokens (Tailwind v3 alpha-value compatibel).
+ * Kleuren als space-separated RGB triplets zodat opacity modifiers werken:
+ * bg-primary/95 → rgb(var(--color-primary) / 0.95).
  */
 :root {
   /* Surfaces */
-  --color-background: #F4F2EA;
-  --color-surface: #E6EFE7;
-  --color-paper: #F1EFE7;
-  --color-paper-soft: #FBFAF6;
-  --color-paper-ink: #11241E;
-  --color-paper-ink-muted: #4B5B53;
-  --color-paper-border: #E4E2D8;
+  --color-background: 244 242 234;
+  --color-surface: 230 239 231;
+  --color-paper: 241 239 231;
+  --color-paper-soft: 251 250 246;
+  --color-paper-ink: 17 36 30;
+  --color-paper-ink-muted: 75 91 83;
+  --color-paper-border: 228 226 216;
 
   /* Primary (deep green panel) */
-  --color-primary: #11241E;
-  --color-primary-soft: #1A3329;
-  --color-primary-muted: #244A3C;
-  --color-primary-foreground: #F2F5F1;
+  --color-primary: 17 36 30;
+  --color-primary-soft: 26 51 41;
+  --color-primary-muted: 36 74 60;
+  --color-primary-foreground: 242 245 241;
 
   /* Accent (vivid clinical green) */
-  --color-accent: #2BB36A;
-  --color-accent-soft: #3DDC84;
-  --color-accent-muted: #1F8E51;
-  --color-accent-foreground: #08120E;
+  --color-accent: 43 179 106;
+  --color-accent-soft: 61 220 132;
+  --color-accent-muted: 31 142 81;
+  --color-accent-foreground: 8 18 14;
 
   /* Text */
-  --color-text: #11241E;
-  --color-text-muted: #4B5B53;
-  --color-text-subtle: #7A8983;
-  --color-foreground: #11241E;
+  --color-text: 17 36 30;
+  --color-text-muted: 75 91 83;
+  --color-text-subtle: 122 137 131;
+  --color-foreground: 17 36 30;
 
   /* Borders */
-  --color-border: #E4E2D8;
-  --color-border-strong: #CFCEC2;
+  --color-border: 228 226 216;
+  --color-border-strong: 207 206 194;
 
   /* Semantic */
-  --color-success: #1F8E51;
-  --color-success-soft: #DCF5E6;
-  --color-danger: #C24545;
-  --color-danger-soft: #FBE2E2;
-  --color-warning: #C97D2B;
-
-  --radius: 0.75rem;
+  --color-success: 31 142 81;
+  --color-success-soft: 220 245 230;
+  --color-danger: 194 69 69;
+  --color-danger-soft: 251 226 226;
+  --color-warning: 184 134 31;
+  --color-warning-soft: 251 239 203;
+  --color-info: 60 126 181;
+  --color-info-soft: 220 234 248;
+  --color-muted: 237 235 227;
+  --color-muted-foreground: 75 91 83;
 }
 
 html, body {
-  background-color: var(--color-background);
-  color: var(--color-text);
+  background-color: rgb(var(--color-background));
+  color: rgb(var(--color-text));
   font-family: "Manrope", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
@@ -60,9 +64,11 @@ html, body {
   letter-spacing: -0.02em;
 }
 
-/* Utility-classes die de design components verwachten */
-.text-muted-foreground { color: var(--color-text-muted); }
-.bg-card { background: var(--color-paper-soft); }
-.text-card-foreground { color: var(--color-text); }
-.bg-muted { background: var(--color-surface); }
-.text-foreground { color: var(--color-foreground); }
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Legacy aliases sommige components verwachten */
+.text-muted-foreground { color: rgb(var(--color-text-muted)); }
+.bg-card { background: rgb(var(--color-paper-soft)); }
+.text-card-foreground { color: rgb(var(--color-text)); }

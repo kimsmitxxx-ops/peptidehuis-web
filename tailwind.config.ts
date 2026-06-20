@@ -1,46 +1,82 @@
 import type { Config } from "tailwindcss";
 
+const withAlpha = (cssVar: string) => `rgb(var(${cssVar}) / <alpha-value>)`;
+
 export default {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
       colors: {
-        background: "var(--color-background)",
-        surface: "var(--color-surface)",
-        paper: "var(--color-paper)",
-        "paper-soft": "var(--color-paper-soft)",
-        "paper-ink": "var(--color-paper-ink)",
-        "paper-ink-muted": "var(--color-paper-ink-muted)",
-        "paper-border": "var(--color-paper-border)",
+        background: withAlpha("--color-background"),
+        surface: withAlpha("--color-surface"),
+        paper: {
+          DEFAULT: withAlpha("--color-paper"),
+          soft: withAlpha("--color-paper-soft"),
+          ink: withAlpha("--color-paper-ink"),
+          "ink-muted": withAlpha("--color-paper-ink-muted"),
+          border: withAlpha("--color-paper-border"),
+        },
         primary: {
-          DEFAULT: "var(--color-primary)",
-          soft: "var(--color-primary-soft)",
-          muted: "var(--color-primary-muted)",
-          foreground: "var(--color-primary-foreground)",
+          DEFAULT: withAlpha("--color-primary"),
+          soft: withAlpha("--color-primary-soft"),
+          muted: withAlpha("--color-primary-muted"),
+          foreground: withAlpha("--color-primary-foreground"),
         },
         accent: {
-          DEFAULT: "var(--color-accent)",
-          soft: "var(--color-accent-soft)",
-          muted: "var(--color-accent-muted)",
-          foreground: "var(--color-accent-foreground)",
+          DEFAULT: withAlpha("--color-accent"),
+          soft: withAlpha("--color-accent-soft"),
+          muted: withAlpha("--color-accent-muted"),
+          foreground: withAlpha("--color-accent-foreground"),
         },
         text: {
-          DEFAULT: "var(--color-text)",
-          muted: "var(--color-text-muted)",
-          subtle: "var(--color-text-subtle)",
+          DEFAULT: withAlpha("--color-text"),
+          muted: withAlpha("--color-text-muted"),
+          subtle: withAlpha("--color-text-subtle"),
         },
-        foreground: "var(--color-foreground)",
-        border: "var(--color-border)",
-        "border-strong": "var(--color-border-strong)",
-        success: { DEFAULT: "var(--color-success)", soft: "var(--color-success-soft)" },
-        danger: { DEFAULT: "var(--color-danger)", soft: "var(--color-danger-soft)" },
-        warning: { DEFAULT: "var(--color-warning, #C97D2B)" },
+        foreground: withAlpha("--color-foreground"),
+        border: withAlpha("--color-border"),
+        "border-strong": withAlpha("--color-border-strong"),
+        success: {
+          DEFAULT: withAlpha("--color-success"),
+          soft: withAlpha("--color-success-soft"),
+        },
+        danger: {
+          DEFAULT: withAlpha("--color-danger"),
+          soft: withAlpha("--color-danger-soft"),
+        },
+        warning: {
+          DEFAULT: withAlpha("--color-warning"),
+          soft: withAlpha("--color-warning-soft"),
+        },
+        info: {
+          DEFAULT: withAlpha("--color-info"),
+          soft: withAlpha("--color-info-soft"),
+        },
+        muted: {
+          DEFAULT: withAlpha("--color-muted"),
+          foreground: withAlpha("--color-muted-foreground"),
+        },
       },
       fontFamily: {
         sans: ["Manrope", "system-ui", "sans-serif"],
         display: ["Space Grotesk", "Manrope", "sans-serif"],
       },
+      boxShadow: {
+        card: "0 1px 2px rgba(17, 36, 30, 0.06), 0 2px 10px rgba(17, 36, 30, 0.06)",
+        lift: "0 6px 18px rgba(17, 36, 30, 0.10), 0 16px 40px rgba(17, 36, 30, 0.08)",
+      },
+      borderRadius: {
+        sm: "4px",
+        DEFAULT: "8px",
+        md: "10px",
+        lg: "12px",
+      },
+      spacing: {
+        13: "3.25rem",
+        18: "4.5rem",
+        22: "5.5rem",
+      },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 } satisfies Config;

@@ -34,10 +34,19 @@ export async function POST(req: NextRequest) {
   }).select().single();
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
-  // Order items
+  // Order items — resolve product_id by sku want cart-items uit ProductCard
+  // gebruiken slug-as-id (geen echte UUID).
+  const skus = Array.from(new Set(items.map((it: any) => it.sku).filter(Boolean)));
+  const { data: skuRows } = await supabase.from("products").select("id, sku").in("sku", skus);
+  const skuToId = new Map((skuRows || []).map((r: any) => [r.sku, r.id]));
+
   await supabase.from("order_items").insert(items.map((it: any) => ({
-    order_id: order.id, product_id: it.id, sku: it.sku, name: it.name,
-    qty: it.qty, price_cents: it.price_cents,
+    order_id: order.id,
+    product_id: skuToId.get(it.sku) || (typeof it.id === "string" && it.id.length === 36 ? it.id : null),
+    sku: it.sku,
+    name: it.name,
+    qty: it.qty,
+    price_cents: it.price_cents,
   })));
 
   return NextResponse.json({ ok: true, order_id: order.id });

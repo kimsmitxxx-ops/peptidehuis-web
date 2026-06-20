@@ -6,6 +6,7 @@ import { Badge } from "./badge";
 import { Tag } from "./tag";
 import { ShoppingCart, Plus, Check } from "lucide-react";
 import type { MouseEvent } from "react";
+import { useCart } from "@/lib/cart-context";
 
 export type ProductCardSize = "sm" | "md" | "lg";
 
@@ -51,11 +52,22 @@ export function ProductCard({
 }: ProductCardProps) {
   const isSm = size === "sm";
   const features = toFeatures(shortDescription);
+  const cart = useCart();
 
   function handleAdd(e: MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
     e.stopPropagation();
-    onAddToCart?.(slug);
+    if (onAddToCart) {
+      onAddToCart(slug);
+      return;
+    }
+    cart.add({
+      id: slug,
+      sku: slug,
+      name,
+      price_cents: Math.round(priceFrom * 100),
+      image,
+    });
   }
 
   return (
