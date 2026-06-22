@@ -1,11 +1,78 @@
 import type { Metadata } from "next";
-export const revalidate = 3600;
-export const metadata: Metadata = { title: "Contact", alternates: { canonical: "/contact" } };
-export default function Page() {
+import { PageHero } from "@/components/shop/page-hero";
+import { MessageCircle, Mail, Clock, MapPin } from "lucide-react";
+import { ContactForm } from "@/components/shop/contact-form";
+
+export const revalidate = 86400;
+
+export const metadata: Metadata = {
+  title: "Contact — AnabolenPro",
+  description: "Bereik AnabolenPro via online chat, e-mail of contactformulier. Antwoord binnen 1 werkdag tussen 09:00 en 21:00, ook in het weekend.",
+  alternates: { canonical: "/contact" },
+};
+
+export default function ContactPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
-      <h1 className="font-display text-3xl md:text-4xl">Contact</h1>
-      <p className="mt-4 text-text-muted">Inhoud van deze pagina wordt binnenkort vanuit het dashboard gevuld.</p>
-    </div>
+    <>
+      <PageHero
+        eyebrow="Contact"
+        title="Echte mensen, snelle antwoorden — geen chatbots"
+        intro="Of het nu om een batch-COA, een retourvraag of een protocoladvies gaat: ons team reageert elke dag tussen 09:00 en 21:00."
+      />
+
+      <section className="mx-auto max-w-7xl px-4 py-14 grid gap-10 lg:grid-cols-[1fr_1.2fr]">
+        <div className="space-y-5">
+          <div className="rounded-md border border-primary-muted bg-primary p-6 text-primary-foreground">
+            <MessageCircle size={20} className="text-accent" />
+            <h3 className="mt-3 font-display text-lg text-primary-foreground">Online chat</h3>
+            <p className="mt-1 text-sm text-primary-foreground/75">
+              Snelste route. Stuur foto&apos;s, batchnummers of een schermafbeelding van je order.
+            </p>
+            <button
+              type="button"
+              className="mt-3 inline-flex items-center text-sm font-medium text-accent hover:underline"
+            >
+              Start live chat
+            </button>
+          </div>
+          <div className="rounded-md border border-primary-muted bg-primary p-6 text-primary-foreground">
+            <Mail size={20} className="text-accent" />
+            <h3 className="mt-3 font-display text-lg text-primary-foreground">E-mail</h3>
+            <ul className="mt-2 space-y-1 text-sm">
+              <li>
+                <span className="text-primary-foreground/75">Algemeen: </span>
+                <a className="text-accent hover:underline" href="mailto:support@anabolenpro.com">support@anabolenpro.com</a>
+              </li>
+              <li>
+                <span className="text-primary-foreground/75">Retouren: </span>
+                <a className="text-accent hover:underline" href="mailto:retour@anabolenpro.com">retour@anabolenpro.com</a>
+              </li>
+              <li>
+                <span className="text-primary-foreground/75">Lab &amp; COA: </span>
+                <a className="text-accent hover:underline" href="mailto:lab@anabolenpro.com">lab@anabolenpro.com</a>
+              </li>
+            </ul>
+          </div>
+          <div className="rounded-md border border-primary-muted bg-primary p-6 text-primary-foreground">
+            <Clock size={20} className="text-accent" />
+            <h3 className="mt-3 font-display text-lg text-primary-foreground">Openingstijden support</h3>
+            <ul className="mt-2 space-y-1 text-sm text-primary-foreground/75">
+              <li>Ma t/m vr · 09:00 – 21:00</li>
+              <li>Za &amp; zo · 10:00 – 18:00</li>
+            </ul>
+          </div>
+          <div className="rounded-md border border-primary-muted bg-primary p-6 text-primary-foreground">
+            <MapPin size={20} className="text-accent" />
+            <h3 className="mt-3 font-display text-lg text-primary-foreground">Magazijn (geen bezoek)</h3>
+            <p className="mt-1 text-sm text-primary-foreground/75">
+              Westhavenkade 12, 3134 NA Vlaardingen <br />
+              KvK 87654321 · BTW NL003456789B01
+            </p>
+          </div>
+        </div>
+
+        <ContactForm />
+      </section>
+    </>
   );
 }

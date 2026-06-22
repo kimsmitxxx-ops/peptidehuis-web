@@ -79,7 +79,7 @@ export function ProductCard({
         className,
       )}
     >
-      <div className="relative aspect-[4/3] bg-muted overflow-hidden shrink-0">
+      <div className="relative aspect-square bg-muted overflow-hidden shrink-0">
         <img src={image} alt={name} className="w-full h-full object-cover transition-transform group-hover:scale-[1.02]" />
         {category && (
           <span className="absolute top-3 left-3 inline-flex items-center rounded-sm bg-primary/90 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-primary-foreground backdrop-blur-sm">

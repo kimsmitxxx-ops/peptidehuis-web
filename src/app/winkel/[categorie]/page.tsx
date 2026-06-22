@@ -2,8 +2,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getCategory, listProducts, listCategories } from "@/lib/queries";
 import { ProductCard } from "@/components/product-card";
+import { CatalogFilters } from "@/components/shop/catalog-filters";
 import type { Metadata } from "next";
-import { BookOpen, Truck, ShieldCheck, FlaskConical } from "lucide-react";
+import { BookOpen, Truck, ShieldCheck, FlaskConical, Sparkles } from "lucide-react";
 
 export const revalidate = 300;
 export const dynamicParams = true;
@@ -24,13 +25,31 @@ export async function generateMetadata({ params }: { params: { categorie: string
   };
 }
 
-export default async function CategoryPage({ params }: { params: { categorie: string } }) {
-  const [cat, products, allCategories] = await Promise.all([
+export default async function CategoryPage({
+  params,
+  searchParams,
+}: {
+  params: { categorie: string };
+  searchParams: { stock?: string; merk?: string };
+}) {
+  const [cat, allProducts, allCategories] = await Promise.all([
     getCategory(params.categorie),
     listProducts({ categorySlug: params.categorie }),
     listCategories(),
   ]);
   if (!cat) notFound();
+
+  const stockOnly = searchParams.stock === "1";
+  const merk = searchParams.merk || "";
+  const brandSet = new Set<string>();
+  allProducts.forEach((p) => p.tags?.forEach((t) => brandSet.add(t)));
+  const brands = Array.from(brandSet).sort();
+
+  const products = allProducts.filter((p) => {
+    if (stockOnly && p.availability === "OutOfStock") return false;
+    if (merk && !(p.tags || []).includes(merk)) return false;
+    return true;
+  });
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -64,6 +83,14 @@ export default async function CategoryPage({ params }: { params: { categorie: st
       <h1 className="font-display text-3xl md:text-4xl">{cat.name}</h1>
       {cat.description && <p className="mt-3 max-w-3xl text-text-muted leading-relaxed">{cat.description}</p>}
 
+      <div className="mt-6 rounded-lg border border-accent/30 bg-accent-soft/15 p-4 flex items-start gap-3">
+        <Sparkles size={18} className="text-accent shrink-0 mt-0.5" />
+        <div className="text-sm">
+          <p className="font-semibold text-text">Bulk-korting actief op {cat.name.toLowerCase()}</p>
+          <p className="text-text-muted">Vanaf 5 items <strong>10% korting</strong> · Vanaf 10 items <strong>15% korting</strong> — automatisch verrekend in de mand.</p>
+        </div>
+      </div>
+
       <div className="mt-8 grid gap-8 lg:grid-cols-[260px_1fr]">
         <aside className="space-y-4 lg:sticky lg:top-32 lg:self-start">
           <div className="rounded-lg border border-primary-muted bg-primary p-4 text-primary-foreground">
@@ -92,6 +119,7 @@ export default async function CategoryPage({ params }: { params: { categorie: st
               ))}
             </div>
           </div>
+          <CatalogFilters brands={brands} />
           <div className="rounded-lg border border-border bg-surface p-4 text-text space-y-3 text-sm">
             <h4 className="text-xs uppercase tracking-wider text-accent-muted font-semibold inline-flex items-center gap-1.5">
               <ShieldCheck size={12} /> Onze garanties
@@ -105,12 +133,12 @@ export default async function CategoryPage({ params }: { params: { categorie: st
         <div className="min-w-0">
           {products.length === 0 ? (
             <div className="rounded-2xl border border-dashed border-paper-border bg-paper-soft p-10 text-center text-text-muted">
-              Nog geen producten in deze categorie.
+              Geen producten met deze filters.
             </div>
           ) : (
             <>
               <p className="text-sm text-text-muted">{products.length} producten</p>
-              <div className="mt-4 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+              <div className="mt-4 grid gap-5 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {products.map((p) => (
                   <Link key={p.id} href={`/product/${p.categories?.slug || cat.slug}/${p.slug}`} className="block">
                     <ProductCard

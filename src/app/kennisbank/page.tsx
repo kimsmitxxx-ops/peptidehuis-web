@@ -1,12 +1,15 @@
 import Link from "next/link";
 import { listBlogPosts } from "@/lib/queries";
+import { KennisbankTabs } from "@/components/shop/kennisbank-tabs";
+import { categoryContent } from "@/components/shop/data";
+import { BookOpen } from "lucide-react";
 import type { Metadata } from "next";
 
 export const revalidate = 600;
 
 export const metadata: Metadata = {
-  title: "Kennisbank — protocollen, dosering, PCT en lab-uitleg",
-  description: "Onafhankelijke gidsen over anabole stoffen, PCT-protocollen, bloedwerk en stack-suggesties. Geschreven door coaches en biochemici.",
+  title: "Kennisbank — protocollen, dosering, PCT en onderzoek · AnabolenPro",
+  description: "Onafhankelijke gidsen over anabole stoffen, PCT-protocollen, bloedwerk en stack-suggesties. Geen forumretoriek, wel bronnen.",
   alternates: { canonical: "/kennisbank" },
 };
 
@@ -19,30 +22,35 @@ export default async function KennisbankPage() {
         <Link href="/" className="hover:underline">Home</Link> / <span>Kennisbank</span>
       </div>
 
-      <h1 className="font-display text-3xl md:text-5xl">Onderbouwing zonder <span className="text-accent">mythes</span></h1>
+      <h1 className="font-display text-4xl md:text-5xl leading-tight">
+        Onderbouwing zonder <span className="text-accent">mythes</span>
+      </h1>
       <p className="mt-4 max-w-2xl text-text-muted leading-relaxed">
-        Onafhankelijke gidsen, protocollen en studieoverzichten. Geen forumretoriek, wel concrete praktijkinfo en bronnen.
+        Onafhankelijke gidsen, protocollen en studieoverzichten. Geschreven door biochemici en
+        onderzoeksjournalisten — geen forumretoriek, wel bronnen.
       </p>
 
-      {articles.length === 0 ? (
-        <div className="mt-10 rounded-2xl border border-dashed border-paper-border bg-paper-soft p-10 text-center text-text-muted">
-          Nog geen artikelen.
-        </div>
-      ) : (
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {articles.map((a) => (
-            <Link key={a.id} href={`/kennisbank/${a.slug}`} className="group block overflow-hidden rounded-2xl border border-paper-border bg-paper-soft transition hover:shadow-md">
-              {a.image_url && /* eslint-disable-next-line @next/next/no-img-element */ <img src={a.image_url} alt={a.title} className="aspect-[16/9] w-full object-cover" />}
-              <div className="p-5">
-                <p className="text-[10px] uppercase tracking-wider text-accent">{a.category || "Gids"}</p>
-                <h2 className="mt-2 font-display text-lg leading-tight group-hover:text-accent">{a.title}</h2>
-                {a.excerpt && <p className="mt-2 line-clamp-3 text-sm text-text-muted">{a.excerpt}</p>}
-                <p className="mt-3 text-[11px] text-text-subtle">{new Date(a.published_at).toLocaleDateString("nl-NL", { day: "numeric", month: "long", year: "numeric" })}</p>
+      <KennisbankTabs articles={articles} />
+
+      <section className="mt-16">
+        <h2 className="font-display text-2xl">Per stof verdiepen</h2>
+        <p className="mt-2 text-sm text-text-muted">Direct naar de info-pagina van een specifieke stof.</p>
+        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {categoryContent.map((c) => (
+            <Link
+              key={c.slug}
+              href={`/${c.slug}`}
+              className="group flex items-start gap-3 rounded border border-border bg-surface p-4 hover:border-accent transition-colors"
+            >
+              <BookOpen size={18} className="text-accent mt-0.5" />
+              <div>
+                <p className="font-medium text-text group-hover:text-accent">{c.name}</p>
+                <p className="text-sm text-text-muted line-clamp-1">{c.tagline}</p>
               </div>
             </Link>
           ))}
         </div>
-      )}
+      </section>
     </div>
   );
 }

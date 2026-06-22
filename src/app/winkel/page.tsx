@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { listCategories, listProducts } from "@/lib/queries";
 import { ProductCard } from "@/components/product-card";
+import { CatalogFilters } from "@/components/shop/catalog-filters";
 import type { Metadata } from "next";
-import { BookOpen, Truck, ShieldCheck, FlaskConical } from "lucide-react";
+import { BookOpen, Truck, ShieldCheck, FlaskConical, Sparkles } from "lucide-react";
 
 export const revalidate = 300;
 
@@ -12,11 +13,28 @@ export const metadata: Metadata = {
   alternates: { canonical: "/winkel" },
 };
 
-export default async function WinkelIndexPage() {
+export default async function WinkelIndexPage({
+  searchParams,
+}: {
+  searchParams: { stock?: string; merk?: string };
+}) {
   const [categories, allProducts] = await Promise.all([
     listCategories(),
-    listProducts({ limit: 60 }),
+    listProducts({ limit: 200 }),
   ]);
+
+  const stockOnly = searchParams.stock === "1";
+  const merk = searchParams.merk || "";
+
+  const brandSet = new Set<string>();
+  allProducts.forEach((p) => p.tags?.forEach((t) => brandSet.add(t)));
+  const brands = Array.from(brandSet).sort();
+
+  const products = allProducts.filter((p) => {
+    if (stockOnly && p.availability === "OutOfStock") return false;
+    if (merk && !(p.tags || []).includes(merk)) return false;
+    return true;
+  });
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
@@ -27,6 +45,14 @@ export default async function WinkelIndexPage() {
       <p className="mt-3 max-w-2xl text-text-muted">
         Alles van anabolenpro op één plek. Klik op een categorie voor diepgaande info of scroll voor het hele aanbod.
       </p>
+
+      <div className="mt-6 rounded-lg border border-accent/30 bg-accent-soft/15 p-4 flex items-start gap-3">
+        <Sparkles size={18} className="text-accent shrink-0 mt-0.5" />
+        <div className="text-sm">
+          <p className="font-semibold text-text">Bulk-korting op alle categorieën</p>
+          <p className="text-text-muted">Vanaf 5 items <strong>10% korting</strong> · Vanaf 10 items <strong>15% korting</strong> — automatisch verrekend in de mand.</p>
+        </div>
+      </div>
 
       <div className="mt-8 grid gap-8 lg:grid-cols-[260px_1fr]">
         <aside className="space-y-4 lg:sticky lg:top-32 lg:self-start">
@@ -52,6 +78,7 @@ export default async function WinkelIndexPage() {
               ))}
             </div>
           </div>
+          <CatalogFilters brands={brands} />
           <div className="rounded-lg border border-border bg-surface p-4 text-text space-y-3 text-sm">
             <h4 className="text-xs uppercase tracking-wider text-accent-muted font-semibold inline-flex items-center gap-1.5">
               <ShieldCheck size={12} /> Onze garanties
@@ -63,9 +90,9 @@ export default async function WinkelIndexPage() {
         </aside>
 
         <div className="min-w-0">
-          <h2 className="font-display text-xl">{allProducts.length} producten</h2>
-          <div className="mt-5 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-            {allProducts.map((p) => (
+          <h2 className="font-display text-xl">{products.length} producten</h2>
+          <div className="mt-5 grid gap-5 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {products.map((p) => (
               <Link key={p.id} href={`/product/${p.categories?.slug || "winkel"}/${p.slug}`} className="block">
                 <ProductCard
                   image={p.image_url || "/assets/cat-anabolen.png"}
