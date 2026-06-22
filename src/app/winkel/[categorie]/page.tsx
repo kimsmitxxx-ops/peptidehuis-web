@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { getCategory, listProducts, listCategories } from "@/lib/queries";
 import { ProductCard } from "@/components/product-card";
@@ -6,13 +7,7 @@ import { CatalogFilters, KNOWN_BRANDS } from "@/components/shop/catalog-filters"
 import type { Metadata } from "next";
 import { BookOpen, Truck, ShieldCheck, FlaskConical, Sparkles } from "lucide-react";
 
-export const revalidate = 300;
-export const dynamicParams = true;
-
-export async function generateStaticParams() {
-  const cats = await listCategories();
-  return cats.map((c) => ({ categorie: c.slug }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: { categorie: string } }): Promise<Metadata> {
   const cat = await getCategory(params.categorie);
@@ -119,7 +114,7 @@ export default async function CategoryPage({
               ))}
             </div>
           </div>
-          <CatalogFilters brands={brands} />
+          <Suspense fallback={null}><CatalogFilters brands={brands} /></Suspense>
           <div className="rounded-lg border border-border bg-surface p-4 text-text space-y-3 text-sm">
             <h4 className="text-xs uppercase tracking-wider text-accent-muted font-semibold inline-flex items-center gap-1.5">
               <ShieldCheck size={12} /> Onze garanties

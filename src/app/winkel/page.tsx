@@ -1,11 +1,12 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import { listCategories, listProducts } from "@/lib/queries";
 import { ProductCard } from "@/components/product-card";
 import { CatalogFilters, KNOWN_BRANDS } from "@/components/shop/catalog-filters";
 import type { Metadata } from "next";
 import { BookOpen, Truck, ShieldCheck, FlaskConical, Sparkles } from "lucide-react";
 
-export const revalidate = 300;
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Winkel — alle anabolen, PCT en kuurpakketten",
@@ -78,7 +79,7 @@ export default async function WinkelIndexPage({
               ))}
             </div>
           </div>
-          <CatalogFilters brands={brands} />
+          <Suspense fallback={null}><CatalogFilters brands={brands} /></Suspense>
           <div className="rounded-lg border border-border bg-surface p-4 text-text space-y-3 text-sm">
             <h4 className="text-xs uppercase tracking-wider text-accent-muted font-semibold inline-flex items-center gap-1.5">
               <ShieldCheck size={12} /> Onze garanties
