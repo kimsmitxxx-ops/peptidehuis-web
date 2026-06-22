@@ -85,9 +85,9 @@ export default async function HomePage() {
                   Bekijk winkel
                 </Button>
               </Link>
-              <Link href="/wijzer">
+              <Link href="/kennisbank">
                 <Button size="lg" variant="ghost" className="text-primary-foreground hover:bg-primary-foreground/10">
-                  Doe de Wijzer
+                  Lees de kennisbank
                 </Button>
               </Link>
             </div>

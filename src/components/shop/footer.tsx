@@ -44,13 +44,13 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               {anabolen.map((c) => (
                 <li key={c.slug}>
-                  <Link href={`/`} className="text-primary-foreground/70 hover:text-accent">
+                  <Link href={`/${c.slug}`} className="text-primary-foreground/70 hover:text-accent">
                     {c.name}
                   </Link>
                 </li>
               ))}
               <li>
-                <Link href="/winkel"  className="text-accent hover:text-accent-soft">
+                <Link href="/winkel/injectie" className="text-accent hover:text-accent-soft">
                   Alle anabolen →
                 </Link>
               </li>
@@ -61,7 +61,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               {pct.map((c) => (
                 <li key={c.slug}>
-                  <Link href={`/`} className="text-primary-foreground/70 hover:text-accent">
+                  <Link href={`/${c.slug}`} className="text-primary-foreground/70 hover:text-accent">
                     {c.name}
                   </Link>
                 </li>

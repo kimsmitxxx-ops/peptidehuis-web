@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { categoriesByGroup, mainCategories } from "./data";
 import { useCart } from "./cart-store";
+import { MobileMenuDrawer } from "./mobile-menu-drawer";
 
 type Lang = "NL" | "EN";
 
@@ -36,6 +37,7 @@ export interface HeaderProps {
 
 export function Header(_props: HeaderProps = {}) {
   const [openMega, setOpenMega] = useState<string | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [lang, setLang] = useState<Lang>("NL");
   const [langOpen, setLangOpen] = useState(false);
   const [topIdx, setTopIdx] = useState(0);
@@ -133,7 +135,12 @@ export function Header(_props: HeaderProps = {}) {
 
       {/* Main row */}
       <div className="mx-auto max-w-7xl px-4 h-14 flex items-center gap-5">
-        <button className="lg:hidden -ml-1 p-1.5 text-primary-foreground" aria-label="Menu">
+        <button
+          type="button"
+          onClick={() => setMobileOpen(true)}
+          className="lg:hidden -ml-1 p-1.5 text-primary-foreground hover:text-accent"
+          aria-label="Menu openen"
+        >
           <Menu size={22} />
         </button>
         <Link
@@ -301,6 +308,7 @@ export function Header(_props: HeaderProps = {}) {
           </div>
         )}
       </div>
+      <MobileMenuDrawer open={mobileOpen} onOpenChange={setMobileOpen} />
     </header>
   );
 }

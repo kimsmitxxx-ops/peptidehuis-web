@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { listCategories, listProducts } from "@/lib/queries";
 import { ProductCard } from "@/components/product-card";
-import { CatalogFilters } from "@/components/shop/catalog-filters";
+import { CatalogFilters, KNOWN_BRANDS } from "@/components/shop/catalog-filters";
 import type { Metadata } from "next";
 import { BookOpen, Truck, ShieldCheck, FlaskConical, Sparkles } from "lucide-react";
 
@@ -27,7 +27,7 @@ export default async function WinkelIndexPage({
   const merk = searchParams.merk || "";
 
   const brandSet = new Set<string>();
-  allProducts.forEach((p) => p.tags?.forEach((t) => brandSet.add(t)));
+  allProducts.forEach((p) => p.tags?.forEach((t) => { if (KNOWN_BRANDS.has(t)) brandSet.add(t); }));
   const brands = Array.from(brandSet).sort();
 
   const products = allProducts.filter((p) => {

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getCategory, listProducts, listCategories } from "@/lib/queries";
 import { ProductCard } from "@/components/product-card";
-import { CatalogFilters } from "@/components/shop/catalog-filters";
+import { CatalogFilters, KNOWN_BRANDS } from "@/components/shop/catalog-filters";
 import type { Metadata } from "next";
 import { BookOpen, Truck, ShieldCheck, FlaskConical, Sparkles } from "lucide-react";
 
@@ -42,7 +42,7 @@ export default async function CategoryPage({
   const stockOnly = searchParams.stock === "1";
   const merk = searchParams.merk || "";
   const brandSet = new Set<string>();
-  allProducts.forEach((p) => p.tags?.forEach((t) => brandSet.add(t)));
+  allProducts.forEach((p) => p.tags?.forEach((t) => { if (KNOWN_BRANDS.has(t)) brandSet.add(t); }));
   const brands = Array.from(brandSet).sort();
 
   const products = allProducts.filter((p) => {

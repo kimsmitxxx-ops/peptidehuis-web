@@ -7,6 +7,17 @@ interface Props {
   brands: string[];
 }
 
+// Echte merken die als brand getoond mogen worden in filter.
+// Stof-namen (bold, dianabol, anavar etc) komen ook als tag voor maar zijn geen merk.
+export const KNOWN_BRANDS = new Set([
+  "LYY", "AP", "PR", "UT",
+  "Pharmacom", "Magnus", "Driada Medical", "ZPHC", "Euro Pharmacies",
+]);
+
+export function filterBrandsOnly(tags: string[]): string[] {
+  return tags.filter((t) => KNOWN_BRANDS.has(t));
+}
+
 export function CatalogFilters({ brands }: Props) {
   const router = useRouter();
   const pathname = usePathname();

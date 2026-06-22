@@ -1,7 +1,5 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { listProducts, getBlogPost } from "@/lib/queries";
-import { ProductCard } from "@/components/product-card";
 import { categoryContent, findCategoryContent } from "@/components/shop/data";
 import { SectionHeading } from "@/components/section-heading";
 import { Badge } from "@/components/badge";
@@ -33,19 +31,9 @@ export async function generateMetadata({ params }: { params: { stof: string } })
   };
 }
 
-export default async function StofPage({ params }: { params: { stof: string } }) {
+export default function StofPage({ params }: { params: { stof: string } }) {
   const c = findCategoryContent(params.stof);
   if (!c) notFound();
-
-  const allProducts = await listProducts({ limit: 200 });
-  const products = allProducts
-    .filter(
-      (p) =>
-        p.name.toLowerCase().includes(c.slug) ||
-        (c.aka || []).some((a) => p.name.toLowerCase().includes(a.toLowerCase())) ||
-        p.tags?.some((t) => t.toLowerCase().includes(c.slug)),
-    )
-    .slice(0, 12);
 
   const related = c.related
     .map((slug) => categoryContent.find((cat) => cat.slug === slug))
@@ -113,56 +101,24 @@ export default async function StofPage({ params }: { params: { stof: string } })
         </section>
       )}
 
-      {/* Producten + sidebar related */}
-      {products.length > 0 && (
-        <section className="mx-auto max-w-7xl px-4 pb-10 grid gap-8 lg:grid-cols-[1fr_280px]">
-          <div>
-            <SectionHeading variant="eyebrow-plus-display" eyebrow={`In voorraad — ${c.name}`}>
-              {products.length} product{products.length === 1 ? "" : "en"}
-            </SectionHeading>
-            <div className="mt-6 grid gap-5 grid-cols-2 lg:grid-cols-3">
-              {products.map((p) => (
-                <Link key={p.id} href={`/product/${p.categories?.slug || "winkel"}/${p.slug}`} className="block">
-                  <ProductCard
-                    image={p.image_url || "/assets/cat-anabolen.png"}
-                    name={p.name}
-                    slug={p.slug}
-                    priceFrom={p.price_cents / 100}
-                    ratingValue={4.8}
-                    inStock={p.availability !== "OutOfStock"}
-                    tag={p.tags?.[0]}
-                    category={p.categories?.name}
-                    shortDescription={p.subtitle || undefined}
-                  />
-                </Link>
-              ))}
-            </div>
+      {/* Verwante stoffen + garanties — info-page heeft GEEN producten */}
+      {related.length > 0 && (
+        <section className="mx-auto max-w-7xl px-4 pb-2">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {related.map((r) => (
+              <Link
+                key={r.slug}
+                href={`/${r.slug}`}
+                className="group rounded-lg border border-border bg-surface p-4 hover:border-accent transition-colors"
+              >
+                <p className="text-[10px] uppercase tracking-wider text-text-subtle inline-flex items-center gap-1">
+                  <BookOpen size={11} /> Verwante stof
+                </p>
+                <p className="mt-1.5 font-display text-base text-text group-hover:text-accent">{r.name}</p>
+                <p className="mt-1 text-xs text-text-muted line-clamp-2">{r.tagline}</p>
+              </Link>
+            ))}
           </div>
-          <aside className="space-y-4 lg:sticky lg:top-32 lg:self-start">
-            <div className="rounded-lg border border-primary-muted bg-primary p-4 text-primary-foreground">
-              <h4 className="text-xs uppercase tracking-wider text-accent-soft font-semibold mb-3 inline-flex items-center gap-1.5">
-                <BookOpen size={12} /> Verwante stoffen
-              </h4>
-              <div className="space-y-1 text-sm">
-                {related.map((r) => (
-                  <Link
-                    key={r.slug}
-                    href={`/${r.slug}`}
-                    className="block rounded px-2 py-1.5 text-primary-foreground/80 hover:bg-primary-soft hover:text-accent"
-                  >
-                    {r.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-            <div className="rounded-lg border border-border bg-surface p-4 text-text space-y-3 text-sm">
-              <h4 className="text-xs uppercase tracking-wider text-accent-muted font-semibold inline-flex items-center gap-1.5">
-                <ShieldCheck size={12} /> Garanties
-              </h4>
-              <p className="inline-flex items-start gap-2"><FlaskConical size={14} className="text-accent mt-0.5" /> Iedere batch lab-getest</p>
-              <p className="inline-flex items-start gap-2"><ShieldCheck size={14} className="text-accent mt-0.5" /> 100% anoniem &amp; discreet</p>
-            </div>
-          </aside>
         </section>
       )}
 
