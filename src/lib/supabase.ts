@@ -1,11 +1,16 @@
 /**
  * Supabase server-side client voor data fetching in Next.js server components.
- * Scoped anon JWT bevat shop_id claim — RLS isoleert deze site automatisch.
+ *
+ * Fallback URL + anon key zijn hardcoded — beide PUBLIC. RLS-policies in
+ * shop-dash migration 021 scopen alle SELECT-queries naar anabolenpro shop_id.
+ * Zonder env vars op Vercel werkt de shop dus alsnog.
  */
 import { createClient } from "@supabase/supabase-js";
 
 const SB_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://rexqfwibxawqnvrzbdoo.supabase.co";
-const SB_ANON = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "placeholder";
+const SB_ANON =
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJleHFmd2lieGF3cW52cnpiZG9vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY3ODM1NzIsImV4cCI6MjA5MjM1OTU3Mn0.XQGZNdGcnZlALl7truWiPC5_uMYeMhWwIneTMNO8AhI";
 
 export const supabase = createClient(SB_URL, SB_ANON, {
   auth: { persistSession: false, autoRefreshToken: false },
