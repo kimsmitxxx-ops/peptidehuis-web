@@ -343,7 +343,7 @@ export default async function HomePage() {
                 title={a.title}
                 excerpt={a.excerpt || ""}
                 image={a.image_url || "/assets/cat-anabolen.png"}
-                publishedAt={new Date(a.published_at).toLocaleDateString("nl-NL")}
+                publishedAt={a.published_at ? new Date(a.published_at).toLocaleDateString("nl-NL") : ""}
                 author={{ name: a.author || "Redactie", credentials: "AnabolenPro" }}
                 href={`/kennisbank/${a.slug}`}
               />

@@ -55,7 +55,7 @@ export default async function KennisbankDetail({ params }: { params: { slug: str
       <div className="mt-4 flex items-center gap-3 text-xs text-text-muted">
         {p.author && <span>door <strong className="text-text">{p.author}</strong></span>}
         <span>•</span>
-        <time>{new Date(p.published_at).toLocaleDateString("nl-NL", { day: "numeric", month: "long", year: "numeric" })}</time>
+        {p.published_at && <time>{new Date(p.published_at).toLocaleDateString("nl-NL", { day: "numeric", month: "long", year: "numeric" })}</time>}
       </div>
 
       {p.image_url && (
