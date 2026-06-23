@@ -27,6 +27,69 @@ import {
 
 export const revalidate = 300;
 
+const HOMEPAGE_FAQ = [
+  {
+    question: "Wat is de beste anabolenkuur voor beginners?",
+    answer:
+      "Voor een eerste kuur wordt vrijwel unaniem testosteron-only aangeraden: 300–500 mg testosteron enanthate of cypionate per week, 12 tot 16 weken. Testosteron is de stof die je lichaam al kent, dus bijwerkingen zijn voorspelbaar en je weet hoe je lijf reageert vóór je iets ingewikkelders erbij doet. PCT (Clomid + Nolvadex) start je 2 weken na de laatste injectie. Geen dianabol-kickstart als eerste kuur — die voegt risico toe zonder dat je weet of de basis werkt.",
+  },
+  {
+    question: "Wat is het verschil tussen testosteron enanthate, cypionate en sustanon?",
+    answer:
+      "Test E (enanthate) en Test C (cypionate) zijn praktisch identiek: halfwaardetijd van ongeveer 8 dagen, 2x per week injecteren is genoeg voor stabiele bloedwaardes. Sustanon is een mix van 4 esters (propionaat, fenylpropionaat, isocaproaat, decanoaat). Daardoor krijg je sneller een effect (de korte esters trappen vroeg in) maar voor strakke piek-en-dal moet je 2–3x per week injecteren. Pure prijs/kwaliteit kies je Test E of C; Sustanon is handiger als je sneller op niveau wil komen.",
+  },
+  {
+    question: "Hoe lang moet een PCT duren en welke producten heb ik nodig?",
+    answer:
+      "Een standaard PCT duurt 4 weken en bestaat uit Clomid (50/50/25/25 mg per dag) gecombineerd met Nolvadex (20/20/10/10 mg). Start 2 weken na je laatste lange-ester injectie of meteen na een orale-only cycle. HCG kun je optioneel inzetten in de cruise/blast naar PCT-transitie om je testikels al voor de PCT wakker te schudden (500–1500 IE 2x/week, 2 weken). Skip de PCT en je herstelt soms een half jaar later nog steeds niet — dat is geen bangmakerij, dat is gewoon hoe HPTA-suppressie werkt.",
+  },
+  {
+    question: "Hoe weet ik dat de anabolen die ik koop écht zijn en niet underdosed?",
+    answer:
+      "Elke batch die wij verkopen heeft een batchcode op het flesje. Die code zoek je op de productpagina onder COA — daar staat het PDF-rapport van Janoshik Analytical (TS) of Anabolic Lab (US): werkzame stof, gemeten zuiverheid (minimum 97%), oplosmiddel-residu en eventuele isomeren. Geen rapport = geen verkoop. Ben je nog kritischer: stuur zelf een flesje op naar Janoshik (~€80), wij vergoeden het verschil als jouw meting buiten 5% van onze meting valt.",
+  },
+  {
+    question: "Hoe ziet de verpakking eruit en wat staat er op het label?",
+    answer:
+      "Bruine of grijze kartonnen doos zonder logo, zonder QR-code, zonder afbeelding. Op het PostNL-label staat alleen onze KvK-naam (\"Anabolen Pro B.V.\") en jouw adres. Geen vermelding van productnaam, geen \"medisch\" stempel, geen waarschuwingsstickers. Postbezorger ziet één van de duizenden anonieme webshop-pakketjes. Buren ook.",
+  },
+  {
+    question: "Hoe lang duurt verzending binnen Nederland en hoe wordt betaald?",
+    answer:
+      "Voor 22:00 besteld én betaald op werkdag = morgen in huis met PostNL Standaard. Vrijdag voor 22:00 = zaterdag in huis. Weekend bestellingen gaan maandagavond de deur uit. Betalen doe je via bank-overschrijving in je eigen bank-app (IBAN) of crypto (BTC/ETH/USDT). Geen kaart, geen kredietkaart-spoor, geen tussenpartij. Bij IBAN verschijnt op je afschrift alleen de bedrijfsnaam, geen productomschrijving.",
+  },
+  {
+    question: "Welke bijwerkingen kan ik verwachten en hoe houd ik die in de gaten?",
+    answer:
+      "Standaard tijdens een testosteron-cycle: acne, hogere bloeddruk, hogere hematocriet (= dikker bloed, geeft hoofdpijn), mogelijk gynecomastie via aromatisatie naar oestradiol, lagere natuurlijke testosteronproductie (HPTA-suppressie). Trenbolone voegt slapeloosheid, nachtelijk zweten en mentale onrust toe. Houd in de gaten via bloedwerk vóór, tijdens (week 6) en na de cycle: lipidenpanel, LH, FSH, totaal+vrij testosteron, oestradiol, SHBG, hematocriet, ALT/AST, creatinine. Bij hematocriet >54 doneer je bloed, bij oestradiol >40 pg/ml voeg je een AI toe.",
+  },
+  {
+    question: "Wat zijn natuurlijke alternatieven voor anabolen en werken die echt?",
+    answer:
+      "Volledig vervangen: nee. Maar het verschil tussen iemand die geoptimaliseerd traint+eet en iemand die dat niet doet is groter dan veel mensen denken. Concreet werkt: creatine monohydraat (5 g/dag, +10–15% kracht binnen 4 weken), 1.6–2.2 g eiwit per kg lichaamsgewicht, progressive overload met 3–5x training per week, 7+ uur slaap, vitamine D + zink + magnesium als je tekort hebt. Je natural plafond hangt af van genetica (FFMI ~25 voor de meeste mannen). Voor lifestyle-redenen kies je natural; voor competitie-niveau is anabolen vrijwel altijd onderdeel van het verhaal — dat is geen oordeel, gewoon hoe het is.",
+  },
+  {
+    question: "Mag ik retourneren als ik van gedachten verander of als er iets mis is?",
+    answer:
+      "Ja. Binnen 14 dagen herroepingsrecht, mits zegel intact en originele verpakking — wettelijk recht. Retourkosten €4,95 (komt op je terugbetaling in mindering). Bij lab-garantieclaim (gehalte wijkt >5% af van het COA, aantoonbaar met onafhankelijk lab) vergoeden wij alles inclusief verzending en sturen nieuwe batch of betalen 100% terug. Mail retour@anabolenpro.com met je ordernummer, binnen 1 werkdag krijg je RMA-label.",
+  },
+  {
+    question: "Werken kuurpakketten beter dan losse producten kopen?",
+    answer:
+      "Voor beginners en intermediates ja — wij stellen pakketten samen waarin de doseringen op elkaar afgestemd zijn (geen rare verhoudingen) en de PCT zit er al in. Scheelt je de berekening en zorgt dat je niet halverwege merkt dat je Nolvadex vergat te bestellen. Ervaren gebruikers met een specifiek doel (lean bulk, recomp, contest prep) stellen vaak liever zelf samen — daar zijn losse producten goedkoper en preciezer.",
+  },
+  {
+    question: "Vanaf welke leeftijd kan je veilig anabolen gebruiken?",
+    answer:
+      "Medisch antwoord: pas nadat je natuurlijke groei klaar is, oftewel ergens tussen 23 en 25 jaar. Daarvoor zit je groeischijven nog open en kan AAS-gebruik die voortijdig sluiten — je wordt korter dan je had kunnen zijn. Ook is je eigen testosteron-productie tussen 18 en 23 op zijn hoogtepunt; je hebt niks toe te voegen behalve risico. Realistisch gebruiken veel mensen het eerder — onze rol is dan zorgen dat je weet wat je doet, niet doen alsof het probleem niet bestaat.",
+  },
+  {
+    question: "Wat is FFMI en waarom matter dat voor mijn doelen?",
+    answer:
+      "FFMI (Fat-Free Mass Index) is je vetvrije massa gestandaardiseerd voor lengte. Natuurlijke mannen zonder enhancers hebben zelden meer dan FFMI 24–25; daarboven kom je in gebied dat statistisch alleen haalbaar is met AAS, peptiden of buitengewone genetica. Bereken: vetvrije massa (kg) / lengte² (m²) + 6.1 × (1.8 – lengte in meters). Voor planning: vorm verwachting voor wat je natural kan halen vs. wat je verwacht van een cycle. Tien jaar fanatiek trainen + perfect dieet zit je in de buurt van FFMI 23–24; een eerste 16-weken test-only cycle voegt typisch 2–4 punten toe waarvan ~50% behouden blijft post-PCT.",
+  },
+];
+
 export default async function HomePage() {
   const [dbProducts, dbArticles, dbCategories, featuredProducts] = await Promise.all([
     listProducts({ limit: 24 }),
@@ -67,19 +130,21 @@ export default async function HomePage() {
         <div className="relative mx-auto max-w-7xl px-4 py-16 md:py-24 grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center">
           <div className="text-primary-foreground">
             <span className="inline-flex items-center gap-2 rounded-sm border border-primary-foreground/20 bg-primary-foreground/5 px-3 py-1 text-xs uppercase tracking-[0.18em] text-accent-soft">
-              <FlaskConical size={12} /> Batch 2606-A nu beschikbaar
+              <FlaskConical size={12} /> Janoshik &amp; Anabolic Lab — batch 2606-A live
             </span>
             <h1 className="mt-5 font-display text-4xl md:text-6xl leading-[1.05] tracking-tight">
-              Van dun naar
+              Anabolen kopen
               <br />
-              <span className="text-accent-soft">gespierd.</span>
+              <span className="text-accent-soft">die écht kloppen.</span>
               <span className="block mt-3 text-base md:text-lg font-sans font-normal tracking-normal text-primary-foreground/70">
-                Anabolen, elke batch onafhankelijk getest.
+                Lab-getest. Anoniem verpakt. Morgen in huis.
               </span>
             </h1>
             <p className="mt-5 text-lg text-primary-foreground/80 max-w-xl leading-relaxed">
-              Testosteron, Deca, Trenbolone en complete PCT. Geen mysteriedoosjes — wij publiceren
-              elke COA, vermelden de fabrikant en versturen vanuit Nederland.
+              Testosteron, trenbolone, anavar, dianabol, complete kuurpakketten met PCT erbij —
+              alles vanuit NL-magazijn. Iedere batch onafhankelijk getest, COA staat publiek op de
+              productpagina. Geen mysteriedoosjes, geen ompak-route via Polen, geen Engelse leverancier
+              die plots offline is.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link href="/winkel">
@@ -181,8 +246,9 @@ export default async function HomePage() {
           Kies je stof, lees voor je koopt
         </SectionHeading>
         <p className="mt-3 max-w-2xl text-text-muted">
-          Iedere stof heeft een eigen onderzoekspagina met werking, doseringen, bijwerkingen en COA's
-          per batch.
+          Eerst weten wat je in je lijf stopt? Per stof een aparte pagina: werking, halfwaardetijd,
+          dosering per cycle-niveau, bijwerkingen en welke bloedwaardes je in de gaten houdt.
+          Klik door voor je iets bestelt.
         </p>
         <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {anabolen.map((c) => (
@@ -214,7 +280,7 @@ export default async function HomePage() {
               ctaLabel="Lees protocol"
               ctaHref="/kennisbank/pct-protocol-uitleg"
             >
-              Een kuur zonder PCT-plan is geen kuur
+              Skip de PCT en je herstelt half jaar later nog steeds niet
             </SectionHeading>
             <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {pct.map((c) => (
@@ -307,13 +373,13 @@ export default async function HomePage() {
       {/* Trust */}
       <section className="mx-auto max-w-7xl px-4 py-16">
         <SectionHeading variant="eyebrow-plus-display" eyebrow="Waarom AnabolenPro">
-          Transparantie als standaard
+          Geen gok, gewoon weten wat je krijgt
         </SectionHeading>
         <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          <TrustCard icon={FlaskConical} heading="Eigen lab in Rotterdam" sub="HPLC- en massaspectrometrie op iedere binnenkomende batch." />
-          <TrustCard icon={Award} heading="Onafhankelijk geverifieerd" sub="Resultaten van Janoshik en Anabolic Lab, publiek per batchnummer." />
-          <TrustCard icon={Lock} heading="Discrete verzending" sub="Neutrale verpakking, geen vermelding van inhoud op het etiket." />
-          <TrustCard icon={Headphones} heading="Echt contact" sub="Online chat tussen 09:00 en 21:00, ook in het weekend." />
+          <TrustCard icon={FlaskConical} heading="Eigen lab in Rotterdam" sub="HPLC + GC-MS op elke binnenkomende batch. Niets gaat de deur uit zonder dubbel-check." />
+          <TrustCard icon={Award} heading="Onafhankelijk getest" sub="Janoshik (TS) en Anabolic Lab (US) verifiëren. COA staat publiek per batchcode op de productpagina." />
+          <TrustCard icon={Lock} heading="Discreet bezorgd" sub="Neutrale doos, geen logo of productnaam op het label. Alleen onze KvK-naam — staat nergens steroïde op." />
+          <TrustCard icon={Headphones} heading="Echte mensen" sub="Live chat 09:00–21:00, ook weekend. Geen bot, geen ticketsysteem — direct iemand die het verschil tussen Test E en Sustanon kent." />
         </div>
       </section>
 
@@ -323,11 +389,13 @@ export default async function HomePage() {
           <div>
             <Badge variant="accent">Batch-spotlight</Badge>
             <h2 className="mt-3 font-display text-3xl md:text-4xl leading-tight">
-              Elke flacon traceerbaar tot een COA
+              Elke flacon heeft een batchcode, elke batchcode een rapport
             </h2>
             <p className="mt-4 text-text-muted leading-relaxed max-w-xl">
-              Vind het batchnummer op je flacon, scan de QR-code en lees direct het originele
-              rapport van het onafhankelijke lab. Wij verbergen niets — ook niet onze afwijzingen.
+              Geen "ja vertrouw ons maar" — gewoon kijken. Pak het flesje, scan de QR of zoek de
+              batchcode op onze lab-pagina, en je hebt het PDF-rapport van Janoshik in 10 seconden.
+              We laten ook de afgekeurde batches staan, met de reden erbij. Dat is voor ons
+              transparantie, niet "marketing".
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link href="/lab">
@@ -390,47 +458,40 @@ export default async function HomePage() {
         </section>
       )}
 
-      {/* FAQ */}
+      {/* FAQ — uitgebreid voor LLM/SEO indexering */}
       <section className="mx-auto max-w-7xl px-4 py-16 grid lg:grid-cols-[1fr_2fr] gap-12">
         <div>
           <SectionHeading variant="eyebrow-plus-display" eyebrow="Veelgestelde vragen">
-            Vragen die we elke dag krijgen
+            Alles wat je wil weten voor je bestelt
           </SectionHeading>
           <p className="mt-4 text-text-muted leading-relaxed">
-            Antwoorden op de meestgestelde vragen over kuren, levering en betaling. Mis je iets?
-            Stuur ons een bericht — antwoord binnen kantooruren altijd binnen een uur.
+            De vragen die we elke week krijgen via chat, mail of fora. Recht door zee, geen
+            commerciële spin. Mis je iets? Stuur een bericht via <a href="/contact" className="text-accent hover:underline">contact</a> —
+            we reageren tussen 09:00 en 21:00 doorgaans binnen het uur.
           </p>
+          <div className="mt-6 rounded-lg border border-accent/30 bg-accent-soft/15 p-4 text-sm text-text">
+            <p className="font-semibold">Geen antwoord op jouw vraag?</p>
+            <p className="mt-1 text-text-muted">Mail naar <a className="text-accent hover:underline" href="mailto:support@anabolenpro.com">support@anabolenpro.com</a> of start een chat via de bubble rechtsonder.</p>
+          </div>
         </div>
-        <FaqAccordion
-          items={[
-            {
-              question: "Welke anabolen zijn geschikt voor een eerste kuur?",
-              answer:
-                "In onderzoek wordt vrijwel altijd een testosteron-only protocol als eerste cyclus beschreven: 300–500 mg testosteron enanthate of cypionate per week, 12–16 weken, met PCT achteraf.",
-            },
-            {
-              question: "Wat is het verschil tussen Test E, Test C en Sustanon?",
-              answer:
-                "Test E en Test C zijn praktisch uitwisselbaar (halfwaardetijd ~8 dagen). Sustanon is een mix van vier esters en geeft sneller stabiele plasmaspiegels.",
-            },
-            {
-              question: "Is een PCT echt noodzakelijk?",
-              answer:
-                "Ja. Elke androgene cyclus onderdrukt de eigen LH/FSH-productie. Zonder PCT-protocol kan herstel maanden tot jaren duren. Standaard worden Nolvadex en Clomid gecombineerd.",
-            },
-            {
-              question: "Hoe weet ik dat een batch écht getest is?",
-              answer:
-                "Iedere flacon draagt een batchcode die je terugvindt in onze publieke COA-database. Klik op het product en open het labrapport.",
-            },
-            {
-              question: "Hoe lang duurt levering binnen Nederland?",
-              answer:
-                "Bestellingen voor 23:00 worden de volgende werkdag bezorgd door PostNL, in een neutrale verpakking zonder verwijzing naar de inhoud.",
-            },
-          ]}
-        />
+        <FaqAccordion items={HOMEPAGE_FAQ} />
       </section>
+
+      {/* FAQPage schema.org */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: HOMEPAGE_FAQ.map((f) => ({
+              "@type": "Question",
+              name: f.question,
+              acceptedAnswer: { "@type": "Answer", text: f.answer },
+            })),
+          }),
+        }}
+      />
 
       <section className="mx-auto max-w-7xl px-4 pb-20">
         <NewsletterForm

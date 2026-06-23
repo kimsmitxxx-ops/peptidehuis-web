@@ -13,19 +13,22 @@ const sizes: Record<StarsSize, number> = { sm: 14, md: 18, lg: 22 };
 
 function Star({ fillPct, size }: { fillPct: number; size: number }) {
   const id = `g-${Math.random().toString(36).slice(2, 8)}`;
+  // Amber/goud — review-stars zijn cross-cultureel goud, geen brand-green
+  const AMBER = "#F59E0B";
+  const AMBER_EMPTY = "#E4E2D8";
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden>
       <defs>
         <linearGradient id={id} x1="0" x2="1" y1="0" y2="0">
-          <stop offset={`${fillPct}%`} stopColor="var(--color-accent)" />
-          <stop offset={`${fillPct}%`} stopColor="transparent" />
+          <stop offset={`${fillPct}%`} stopColor={AMBER} />
+          <stop offset={`${fillPct}%`} stopColor={AMBER_EMPTY} />
         </linearGradient>
       </defs>
       <path
         d="M12 2.5l2.95 5.98 6.6.96-4.78 4.66 1.13 6.57L12 17.77l-5.9 3.1 1.13-6.57L2.45 9.64l6.6-.96L12 2.5z"
         fill={`url(#${id})`}
-        stroke="var(--color-border-strong)"
-        strokeWidth="1.2"
+        stroke={AMBER}
+        strokeWidth="1"
       />
     </svg>
   );
