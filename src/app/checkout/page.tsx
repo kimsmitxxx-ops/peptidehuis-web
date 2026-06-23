@@ -2,10 +2,12 @@
 import Link from "next/link";
 import { useCart } from "@/lib/cart-context";
 import { formatEUR } from "@/lib/queries";
+import { calcTotals } from "@/lib/bulk-discount";
 import { useState } from "react";
 
 export default function CheckoutPage() {
   const cart = useCart();
+  const totals = calcTotals(cart.items);
   const [form, setForm] = useState({ email: "", name: "", street: "", postal: "", city: "", country: "NL", phone: "" });
   const [busy, setBusy] = useState(false);
   const [done, setDone] = useState(false);
@@ -68,9 +70,13 @@ export default function CheckoutPage() {
                 <span>{formatEUR(it.price_cents * it.qty)}</span>
               </div>
             ))}
-            <div className="mt-4 border-t border-paper-border pt-4 text-sm">
-              <div className="flex justify-between"><span>Verzending</span><span>{cart.total >= 7500 ? "Gratis" : formatEUR(595)}</span></div>
-              <div className="mt-2 flex justify-between font-display text-lg"><span>Totaal</span><span>{formatEUR(cart.total + (cart.total >= 7500 ? 0 : 595))}</span></div>
+            <div className="mt-4 border-t border-paper-border pt-4 text-sm space-y-1.5">
+              {totals.savings > 0 && (
+                <div className="flex justify-between text-accent-muted"><span>Bulk-korting</span><span>−{formatEUR(totals.savings)}</span></div>
+              )}
+              <div className="flex justify-between text-text-muted"><span>Subtotaal</span><span>{formatEUR(totals.subtotal)}</span></div>
+              <div className="flex justify-between text-text-muted"><span>Verzending</span><span>{totals.shipping === 0 ? "Gratis" : formatEUR(totals.shipping)}</span></div>
+              <div className="mt-2 flex justify-between font-display text-lg pt-2 border-t border-paper-border"><span>Totaal</span><span>{formatEUR(totals.total)}</span></div>
             </div>
             <button type="submit" disabled={busy} className="mt-5 w-full rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground hover:bg-accent-soft disabled:opacity-50">
               {busy ? "Bezig…" : "Plaats bestelling"}

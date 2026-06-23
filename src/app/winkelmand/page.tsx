@@ -2,10 +2,12 @@
 import Link from "next/link";
 import { useCart } from "@/lib/cart-context";
 import { formatEUR } from "@/lib/queries";
+import { calcTotals } from "@/lib/bulk-discount";
 import { Trash2, Minus, Plus, ShoppingBag } from "lucide-react";
 
 export default function WinkelmandPage() {
   const cart = useCart();
+  const totals = calcTotals(cart.items);
   return (
     <div className="mx-auto max-w-4xl px-4 py-10">
       <h1 className="font-display text-3xl">Winkelmand</h1>
@@ -42,22 +44,28 @@ export default function WinkelmandPage() {
               <h2 className="font-display text-xl">Overzicht</h2>
               <div className="mt-4 flex justify-between text-sm">
                 <span>Subtotaal</span>
-                <span>{formatEUR(cart.total)}</span>
+                <span>{formatEUR(totals.subtotalRaw)}</span>
               </div>
+              {totals.savings > 0 && (
+                <div className="mt-2 flex justify-between text-sm text-accent-muted">
+                  <span>Bulk-korting</span>
+                  <span>−{formatEUR(totals.savings)}</span>
+                </div>
+              )}
               <div className="mt-2 flex justify-between text-sm text-text-muted">
                 <span>Verzending</span>
-                <span>{cart.total >= 7500 ? "Gratis" : formatEUR(595)}</span>
+                <span>{totals.shipping === 0 ? "Gratis" : formatEUR(totals.shipping)}</span>
               </div>
               <div className="mt-4 flex justify-between border-t border-paper-border pt-4 text-lg font-display">
                 <span>Totaal</span>
-                <span>{formatEUR(cart.total + (cart.total >= 7500 ? 0 : 595))}</span>
+                <span>{formatEUR(totals.total)}</span>
               </div>
               <Link href="/checkout" className="mt-5 block rounded-full bg-accent px-5 py-3 text-center text-sm font-semibold text-accent-foreground hover:bg-accent-soft">
                 Naar checkout
               </Link>
-              {cart.total < 7500 && (
+              {totals.subtotal < 7500 && (
                 <p className="mt-3 text-center text-xs text-text-muted">
-                  Nog <strong>{formatEUR(7500 - cart.total)}</strong> tot gratis verzending
+                  Nog <strong>{formatEUR(7500 - totals.subtotal)}</strong> tot gratis verzending
                 </p>
               )}
             </div>
