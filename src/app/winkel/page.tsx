@@ -78,7 +78,7 @@ export default async function WinkelIndexPage({
               ))}
             </div>
           </div>
-          <CatalogFilters brands={brands} stockOnly={stockOnly} activeBrand={merk} />
+          {/* CatalogFilters tijdelijk uit — debug 500 */}
           <div className="rounded-lg border border-border bg-surface p-4 text-text space-y-3 text-sm">
             <h4 className="text-xs uppercase tracking-wider text-accent-muted font-semibold inline-flex items-center gap-1.5">
               <ShieldCheck size={12} /> Onze garanties
