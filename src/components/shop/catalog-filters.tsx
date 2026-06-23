@@ -1,40 +1,33 @@
 "use client";
-import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useCallback } from "react";
 import { Check, Tag as TagIcon } from "lucide-react";
 
 interface Props {
   brands: string[];
+  stockOnly: boolean;
+  activeBrand: string;
 }
 
-// Echte merken die als brand getoond mogen worden in filter.
-// Stof-namen (bold, dianabol, anavar etc) komen ook als tag voor maar zijn geen merk.
 export const KNOWN_BRANDS = new Set([
   "LYY", "AP", "PR", "UT",
   "Pharmacom", "Magnus", "Driada Medical", "ZPHC", "Euro Pharmacies",
 ]);
 
-export function filterBrandsOnly(tags: string[]): string[] {
-  return tags.filter((t) => KNOWN_BRANDS.has(t));
-}
-
-export function CatalogFilters({ brands }: Props) {
+export function CatalogFilters({ brands, stockOnly, activeBrand }: Props) {
   const router = useRouter();
   const pathname = usePathname();
-  const params = useSearchParams();
-
-  const stockOnly = params?.get("stock") === "1";
-  const activeBrand = params?.get("merk") || "";
 
   const setParam = useCallback(
     (key: string, value: string | null) => {
-      const p = new URLSearchParams(params?.toString() || "");
+      if (typeof window === "undefined") return;
+      const p = new URLSearchParams(window.location.search);
       if (value === null || value === "") p.delete(key);
       else p.set(key, value);
       const qs = p.toString();
       router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
     },
-    [params, router, pathname],
+    [router, pathname],
   );
 
   return (

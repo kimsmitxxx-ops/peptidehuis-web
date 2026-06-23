@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { getCategory, listProducts, listCategories } from "@/lib/queries";
 import { ProductCard } from "@/components/product-card";
@@ -114,7 +113,7 @@ export default async function CategoryPage({
               ))}
             </div>
           </div>
-          <Suspense fallback={null}><CatalogFilters brands={brands} /></Suspense>
+          <CatalogFilters brands={brands} stockOnly={stockOnly} activeBrand={merk} />
           <div className="rounded-lg border border-border bg-surface p-4 text-text space-y-3 text-sm">
             <h4 className="text-xs uppercase tracking-wider text-accent-muted font-semibold inline-flex items-center gap-1.5">
               <ShieldCheck size={12} /> Onze garanties

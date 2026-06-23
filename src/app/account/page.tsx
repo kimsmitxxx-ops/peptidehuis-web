@@ -12,11 +12,13 @@ export default async function AccountPage() {
   if (!user) redirect("/account/login");
 
   const { data: customer } = await sb.from("customers").select("*").eq("auth_user_id", user.id).maybeSingle();
-  const { data: orders } = await sb.from("orders")
-    .select("id, order_number, total_cents, status, created_at")
-    .eq("customer_id", customer?.id || "")
-    .order("created_at", { ascending: false })
-    .limit(5);
+  const orders = customer?.id
+    ? (await sb.from("orders")
+        .select("id, order_number, total_cents, status, created_at")
+        .eq("customer_id", customer.id)
+        .order("created_at", { ascending: false })
+        .limit(5)).data
+    : [];
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
