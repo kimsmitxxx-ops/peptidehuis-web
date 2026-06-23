@@ -65,28 +65,39 @@ export function AddToCartButton({ product }: { product: Product }) {
 
       <div className="rounded-md border border-accent/30 bg-accent-soft/15 p-3">
         <p className="text-xs font-semibold text-text inline-flex items-center gap-1.5">
-          <Sparkles size={14} className="text-accent" /> Bulk-korting per item
+          <Sparkles size={14} className="text-accent" /> Bulk-korting — klik om aantal te kiezen
         </p>
-        <ul className="mt-2 space-y-1 text-xs text-text-muted">
-          {BULK_TIERS.map((t) => {
+        <div className="mt-2 grid grid-cols-3 gap-2">
+          {BULK_TIERS.map((t, i) => {
             const unit = product.price_cents * (1 - t.discountPct / 100);
-            const active = qty >= t.qty;
+            const next = BULK_TIERS[i + 1];
+            const active = qty >= t.qty && (!next || qty < next.qty);
             return (
-              <li
+              <button
+                type="button"
                 key={t.qty}
-                className={`flex items-center justify-between rounded px-2 py-1.5 ${
-                  active ? "bg-accent/10 text-text font-medium" : ""
+                onClick={() => setQty(t.qty)}
+                aria-pressed={active}
+                className={`text-left rounded-md border bg-background p-3 transition-all hover:border-accent hover:shadow-card ${
+                  active ? "border-accent ring-2 ring-accent/30 shadow-card" : "border-border"
                 }`}
               >
-                <span>
-                  {t.qty === 1 ? "1 stuk" : `${t.qty}+ stuks`}{" "}
-                  {t.discountPct > 0 && <span className="text-accent">({t.discountPct}% korting)</span>}
-                </span>
-                <span className="tabular font-display">{formatEUR(Math.round(unit))} / stuk</span>
-              </li>
+                <div className="flex items-center justify-between">
+                  <span className="font-display text-lg text-text tabular">{t.qty}</span>
+                  {t.discountPct > 0 && (
+                    <span className="rounded-full bg-accent/10 px-2 py-0.5 text-[10px] font-semibold text-accent">
+                      −{t.discountPct}%
+                    </span>
+                  )}
+                </div>
+                <p className="mt-1 text-[10px] uppercase tracking-wider text-text-subtle">
+                  {t.qty === 1 ? "stuk" : "stuks"}
+                </p>
+                <p className="mt-1 text-xs text-text-muted tabular">{formatEUR(Math.round(unit))} / st</p>
+              </button>
             );
           })}
-        </ul>
+        </div>
       </div>
     </div>
   );

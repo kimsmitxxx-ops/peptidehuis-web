@@ -237,26 +237,34 @@ export function Header(_props: HeaderProps = {}) {
             onMouseEnter={() => setOpenMega(openMega)}
             className={`absolute top-full bg-primary border border-primary-soft shadow-lift text-primary-foreground ${
               openMega === "winkel"
-                ? "left-1/2 -translate-x-1/2 rounded-b-lg w-[560px] max-w-[calc(100vw-2rem)]"
+                ? "left-4 rounded-b-lg"
                 : "left-0 right-0 border-l-0 border-r-0"
             }`}
           >
             {openMega === "winkel" ? (
-              <div className="p-6">
-                <p className="text-xs uppercase tracking-[0.15em] text-accent font-semibold mb-3">Categorieën</p>
-                <ul className="grid grid-cols-2 gap-1">
+              <div className="p-4 w-[280px]">
+                <p className="text-xs uppercase tracking-wider text-accent-soft font-semibold mb-3 inline-flex items-center gap-1.5 px-2">
+                  <Store size={12} /> Categorieën
+                </p>
+                <div className="space-y-1 text-sm">
+                  <Link
+                    href="/winkel"
+                    onClick={() => setOpenMega(null)}
+                    className="block rounded px-2 py-1.5 text-primary-foreground/80 hover:bg-primary-soft hover:text-accent"
+                  >
+                    Alle producten
+                  </Link>
                   {mainCategories.map((c) => (
-                    <li key={c.slug}>
-                      <a
-                        href={c.to}
-                        onClick={() => setOpenMega(null)}
-                        className="block px-2 py-2 rounded text-sm text-primary-foreground/85 hover:bg-primary-soft hover:text-accent"
-                      >
-                        {c.name}
-                      </a>
-                    </li>
+                    <Link
+                      key={c.slug}
+                      href={c.to}
+                      onClick={() => setOpenMega(null)}
+                      className="block rounded px-2 py-1.5 text-primary-foreground/80 hover:bg-primary-soft hover:text-accent"
+                    >
+                      {c.name}
+                    </Link>
                   ))}
-                </ul>
+                </div>
               </div>
             ) : (
               <div className="mx-auto max-w-7xl px-4 py-8 grid grid-cols-[1fr_2fr_1.6fr] gap-10">
