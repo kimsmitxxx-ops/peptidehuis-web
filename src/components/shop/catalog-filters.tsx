@@ -9,11 +9,6 @@ interface Props {
   activeBrand: string;
 }
 
-export const KNOWN_BRANDS = new Set([
-  "LYY", "AP", "PR", "UT",
-  "Pharmacom", "Magnus", "Driada Medical", "ZPHC", "Euro Pharmacies",
-]);
-
 export function CatalogFilters({ brands, stockOnly, activeBrand }: Props) {
   const router = useRouter();
   const pathname = usePathname();
