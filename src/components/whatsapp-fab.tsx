@@ -1,7 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { MessageCircle, Send, X, CheckCircle2 } from "lucide-react";
+import { MessageCircle, Send, CheckCircle2 } from "lucide-react";
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 
 const SHOP_DASH_URL = "https://shop-dash-ruby.vercel.app";
@@ -16,6 +16,8 @@ export interface ChatFabProps {
 
 export function ChatFab({ variant = "fab", pulse, label = "Start chat", className }: ChatFabProps) {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { setMounted(true); }, []);
   const trigger = variant === "inline" ? (
     <button
       type="button"
@@ -46,7 +48,7 @@ export function ChatFab({ variant = "fab", pulse, label = "Start chat", classNam
   return (
     <>
       {trigger}
-      <ChatPanel open={open} onOpenChange={setOpen} />
+      {mounted && <ChatPanel open={open} onOpenChange={setOpen} />}
     </>
   );
 }

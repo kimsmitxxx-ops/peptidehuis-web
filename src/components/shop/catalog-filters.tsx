@@ -23,12 +23,12 @@ export function CatalogFilters({ brands }: Props) {
   const pathname = usePathname();
   const params = useSearchParams();
 
-  const stockOnly = params.get("stock") === "1";
-  const activeBrand = params.get("merk") || "";
+  const stockOnly = params?.get("stock") === "1";
+  const activeBrand = params?.get("merk") || "";
 
   const setParam = useCallback(
     (key: string, value: string | null) => {
-      const p = new URLSearchParams(params.toString());
+      const p = new URLSearchParams(params?.toString() || "");
       if (value === null || value === "") p.delete(key);
       else p.set(key, value);
       const qs = p.toString();
