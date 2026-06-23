@@ -3,7 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import type { BlogPost } from "@/lib/supabase";
 
-type TabKey = "alle" | "kennis" | "onderzoek" | "nieuws";
+export type TabKey = "alle" | "kennis" | "onderzoek" | "nieuws";
 
 const TABS: { slug: TabKey; label: string }[] = [
   { slug: "alle", label: "Alle artikelen" },
@@ -21,10 +21,11 @@ function classify(cat: string | null | undefined): Exclude<TabKey, "alle"> {
 
 interface Props {
   articles: BlogPost[];
+  initialTab?: TabKey;
 }
 
-export function KennisbankTabs({ articles }: Props) {
-  const [tab, setTab] = useState<TabKey>("alle");
+export function KennisbankTabs({ articles, initialTab = "alle" }: Props) {
+  const [tab, setTab] = useState<TabKey>(initialTab);
   const filtered = tab === "alle" ? articles : articles.filter((a) => classify(a.category) === tab);
 
   return (

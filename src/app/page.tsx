@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { listProducts, listBlogPosts, listCategories } from "@/lib/queries";
+import { listProducts, listBlogPosts, listCategories, listFeaturedProducts } from "@/lib/queries";
 import { Button } from "@/components/button";
 import { SectionHeading } from "@/components/section-heading";
 import { ProductCard } from "@/components/product-card";
@@ -28,10 +28,11 @@ import {
 export const revalidate = 300;
 
 export default async function HomePage() {
-  const [dbProducts, dbArticles, dbCategories] = await Promise.all([
+  const [dbProducts, dbArticles, dbCategories, featuredProducts] = await Promise.all([
     listProducts({ limit: 24 }),
     listBlogPosts(3),
     listCategories(),
+    listFeaturedProducts(8),
   ]);
 
   const cats =
@@ -49,6 +50,7 @@ export default async function HomePage() {
   const pct = categoryContent.filter((c) => c.group === "pct");
 
   const bestsellers = dbProducts.slice(0, 4);
+  const featured = featuredProducts.slice(0, 8);
 
   return (
     <>
@@ -230,8 +232,44 @@ export default async function HomePage() {
         </section>
       )}
 
-      {/* Bestsellers */}
-      {bestsellers.length > 0 && (
+      {/* Featured products */}
+      {featured.length > 0 && (
+        <section className="mx-auto max-w-7xl px-4 py-16">
+          <SectionHeading
+            variant="eyebrow-plus-display"
+            eyebrow="★ Uitgelicht"
+            ctaLabel="Volledige catalogus"
+            ctaHref="/winkel"
+          >
+            Onze uitgelichte producten
+          </SectionHeading>
+          <div className="mt-8 grid gap-5 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {featured.map((p) => (
+              <Link
+                key={p.id}
+                href={`/product/${p.categories?.slug || "winkel"}/${p.slug}`}
+                className="block"
+              >
+                <ProductCard
+                  image={p.image_url || "/assets/cat-anabolen.png"}
+                  name={p.name}
+                  slug={p.slug}
+                  priceFrom={p.price_cents / 100}
+                  ratingValue={4.8}
+                  ratingCount={0}
+                  inStock={p.availability !== "OutOfStock"}
+                  tag="Uitgelicht"
+                  category={p.categories?.name}
+                  shortDescription={p.subtitle || undefined}
+                />
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Bestsellers (fallback grid uit alle products) */}
+      {featured.length === 0 && bestsellers.length > 0 && (
         <section className="mx-auto max-w-7xl px-4 py-16">
           <SectionHeading
             variant="eyebrow-plus-display"

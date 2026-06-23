@@ -13,6 +13,7 @@ import {
   Star,
   Store,
   Compass,
+  BookOpen,
 } from "lucide-react";
 import { categoriesByGroup, mainCategories } from "./data";
 import { useCart } from "./cart-store";
@@ -216,13 +217,12 @@ export function Header(_props: HeaderProps = {}) {
           >
             Labtesten
           </Link>
-          <Link
-            href="/kennisbank"
-            onMouseEnter={() => setOpenMega(null)}
-            className="h-11 inline-flex items-center px-4 font-medium text-primary-foreground hover:text-accent border-b-2 border-transparent hover:border-accent transition-colors"
+          <button
+            onMouseEnter={() => setOpenMega("kennisbank")}
+            className={`h-11 inline-flex items-center gap-1 px-4 font-medium text-primary-foreground hover:text-accent border-b-2 transition-colors ${openMega === "kennisbank" ? "border-accent text-accent" : "border-transparent"}`}
           >
-            Kennisbank
-          </Link>
+            Kennisbank <ChevronDown size={13} />
+          </button>
           <Link
             href="/contact"
             onMouseEnter={() => setOpenMega(null)}
@@ -236,12 +236,32 @@ export function Header(_props: HeaderProps = {}) {
           <div
             onMouseEnter={() => setOpenMega(openMega)}
             className={`absolute top-full bg-primary border border-primary-soft shadow-lift text-primary-foreground ${
-              openMega === "winkel"
+              openMega === "winkel" || openMega === "kennisbank"
                 ? "left-4 rounded-b-lg"
                 : "left-0 right-0 border-l-0 border-r-0"
             }`}
           >
-            {openMega === "winkel" ? (
+            {openMega === "kennisbank" ? (
+              <div className="p-4 w-[260px]">
+                <p className="text-xs uppercase tracking-wider text-accent-soft font-semibold mb-3 inline-flex items-center gap-1.5 px-2">
+                  <BookOpen size={12} /> Kennisbank
+                </p>
+                <div className="space-y-1 text-sm">
+                  <Link href="/kennisbank" onClick={() => setOpenMega(null)} className="block rounded px-2 py-1.5 text-primary-foreground/80 hover:bg-primary-soft hover:text-accent">
+                    Alle artikelen
+                  </Link>
+                  <Link href="/kennisbank?cat=kennis" onClick={() => setOpenMega(null)} className="block rounded px-2 py-1.5 text-primary-foreground/80 hover:bg-primary-soft hover:text-accent">
+                    Kennis
+                  </Link>
+                  <Link href="/kennisbank?cat=onderzoek" onClick={() => setOpenMega(null)} className="block rounded px-2 py-1.5 text-primary-foreground/80 hover:bg-primary-soft hover:text-accent">
+                    Onderzoek
+                  </Link>
+                  <Link href="/kennisbank?cat=nieuws" onClick={() => setOpenMega(null)} className="block rounded px-2 py-1.5 text-primary-foreground/80 hover:bg-primary-soft hover:text-accent">
+                    Nieuws
+                  </Link>
+                </div>
+              </div>
+            ) : openMega === "winkel" ? (
               <div className="p-4 w-[280px]">
                 <p className="text-xs uppercase tracking-wider text-accent-soft font-semibold mb-3 inline-flex items-center gap-1.5 px-2">
                   <Store size={12} /> Categorieën

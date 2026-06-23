@@ -32,6 +32,7 @@ export type Product = {
   tags: string[] | null;
   availability: string | null;
   is_active: boolean;
+  is_featured?: boolean;
   categories?: { slug: string; name: string } | null;
 };
 

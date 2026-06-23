@@ -13,8 +13,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "/kennisbank" },
 };
 
-export default async function KennisbankPage() {
+export const dynamic = "force-dynamic";
+
+export default async function KennisbankPage({
+  searchParams,
+}: {
+  searchParams: { cat?: string };
+}) {
   const articles = await listBlogPosts(50);
+  const initialTab = (["kennis", "onderzoek", "nieuws"] as const).find((t) => t === searchParams.cat) || "alle";
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
@@ -30,7 +37,7 @@ export default async function KennisbankPage() {
         onderzoeksjournalisten — geen forumretoriek, wel bronnen.
       </p>
 
-      <KennisbankTabs articles={articles} />
+      <KennisbankTabs articles={articles} initialTab={initialTab} />
 
       <section className="mt-16">
         <h2 className="font-display text-2xl">Per stof verdiepen</h2>

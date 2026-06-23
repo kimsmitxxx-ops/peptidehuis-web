@@ -7,6 +7,19 @@ const SHOP_ID = "18a96da9-9f9f-466f-ac2b-3ab0349b78a6";
 // Alle queries try/catch-safe: returnen lege array/null bij DB-error
 // zodat Next.js build niet faalt en pagina's gracefully renderen.
 
+export async function listFeaturedProducts(limit = 8): Promise<Product[]> {
+  try {
+    const { data } = await supabase.from("products")
+      .select("*, categories(slug, name)")
+      .eq("shop_id", SHOP_ID)
+      .eq("is_active", true)
+      .eq("is_featured", true)
+      .order("sort_order")
+      .limit(limit);
+    return (data ?? []) as Product[];
+  } catch { return []; }
+}
+
 export async function listProducts(opts: { categorySlug?: string; tag?: string; limit?: number } = {}): Promise<Product[]> {
   try {
     let q = supabase.from("products")
