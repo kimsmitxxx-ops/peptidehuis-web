@@ -24,7 +24,7 @@ export default function WinkelmandPage() {
           <div className="lg:col-span-2 space-y-3">
             {cart.items.map((it) => (
               <div key={it.id} className="flex gap-4 rounded-xl border border-paper-border bg-paper-soft p-4">
-                {it.image && /* eslint-disable-next-line @next/next/no-img-element */ <img src={it.image} alt={it.name} className="h-20 w-20 rounded object-cover" />}
+                {it.image && /* eslint-disable-next-line @next/next/no-img-element */ <img loading="lazy" decoding="async" src={it.image} alt={it.name} className="h-20 w-20 rounded object-cover" />}
                 <div className="flex-1">
                   <p className="font-medium">{it.name}</p>
                   <p className="text-sm text-text-muted">{formatEUR(it.price_cents)}</p>

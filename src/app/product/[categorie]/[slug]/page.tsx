@@ -56,20 +56,32 @@ export default async function ProductDetailPage({ params }: { params: { categori
         <ArrowLeft className="h-3 w-3" /> Terug naar {p.categories?.name || "winkel"}
       </Link>
 
-      <div className="mt-6 grid gap-10 md:grid-cols-2">
-        <div>
-          {gallery[0] && (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src={gallery[0].url} alt={p.name} className="aspect-square w-full rounded-2xl border border-paper-border object-cover" />
-          )}
+      <div className="mt-6 grid gap-10 md:grid-cols-[1.2fr_1fr] lg:grid-cols-[1fr_1fr]">
+        <div className="flex gap-3">
           {gallery.length > 1 && (
-            <div className="mt-3 grid grid-cols-4 gap-2">
-              {gallery.slice(0, 4).map((m: any, i: number) => (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img key={i} src={m.url} alt={m.alt || p.name} className="aspect-square rounded-lg border border-paper-border object-cover" />
+            <div className="flex flex-col gap-2 w-16 shrink-0">
+              {gallery.slice(0, 5).map((m: any, i: number) => (
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img
+                  key={i}
+                  src={m.url}
+                  alt={m.alt || p.name}
+                  loading="lazy"
+                  className="aspect-square w-full rounded-lg border border-paper-border object-cover hover:border-accent cursor-pointer"
+                />
               ))}
             </div>
           )}
+          <div className="flex-1 max-w-[75%]">
+            {gallery[0] && (
+              /* eslint-disable-next-line @next/next/no-img-element */
+              <img
+                src={gallery[0].url}
+                alt={p.name}
+                className="aspect-square w-full rounded-2xl border border-paper-border object-cover"
+              />
+            )}
+          </div>
         </div>
 
         <div>

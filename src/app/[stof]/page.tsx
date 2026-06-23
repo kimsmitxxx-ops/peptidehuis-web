@@ -66,7 +66,7 @@ export default function StofPage({ params }: { params: { stof: string } }) {
         {c.heroImage && (
           <div className="absolute inset-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={c.heroImage} alt="" className="w-full h-full object-cover opacity-20" />
+            <img loading="lazy" decoding="async" src={c.heroImage} alt="" className="w-full h-full object-cover opacity-20" />
             <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/70" />
           </div>
         )}

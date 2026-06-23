@@ -67,7 +67,7 @@ export function AddToCartButton({ product }: { product: Product }) {
         <p className="text-xs font-semibold text-text inline-flex items-center gap-1.5">
           <Sparkles size={14} className="text-accent" /> Bulk-korting — klik om aantal te kiezen
         </p>
-        <div className="mt-2 grid grid-cols-3 gap-2">
+        <div className="mt-2 space-y-2">
           {BULK_TIERS.map((t, i) => {
             const unit = product.price_cents * (1 - t.discountPct / 100);
             const next = BULK_TIERS[i + 1];
@@ -78,22 +78,20 @@ export function AddToCartButton({ product }: { product: Product }) {
                 key={t.qty}
                 onClick={() => setQty(t.qty)}
                 aria-pressed={active}
-                className={`text-left rounded-md border bg-background p-3 transition-all hover:border-accent hover:shadow-card ${
+                className={`w-full text-left rounded-md border bg-background px-3 py-2.5 transition-all hover:border-accent hover:shadow-card flex items-center gap-3 ${
                   active ? "border-accent ring-2 ring-accent/30 shadow-card" : "border-border"
                 }`}
               >
-                <div className="flex items-center justify-between">
+                <div className="flex items-baseline gap-1.5">
                   <span className="font-display text-lg text-text tabular">{t.qty}</span>
-                  {t.discountPct > 0 && (
-                    <span className="rounded-full bg-accent/10 px-2 py-0.5 text-[10px] font-semibold text-accent">
-                      −{t.discountPct}%
-                    </span>
-                  )}
+                  <span className="text-[11px] uppercase tracking-wider text-text-subtle">{t.qty === 1 ? "stuk" : "stuks"}</span>
                 </div>
-                <p className="mt-1 text-[10px] uppercase tracking-wider text-text-subtle">
-                  {t.qty === 1 ? "stuk" : "stuks"}
-                </p>
-                <p className="mt-1 text-xs text-text-muted tabular">{formatEUR(Math.round(unit))} / st</p>
+                <span className="text-sm text-text-muted tabular">{formatEUR(Math.round(unit))} / st</span>
+                {t.discountPct > 0 && (
+                  <span className="ml-auto rounded-full bg-accent/10 px-2 py-0.5 text-[11px] font-semibold text-accent tabular">
+                    −{t.discountPct}%
+                  </span>
+                )}
               </button>
             );
           })}

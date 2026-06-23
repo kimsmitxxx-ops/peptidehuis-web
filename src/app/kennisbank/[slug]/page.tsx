@@ -60,7 +60,7 @@ export default async function KennisbankDetail({ params }: { params: { slug: str
 
       {p.image_url && (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={p.image_url} alt={p.title} className="mt-8 aspect-[16/9] w-full rounded-2xl object-cover" />
+        <img loading="lazy" decoding="async" src={p.image_url} alt={p.title} className="mt-8 aspect-[16/9] w-full rounded-2xl object-cover" />
       )}
 
       {p.excerpt && <p className="mt-8 text-lg text-text-muted leading-relaxed">{p.excerpt}</p>}

@@ -67,7 +67,7 @@ export function KennisbankTabs({ articles, initialTab = "alle" }: Props) {
             >
               {a.image_url && (
                 /* eslint-disable-next-line @next/next/no-img-element */
-                <img src={a.image_url} alt={a.title} className="aspect-[16/9] w-full object-cover" />
+                <img loading="lazy" decoding="async" src={a.image_url} alt={a.title} className="aspect-[16/9] w-full object-cover" />
               )}
               <div className="p-5">
                 <p className="text-[10px] uppercase tracking-wider text-accent">{a.category || "Kennis"}</p>

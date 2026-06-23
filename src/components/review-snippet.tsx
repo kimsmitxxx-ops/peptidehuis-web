@@ -47,7 +47,7 @@ export function ReviewSnippet({
     <article className={cn("rounded-lg border border-primary-muted bg-primary p-5 shadow-card text-primary-foreground", className)}>
       <header className="flex items-start gap-3">
         {avatar ? (
-          <img src={avatar} alt="" className="h-10 w-10 rounded-full object-cover" />
+          <img loading="lazy" decoding="async" src={avatar} alt="" className="h-10 w-10 rounded-full object-cover" />
         ) : (
           <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent/15 text-accent ring-1 ring-accent/30 font-medium">
             {name.charAt(0)}

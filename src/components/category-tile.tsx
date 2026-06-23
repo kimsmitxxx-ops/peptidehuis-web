@@ -32,7 +32,7 @@ export function CategoryTile({
           className,
         )}
       >
-        {image && <img src={image} alt="" className="absolute inset-0 w-full h-full object-cover" />}
+        {image && <img loading="lazy" decoding="async" src={image} alt="" className="absolute inset-0 w-full h-full object-cover" />}
         <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/30 to-transparent" />
         <div className="absolute bottom-0 left-0 p-5">
           <h3 className="font-display text-2xl text-text">{name}</h3>

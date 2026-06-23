@@ -53,7 +53,7 @@ export function CategoryView({ content: c }: CategoryViewProps) {
       {/* Hero — compact donker */}
       <section className="relative overflow-hidden border-b border-border bg-primary text-primary-foreground">
         <div className="absolute inset-0">
-          <img src={c.heroImage} alt="" className="w-full h-full object-cover opacity-20" />
+          <img loading="lazy" decoding="async" src={c.heroImage} alt="" className="w-full h-full object-cover opacity-20" />
           <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/70" />
         </div>
         <div className="relative mx-auto max-w-7xl px-4 py-6 md:py-8">

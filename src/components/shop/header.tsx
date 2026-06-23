@@ -194,22 +194,44 @@ export function Header(_props: HeaderProps = {}) {
       {/* Nav row with mega menus — centered */}
       <div className="hidden lg:block border-t border-primary-soft relative" onMouseLeave={() => setOpenMega(null)}>
         <div className="mx-auto max-w-7xl px-4 h-11 flex items-center justify-center gap-1 text-[15px]">
-          <button
-            onMouseEnter={() => setOpenMega("winkel")}
-            className={`h-11 inline-flex items-center gap-1.5 px-4 font-semibold uppercase tracking-wider text-[13px] border-b-2 transition-colors ${
-              openMega === "winkel"
-                ? "border-accent bg-primary-soft text-accent"
-                : "border-accent/70 bg-primary-soft/40 text-accent hover:bg-primary-soft hover:text-accent"
-            }`}
-          >
-            <Store size={15} strokeWidth={2.25} /> Winkel <ChevronDown size={13} />
-          </button>
+          {/* Winkel */}
+          <div className="relative" onMouseEnter={() => setOpenMega("winkel")}>
+            <button
+              className={`h-11 inline-flex items-center gap-1.5 px-4 font-semibold uppercase tracking-wider text-[13px] border-b-2 transition-colors ${
+                openMega === "winkel"
+                  ? "border-accent bg-primary-soft text-accent"
+                  : "border-accent/70 bg-primary-soft/40 text-accent hover:bg-primary-soft hover:text-accent"
+              }`}
+            >
+              <Store size={15} strokeWidth={2.25} /> Winkel <ChevronDown size={13} />
+            </button>
+            {openMega === "winkel" && (
+              <div className="absolute top-full left-0 mt-px bg-primary border border-primary-soft shadow-lift text-primary-foreground rounded-b-lg p-4 w-[280px] z-50">
+                <p className="text-xs uppercase tracking-wider text-accent-soft font-semibold mb-3 inline-flex items-center gap-1.5 px-2">
+                  <Store size={12} /> Categorieën
+                </p>
+                <div className="space-y-1 text-sm">
+                  <Link href="/winkel" onClick={() => setOpenMega(null)} className="block rounded px-2 py-1.5 text-primary-foreground/80 hover:bg-primary-soft hover:text-accent">
+                    Alle producten
+                  </Link>
+                  {mainCategories.map((c) => (
+                    <Link key={c.slug} href={c.to} onClick={() => setOpenMega(null)} className="block rounded px-2 py-1.5 text-primary-foreground/80 hover:bg-primary-soft hover:text-accent">
+                      {c.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Anabolen — full-width mega menu */}
           <button
             onMouseEnter={() => setOpenMega("anabolen")}
             className={`h-11 inline-flex items-center gap-1 px-4 font-medium text-primary-foreground hover:text-accent border-b-2 transition-colors ${openMega === "anabolen" ? "border-accent text-accent" : "border-transparent"}`}
           >
             Anabolen <ChevronDown size={13} />
           </button>
+
           <Link
             href="/lab"
             onMouseEnter={() => setOpenMega(null)}
@@ -217,32 +239,16 @@ export function Header(_props: HeaderProps = {}) {
           >
             Labtesten
           </Link>
-          <button
-            onMouseEnter={() => setOpenMega("kennisbank")}
-            className={`h-11 inline-flex items-center gap-1 px-4 font-medium text-primary-foreground hover:text-accent border-b-2 transition-colors ${openMega === "kennisbank" ? "border-accent text-accent" : "border-transparent"}`}
-          >
-            Kennisbank <ChevronDown size={13} />
-          </button>
-          <Link
-            href="/contact"
-            onMouseEnter={() => setOpenMega(null)}
-            className="h-11 inline-flex items-center px-4 font-medium text-primary-foreground hover:text-accent border-b-2 border-transparent hover:border-accent transition-colors"
-          >
-            Contact
-          </Link>
-        </div>
 
-        {openMega && (
-          <div
-            onMouseEnter={() => setOpenMega(openMega)}
-            className={`absolute top-full bg-primary border border-primary-soft shadow-lift text-primary-foreground ${
-              openMega === "winkel" || openMega === "kennisbank"
-                ? "left-4 rounded-b-lg"
-                : "left-0 right-0 border-l-0 border-r-0"
-            }`}
-          >
-            {openMega === "kennisbank" ? (
-              <div className="p-4 w-[260px]">
+          {/* Kennisbank */}
+          <div className="relative" onMouseEnter={() => setOpenMega("kennisbank")}>
+            <button
+              className={`h-11 inline-flex items-center gap-1 px-4 font-medium text-primary-foreground hover:text-accent border-b-2 transition-colors ${openMega === "kennisbank" ? "border-accent text-accent" : "border-transparent"}`}
+            >
+              Kennisbank <ChevronDown size={13} />
+            </button>
+            {openMega === "kennisbank" && (
+              <div className="absolute top-full left-0 mt-px bg-primary border border-primary-soft shadow-lift text-primary-foreground rounded-b-lg p-4 w-[260px] z-50">
                 <p className="text-xs uppercase tracking-wider text-accent-soft font-semibold mb-3 inline-flex items-center gap-1.5 px-2">
                   <BookOpen size={12} /> Kennisbank
                 </p>
@@ -261,33 +267,25 @@ export function Header(_props: HeaderProps = {}) {
                   </Link>
                 </div>
               </div>
-            ) : openMega === "winkel" ? (
-              <div className="p-4 w-[280px]">
-                <p className="text-xs uppercase tracking-wider text-accent-soft font-semibold mb-3 inline-flex items-center gap-1.5 px-2">
-                  <Store size={12} /> Categorieën
-                </p>
-                <div className="space-y-1 text-sm">
-                  <Link
-                    href="/winkel"
-                    onClick={() => setOpenMega(null)}
-                    className="block rounded px-2 py-1.5 text-primary-foreground/80 hover:bg-primary-soft hover:text-accent"
-                  >
-                    Alle producten
-                  </Link>
-                  {mainCategories.map((c) => (
-                    <Link
-                      key={c.slug}
-                      href={c.to}
-                      onClick={() => setOpenMega(null)}
-                      className="block rounded px-2 py-1.5 text-primary-foreground/80 hover:bg-primary-soft hover:text-accent"
-                    >
-                      {c.name}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ) : (
-              <div className="mx-auto max-w-7xl px-4 py-8 grid grid-cols-[1fr_2fr_1.6fr] gap-10">
+            )}
+          </div>
+
+          <Link
+            href="/contact"
+            onMouseEnter={() => setOpenMega(null)}
+            className="h-11 inline-flex items-center px-4 font-medium text-primary-foreground hover:text-accent border-b-2 border-transparent hover:border-accent transition-colors"
+          >
+            Contact
+          </Link>
+        </div>
+
+        {/* Anabolen full-width mega menu (apart, want spans full row) */}
+        {openMega === "anabolen" && (
+          <div
+            onMouseEnter={() => setOpenMega("anabolen")}
+            className="absolute top-full left-0 right-0 bg-primary border-t border-primary-soft shadow-lift text-primary-foreground z-50"
+          >
+            <div className="mx-auto max-w-7xl px-4 py-8 grid grid-cols-[1fr_2fr_1.6fr] gap-10">
                 <div>
                   <p className="text-xs uppercase tracking-[0.15em] text-accent font-semibold mb-2">
                     Anabole stoffen + PCT
@@ -332,9 +330,8 @@ export function Header(_props: HeaderProps = {}) {
                   </div>
                 </div>
               </div>
-            )}
-          </div>
-        )}
+            </div>
+          )}
       </div>
       <MobileMenuDrawer open={mobileOpen} onOpenChange={setMobileOpen} />
     </header>
