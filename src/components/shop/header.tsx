@@ -233,6 +233,13 @@ export function Header(_props: HeaderProps = {}) {
           </button>
 
           <Link
+            href="/keuzehulp"
+            onMouseEnter={() => setOpenMega(null)}
+            className="h-11 inline-flex items-center px-4 font-medium text-primary-foreground hover:text-accent border-b-2 border-transparent hover:border-accent transition-colors"
+          >
+            Keuzehulp
+          </Link>
+          <Link
             href="/lab"
             onMouseEnter={() => setOpenMega(null)}
             className="h-11 inline-flex items-center px-4 font-medium text-primary-foreground hover:text-accent border-b-2 border-transparent hover:border-accent transition-colors"

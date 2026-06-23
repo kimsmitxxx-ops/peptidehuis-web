@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import { mainCategories, categoriesByGroup } from "./data";
-import { Store, BookOpen, FlaskConical, Mail, User, ChevronRight } from "lucide-react";
+import { Store, BookOpen, FlaskConical, Mail, User, ChevronRight, Compass } from "lucide-react";
 
 interface Props {
   open: boolean;
@@ -79,6 +79,11 @@ export function MobileMenuDrawer({ open, onOpenChange }: Props) {
               <li>
                 <Link href="/winkel" onClick={close} className="flex items-center gap-3 px-2 py-2.5 rounded text-sm text-primary-foreground/85 hover:bg-primary-soft hover:text-accent">
                   <Store size={16} className="text-accent" /> Volledige winkel
+                </Link>
+              </li>
+              <li>
+                <Link href="/keuzehulp" onClick={close} className="flex items-center gap-3 px-2 py-2.5 rounded text-sm text-primary-foreground/85 hover:bg-primary-soft hover:text-accent">
+                  <Compass size={16} className="text-accent" /> Keuzehulp
                 </Link>
               </li>
               <li>

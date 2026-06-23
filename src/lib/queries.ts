@@ -4,6 +4,37 @@ import { supabase, type Product, type Category, type BlogPost } from "./supabase
 // RLS-policies in shop-dash migration 021 staan anon SELECT toe op deze shop.
 const SHOP_ID = "18a96da9-9f9f-466f-ac2b-3ab0349b78a6";
 
+// Populariteits-volgorde van stoffen (eerst = bovenaan). UT-merk overrules dit.
+const STOF_POPULARITY = [
+  "test", "sustanon", "winstrol", "winn", "boldenone", "bold", "tren", "trenbolone",
+  "anavar", "dianabol", "deca", "nandrolone", "masteron", "primobolan", "parabolan",
+  "anadrol", "oxymetholone", "turinabol",
+  "clomid", "nolvadex", "arimidex", "aromasin", "proviron", "hcg",
+  "clenbuterol", "t3", "t4",
+  "hgh", "melanotan", "bpc",
+];
+
+function popularityScore(name: string): number {
+  const n = name.toLowerCase();
+  for (let i = 0; i < STOF_POPULARITY.length; i++) {
+    if (n.includes(STOF_POPULARITY[i])) return i;
+  }
+  return 999;
+}
+
+// Sorteer producten: UT-merk eerst, dan op stof-populariteit (test > win > bold > tren), dan sort_order
+export function sortProducts<T extends { name: string; tags: string[] | null; sort_order?: number | null }>(products: T[]): T[] {
+  return [...products].sort((a, b) => {
+    const aUT = a.tags?.includes("UT") ? 0 : 1;
+    const bUT = b.tags?.includes("UT") ? 0 : 1;
+    if (aUT !== bUT) return aUT - bUT;
+    const pa = popularityScore(a.name);
+    const pb = popularityScore(b.name);
+    if (pa !== pb) return pa - pb;
+    return (a.sort_order ?? 999) - (b.sort_order ?? 999);
+  });
+}
+
 // Alle queries try/catch-safe: returnen lege array/null bij DB-error
 // zodat Next.js build niet faalt en pagina's gracefully renderen.
 

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { listCategories, listProducts } from "@/lib/queries";
+import { listCategories, listProducts, sortProducts } from "@/lib/queries";
 import { ProductCard } from "@/components/product-card";
 import { CatalogFilters } from "@/components/shop/catalog-filters";
 import { KNOWN_BRANDS, sortBrands } from "@/lib/brands";
@@ -31,11 +31,12 @@ export default async function WinkelIndexPage({
   allProducts.forEach((p) => p.tags?.forEach((t) => { if (KNOWN_BRANDS.has(t)) brandSet.add(t); }));
   const brands = sortBrands(Array.from(brandSet));
 
-  const products = allProducts.filter((p) => {
+  const filtered = allProducts.filter((p) => {
     if (stockOnly && p.availability === "OutOfStock") return false;
     if (merk && !(p.tags || []).includes(merk)) return false;
     return true;
   });
+  const products = sortProducts(filtered as any);
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
@@ -105,6 +106,7 @@ export default async function WinkelIndexPage({
                   tag={p.tags?.[0]}
                   category={p.categories?.name}
                   shortDescription={p.subtitle || undefined}
+                  usps={p.usps}
                 />
               </Link>
             ))}

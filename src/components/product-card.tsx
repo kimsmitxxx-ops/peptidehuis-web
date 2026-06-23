@@ -21,12 +21,16 @@ export interface ProductCardProps {
   tag?: string;
   category?: string;
   shortDescription?: string;
+  usps?: string[] | null;
   size?: ProductCardSize;
   className?: string;
   onAddToCart?: (slug: string) => void;
 }
 
-function toFeatures(text?: string): string[] {
+function toFeatures(text?: string, explicitUsps?: string[] | null): string[] {
+  if (explicitUsps && explicitUsps.length > 0) {
+    return explicitUsps.slice(0, 3);
+  }
   if (!text) return [];
   return text
     .split(/(?:\.\s+|,\s+)/)
@@ -46,12 +50,13 @@ export function ProductCard({
   tag,
   category,
   shortDescription,
+  usps,
   size = "md",
   className,
   onAddToCart,
 }: ProductCardProps) {
   const isSm = size === "sm";
-  const features = toFeatures(shortDescription);
+  const features = toFeatures(shortDescription, usps);
   const cart = useCart();
 
   function handleAdd(e: MouseEvent<HTMLButtonElement>) {

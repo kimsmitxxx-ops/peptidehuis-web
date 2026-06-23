@@ -105,6 +105,17 @@ export default async function ProductDetailPage({ params }: { params: { categori
           <h1 className="mt-2 font-display text-3xl md:text-4xl">{p.name}</h1>
           {p.subtitle && <p className="mt-3 text-text-muted">{p.subtitle}</p>}
 
+          {p.usps && p.usps.length > 0 && (
+            <ul className="mt-4 space-y-1.5 text-sm">
+              {p.usps.slice(0, 3).map((u: string, i: number) => (
+                <li key={i} className="flex items-start gap-2 text-text">
+                  <span className="text-accent font-bold mt-0.5">✓</span>
+                  <span>{u}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+
           <div className="mt-6 flex items-end gap-4">
             <span className="font-display text-4xl">{formatEUR(p.price_cents)}</span>
             {p.compare_at_cents && p.compare_at_cents > p.price_cents && (

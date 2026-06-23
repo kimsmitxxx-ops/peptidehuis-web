@@ -570,59 +570,71 @@ export const categoryContent: CategoryContent[] = [
     name: "Testosteron",
     aka: ["Test E", "Test C", "Sustanon", "TRT"],
     tagline: "De basis van vrijwel elke anabolenkuur",
-    heroImage: img("photo-1576086213369-97a306d36557", 1600),
+    heroImage: "/assets/stof-testosteron.jpg",
     intro:
-      "Testosteron is de basishormoon waar elke anabolenkuur op gebouwd is. Op deze pagina vind je de verschillende esters, hun halfwaardetijden en typische onderzoeksdoseringen.",
+      "Testosteron is de basis waar elke kuur op draait — zonder een testbasis loop je vast op libido, energie en stemming.",
     longIntro:
-      "Testosteron is het natuurlijke androgene hormoon dat in elk lichaam aanwezig is. In onderzoek naar androgene therapie wordt het toegediend in een ester-vorm — enanthate, cypionate of de Sustanon-mix — om de afgifte over dagen of weken te verspreiden. Iedere ester heeft een eigen kinetiek en daarmee een eigen plek in een kuurschema.",
+      "Of je nou een eerste kuur draait of je tiende blast, testosteron-enanthate of -cypionate is bijna altijd het fundament. Het bouwt lean mass op, houdt je libido op gang en compenseert de suppressie die andere stoffen veroorzaken. De keuze tussen esters (kort, lang, blends) bepaalt vooral je prik-frequentie, niet zozeer het eindresultaat.",
     keyFacts: [
-      { label: "Type", value: "Androgeen anabool" },
-      { label: "Halfwaardetijd", value: "Propionate 2 dgn · Enanthate 8 dgn · Decanoate 15 dgn" },
-      { label: "Aromatisatie", value: "Ja — AI vaak nodig" },
-      { label: "Detectietijd", value: "Tot 3 maanden" },
+      { label: "Type", value: "Androgeen anabool — injectable" },
+      { label: "Halfwaardetijd", value: "Propionate 2 dgn · Enanthate/Cypionate 8 dgn · Sustanon ~10 dgn" },
+      { label: "Typische dosering", value: "Beginner 300–500 mg/wk · Intermediate 500–750 mg/wk" },
+      { label: "Aromatisatie", value: "Ja — AI op indicatie" },
+      { label: "Lever-belasting", value: "Geen (injectable, niet c17-α)" },
+      { label: "Geschikt voor", value: "Elke cycle als basis, niet voor PCT" },
     ],
     sections: [
       {
-        heading: "Werking en mechanisme",
-        body: "Testosteron bindt aan de androgeen-receptor in spier- en botweefsel en stimuleert eiwitsynthese, stikstofretentie en erytropoëse. Een deel wordt door aromatase omgezet in oestradiol, wat gewenste (bot- en libido-effecten) én ongewenste (vochtretentie, gynaecomastie) gevolgen heeft. Een ander deel wordt door 5α-reductase omgezet in DHT, met effect op huid, prostaat en haar.",
+        heading: "Wat is testosteron en hoe werkt het",
+        body: "Testosteron is het primaire mannelijke geslachtshormoon dat bindt aan de androgeen-receptor in spier-, bot- en hersenweefsel. Het pusht eiwitsynthese, stikstofretentie en de aanmaak van rode bloedcellen — vandaar dat je harder traint en sneller herstelt. Een deel wordt via aromatase omgezet in oestradiol (vandaar potentiële gyno en vochtretentie) en een deel via 5α-reductase in DHT (acne, eventueel haaruitval bij genetische gevoeligheid). Exogeen testosteron schakelt je natuurlijke LH/FSH-as uit binnen 1-2 weken — dat is de reden dat een PCT na de kuur noodzakelijk is.",
       },
       {
-        heading: "Welke ester moet ik kiezen?",
-        body: "Voor een eerste onderzoekscyclus kiezen de meeste onderzoekers Testosteron Enanthate of Cypionate, omdat beide weinig piek-en-dal-effect geven bij twee injecties per week. Sustanon 250 combineert vier esters en is daarmee handig wanneer een stabiele plasmaspiegel direct gewenst is. Korte propionate-esters worden meestal bewaard voor gevorderde protocollen waar snelle bijstelling nodig is.",
+        heading: "Doseringen en cycle-protocol",
+        body: "Beginners draaien 12-16 weken Test E op 400-500 mg/week, gesplitst in 2 prikken (maandag/donderdag) om bloedwaarden stabiel te houden. Intermediates schuiven richting 500-750 mg/week en stacken vaak met een 19-nor of DHT-derivaat. Een TRT-cruise tussen blasts ligt op 150-200 mg/week. Sustanon 250 prik je idealiter ook 2x per week ondanks de marketing van 'eens per week' — anders krijg je bloedwaarde-pieken. Eerste bloedwerk op week 6: totaal test, vrij test, E2 (sensitive assay), hematocriet, LDL/HDL.",
       },
       {
-        heading: "Typische onderzoeksdoseringen",
-        body: "In klinische TRT-studies wordt 100–200 mg per week aangehouden. Onderzoek naar supraphysiologische doseringen gebruikt 300–600 mg per week voor 10 tot 16 weken. Altijd combineren met regelmatige bloedwaardencontroles (totaal testosteron, oestradiol, hematocriet).",
+        heading: "Risico's en bijwerkingen",
+        body: "Verwacht acne op rug en schouders, lichte vochtretentie en gestegen libido in de eerste weken. Wat je serieus moet monitoren: hematocriet boven 54 betekent bloeddonatie (verhoogd trombose-risico), E2 boven ~45 pg/mL in combinatie met gevoelige tepels betekent AI bijsturen, LDL kan 20-30% stijgen. Bloeddruk vaak +5/10 mmHg. Na de kuur kan herstel 3-6 maanden duren, en bij hoge dosis/lange kuren is volledig herstel niet gegarandeerd.",
       },
       {
-        heading: "Bijwerkingen om in de gaten te houden",
-        body: "De meest voorkomende: oestrogene effecten (vochtretentie, libido-veranderingen), androgene effecten (acne, hoofdhuiduitval bij genetische gevoeligheid), verhoogde hematocriet, suppressie van de eigen HPTA-as. Goede onderzoeksprotocollen plannen bloedwerk vóór, halverwege en na de cyclus.",
+        heading: "Onderzoek en bronnen",
+        body: "De klassieke Bhasin-studie liet zien dat 600 mg test enanthate per week zonder training al meer spiermassa opbouwt dan natural training (<a href=\"https://pubmed.ncbi.nlm.nih.gov/8637535/\">Bhasin et al., NEJM 1996</a>). Voor langetermijn-cardiovasculaire data zie <a href=\"https://pubmed.ncbi.nlm.nih.gov/19299444/\">Basaria et al., 2010</a> over TRT-risico's bij oudere mannen. Voor HPTA-suppressie en hersteltijden is <a href=\"https://pubmed.ncbi.nlm.nih.gov/14506203/\">Liu et al., 2003</a> een goede referentie. Echte test van je gear: stuur altijd een sample naar JanoshikAnalytical of Simec.cz — vraag elke source naar het COA per batchcode.",
       },
       {
-        heading: "PCT na een testosteron-cyclus",
-        body: "Omdat testosteron de eigen LH- en FSH-productie onderdrukt, is een PCT-protocol noodzakelijk om herstel te onderzoeken. Combinaties van Nolvadex en Clomid worden het vaakst beschreven, soms aangevuld met HCG voor testikulair volume. Zie de gedetailleerde uitleg in de Kennisbank.",
+        heading: "Wanneer wel/niet kiezen",
+        body: "Wel kiezen als: het je eerste of tweede kuur is, je een stabiele basis wil voor een stack met deca/boldenone/tren, of je tussen blasts cruiset. Niet kiezen als: je een doping-gecontroleerde sport doet (detectie tot 3 maanden), je hematocriet al hoog van nature is, of je een familie-geschiedenis hebt van prostaatkanker. Tieners blijven van testosteron af — je groeischijven sluiten vroegtijdig.",
       },
     ],
     faqs: [
       {
-        question: "Wat is het verschil tussen Testosteron Enanthate en Cypionate?",
+        question: "Hoe lang werkt testosteron-enanthate in je lichaam?",
         answer:
-          "Slechts één koolstofatoom in de ester. Beide hebben in de praktijk een halfwaardetijd van rond de 8 dagen en worden onderling uitwisselbaar gebruikt. De keuze hangt vaker af van beschikbaarheid dan van effect.",
+          "Test E heeft een halfwaardetijd van ongeveer 8 dagen — dat betekent dat na 8 dagen nog de helft van je laatste prik in je systeem zit, na 16 dagen een kwart, etcetera. Praktisch ben je na 5 halfwaardetijden (zo'n 6 weken) klinisch op nul, maar bloedwerk kan tot 3 maanden later nog suppressie laten zien op LH/FSH. Voor PCT-timing betekent dit: wacht 14 dagen na je laatste Test E-prik voordat je Nolva/Clomid begint, anders vecht je tegen je eigen actieve test. Bij Test C is het vrijwel identiek (halfwaardetijd 8 dagen). Sustanon 250 heeft door de decanoate-ester een effectieve werkingstijd van 18-21 dagen — wacht dan minimaal 3 weken voor PCT-start.",
       },
       {
-        question: "Hoe vaak moet ik injecteren?",
+        question: "Kan ik testosteron stacken met nandrolon op mijn eerste kuur?",
         answer:
-          "Bij enanthate, cypionate of sustanon worden in onderzoek twee injecties per week gebruikt om plasmaspiegels stabiel te houden. Bij Testosteron Propionate dagelijks of om de dag.",
+          "Technisch wel, praktisch niet aan te raden. De eerste kuur is om je response op één compound te leren kennen — krijg je acne, hoe reageert je libido, hoe sluit je af. Stack je direct met deca, dan weet je niet welke stof welke bijwerking veroorzaakt, en deca-suppressie van libido kan brutaal zijn ('deca dick') als je test-dosering niet hoog genoeg meeschaalt. Standaard advies: kuur 1 = test only, 500 mg/week, 14 weken. Kuur 2 of 3 mag je een 19-nor toevoegen, en houd dan deca op 300 mg en test minimaal op 500 mg. Voeg ook cabergoline 0.25 mg 2x/week toe tegen prolactine.",
       },
       {
-        question: "Moet ik altijd een aromatase-remmer gebruiken?",
+        question: "Welke bloedwaardes moet ik checken bij een testosteron-kuur?",
         answer:
-          "Nee. Een AI wordt pas ingezet als bloedwaarden oestradiol verhoogd tonen óf symptomen verschijnen. Blind doseren leidt vaak tot te lage oestradiol, met effect op libido en gewrichtscomfort.",
+          "Baseline (vóór de kuur): totaal en vrij testosteron, LH, FSH, oestradiol (sensitive assay, niet de standaard), SHBG, hematocriet, hemoglobine, lipidenprofiel (LDL/HDL/triglyceriden), ALAT/ASAT, creatinine, prolactine, PSA als je boven de 40 bent. Mid-cycle op week 6: totaal test, E2 sensitive, hematocriet, lipiden. Bij hematocriet boven 54 onmiddellijk doneren of dosis verlagen. Na PCT op week 4-6: totaal test, LH, FSH om te checken of je as is hersteld. Lab-tip: Bloedwaardentest.nl of Huisartslab werken zonder verwijzing en sensitive E2 is daar standaard.",
       },
       {
-        question: "Hoe lang duurt een typische testosteron-cyclus?",
+        question: "Is testosteron geschikt voor een eerste kuur?",
         answer:
-          "Onderzoeksprotocollen lopen meestal 10 tot 16 weken. Korter is te kort om met langwerkende esters serieuze data te verzamelen, langer verhoogt de bijwerkings-druk zonder evenredige winst.",
+          "Ja, testosteron alleen is de gouden standaard voor een eerste kuur. Geen orals erbij (geen dbol kickstart), geen 19-nors, geen DHT-derivaten. Simpel protocol: 500 mg Test E per week, gesplitst maandag/donderdag, 14 weken. Adex 0.25 mg E3D op standby (alleen starten bij E2 boven 45 of duidelijke gyno-signalen). PCT: Nolva 40/40/20/20 en Clomid 50/50/25/25, starten 14 dagen na laatste prik. Dit geeft je een eerlijk beeld van je response, kennis over injectie-techniek en bloedwerk-routine. Verwacht in 14 weken 6-10 kg lean mass bij een caloriesurplus en serieus training-volume.",
+      },
+      {
+        question: "Wat is het verschil tussen Test E, Test C en Sustanon?",
+        answer:
+          "Test Enanthate en Test Cypionate zijn vrijwel identiek — één extra koolstofatoom in de ester, halfwaardetijd 8 dagen, prik 2x/week. Cypionate is iets dikker in olie, kan wat meer pip (post-injection pain) geven. Beide interchangeable. Sustanon is een blend van 4 esters (propionate 30 mg, phenylpropionate 60 mg, isocaproate 60 mg, decanoate 100 mg per 250 mg). De propionate geeft snel een piek, decanoate houdt de tail lang. In de praktijk moet je Sustanon E3D prikken om bloedwaarden stabiel te houden — anders rijd je op een rollercoaster. Voordeel Sust: snellere onset (voel het in week 1 vs week 3 bij Enanthate). Nadeel: lastiger PCT-timing door die lange decanoate tail.",
+      },
+      {
+        question: "Hoeveel spiermassa kun je realistisch opbouwen op testosteron?",
+        answer:
+          "Op 500 mg/week, 14 weken, met serieuze training en 300-500 kcal surplus: 6-10 kg gewichtstoename, waarvan 4-7 kg lean mass en de rest vocht/glycogeen. Na PCT en water-loss houd je realistisch 3-5 kg blijvende spier — mits je training en voeding op orde blijft. Tweede en derde kuur leveren minder op (3-4 kg blijvend) omdat je je natural ceiling al hebt overschreden. Beginners die roepen '15 kg in 12 weken' meten gewicht inclusief vet, vocht en darminhoud. Realistische verwachting: na 3 kuren ben je ongeveer 8-12 kg boven je natural max, en daarna heb je serieuze stacks of langere blasts nodig voor verdere progressie.",
       },
     ],
     related: ["nandrolon", "boldenone", "trenbolone", "anavar"],
@@ -634,53 +646,74 @@ export const categoryContent: CategoryContent[] = [
     name: "Nandrolon",
     aka: ["Deca-Durabolin", "NPP"],
     tagline: "Mild profiel met goede gewrichtsondersteuning",
-    heroImage: img("photo-1559757175-5700dde675bc", 1600),
+    heroImage: "/assets/stof-nandrolon.jpg",
     intro:
-      "Nandrolon (Deca, NPP) is een 19-nortestosteron-derivaat met een hoge anabole en lage androgene index, bekend om langere kuren en goede tolerantie.",
+      "Nandrolon (Deca/NPP) is de klassieke 'gewrichtsvriend' onder de anabolen — langzaam, mild en geliefd voor bulks waarin je full body squat zonder krakende knieën.",
     longIntro:
-      "Nandrolon-esters worden al decennia onderzocht in osteoporose, HIV-wasting en anemie. In sportwetenschappelijke literatuur is het bekend om relatieve mildheid bij behoorlijke anabole werking. Door de lange detectietijd niet geschikt voor onderzoekers die binnen een jaar onder een dopingregime vallen.",
+      "Gasten kiezen Deca of NPP als ze stevig willen bulken zonder de cardiovasculaire druk van tren of de oestrogeen-piek van pure test. Het geeft langzame, kwalitatieve gains en doet wonderen voor pump en gewrichtscomfort. De grote catch: prolactine kan klimmen, en 'deca dick' is een echt fenomeen als je test-basis te laag staat of je geen cabergoline op de plank hebt.",
     keyFacts: [
-      { label: "Type", value: "19-nor anabool" },
-      { label: "Halfwaardetijd", value: "Decanoate 15 dgn · Fenylpropionate 3 dgn" },
-      { label: "Aromatisatie", value: "Laag — wel progestageen" },
-      { label: "Detectietijd", value: "Tot 18 maanden" },
+      { label: "Type", value: "19-nor anabool — injectable" },
+      { label: "Halfwaardetijd", value: "Decanoate 15 dgn · NPP (fenylpropionate) 3-4 dgn" },
+      { label: "Typische dosering", value: "Deca 300-500 mg/wk · NPP 75-150 mg E2D" },
+      { label: "Aromatisatie", value: "Laag (~20% van test) maar wel progestageen" },
+      { label: "Lever-belasting", value: "Geen (injectable)" },
+      { label: "Detectietijd", value: "Tot 18 maanden — niet voor getest atleten" },
     ],
     sections: [
       {
-        heading: "Werking en gebruik",
-        body: "Nandrolon bindt sterk aan de androgeen-receptor maar wordt door 5α-reductase omgezet in het zwakkere DHN, niet DHT. Daardoor is het milder voor huid en haar dan testosteron, maar bindt het wél aan de progesteron-receptor — wat eigen risico's geeft (libido, prolactine).",
+        heading: "Wat is nandrolon en hoe werkt het",
+        body: "Nandrolon is testosteron met één koolstofatoom minder (vandaar '19-nor'). Het bindt sterk aan de androgeen-receptor maar wordt door 5α-reductase omgezet in DHN in plaats van DHT — daardoor mild voor je haarlijn en huid. Wat het uniek maakt: hoge collageensynthese (vandaar het 'wet joints'-gevoel), boost van erythropoëse, en sterke effecten op IGF-1. Keerzijde: het bindt aan de progesteron-receptor en kan prolactine pushen, wat gyno en libido-uitval kan triggeren. Daarom hoort cabergoline 0.25 mg 2x/week standaard bij elke deca-stack.",
       },
       {
-        heading: "Deca vs NPP — wat kies je?",
-        body: "Deca (decanoate) heeft een halfwaardetijd van rond de 15 dagen en wordt 1× per week geprikt. NPP (fenylpropionaat) is in 3 dagen weg en geeft snellere bijsturing. Onderzoek dat snel evalueert kiest NPP; langere protocollen kiezen Deca.",
+        heading: "Doseringen en cycle-protocol",
+        body: "Beginnersprotocol: Test E 500 mg/wk + Deca 300 mg/wk, 14 weken. Cabergoline 0.25 mg op maandag en donderdag vanaf week 1. Adex 0.25 mg E3D op basis van bloedwerk. Intermediate: Test 600 + Deca 500, 16 weken. NPP gebruik je als je sneller wil reageren — 100 mg E2D voor 10-12 weken, bloedspiegels reageren binnen een week. Belangrijk: deca-dose < test-dose, anders boem libido. PCT pas 3 weken na laatste Deca-prik door die lange decanoate-ester. Bij NPP wacht je 10 dagen.",
       },
       {
-        heading: "Typische doseringen",
-        body: "300–500 mg Deca per week is het meest beschreven bereik in literatuur, altijd in combinatie met een testosteron-basis (minimaal even hoge dosis test). NPP vaak 75–150 mg om de dag.",
+        heading: "Risico's en bijwerkingen",
+        body: "Prolactine stijging is het beruchtste — controleer week 6 en houd het onder 20 ng/mL. Deca dick (libido op nul) komt door progestagene werking + te lage test-dosis. Bloeddruk stijgt door vochtretentie en verhoogde hematocriet. Mentaal kun je een 'flat' gevoel krijgen — dromen worden levendig of nachtmerries. Langere kuren (>16 weken) en hogere doses (>600 mg) maken HPTA-herstel een hel. Sommige gasten zitten 6-9 maanden post-cycle in lage test, en in extreme gevallen heb je een restart-protocol nodig.",
       },
       {
-        heading: "Bijwerkingen en wat eraan te doen",
-        body: "Prolactine kan stijgen door progestagene werking — Cabergoline wordt onderzocht ter beheersing. Libido-uitval ('Deca-dick') is een bekend fenomeen wanneer testosteron-dosis te laag is. Bloedwerk inclusief prolactine is standaard.",
+        heading: "Onderzoek en bronnen",
+        body: "Voor het klassieke profiel van nandrolon-suppressie en hersteltijden, zie <a href=\"https://pubmed.ncbi.nlm.nih.gov/22030145/\">Bonetti et al., 2008</a> over post-cycle HPTA-suppressie en de hersteltijden bij nandrolone-decanoate. Voor de progestagene werking en prolactine-link: <a href=\"https://pubmed.ncbi.nlm.nih.gov/12930599/\">Hartgens & Kuipers, Sports Med 2004</a> — review van bijwerkingen anabolen. Klinisch gebruik bij osteoporose en cachexie is onderzocht in <a href=\"https://pubmed.ncbi.nlm.nih.gov/8843534/\">Frisoli et al.</a>. Test je gear via JanoshikAnalytical — vraag bij elke source naar batchcode + COA, deca wordt regelmatig underdosed of vermengd met goedkopere test.",
+      },
+      {
+        heading: "Wanneer wel/niet kiezen",
+        body: "Wel kiezen als: je wil bulken met focus op kwalitatieve mass, je gewrichten zeuren bij zware compounds, je geen tren-paranoia wil. Niet kiezen als: het je eerste kuur is (te complex met progestagene management), je een doping-getest atleet bent (18 maanden detectie), je een korte 8-weekse cut wil draaien (te lange ester, te traag), of je gevoelig bent voor depressie en stemmingsklachten.",
       },
     ],
     faqs: [
       {
-        question: "Waarom altijd Deca samen met Testosteron?",
+        question: "Hoe lang werkt deca-durabolin in je lichaam?",
         answer:
-          "Nandrolon onderdrukt de eigen testosteronproductie maar vult zelf niet alle androgene functies in. Een testosteron-basis is nodig om libido- en stemmings-uitval te voorkomen.",
+          "Deca decanoate heeft een halfwaardetijd van 15 dagen — de langste van alle gangbare esters. Praktisch betekent dit: het duurt 4-6 weken voor je een stabiele bloedspiegel hebt na de eerste prik, en na je laatste prik duurt het nog 3-4 weken voor je serieus dalt. Voor PCT-timing moet je minimaal 18-21 dagen wachten na de laatste shot, en sommige gasten doen 28 dagen om er zeker van te zijn dat alle actieve nandrolone weg is. WADA detecteert metabolieten tot 18 maanden later in urine — als je in een gecontroleerde sport zit is deca een no-go. NPP heeft een halfwaardetijd van 3-4 dagen en is binnen 10 dagen klinisch weg.",
       },
       {
-        question: "Hoe lang blijft Deca aantoonbaar?",
+        question: "Kan ik nandrolon stacken met trenbolone?",
         answer:
-          "Metabolieten zijn aangetoond tot 18 maanden na laatste injectie in urineanalyses van WADA-laboratoria. Dat maakt Deca ongeschikt voor sporters in een gecontroleerd dopingregime.",
+          "Technisch wel, maar het is een progestagene nachtmerrie. Beide binden aan de progesteron-receptor, beide kunnen prolactine pushen. Doe je het toch, dan: cabergoline 0.5 mg E3D verplicht, prolactine-bloedwerk elke 4 weken, en houd dosis laag — bijvoorbeeld Test 400 + Tren 200 + Deca 200. Verstandiger is om te kiezen: tren voor cuts en hardness, deca voor bulks en joint relief. Wat veel gasten wel doen is een 'recomp' stack: Test 400, Tren E 200, Mast E 400 — droog en strak zonder de prolactine-stack. Eerste deca/tren combo? Skip het.",
       },
       {
-        question: "Helpt Deca echt voor gewrichten?",
+        question: "Welke bloedwaardes monitoren bij een deca-kuur?",
         answer:
-          "Literatuur wijst op verhoogde collageensynthese en vochtretentie rondom gewrichten. Het effect verdwijnt na de cyclus, dus het is geen oplossing voor onderliggende gewrichtspathologie.",
+          "Bovenop de standaard test-bloedwaardes (totaal test, E2 sensitive, hematocriet, lipiden, ALAT/ASAT): prolactine vóór de kuur als baseline en op week 6 en week 12. Onder 20 ng/mL houden. IGF-1 stijgt vaak duidelijk — informatief, geen actiepunt. Hematocriet check je extra scherp want deca pusht erytropoëse hard — boven 54 doneren. Bloeddruk thuis 2x per week meten, deca geeft soms forse vochtretentie. Na PCT op week 6-8: totaal test, LH, FSH, prolactine. Bij prolactine hoog: cabergoline 0.5 mg 2x/week tot het zakt.",
+      },
+      {
+        question: "Is nandrolon geschikt voor een eerste kuur?",
+        answer:
+          "Nee. Eerste kuur = test only. Deca voegt een tweede compound, prolactine-management, cabergoline, langere ester (= latere PCT), en het risico op deca-dick toe — terwijl je nog niet weet hoe je op standaard test reageert. Kuur 2 of 3 is een prima moment om Deca toe te voegen, en dan in conservatieve dosering (250-300 mg). Een veelvoorkomende beginnersfout: deca 500 + test 300, omdat ze denken 'meer deca = meer gains'. Resultaat: libido op nul binnen 4 weken. Regel: test-dosis ≥ deca-dosis, altijd.",
+      },
+      {
+        question: "Wat is het verschil tussen Deca en NPP?",
+        answer:
+          "Zelfde werkzame stof (nandrolone), andere ester. Deca = decanoate, langzaam, 1x per week prikken volstaat (al doen veel mensen 2x voor stabiliteit). NPP = nandrolone phenylpropionate, snel, E2D prikken. Deca kies je voor lange bulks (14-20 weken) waar je de kinetiek stabiel wilt houden en je niet wakker ligt van prik-frequentie. NPP kies je als je sneller wilt bijsturen, korter wilt kuren (10-12 weken), of bijwerkingen sneller wilt kunnen opvangen — gaat het mis, dan ben je in 10 dagen klinisch weg in plaats van 4 weken. NPP geeft minder vochtretentie maar de gains zijn vergelijkbaar mg-per-mg.",
+      },
+      {
+        question: "Helpt deca echt voor mijn gewrichten?",
+        answer:
+          "Ja, maar niet op de manier die je denkt. Het 'fixt' geen blessure of onderliggende ontsteking — het verhoogt synoviaal vocht en collageensynthese, waardoor gewrichten beter lubed aanvoelen tijdens zware liften. Ben je 35+ en zeurende ellebogen/knieen bij zware bench of squat, dan kan een lage dosis (200-250 mg/wk) je serieus verlossen. Maar zodra je PCT'd, zakt dat effect binnen 4-6 weken weg. Het is geen vervanger voor TRT-dose nandrolon (sommige artsen schrijven het off-label voor), fysio, of stoppen met die ene oefening die je gewrichten sloopt. Een echte gewrichtsblessure moet je niet maskeren met deca — dan stapel je structurele schade.",
       },
     ],
-    related: ["testosteron", "boldenone", "primobolan"],
+    related: ["testosteron", "boldenone", "primobolan", "trenbolone"],
     knowledge: ["deca-en-prolactine", "lange-vs-korte-esters"],
   },
   {
@@ -1407,7 +1440,7 @@ export const mainCategories: MainCategory[] = [
     slug: "injectie",
     name: "Injectie",
     tagline: "Testosteron-esters, trenbolone, deca, masteron — alle injecteerbare anabolen.",
-    image: "/assets/cat-anabolen.png",
+    image: img("photo-1583912267550-d6c2ac3196c0", 900),
     to: "/winkel/injectie",
   },
   {

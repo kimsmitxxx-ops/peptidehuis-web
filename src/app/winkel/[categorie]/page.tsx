@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getCategory, listProducts, listCategories } from "@/lib/queries";
+import { getCategory, listProducts, listCategories, sortProducts } from "@/lib/queries";
 import { ProductCard } from "@/components/product-card";
 import { CatalogFilters } from "@/components/shop/catalog-filters";
 import { KNOWN_BRANDS, sortBrands } from "@/lib/brands";
@@ -40,11 +40,12 @@ export default async function CategoryPage({
   allProducts.forEach((p) => p.tags?.forEach((t) => { if (KNOWN_BRANDS.has(t)) brandSet.add(t); }));
   const brands = sortBrands(Array.from(brandSet));
 
-  const products = allProducts.filter((p) => {
+  const filtered = allProducts.filter((p) => {
     if (stockOnly && p.availability === "OutOfStock") return false;
     if (merk && !(p.tags || []).includes(merk)) return false;
     return true;
   });
+  const products = sortProducts(filtered as any);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -146,6 +147,7 @@ export default async function CategoryPage({
                       tag={p.tags?.[0]}
                       category={p.categories?.name}
                       shortDescription={p.subtitle || undefined}
+                      usps={p.usps}
                     />
                   </Link>
                 ))}
