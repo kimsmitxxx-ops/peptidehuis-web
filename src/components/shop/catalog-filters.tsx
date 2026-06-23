@@ -2,6 +2,7 @@
 import { useRouter, usePathname } from "next/navigation";
 import { useCallback } from "react";
 import { Check, Tag as TagIcon } from "lucide-react";
+import { brandLabel } from "@/lib/brands";
 
 interface Props {
   brands: string[];
@@ -73,8 +74,9 @@ export function CatalogFilters({ brands, stockOnly, activeBrand }: Props) {
                     ? "bg-accent text-accent-foreground border-accent"
                     : "bg-background text-text border-border hover:border-accent hover:text-accent"
                 }`}
+                title={b}
               >
-                {b}
+                {brandLabel(b)}
               </button>
             ))}
           </div>

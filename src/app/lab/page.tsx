@@ -14,6 +14,8 @@ import {
   FileCheck2,
   Search,
   Microscope,
+  Mail,
+  Package,
 } from "lucide-react";
 
 export const revalidate = 3600;
@@ -130,6 +132,51 @@ export default function LabPage() {
                 </dl>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* NIEUWE sectie — Eigen test aanvragen */}
+      <section className="bg-paper border-t border-border">
+        <div className="mx-auto max-w-7xl px-4 py-16">
+          <div className="rounded-2xl border border-accent/30 bg-accent-soft/10 p-8 lg:p-10 grid gap-8 lg:grid-cols-[1.4fr_1fr] items-center">
+            <div>
+              <Badge variant="accent">Op aanvraag</Badge>
+              <h2 className="mt-3 font-display text-3xl md:text-4xl text-primary leading-tight">
+                Laat je <span className="text-accent">eigen flacon</span> testen bij Janoshik
+              </h2>
+              <p className="mt-4 text-primary/75 leading-relaxed max-w-xl">
+                Twijfel je over een product van een andere shop of leverancier? Wij regelen de
+                onafhankelijke Janoshik-test voor je. Opsturen, wij coördineren, jij krijgt het
+                originele PDF-rapport in je mailbox. Goed voor jou, goed voor de community.
+              </p>
+              <ul className="mt-5 space-y-2 text-sm text-primary/80">
+                <li className="flex items-start gap-2"><Package size={16} className="text-accent shrink-0 mt-0.5" /> Stuur 1 flacon naar ons NL-magazijn (Vlaardingen)</li>
+                <li className="flex items-start gap-2"><FlaskConical size={16} className="text-accent shrink-0 mt-0.5" /> Wij sturen door naar Janoshik (HPLC-UV) — duurt 2-3 weken</li>
+                <li className="flex items-start gap-2"><CheckCircle2 size={16} className="text-accent shrink-0 mt-0.5" /> COA per mail, ook publiek als jij dat wil zodat anderen profiteren</li>
+              </ul>
+              <p className="mt-4 text-xs text-primary/60">
+                Tarief: kostprijs van de Janoshik-test (~€60). Gratis bij vermoeden onveilig product.
+              </p>
+            </div>
+            <div className="space-y-3">
+              <a
+                href="mailto:lab@anabolenpro.com?subject=Eigen%20lab-test%20aanvraag&body=Hoi%20AnabolenPro%2C%0A%0AIk%20wil%20een%20product%20laten%20testen%20bij%20Janoshik.%0A%0AProduct%3A%20%0AMerk%2Fbatchcode%3A%20%0ATwijfel%20over%3A%20%0A%0AAlvast%20dank!"
+                className="block w-full rounded-md bg-accent px-5 py-4 text-center text-sm font-semibold text-accent-foreground hover:bg-accent-soft"
+              >
+                <Mail className="inline-block mr-2 h-4 w-4" />
+                Vraag test aan via e-mail
+              </a>
+              <Link
+                href="/contact"
+                className="block w-full rounded-md border border-primary-muted bg-paper-soft px-5 py-4 text-center text-sm font-medium text-primary hover:border-accent"
+              >
+                Of via het contactformulier
+              </Link>
+              <p className="text-[11px] text-primary/55 text-center pt-2">
+                Reactie binnen 1 werkdag · We helpen graag.
+              </p>
+            </div>
           </div>
         </div>
       </section>
