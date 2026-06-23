@@ -3,18 +3,21 @@ import { notFound } from "next/navigation";
 import { getProduct, formatEUR, listProducts } from "@/lib/queries";
 import { AddToCartButton } from "@/components/add-to-cart-button";
 import { ProductCard } from "@/components/product-card";
+import { ProductTabs } from "@/components/shop/product-tabs";
 import { ShieldCheck, Truck, FlaskConical, ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
 
 export const revalidate = 300;
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { categorie: string; slug: string } }): Promise<Metadata> {
   const p = await getProduct(params.slug);
   if (!p) return { title: "Niet gevonden" };
+  const noindex = p.noindex === true;
   return {
     title: p.meta_title || `${p.name} kopen voor ${formatEUR(p.price_cents)}`,
     description: p.meta_description || p.subtitle || p.description || `${p.name} bij anabolenpro — lab-getest, snelle verzending.`,
     alternates: { canonical: `/product/${params.categorie}/${params.slug}` },
+    robots: noindex ? { index: false, follow: false } : undefined,
     openGraph: {
       title: p.name,
       description: p.subtitle || undefined,
@@ -32,7 +35,7 @@ export default async function ProductDetailPage({ params }: { params: { categori
   const media = p.product_media?.sort((a: any, b: any) => a.sort_order - b.sort_order) || [];
   const gallery = media.length > 0 ? media : (p.image_url ? [{ url: p.image_url, alt: p.name }] : []);
 
-  const jsonLd = {
+  const productJsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: p.name,
@@ -49,9 +52,21 @@ export default async function ProductDetailPage({ params }: { params: { categori
     },
   };
 
+  const faqJsonLd = p.faqs && Array.isArray(p.faqs) && p.faqs.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: p.faqs.map((f: any) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  } : null;
+
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
+      {faqJsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />}
+
       <Link href={`/winkel/${params.categorie}`} className="inline-flex items-center gap-1 text-xs text-text-muted hover:text-text">
         <ArrowLeft className="h-3 w-3" /> Terug naar {p.categories?.name || "winkel"}
       </Link>
@@ -67,6 +82,7 @@ export default async function ProductDetailPage({ params }: { params: { categori
                   src={m.url}
                   alt={m.alt || p.name}
                   loading="lazy"
+                  decoding="async"
                   className="aspect-square w-full rounded-lg border border-paper-border object-cover hover:border-accent cursor-pointer"
                 />
               ))}
@@ -100,10 +116,29 @@ export default async function ProductDetailPage({ params }: { params: { categori
             <AddToCartButton product={p} />
           </div>
 
-          <div className="mt-8 grid grid-cols-3 gap-3 rounded-2xl border border-paper-border bg-paper-soft p-4">
-            <div className="text-center"><Truck className="mx-auto h-5 w-5 text-accent" /><p className="mt-1 text-[11px]">24u verzending</p></div>
-            <div className="text-center"><ShieldCheck className="mx-auto h-5 w-5 text-accent" /><p className="mt-1 text-[11px]">Anoniem verpakt</p></div>
-            <div className="text-center"><FlaskConical className="mx-auto h-5 w-5 text-accent" /><p className="mt-1 text-[11px]">Janoshik getest</p></div>
+          {/* USPs prominent — onder add-to-cart */}
+          <div className="mt-6 grid grid-cols-1 gap-2.5">
+            <div className="flex items-start gap-3 rounded-lg border border-border bg-paper-soft p-3">
+              <FlaskConical className="h-5 w-5 text-accent shrink-0 mt-0.5" />
+              <div className="text-sm">
+                <p className="font-semibold text-text">100% lab-getest</p>
+                <p className="text-xs text-text-muted">Iedere batch HPLC + GC-MS bij Janoshik of Anabolic Lab</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 rounded-lg border border-border bg-paper-soft p-3">
+              <ShieldCheck className="h-5 w-5 text-accent shrink-0 mt-0.5" />
+              <div className="text-sm">
+                <p className="font-semibold text-text">Discreet verzonden</p>
+                <p className="text-xs text-text-muted">Neutrale verpakking — geen logo of productnaam op het label</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 rounded-lg border border-border bg-paper-soft p-3">
+              <Truck className="h-5 w-5 text-accent shrink-0 mt-0.5" />
+              <div className="text-sm">
+                <p className="font-semibold text-text">Snel geleverd</p>
+                <p className="text-xs text-text-muted">Voor 22:00 besteld én betaald, morgen in huis via PostNL</p>
+              </div>
+            </div>
           </div>
 
           {p.package_type && <p className="mt-4 text-xs text-text-muted"><strong>Verpakking:</strong> {p.package_type}</p>}
@@ -113,12 +148,12 @@ export default async function ProductDetailPage({ params }: { params: { categori
         </div>
       </div>
 
-      {p.long_description && (
-        <section className="mt-12 max-w-3xl">
-          <h2 className="font-display text-2xl">Productinfo</h2>
-          <div className="prose prose-sm mt-4 text-text-muted" dangerouslySetInnerHTML={{ __html: p.long_description }} />
-        </section>
-      )}
+      {/* Tabs onder hoofd-grid: Beschrijving / Specs / FAQ / Reviews */}
+      <ProductTabs
+        description={p.long_description || p.description || null}
+        specifications={p.specifications}
+        faqs={p.faqs}
+      />
 
       {related.length > 0 && (
         <section className="mt-16">

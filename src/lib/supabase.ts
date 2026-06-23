@@ -33,6 +33,9 @@ export type Product = {
   availability: string | null;
   is_active: boolean;
   is_featured?: boolean;
+  noindex?: boolean;
+  specifications?: Record<string, string> | null;
+  faqs?: { q: string; a: string }[] | null;
   categories?: { slug: string; name: string } | null;
 };
 

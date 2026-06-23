@@ -1,5 +1,5 @@
 "use client";
-import { Plus, Minus, ShoppingCart, Sparkles } from "lucide-react";
+import { Plus, Minus, ShoppingCart, Sparkles, ShieldCheck, Smartphone, Bitcoin } from "lucide-react";
 import { useState } from "react";
 import { useCart } from "@/lib/cart-context";
 import { formatEUR } from "@/lib/queries";
@@ -69,7 +69,10 @@ export function AddToCartButton({ product }: { product: Product }) {
         </p>
         <div className="mt-2 space-y-2">
           {BULK_TIERS.map((t, i) => {
-            const unit = product.price_cents * (1 - t.discountPct / 100);
+            const unit = Math.round(product.price_cents * (1 - t.discountPct / 100));
+            const lineSubtotal = unit * t.qty;
+            const baseSubtotal = product.price_cents * t.qty;
+            const savings = baseSubtotal - lineSubtotal;
             const next = BULK_TIERS[i + 1];
             const active = qty >= t.qty && (!next || qty < next.qty);
             return (
@@ -78,23 +81,55 @@ export function AddToCartButton({ product }: { product: Product }) {
                 key={t.qty}
                 onClick={() => setQty(t.qty)}
                 aria-pressed={active}
-                className={`w-full text-left rounded-md border bg-background px-3 py-2.5 transition-all hover:border-accent hover:shadow-card flex items-center gap-3 ${
+                className={`w-full text-left rounded-md border bg-background px-3 py-2.5 transition-all hover:border-accent hover:shadow-card ${
                   active ? "border-accent ring-2 ring-accent/30 shadow-card" : "border-border"
                 }`}
               >
-                <div className="flex items-baseline gap-1.5">
-                  <span className="font-display text-lg text-text tabular">{t.qty}</span>
-                  <span className="text-[11px] uppercase tracking-wider text-text-subtle">{t.qty === 1 ? "stuk" : "stuks"}</span>
+                <div className="flex items-center gap-3">
+                  <div className="flex items-baseline gap-1.5 w-20">
+                    <span className="font-display text-lg text-text tabular">{t.qty}</span>
+                    <span className="text-[11px] uppercase tracking-wider text-text-subtle">{t.qty === 1 ? "stuk" : "stuks"}</span>
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-sm text-text tabular font-medium">{formatEUR(unit)} / st</p>
+                    <p className="text-[11px] text-text-muted tabular">totaal {formatEUR(lineSubtotal)}</p>
+                  </div>
+                  {t.discountPct > 0 ? (
+                    <div className="text-right">
+                      <span className="inline-flex rounded-full bg-accent/15 px-2 py-0.5 text-[11px] font-semibold text-accent tabular">
+                        −{t.discountPct}%
+                      </span>
+                      <p className="mt-0.5 text-[11px] font-semibold text-accent tabular">Bespaar {formatEUR(savings)}</p>
+                    </div>
+                  ) : (
+                    <span className="text-[11px] text-text-subtle">basis-prijs</span>
+                  )}
                 </div>
-                <span className="text-sm text-text-muted tabular">{formatEUR(Math.round(unit))} / st</span>
-                {t.discountPct > 0 && (
-                  <span className="ml-auto rounded-full bg-accent/10 px-2 py-0.5 text-[11px] font-semibold text-accent tabular">
-                    −{t.discountPct}%
-                  </span>
-                )}
               </button>
             );
           })}
+        </div>
+      </div>
+
+      {/* Veilig betalen blok */}
+      <div className="rounded-md border border-border bg-surface p-3">
+        <p className="text-xs font-semibold text-text inline-flex items-center gap-1.5">
+          <ShieldCheck size={14} className="text-accent" /> Veilig &amp; snel betalen
+        </p>
+        <p className="mt-1.5 text-[11px] text-text-muted leading-snug">
+          Bankoverschrijving via je eigen bank-app (IBAN). Geen kaart, geen tussenpartij — gewoon je gewone bank.
+          Bestelling gaat direct na ontvangst betaling de deur uit.
+        </p>
+        <div className="mt-2 flex items-center gap-2 text-[11px]">
+          <span className="inline-flex items-center gap-1 rounded border border-border bg-background px-2 py-0.5 text-text">
+            <Smartphone size={11} className="text-accent" /> Bank-app
+          </span>
+          <span className="inline-flex items-center gap-1 rounded border border-border bg-background px-2 py-0.5 text-text">
+            IBAN
+          </span>
+          <span className="inline-flex items-center gap-1 rounded border border-border bg-background px-2 py-0.5 text-text">
+            <Bitcoin size={11} className="text-accent" /> Crypto
+          </span>
         </div>
       </div>
     </div>

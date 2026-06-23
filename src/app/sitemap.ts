@@ -28,11 +28,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.85,
   }));
 
-  const productRoutes = products.map((p) => ({
-    url: `${BASE}/product/${p.categories?.slug || "winkel"}/${p.slug || p.sku}`,
-    changeFrequency: "weekly" as const,
-    priority: 0.75,
-  }));
+  // Alleen index-baar (UT-merk) producten in sitemap. noindex=true wordt
+  // expliciet uitgesloten zodat Google ze niet via sitemap ontdekt.
+  const productRoutes = products
+    .filter((p: any) => p.noindex !== true)
+    .map((p) => ({
+      url: `${BASE}/product/${p.categories?.slug || "winkel"}/${p.slug || p.sku}`,
+      changeFrequency: "weekly" as const,
+      priority: 0.75,
+    }));
 
   const blogRoutes = blogs.map((b) => ({
     url: `${BASE}/kennisbank/${b.slug}`,
