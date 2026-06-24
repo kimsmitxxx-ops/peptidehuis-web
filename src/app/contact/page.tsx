@@ -16,7 +16,7 @@ export default function ContactPage() {
     <>
       <PageHero
         eyebrow="Contact"
-        title="Echte mensen, snelle antwoorden — geen chatbots"
+        title="Snelle antwoorden van ons team"
         intro="Of het nu om een batch-COA, een retourvraag of een protocoladvies gaat: ons team reageert elke dag tussen 09:00 en 21:00."
       />
 

@@ -1,22 +1,59 @@
 "use client";
 import { useState } from "react";
 import { BookOpen, ListChecks, MessageCircleQuestion, Star } from "lucide-react";
+import { ReviewForm } from "./review-form";
+
+type Review = {
+  id: string;
+  rating: number;
+  author_name: string;
+  title: string | null;
+  body: string | null;
+  created_at: string;
+  published_at: string | null;
+};
 
 interface Props {
+  productId?: string;
   description: string | null;
   specifications: Record<string, string> | null | undefined;
   faqs: { q: string; a: string }[] | null | undefined;
+  reviews?: Review[];
   reviewsCount?: number;
+  avgRating?: number | null;
 }
 
 type TabKey = "beschrijving" | "specs" | "faq" | "reviews";
 
-export function ProductTabs({ description, specifications, faqs, reviewsCount = 0 }: Props) {
+function StarRow({ value, size = 14 }: { value: number; size?: number }) {
+  return (
+    <div className="inline-flex gap-0.5">
+      {[1, 2, 3, 4, 5].map((n) => (
+        <Star
+          key={n}
+          size={size}
+          className={n <= value ? "fill-amber-400 text-amber-400" : "text-border-strong"}
+        />
+      ))}
+    </div>
+  );
+}
+
+export function ProductTabs({
+  productId,
+  description,
+  specifications,
+  faqs,
+  reviews = [],
+  reviewsCount,
+  avgRating,
+}: Props) {
+  const count = reviewsCount ?? reviews.length;
   const tabs: { key: TabKey; label: string; icon: typeof BookOpen; visible: boolean }[] = [
     { key: "beschrijving", label: "Beschrijving", icon: BookOpen, visible: !!description },
     { key: "specs", label: "Specificaties", icon: ListChecks, visible: !!specifications && Object.keys(specifications).length > 0 },
     { key: "faq", label: "FAQ", icon: MessageCircleQuestion, visible: !!faqs && faqs.length > 0 },
-    { key: "reviews", label: `Reviews${reviewsCount ? ` (${reviewsCount})` : ""}`, icon: Star, visible: true },
+    { key: "reviews", label: `Reviews${count ? ` (${count})` : ""}`, icon: Star, visible: true },
   ];
   const visibleTabs = tabs.filter((t) => t.visible);
   const [tab, setTab] = useState<TabKey>(visibleTabs[0]?.key || "beschrijving");
@@ -84,16 +121,46 @@ export function ProductTabs({ description, specifications, faqs, reviewsCount = 
         )}
 
         {tab === "reviews" && (
-          <div className="rounded-lg border border-dashed border-border p-8 text-center">
-            <Star className="mx-auto h-8 w-8 text-text-subtle" />
-            <p className="mt-3 text-sm text-text-muted">
-              {reviewsCount === 0
-                ? "Nog geen reviews voor dit product."
-                : `${reviewsCount} reviews — laden binnenkort`}
-            </p>
-            <p className="mt-1 text-xs text-text-subtle">
-              Heb je dit product gebruikt? <a href="/contact" className="text-accent hover:underline">Laat een review achter</a>.
-            </p>
+          <div className="space-y-4">
+            {reviews.length > 0 ? (
+              <>
+                {avgRating != null && count > 0 && (
+                  <div className="flex items-center gap-3 rounded-lg border border-border bg-paper-soft p-4">
+                    <div className="text-3xl font-display tabular-nums">{avgRating.toFixed(1)}</div>
+                    <div>
+                      <StarRow value={Math.round(avgRating)} size={16} />
+                      <p className="mt-0.5 text-xs text-text-muted">{count} {count === 1 ? "review" : "reviews"}</p>
+                    </div>
+                  </div>
+                )}
+
+                <ul className="space-y-3">
+                  {reviews.map((r) => (
+                    <li key={r.id} className="rounded-lg border border-border bg-paper-soft p-4">
+                      <div className="flex items-center justify-between gap-3">
+                        <div className="flex items-center gap-2">
+                          <StarRow value={r.rating} />
+                          <span className="text-sm font-medium text-text">{r.author_name}</span>
+                        </div>
+                        <time className="text-xs text-text-subtle tabular-nums">
+                          {new Date(r.created_at).toLocaleDateString("nl-NL", { day: "numeric", month: "short", year: "numeric" })}
+                        </time>
+                      </div>
+                      {r.title && <p className="mt-2 text-sm font-semibold text-text">{r.title}</p>}
+                      {r.body && <p className="mt-1 whitespace-pre-line text-sm text-text-muted leading-relaxed">{r.body}</p>}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : (
+              <div className="rounded-lg border border-dashed border-border p-8 text-center">
+                <Star className="mx-auto h-8 w-8 text-text-subtle" />
+                <p className="mt-3 text-sm text-text-muted">Nog geen reviews voor dit product.</p>
+                <p className="mt-1 text-xs text-text-subtle">Wees de eerste die een review achterlaat.</p>
+              </div>
+            )}
+
+            {productId && <ReviewForm productId={productId} />}
           </div>
         )}
       </div>

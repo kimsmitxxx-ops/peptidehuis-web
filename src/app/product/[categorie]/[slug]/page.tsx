@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getProduct, formatEUR, listProducts } from "@/lib/queries";
+import { getProduct, formatEUR, listProducts, listProductReviews } from "@/lib/queries";
 import { AddToCartButton } from "@/components/add-to-cart-button";
 import { ProductCard } from "@/components/product-card";
 import { ProductTabs } from "@/components/shop/product-tabs";
+import { ProductGallery } from "@/components/shop/product-gallery";
 import { ShieldCheck, Truck, FlaskConical, ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
 
@@ -31,11 +32,19 @@ export default async function ProductDetailPage({ params }: { params: { categori
   const p = await getProduct(params.slug) as any;
   if (!p) notFound();
 
-  const related = await listProducts({ categorySlug: params.categorie, limit: 4 });
+  const [related, reviews] = await Promise.all([
+    listProducts({ categorySlug: params.categorie, limit: 4 }),
+    listProductReviews(p.id, 20),
+  ]);
   const media = p.product_media?.sort((a: any, b: any) => a.sort_order - b.sort_order) || [];
   const gallery = media.length > 0 ? media : (p.image_url ? [{ url: p.image_url, alt: p.name }] : []);
 
-  const productJsonLd = {
+  const reviewsCount = reviews.length;
+  const avgRating = reviewsCount > 0
+    ? reviews.reduce((sum, r) => sum + r.rating, 0) / reviewsCount
+    : null;
+
+  const productJsonLd: any = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: p.name,
@@ -51,6 +60,17 @@ export default async function ProductDetailPage({ params }: { params: { categori
       availability: p.availability === "OutOfStock" ? "https://schema.org/OutOfStock" : "https://schema.org/InStock",
     },
   };
+
+  // AggregateRating alleen als er >=3 echte reviews zijn (Google-minimum)
+  if (avgRating != null && reviewsCount >= 3) {
+    productJsonLd.aggregateRating = {
+      "@type": "AggregateRating",
+      ratingValue: avgRating.toFixed(2),
+      reviewCount: reviewsCount,
+      bestRating: 5,
+      worstRating: 1,
+    };
+  }
 
   const faqJsonLd = p.faqs && Array.isArray(p.faqs) && p.faqs.length > 0 ? {
     "@context": "https://schema.org",
@@ -72,33 +92,7 @@ export default async function ProductDetailPage({ params }: { params: { categori
       </Link>
 
       <div className="mt-6 grid gap-10 md:grid-cols-[1.2fr_1fr] lg:grid-cols-[1fr_1fr]">
-        <div className="flex gap-3">
-          {gallery.length > 1 && (
-            <div className="flex flex-col gap-2 w-16 shrink-0">
-              {gallery.slice(0, 5).map((m: any, i: number) => (
-                /* eslint-disable-next-line @next/next/no-img-element */
-                <img
-                  key={i}
-                  src={m.url}
-                  alt={m.alt || p.name}
-                  loading="lazy"
-                  decoding="async"
-                  className="aspect-square w-full rounded-lg border border-paper-border object-cover hover:border-accent cursor-pointer"
-                />
-              ))}
-            </div>
-          )}
-          <div className="flex-1 max-w-[75%]">
-            {gallery[0] && (
-              /* eslint-disable-next-line @next/next/no-img-element */
-              <img
-                src={gallery[0].url}
-                alt={p.name}
-                className="aspect-square w-full rounded-2xl border border-paper-border object-cover"
-              />
-            )}
-          </div>
-        </div>
+        <ProductGallery gallery={gallery} productName={p.name} />
 
         <div>
           {p.categories?.name && <p className="text-xs uppercase tracking-wider text-accent-muted">{p.categories.name}</p>}
@@ -161,9 +155,13 @@ export default async function ProductDetailPage({ params }: { params: { categori
 
       {/* Tabs onder hoofd-grid: Beschrijving / Specs / FAQ / Reviews */}
       <ProductTabs
+        productId={p.id}
         description={p.long_description || p.description || null}
         specifications={p.specifications}
         faqs={p.faqs}
+        reviews={reviews}
+        reviewsCount={reviewsCount}
+        avgRating={avgRating}
       />
 
       {related.length > 0 && (

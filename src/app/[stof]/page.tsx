@@ -128,7 +128,10 @@ export default function StofPage({ params }: { params: { stof: string } }) {
           {c.sections.map((s, i) => (
             <div key={i} className="prose-doktor">
               <h2 className="font-display text-2xl md:text-3xl mt-2">{s.heading}</h2>
-              <p className="mt-3 text-text leading-relaxed">{s.body}</p>
+              <p
+                className="mt-3 text-text leading-relaxed [&_a]:text-accent [&_a]:underline [&_a:hover]:text-accent-muted"
+                dangerouslySetInnerHTML={{ __html: s.body }}
+              />
             </div>
           ))}
         </section>

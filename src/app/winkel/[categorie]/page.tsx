@@ -79,6 +79,13 @@ export default async function CategoryPage({
       <h1 className="font-display text-3xl md:text-4xl">{cat.name}</h1>
       {cat.description && <p className="mt-3 max-w-3xl text-text-muted leading-relaxed">{cat.description}</p>}
 
+      {cat.intro_html && (
+        <div
+          className="prose prose-sm max-w-3xl mt-5 text-text [&>p]:my-3 [&>p]:leading-relaxed [&_a]:text-accent [&_a]:underline [&_a:hover]:text-accent-muted [&>h2]:font-display [&>h2]:text-xl [&>h2]:mt-6 [&>h2]:mb-2 [&>h3]:font-display [&>h3]:text-base [&>h3]:mt-4 [&>ul]:my-3 [&>ul]:pl-6 [&>ul]:list-disc"
+          dangerouslySetInnerHTML={{ __html: cat.intro_html }}
+        />
+      )}
+
       <div className="mt-6 rounded-lg border border-accent/30 bg-accent-soft/15 p-4 flex items-start gap-3">
         <Sparkles size={18} className="text-accent shrink-0 mt-0.5" />
         <div className="text-sm">

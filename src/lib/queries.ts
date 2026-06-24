@@ -128,6 +128,29 @@ export async function getBlogPost(slug: string): Promise<BlogPost | null> {
   } catch { return null; }
 }
 
+export type ProductReview = {
+  id: string;
+  rating: number;
+  author_name: string;
+  title: string | null;
+  body: string | null;
+  created_at: string;
+  published_at: string | null;
+};
+
+export async function listProductReviews(productId: string, limit = 20): Promise<ProductReview[]> {
+  try {
+    const { data } = await supabase.from("product_reviews")
+      .select("id, rating, author_name, title, body, created_at, published_at")
+      .eq("product_id", productId)
+      .eq("status", "approved")
+      .eq("is_spam", false)
+      .order("created_at", { ascending: false })
+      .limit(limit);
+    return (data ?? []) as ProductReview[];
+  } catch { return []; }
+}
+
 export async function getShop() {
   try {
     const { data } = await supabase.from("shops").select("*").eq("id", SHOP_ID).maybeSingle();

@@ -594,15 +594,15 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Risico's en bijwerkingen",
-        body: "Verwacht acne op rug en schouders, lichte vochtretentie en gestegen libido in de eerste weken. Wat je serieus moet monitoren: hematocriet boven 54 betekent bloeddonatie (verhoogd trombose-risico), E2 boven ~45 pg/mL in combinatie met gevoelige tepels betekent AI bijsturen, LDL kan 20-30% stijgen. Bloeddruk vaak +5/10 mmHg. Na de kuur kan herstel 3-6 maanden duren, en bij hoge dosis/lange kuren is volledig herstel niet gegarandeerd.",
+        body: "Verwacht acne op rug en schouders, lichte vochtretentie en gestegen libido in de eerste weken. Wat je serieus moet monitoren via <a href=\"/risicos-en-bijwerkingen\">bloedwerk</a>: hematocriet boven 54 betekent bloeddonatie (verhoogd trombose-risico), E2 boven ~45 pg/mL in combinatie met gevoelige tepels betekent <a href=\"/arimidex\">AI</a> bijsturen, LDL kan 20-30% stijgen. Bloeddruk vaak +5/10 mmHg. Na de kuur kan herstel 3-6 maanden duren, en bij hoge dosis/lange kuren is volledig herstel niet gegarandeerd.",
       },
       {
         heading: "Onderzoek en bronnen",
-        body: "De klassieke Bhasin-studie liet zien dat 600 mg test enanthate per week zonder training al meer spiermassa opbouwt dan natural training (<a href=\"https://pubmed.ncbi.nlm.nih.gov/8637535/\">Bhasin et al., NEJM 1996</a>). Voor langetermijn-cardiovasculaire data zie <a href=\"https://pubmed.ncbi.nlm.nih.gov/19299444/\">Basaria et al., 2010</a> over TRT-risico's bij oudere mannen. Voor HPTA-suppressie en hersteltijden is <a href=\"https://pubmed.ncbi.nlm.nih.gov/14506203/\">Liu et al., 2003</a> een goede referentie. Echte test van je gear: stuur altijd een sample naar JanoshikAnalytical of Simec.cz — vraag elke source naar het COA per batchcode.",
+        body: "De klassieke Bhasin-studie liet zien dat 600 mg test enanthate per week zonder training al meer spiermassa opbouwt dan natural training (<a href=\"https://pubmed.ncbi.nlm.nih.gov/8637535/\">Bhasin et al., NEJM 1996</a>). Voor langetermijn-cardiovasculaire data zie <a href=\"https://pubmed.ncbi.nlm.nih.gov/19299444/\">Basaria et al., 2010</a> over TRT-risico's bij oudere mannen. Voor HPTA-suppressie en hersteltijden is <a href=\"https://pubmed.ncbi.nlm.nih.gov/14506203/\">Liu et al., 2003</a> een goede referentie. Echte test van je gear: stuur altijd een sample naar <a href=\"/lab\">JanoshikAnalytical</a> of Simec.cz — vraag elke source naar het COA per batchcode.",
       },
       {
         heading: "Wanneer wel/niet kiezen",
-        body: "Wel kiezen als: het je eerste of tweede kuur is, je een stabiele basis wil voor een stack met deca/boldenone/tren, of je tussen blasts cruiset. Niet kiezen als: je een doping-gecontroleerde sport doet (detectie tot 3 maanden), je hematocriet al hoog van nature is, of je een familie-geschiedenis hebt van prostaatkanker. Tieners blijven van testosteron af — je groeischijven sluiten vroegtijdig.",
+        body: "Wel kiezen als: het je eerste of tweede kuur is, je een stabiele basis wil voor een stack met <a href=\"/nandrolon\">deca</a>/<a href=\"/boldenone\">boldenone</a>/<a href=\"/trenbolone\">tren</a>, of je tussen blasts cruiset. Niet kiezen als: je een doping-gecontroleerde sport doet (detectie tot 3 maanden), je hematocriet al hoog van nature is, of je een familie-geschiedenis hebt van prostaatkanker. Tieners blijven van testosteron af — je groeischijven sluiten vroegtijdig.",
       },
     ],
     faqs: [
@@ -666,7 +666,7 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Doseringen en cycle-protocol",
-        body: "Beginnersprotocol: Test E 500 mg/wk + Deca 300 mg/wk, 14 weken. Cabergoline 0.25 mg op maandag en donderdag vanaf week 1. Adex 0.25 mg E3D op basis van bloedwerk. Intermediate: Test 600 + Deca 500, 16 weken. NPP gebruik je als je sneller wil reageren — 100 mg E2D voor 10-12 weken, bloedspiegels reageren binnen een week. Belangrijk: deca-dose < test-dose, anders boem libido. PCT pas 3 weken na laatste Deca-prik door die lange decanoate-ester. Bij NPP wacht je 10 dagen.",
+        body: "Beginnersprotocol: <a href=\"/testosteron\">Test E</a> 500 mg/wk + Deca 300 mg/wk, 14 weken. Cabergoline 0.25 mg op maandag en donderdag vanaf week 1. <a href=\"/arimidex\">Adex</a> 0.25 mg E3D op basis van bloedwerk. Intermediate: Test 600 + Deca 500, 16 weken. NPP gebruik je als je sneller wil reageren — 100 mg E2D voor 10-12 weken, bloedspiegels reageren binnen een week. Belangrijk: deca-dose < test-dose, anders boem libido. PCT pas 3 weken na laatste Deca-prik door die lange decanoate-ester. Bij NPP wacht je 10 dagen.",
       },
       {
         heading: "Risico's en bijwerkingen",
@@ -674,11 +674,11 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Onderzoek en bronnen",
-        body: "Voor het klassieke profiel van nandrolon-suppressie en hersteltijden, zie <a href=\"https://pubmed.ncbi.nlm.nih.gov/22030145/\">Bonetti et al., 2008</a> over post-cycle HPTA-suppressie en de hersteltijden bij nandrolone-decanoate. Voor de progestagene werking en prolactine-link: <a href=\"https://pubmed.ncbi.nlm.nih.gov/12930599/\">Hartgens & Kuipers, Sports Med 2004</a> — review van bijwerkingen anabolen. Klinisch gebruik bij osteoporose en cachexie is onderzocht in <a href=\"https://pubmed.ncbi.nlm.nih.gov/8843534/\">Frisoli et al.</a>. Test je gear via JanoshikAnalytical — vraag bij elke source naar batchcode + COA, deca wordt regelmatig underdosed of vermengd met goedkopere test.",
+        body: "Voor het klassieke profiel van nandrolon-suppressie en hersteltijden, zie <a href=\"https://pubmed.ncbi.nlm.nih.gov/22030145/\">Bonetti et al., 2008</a> over post-cycle HPTA-suppressie en de hersteltijden bij nandrolone-decanoate. Voor de progestagene werking en prolactine-link: <a href=\"https://pubmed.ncbi.nlm.nih.gov/12930599/\">Hartgens & Kuipers, Sports Med 2004</a> — review van bijwerkingen anabolen. Klinisch gebruik bij osteoporose en cachexie is onderzocht in <a href=\"https://pubmed.ncbi.nlm.nih.gov/8843534/\">Frisoli et al.</a>. Test je gear via <a href=\"/lab\">JanoshikAnalytical</a> — vraag bij elke source naar batchcode + COA, deca wordt regelmatig underdosed of vermengd met goedkopere test.",
       },
       {
         heading: "Wanneer wel/niet kiezen",
-        body: "Wel kiezen als: je wil bulken met focus op kwalitatieve mass, je gewrichten zeuren bij zware compounds, je geen tren-paranoia wil. Niet kiezen als: het je eerste kuur is (te complex met progestagene management), je een doping-getest atleet bent (18 maanden detectie), je een korte 8-weekse cut wil draaien (te lange ester, te traag), of je gevoelig bent voor depressie en stemmingsklachten.",
+        body: "Wel kiezen als: je wil bulken met focus op kwalitatieve mass, je gewrichten zeuren bij zware compounds, je geen <a href=\"/trenbolone\">tren</a>-paranoia wil. Niet kiezen als: het je eerste kuur is (te complex met progestagene management), je een doping-getest atleet bent (18 maanden detectie), je een korte 8-weekse cut wil draaien (te lange ester, te traag), of je gevoelig bent voor depressie en stemmingsklachten.",
       },
     ],
     faqs: [
@@ -738,11 +738,11 @@ export const categoryContent: CategoryContent[] = [
     sections: [
       {
         heading: "Wat is trenbolone en hoe werkt het",
-        body: "Trenbolone is een 19-nor verbinding (afgeleid van nandrolon) maar dan met dubbele binding op de 9 en 11 positie — dat maakt hem niet-aromatiseerbaar én geeft hem een androgene/anabole ratio van 500:500 vs test 100:100. Hij bindt 3x sterker aan de androgeen-receptor dan test, blokkeert glucocorticoïden (vandaar zijn anti-katabole reputatie), en pusht IGF-1 in spierweefsel. Vetverbranding gaat omhoog via beta-adrenerge stimulatie. Maar: bindt aan progesteron-receptor (gyno-risico via die route, niet via aromatisatie), pusht prolactine, en stresst nieren/cardiovasculair flink. Geen tren zonder test-basis — pure tren only is een snelle weg naar mentale ellende.",
+        body: "Trenbolone is een 19-nor verbinding (afgeleid van <a href=\"/nandrolon\">nandrolon</a>) maar dan met dubbele binding op de 9 en 11 positie — dat maakt hem niet-aromatiseerbaar én geeft hem een androgene/anabole ratio van 500:500 vs test 100:100. Hij bindt 3x sterker aan de androgeen-receptor dan test, blokkeert glucocorticoïden (vandaar zijn anti-katabole reputatie), en pusht IGF-1 in spierweefsel. Vetverbranding gaat omhoog via beta-adrenerge stimulatie. Maar: bindt aan progesteron-receptor (gyno-risico via die route, niet via aromatisatie), pusht prolactine, en stresst nieren/cardiovasculair flink. Geen tren zonder <a href=\"/testosteron\">test</a>-basis — pure tren only is een snelle weg naar mentale ellende.",
       },
       {
         heading: "Doseringen en cycle-protocol",
-        body: "Eerste tren-kuur (na minstens 3 test-only kuren): Test E 300-400 mg/wk + Tren A 50 mg E2D (175 mg/wk), 8-10 weken. Caber 0.25 mg 2x/wk vanaf week 1. Houd test-dosis lager dan tren-dosis voor maximaal droog effect, of gelijk voor meer comfort. Intermediate: Test 300 + Tren E 300-400 mg/wk, 12 weken. Geavanceerd: Test 200 + Tren 500 + Mast 400 (klassieke recomp). PCT pas 10 dagen na laatste Tren A-prik, 21 dagen na Tren E. Nachtkussen wegleggen want je gaat zweten.",
+        body: "Eerste tren-kuur (na minstens 3 test-only kuren): <a href=\"/testosteron\">Test E</a> 300-400 mg/wk + Tren A 50 mg E2D (175 mg/wk), 8-10 weken. Caber 0.25 mg 2x/wk vanaf week 1. Houd test-dosis lager dan tren-dosis voor maximaal droog effect, of gelijk voor meer comfort. Intermediate: Test 300 + Tren E 300-400 mg/wk, 12 weken. Geavanceerd: Test 200 + Tren 500 + <a href=\"/masteron\">Mast</a> 400 (klassieke recomp). PCT pas 10 dagen na laatste Tren A-prik, 21 dagen na Tren E. Nachtkussen wegleggen want je gaat zweten.",
       },
       {
         heading: "Risico's en bijwerkingen",
@@ -750,7 +750,7 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Onderzoek en bronnen",
-        body: "Trenbolone is paradoxaal weinig onderzocht in mensen (veterinair veel: <a href=\"https://pubmed.ncbi.nlm.nih.gov/3924900/\">Heitzman, 1976</a>). Voor cardiovasculair risico in androgeen-gebruikers in het algemeen zie <a href=\"https://pubmed.ncbi.nlm.nih.gov/28427820/\">Baggish et al., Circulation 2017</a> over langetermijn-cardiotoxiciteit bij AAS-gebruikers. Voor mentale bijwerkingen: <a href=\"https://pubmed.ncbi.nlm.nih.gov/12701818/\">Pope et al., 2000</a> over stemmings- en agressie-veranderingen. Voor renale stress en tren: case reports zoals <a href=\"https://pubmed.ncbi.nlm.nih.gov/22293001/\">Almukhtar et al., 2015</a>. Lab-testen verplicht — tren wordt vaak underdosed of geleverd als test-suspension met tren-kleurtje. JanoshikAnalytical voor HPLC.",
+        body: "Trenbolone is paradoxaal weinig onderzocht in mensen (veterinair veel: <a href=\"https://pubmed.ncbi.nlm.nih.gov/3924900/\">Heitzman, 1976</a>). Voor cardiovasculair risico in androgeen-gebruikers in het algemeen zie <a href=\"https://pubmed.ncbi.nlm.nih.gov/28427820/\">Baggish et al., Circulation 2017</a> over langetermijn-cardiotoxiciteit bij AAS-gebruikers. Voor mentale bijwerkingen: <a href=\"https://pubmed.ncbi.nlm.nih.gov/12701818/\">Pope et al., 2000</a> over stemmings- en agressie-veranderingen. Voor renale stress en tren: case reports zoals <a href=\"https://pubmed.ncbi.nlm.nih.gov/22293001/\">Almukhtar et al., 2015</a>. <a href=\"/lab\">Lab-testen</a> verplicht — tren wordt vaak underdosed of geleverd als test-suspension met tren-kleurtje. JanoshikAnalytical voor HPLC.",
       },
       {
         heading: "Wanneer wel/niet kiezen",
@@ -814,11 +814,11 @@ export const categoryContent: CategoryContent[] = [
     sections: [
       {
         heading: "Wat is boldenone en hoe werkt het",
-        body: "Boldenone is testosteron met een extra dubbele binding op carbon 1 — chemisch bijna identiek aan dianabol minus de c17-methylatie (vandaar injectable in plaats van oral). Het bindt redelijk aan de androgeen-receptor maar het echte unieke effect zit in extreme erytropoëse: rode bloedcellen schieten omhoog, hematocriet stijgt snel, en je cardio-output wordt absurd. Pumps tijdens training kunnen pijnlijk zijn (denk: rugpump tijdens deadlifts waardoor je moet stoppen). Het aromatiseert mild, ongeveer de helft van test. Verhoogt eetlust significant via ghrelin-modulatie — handig voor bulk, lastig als je een cut probeert.",
+        body: "Boldenone is <a href=\"/testosteron\">testosteron</a> met een extra dubbele binding op carbon 1 — chemisch bijna identiek aan <a href=\"/dianabol\">dianabol</a> minus de c17-methylatie (vandaar injectable in plaats van oral). Het bindt redelijk aan de androgeen-receptor maar het echte unieke effect zit in extreme erytropoëse: rode bloedcellen schieten omhoog, hematocriet stijgt snel, en je cardio-output wordt absurd. Pumps tijdens training kunnen pijnlijk zijn (denk: rugpump tijdens deadlifts waardoor je moet stoppen). Het aromatiseert mild, ongeveer de helft van test. Verhoogt eetlust significant via ghrelin-modulatie — handig voor bulk, lastig als je een cut probeert.",
       },
       {
         heading: "Doseringen en cycle-protocol",
-        body: "Beginner EQ-cycle (na ten minste 2 test-only kuren): Test E 400 mg/wk + EQ 500 mg/wk, 16 weken minimum want EQ kickt traag in. Sommigen voegen Dbol 30 mg/dag toe voor weken 1-4 als kickstart, dan zit je niet zes weken op je gevoel te wachten. Intermediate: Test 500 + EQ 600-700 mg/wk, 18-20 weken. Adex op basis van bloedwerk (lage aromatisatie maar dosering is hoog). Hematocriet vóór de kuur meten — boven 50 al, dan plan een donatie in voor week 8. Voor 18-weekse kuren is bloedwerk op weken 6, 12 en 18 het minimum.",
+        body: "Beginner EQ-cycle (na ten minste 2 test-only kuren): <a href=\"/testosteron\">Test E</a> 400 mg/wk + EQ 500 mg/wk, 16 weken minimum want EQ kickt traag in. Sommigen voegen <a href=\"/dianabol\">Dbol</a> 30 mg/dag toe voor weken 1-4 als kickstart, dan zit je niet zes weken op je gevoel te wachten. Intermediate: Test 500 + EQ 600-700 mg/wk, 18-20 weken. <a href=\"/arimidex\">Adex</a> op basis van bloedwerk (lage aromatisatie maar dosering is hoog). Hematocriet vóór de kuur meten — boven 50 al, dan plan een donatie in voor week 8. Voor 18-weekse kuren is bloedwerk op weken 6, 12 en 18 het minimum.",
       },
       {
         heading: "Risico's en bijwerkingen",
@@ -890,11 +890,11 @@ export const categoryContent: CategoryContent[] = [
     sections: [
       {
         heading: "Wat is masteron en hoe werkt het",
-        body: "Masteron (drostanolone) is een afgeleide van DHT — toegevoegd is een 2-methyl-groep die het beschermt tegen 3-alpha-HSD-afbraak in spierweefsel. Het bindt aan SHBG, waardoor minder van je test gebonden wordt en meer vrij testosteron circuleert. Daarnaast werkt het als zwakke aromatase-binder zonder receptor-activatie — vandaar mild anti-oestrogeen effect. Geen aromatisatie betekent geen vochtretentie, geen E2-bloat. Het geeft een 'gripperig' droog gevoel in spieren en visuele hardheid die op foto's pops. Geen massa-builder — een esthetische polish-stof.",
+        body: "Masteron (drostanolone) is een afgeleide van DHT — toegevoegd is een 2-methyl-groep die het beschermt tegen 3-alpha-HSD-afbraak in spierweefsel. Het bindt aan SHBG, waardoor minder van je test gebonden wordt en meer vrij <a href=\"/testosteron\">testosteron</a> circuleert. Daarnaast werkt het als zwakke aromatase-binder zonder receptor-activatie — vandaar mild anti-oestrogeen effect. Geen aromatisatie betekent geen vochtretentie, geen E2-bloat. Het geeft een 'gripperig' droog gevoel in spieren en visuele hardheid die op foto's pops. Geen massa-builder — een esthetische polish-stof.",
       },
       {
         heading: "Doseringen en cycle-protocol",
-        body: "Klassiek cut-stack: Test E 300 mg + Mast E 400-500 mg, 12 weken. Voor recomp: Test 300 + Tren E 200 + Mast E 400, 10-12 weken (de zogenaamde 'TRT-Tren-Mast'). Pre-contest gasten gaan tot 600-800 mg Mast E in de laatste 6 weken. Mast P (propionate) wordt vaak in de laatste 4 weken vóór een show toegevoegd voor extra polish, 100 mg E2D — sneller in/uit. Beginnerstip: voor je eerste cut probeer Test + Mast eerst voordat je Tren toevoegt. Veel gasten ontdekken dat Mast alleen al voor flink wat hardness zorgt zonder de tren-bijwerkingen.",
+        body: "Klassiek cut-stack: <a href=\"/testosteron\">Test E</a> 300 mg + Mast E 400-500 mg, 12 weken. Voor recomp: Test 300 + <a href=\"/trenbolone\">Tren E</a> 200 + Mast E 400, 10-12 weken (de zogenaamde 'TRT-Tren-Mast'). Pre-contest gasten gaan tot 600-800 mg Mast E in de laatste 6 weken. Mast P (propionate) wordt vaak in de laatste 4 weken vóór een show toegevoegd voor extra polish, 100 mg E2D — sneller in/uit. Beginnerstip: voor je eerste cut probeer Test + Mast eerst voordat je Tren toevoegt. Veel gasten ontdekken dat Mast alleen al voor flink wat hardness zorgt zonder de tren-bijwerkingen.",
       },
       {
         heading: "Risico's en bijwerkingen",
@@ -970,15 +970,15 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Doseringen en cycle-protocol",
-        body: "Beginner: 40-50 mg/dag, 6-8 weken, gesplitst in 2 giften (ochtend + avond want halfwaardetijd is 8 uur). Altijd op test-basis — 300-400 mg Test E erbij is standaard. Intermediate: 60-80 mg/dag, 8 weken max. Pre-contest gasten gebruiken 80-100 mg in de laatste 4-6 weken. Vrouwen: 5-10 mg/dag, 4-6 weken — bij hogere doses begint virilisatie (stem, libido, clit). Lever-supps niet skippen: TUDCA 500 mg/dag, NAC 1200 mg/dag, en idealiter geen alcohol tijdens de cycle. Bloedwerk voor lever-enzymen op week 4 en 8.",
+        body: "Beginner: 40-50 mg/dag, 6-8 weken, gesplitst in 2 giften (ochtend + avond want halfwaardetijd is 8 uur). Altijd op test-basis — 300-400 mg <a href=\"/testosteron\">Test E</a> erbij is standaard. Intermediate: 60-80 mg/dag, 8 weken max. Pre-contest gasten gebruiken 80-100 mg in de laatste 4-6 weken. Vrouwen: 5-10 mg/dag, 4-6 weken — bij hogere doses begint virilisatie (stem, libido, clit). Lever-supps niet skippen: TUDCA 500 mg/dag, NAC 1200 mg/dag, en idealiter geen alcohol tijdens de cycle. Bloedwerk voor lever-enzymen op week 4 en 8.",
       },
       {
         heading: "Risico's en bijwerkingen",
-        body: "Hepatotoxiciteit: mild in vergelijking met dbol of winstrol, maar nog steeds aanwezig. ALAT/ASAT stijgt licht (vaak 1.5-2x bovengrens). HDL-cholesterol is de hardste hit — kan met 30-50% dalen, soms onder 20 mg/dL bij hogere doses. LDL stijgt 15-25%. Bloeddruk meestal stabiel. Acne mild, haaruitval mild (let op bij aanleg). Suppressie van eigen test: minder dramatisch dan andere stoffen maar wel echt — 4 weken anavar onderdrukt LH/FSH significant. PCT verplicht na elke cycle. Een minder bekend effect: spierkrampen, vooral kuiten en lower back — verhoog dan magnesium 400 mg + zout intake.",
+        body: "Hepatotoxiciteit: mild in vergelijking met <a href=\"/dianabol\">dbol</a> of <a href=\"/winstrol\">winstrol</a>, maar nog steeds aanwezig. ALAT/ASAT stijgt licht (vaak 1.5-2x bovengrens). HDL-cholesterol is de hardste hit — kan met 30-50% dalen, soms onder 20 mg/dL bij hogere doses. LDL stijgt 15-25%. Bloeddruk meestal stabiel. Acne mild, haaruitval mild (let op bij aanleg). Suppressie van eigen test: minder dramatisch dan andere stoffen maar wel echt — 4 weken anavar onderdrukt LH/FSH significant. PCT verplicht na elke cycle. Een minder bekend effect: spierkrampen, vooral kuiten en lower back — verhoog dan magnesium 400 mg + zout intake.",
       },
       {
         heading: "Onderzoek en bronnen",
-        body: "Een van de best gedocumenteerde anabolen in klinische context. Voor brandwondenherstel-onderzoek met 80 mg/dag: <a href=\"https://pubmed.ncbi.nlm.nih.gov/16763472/\">Demling, 2005</a> over oxandrolone in catabolic conditions. Voor het iconische 1995 onderzoek over oxandrolone en weight regain bij HIV-patiënten: <a href=\"https://pubmed.ncbi.nlm.nih.gov/1623999/\">Berger et al., 1996</a>. Voor lever-effecten in detail: <a href=\"https://pubmed.ncbi.nlm.nih.gov/15730854/\">Petrovic et al., 2010</a>. Anavar wordt extreem vaak vervalst — ruwe oxandrolone-poeder kost ~$30/gram, dianabol ~$0.50/gram. Vraag altijd HPLC-test van de batch (JanoshikAnalytical, Simec). Echte var: subtiele krachttoename, geen extreme bloat. Krijg je in week 1 al 4 kg + bloat? Het is geen var.",
+        body: "Een van de best gedocumenteerde anabolen in klinische context. Voor brandwondenherstel-onderzoek met 80 mg/dag: <a href=\"https://pubmed.ncbi.nlm.nih.gov/16763472/\">Demling, 2005</a> over oxandrolone in catabolic conditions. Voor het iconische 1995 onderzoek over oxandrolone en weight regain bij HIV-patiënten: <a href=\"https://pubmed.ncbi.nlm.nih.gov/1623999/\">Berger et al., 1996</a>. Voor lever-effecten in detail: <a href=\"https://pubmed.ncbi.nlm.nih.gov/15730854/\">Petrovic et al., 2010</a>. Anavar wordt extreem vaak vervalst — ruwe oxandrolone-poeder kost ~$30/gram, dianabol ~$0.50/gram. Vraag altijd <a href=\"/lab\">HPLC-test</a> van de batch (JanoshikAnalytical, Simec). Echte var: subtiele krachttoename, geen extreme bloat. Krijg je in week 1 al 4 kg + bloat? Het is geen var.",
       },
       {
         heading: "Wanneer wel/niet kiezen",
@@ -1042,11 +1042,11 @@ export const categoryContent: CategoryContent[] = [
     sections: [
       {
         heading: "Wat is dianabol en hoe werkt het",
-        body: "Dianabol is testosteron met een extra 1-2 dubbele binding en een 17-alpha methyl-groep. Dat laatste maakt het oraal opneembaar maar belast wel je lever. Het bindt sterk aan de androgeen-receptor, pusht eiwitsynthese, en geeft enorme glycogeenopslag in spier (vandaar de pump en het volle uiterlijk). Het aromatiseert agressief naar oestradiol — wat zorgt voor vochtretentie, libido en de typische 'dbol bloat'. Werkingsduur is kort (5 uur), dus splitsen over 2-3 giften per dag voor stabiele plasmaspiegel. Effect in week 1: gewicht +2-3 kg (vooral water/glycogeen), kracht serieus omhoog, pumps die ridicuul worden.",
+        body: "Dianabol is <a href=\"/testosteron\">testosteron</a> met een extra 1-2 dubbele binding en een 17-alpha methyl-groep. Dat laatste maakt het oraal opneembaar maar belast wel je lever. Het bindt sterk aan de androgeen-receptor, pusht eiwitsynthese, en geeft enorme glycogeenopslag in spier (vandaar de pump en het volle uiterlijk). Het aromatiseert agressief naar oestradiol — wat zorgt voor vochtretentie, libido en de typische 'dbol bloat'. Werkingsduur is kort (5 uur), dus splitsen over 2-3 giften per dag voor stabiele plasmaspiegel. Effect in week 1: gewicht +2-3 kg (vooral water/glycogeen), kracht serieus omhoog, pumps die ridicuul worden.",
       },
       {
         heading: "Doseringen en cycle-protocol",
-        body: "Klassieke kickstart: Test E 500 mg/wk x 14 weken + Dbol 30 mg/dag in weken 1-4. Beginner kickstart-dose 20-25 mg/dag, intermediate 30-40 mg, geavanceerd tot 50 mg. Cycle-duur Dbol max 6 weken vanwege lever — daarna stoppen, injectable doorlopen. Verdeel over 3 giften ('t ochtends, lunch, vroege avond) of preworkout (1 hour vóór training) als single dose voor pump-focus. Adex 0.25 mg E3D vanaf week 1 vrijwel altijd nodig (Dbol + Test = veel E2). Lever-supps: TUDCA 500-1000 mg/dag, NAC 1200 mg, geen alcohol.",
+        body: "Klassieke kickstart: <a href=\"/testosteron\">Test E</a> 500 mg/wk x 14 weken + Dbol 30 mg/dag in weken 1-4. Beginner kickstart-dose 20-25 mg/dag, intermediate 30-40 mg, geavanceerd tot 50 mg. Cycle-duur Dbol max 6 weken vanwege lever — daarna stoppen, injectable doorlopen. Verdeel over 3 giften ('t ochtends, lunch, vroege avond) of preworkout (1 hour vóór training) als single dose voor pump-focus. <a href=\"/arimidex\">Adex</a> 0.25 mg E3D vanaf week 1 vrijwel altijd nodig (Dbol + Test = veel E2). Lever-supps: TUDCA 500-1000 mg/dag, NAC 1200 mg, geen alcohol.",
       },
       {
         heading: "Risico's en bijwerkingen",
@@ -1058,7 +1058,7 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Wanneer wel/niet kiezen",
-        body: "Wel kiezen als: je een bulk-cycle kickstart wil (eerste 4 weken bridge), je natural-klein bent en snel volume wil, je in off-season zit en niet kraakdroog hoeft te zijn. Niet kiezen als: je naar een show toewerkt (te vochtig), je hoge bloeddruk hebt, je lever-problemen of cholesterol-issues hebt, je een mooie droge look wil, of het je eerste cycle is (begin met test alleen). Niet stacken met andere c17-α orals zoals winstrol, anadrol — leverdood-combo.",
+        body: "Wel kiezen als: je een bulk-cycle kickstart wil (eerste 4 weken bridge), je natural-klein bent en snel volume wil, je in off-season zit en niet kraakdroog hoeft te zijn. Niet kiezen als: je naar een show toewerkt (te vochtig), je hoge bloeddruk hebt, je lever-problemen of cholesterol-issues hebt, je een mooie droge look wil, of het je eerste cycle is (begin met test alleen). Niet stacken met andere c17-α orals zoals <a href=\"/winstrol\">winstrol</a>, anadrol — leverdood-combo.",
       },
     ],
     faqs: [
@@ -1122,11 +1122,11 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Doseringen en cycle-protocol",
-        body: "Klassiek pre-contest: Test 300 + Mast E 400 + Winstrol 50 mg/dag in laatste 6 weken. Beginner-dose 25-30 mg/dag oraal, intermediate 50 mg, geavanceerd 75 mg max. Injectable 50 mg E2D of dagelijks. Cycles 6-8 weken vanwege lever. Splits oraal in 2 giften (ochtend + 8-10 uur later). Stack regel: niet met andere c17-α orals (dbol, anadrol, anavar dubbel-stack = leverdood). Mast + Winstrol + Test is de gouden cut-stack. Voor recomp: Test + Tren + Mast + Winstrol als finisher (laatste 4 wkn). Lever-supps: TUDCA 1000 mg/dag, NAC 1200 mg, omega-3 4 g voor lipiden. Bloedwerk week 3 en 6.",
+        body: "Klassiek pre-contest: <a href=\"/testosteron\">Test</a> 300 + <a href=\"/masteron\">Mast E</a> 400 + Winstrol 50 mg/dag in laatste 6 weken. Beginner-dose 25-30 mg/dag oraal, intermediate 50 mg, geavanceerd 75 mg max. Injectable 50 mg E2D of dagelijks. Cycles 6-8 weken vanwege lever. Splits oraal in 2 giften (ochtend + 8-10 uur later). Stack regel: niet met andere c17-α orals (<a href=\"/dianabol\">dbol</a>, anadrol, anavar dubbel-stack = leverdood). Mast + Winstrol + Test is de gouden cut-stack. Voor recomp: Test + Tren + Mast + Winstrol als finisher (laatste 4 wkn). Lever-supps: TUDCA 1000 mg/dag, NAC 1200 mg, omega-3 4 g voor lipiden. Bloedwerk week 3 en 6.",
       },
       {
         heading: "Risico's en bijwerkingen",
-        body: "Lipiden zijn de big one — Winstrol is de allerergste anabolic qua HDL-impact. HDL kan met 50-70% dalen, soms onder 15 mg/dL. LDL stijgt 30-50%. Cardiovasculair risico schiet omhoog, vooral als je al een familiegeschiedenis hebt. Gewrichten: droogheid in synoviaal vocht maakt squat, deadlift, bench oncomfortabel — sommige gasten draaien daarom een lage deca-dose (200 mg) als 'joint cushion' tijdens een winny-cycle. Lever-enzymen 2-4x bovengrens. Acne kan opspelen. Suppressie compleet. Pees-blessures: meldingen van ruptures op winny zijn niet zeldzaam — verminder de last bij zware sets, vooral cold. Bloeddruk omhoog. PIP bij injectable is berucht (vandaar dat veel gasten oral kiezen).",
+        body: "Lipiden zijn de big one — Winstrol is de allerergste anabolic qua HDL-impact. HDL kan met 50-70% dalen, soms onder 15 mg/dL. LDL stijgt 30-50%. <a href=\"/risicos-en-bijwerkingen\">Cardiovasculair risico</a> schiet omhoog, vooral als je al een familiegeschiedenis hebt. Gewrichten: droogheid in synoviaal vocht maakt squat, deadlift, bench oncomfortabel — sommige gasten draaien daarom een lage <a href=\"/nandrolon\">deca</a>-dose (200 mg) als 'joint cushion' tijdens een winny-cycle. Lever-enzymen 2-4x bovengrens. Acne kan opspelen. Suppressie compleet. Pees-blessures: meldingen van ruptures op winny zijn niet zeldzaam — verminder de last bij zware sets, vooral cold. Bloeddruk omhoog. PIP bij injectable is berucht (vandaar dat veel gasten oral kiezen).",
       },
       {
         heading: "Onderzoek en bronnen",
@@ -1194,19 +1194,19 @@ export const categoryContent: CategoryContent[] = [
     sections: [
       {
         heading: "Wat is primobolan en hoe werkt het",
-        body: "Methenolone is een DHT-derivaat met een 1-methyl-groep — beschermd tegen 3α-HSD-afbraak in spierweefsel. Bindt matig aan de androgeen-receptor met lage androgene/hoge anabole ratio (88/44 vs test 100/100). Aromatiseert niet, geen oestrogene effecten, geen vochtretentie. Het effect is subtiel maar kwalitatief: lean mass, behoud van spier in caloriedeficit, lichte recomp. Tegen lipolyse heeft het ook bescheiden effect. Het is de stof die je kiest als je 'natural plus' wil zien, zonder de zichtbare bloat van Test of de droge hardness van Mast. In cutfase indrukwekkend voor spierbehoud bij caloriedeficit.",
+        body: "Methenolone is een DHT-derivaat met een 1-methyl-groep — beschermd tegen 3α-HSD-afbraak in spierweefsel. Bindt matig aan de androgeen-receptor met lage androgene/hoge anabole ratio (88/44 vs test 100/100). Aromatiseert niet, geen oestrogene effecten, geen vochtretentie. Het effect is subtiel maar kwalitatief: lean mass, behoud van spier in caloriedeficit, lichte recomp. Tegen lipolyse heeft het ook bescheiden effect. Het is de stof die je kiest als je 'natural plus' wil zien, zonder de zichtbare bloat van <a href=\"/testosteron\">Test</a> of de droge hardness van <a href=\"/masteron\">Mast</a>. In cutfase indrukwekkend voor spierbehoud bij caloriedeficit.",
       },
       {
         heading: "Doseringen en cycle-protocol",
-        body: "Beginner met primo (na minimaal 2 test-only kuren): Test E 250-300 + Primo E 500-600 mg/wk, 14-16 weken. Intermediate: Test 300 + Primo 700-800 mg/wk. Geavanceerd: Primo tot 1000 mg/wk in extended protocols — maar de prijs wordt absurd. Onder 400 mg/wk voel je amper iets. Primo werkt traag — eerste duidelijke effecten week 4-6. Primo Acetate (oral) wordt soms gebruikt: 75-100 mg/dag verdeeld over 3 giften — kortere halfwaardetijd betekent 4-5x daags doseren voor optimaal effect. Adex niet of nauwelijks nodig (test-basis aromatiseert wel, dus check E2). PCT 21 dagen na laatste Primo E-shot.",
+        body: "Beginner met primo (na minimaal 2 test-only kuren): <a href=\"/testosteron\">Test E</a> 250-300 + Primo E 500-600 mg/wk, 14-16 weken. Intermediate: Test 300 + Primo 700-800 mg/wk. Geavanceerd: Primo tot 1000 mg/wk in extended protocols — maar de prijs wordt absurd. Onder 400 mg/wk voel je amper iets. Primo werkt traag — eerste duidelijke effecten week 4-6. Primo Acetate (oral) wordt soms gebruikt: 75-100 mg/dag verdeeld over 3 giften — kortere halfwaardetijd betekent 4-5x daags doseren voor optimaal effect. <a href=\"/arimidex\">Adex</a> niet of nauwelijks nodig (test-basis aromatiseert wel, dus check E2). PCT 21 dagen na laatste Primo E-shot.",
       },
       {
         heading: "Risico's en bijwerkingen",
-        body: "Het mildste profiel van alle injectables — vandaar de populariteit bij voorzichtige gebruikers. Geen aromatisatie = geen E2-issues. Lage androgene activiteit = weinig acne, weinig haaruitval impact (maar bij genetische aanleg nog steeds mogelijk). Lipiden-impact mild vergeleken met andere DHT's, HDL daalt 15-25%. Lever-enzymen blijven stabiel bij Primo E (injectable). Suppressie is reëel maar herstel meestal vlotter dan op bv tren of deca. Belangrijkste risico: dat je geen echt primo hebt. Verkeerde stof in plaats van methenolone (vaak test) geeft je een ander bijwerkingsprofiel dan verwacht — denk je dat je geen E2-management nodig hebt, dan groei je gyno omdat de ampul gewoon Test E was.",
+        body: "Het mildste profiel van alle injectables — vandaar de populariteit bij voorzichtige gebruikers. Geen aromatisatie = geen E2-issues. Lage androgene activiteit = weinig acne, weinig haaruitval impact (maar bij genetische aanleg nog steeds mogelijk). Lipiden-impact mild vergeleken met andere DHT's, HDL daalt 15-25%. Lever-enzymen blijven stabiel bij Primo E (injectable). Suppressie is reëel maar herstel meestal vlotter dan op bv <a href=\"/trenbolone\">tren</a> of <a href=\"/nandrolon\">deca</a>. Belangrijkste risico: dat je geen echt primo hebt. Verkeerde stof in plaats van methenolone (vaak test) geeft je een ander bijwerkingsprofiel dan verwacht — denk je dat je geen E2-management nodig hebt, dan groei je gyno omdat de ampul gewoon Test E was.",
       },
       {
         heading: "Onderzoek en bronnen",
-        body: "Methenolone werd oorspronkelijk in oncologie gebruikt voor borstkanker en cachexie. Voor klassieke methenolone-pharmacokinetiek en bindings-profiel: <a href=\"https://pubmed.ncbi.nlm.nih.gov/3940036/\">Saartok et al., 1984</a> (vergelijking DHT-derivaten). Voor toepassing bij aplastische anemie: <a href=\"https://pubmed.ncbi.nlm.nih.gov/4540063/\">Allen et al., 1968</a>. Voor lipiden-impact in androgeen-gebruikers algemeen: <a href=\"https://pubmed.ncbi.nlm.nih.gov/15756519/\">Hartgens et al., 2004</a>. Vervalsing: <a href=\"https://pubmed.ncbi.nlm.nih.gov/26834024/\">Coopman & Cordonnier, 2012</a> over kwaliteits-issues van underground anabolen — primo is een case study. Test je product via JanoshikAnalytical of Simec.cz — laat ampul HPLC-tested zijn vóór gebruik, niet erna.",
+        body: "Methenolone werd oorspronkelijk in oncologie gebruikt voor borstkanker en cachexie. Voor klassieke methenolone-pharmacokinetiek en bindings-profiel: <a href=\"https://pubmed.ncbi.nlm.nih.gov/3940036/\">Saartok et al., 1984</a> (vergelijking DHT-derivaten). Voor toepassing bij aplastische anemie: <a href=\"https://pubmed.ncbi.nlm.nih.gov/4540063/\">Allen et al., 1968</a>. Voor lipiden-impact in androgeen-gebruikers algemeen: <a href=\"https://pubmed.ncbi.nlm.nih.gov/15756519/\">Hartgens et al., 2004</a>. Vervalsing: <a href=\"https://pubmed.ncbi.nlm.nih.gov/26834024/\">Coopman & Cordonnier, 2012</a> over kwaliteits-issues van underground anabolen — primo is een case study. Test je product via <a href=\"/lab\">JanoshikAnalytical</a> of Simec.cz — laat ampul HPLC-tested zijn vóór gebruik, niet erna.",
       },
       {
         heading: "Wanneer wel/niet kiezen",
@@ -1275,7 +1275,7 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Doseringen en cycle-protocol",
-        body: "Klassieke PCT: 40 mg/dag week 1-2, 20 mg/dag week 3-4. Vaak gecombineerd met Clomid (50/50/25/25) voor sterkere HPTA-stimulatie. Start PCT-timing hangt af van je laatste ester: Test Prop = 3-5 dagen, Test E/C = 14 dagen, Sustanon = 21 dagen, Deca/EQ = 21-28 dagen. Tijdens cycle voor gyno: bij eerste tepel-gevoeligheid of knobbeltje start 10-20 mg/dag voor 2-4 weken. Veel sneller effectief bij borst-symptomen dan een AI. Voor ernstige gyno (zichtbare knobbel): 20-40 mg/dag 4-6 weken kan het terugdraaien — maar als het 6+ maanden oud is, helpt alleen chirurgie.",
+        body: "Klassieke PCT: 40 mg/dag week 1-2, 20 mg/dag week 3-4. Vaak gecombineerd met <a href=\"/clomid\">Clomid</a> (50/50/25/25) voor sterkere HPTA-stimulatie. Start PCT-timing hangt af van je laatste ester: Test Prop = 3-5 dagen, Test E/C = 14 dagen, Sustanon = 21 dagen, Deca/EQ = 21-28 dagen. Tijdens cycle voor gyno: bij eerste tepel-gevoeligheid of knobbeltje start 10-20 mg/dag voor 2-4 weken. Veel sneller effectief bij borst-symptomen dan een <a href=\"/arimidex\">AI</a>. Voor ernstige gyno (zichtbare knobbel): 20-40 mg/dag 4-6 weken kan het terugdraaien — maar als het 6+ maanden oud is, helpt alleen chirurgie.",
       },
       {
         heading: "Risico's en bijwerkingen",
@@ -1287,7 +1287,7 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Wanneer wel/niet kiezen",
-        body: "Wel kiezen voor: elke PCT na een androgene cycle, gyno-prevention/management tijdens cycle, mannen op TRT die mild HDL-boost willen (off-label). Niet kiezen als: je een AI nodig hebt voor E2-controle (Nolva blokkeert geen aromatase), je voor PCT zoekt zonder LH-stimulatie (zeldzaam — vraag een arts), of je een geschiedenis hebt van diepe veneuze trombose. Stack altijd met Clomid voor optimale PCT — solo werkt het, maar combo is superieur.",
+        body: "Wel kiezen voor: elke PCT na een androgene cycle, gyno-prevention/management tijdens cycle, mannen op TRT die mild HDL-boost willen (off-label). Niet kiezen als: je een <a href=\"/arimidex\">AI</a> nodig hebt voor E2-controle (Nolva blokkeert geen aromatase), je voor PCT zoekt zonder LH-stimulatie (zeldzaam — vraag een arts), of je een geschiedenis hebt van diepe veneuze trombose. Stack altijd met <a href=\"/clomid\">Clomid</a> voor optimale PCT — solo werkt het, maar combo is superieur.",
       },
     ],
     faqs: [
@@ -1322,7 +1322,7 @@ export const categoryContent: CategoryContent[] = [
           "Voor milde cycles (test only, 12 weken, 500 mg) kan Nolva solo werken: 40/40/20/20 voor 4 weken. Voor alles harder (langere cycles, hogere doses, stacks met tren/deca/EQ) is solo Nolva onderbevolkt — voeg Clomid toe of overweeg HCG bridge ervoor. Een lakmoesproef: hoe lang en zwaar was je suppressie? Bij 8 weken test only is recovery vlot, Nolva solo prima. Bij 16 weken Test + Deca + EQ is je as diep onderdrukt — Clomid erbij of HCG 1000 IE EOD voor 10 dagen vóór PCT-start. Een tweede argument voor de combo: Nolva geeft soms libido-dip, Clomid een mentale dip — door beide laag te doseren samen krijg je beter resultaat met minder bijwerkingen.",
       },
     ],
-    related: ["clomid", "arimidex", "hcg"],
+    related: ["clomid", "arimidex", "hcg", "testosteron"],
     knowledge: ["pct-protocol-uitleg"],
   },
   {
@@ -1351,7 +1351,7 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Doseringen en cycle-protocol",
-        body: "Klassiek Clomid PCT: 50 mg/dag week 1-2, 25 mg/dag week 3-4. Vrijwel altijd gecombineerd met Nolvadex (40/40/20/20). Voor zwaardere cycles (16+ weken, hoge doses, stacks met tren/deca): front-load met 100 mg dag 1, dan 50 mg/dag voor weken 1-2. Start-timing zelfde als Nolva — hangt van ester af (Test E 14 dgn na laatste prik, deca 21-28 dgn, etc). Sommige gasten gebruiken Clomid solo op 50/50/25/25 of 100/50/50/25 voor extra LH-push — werkt maar bijwerkingen vermenigvuldigen. Voor lichte cycles (kortere oral-only cycles van 6 wkn): 25 mg/dag voor 3 weken vaak voldoende.",
+        body: "Klassiek Clomid PCT: 50 mg/dag week 1-2, 25 mg/dag week 3-4. Vrijwel altijd gecombineerd met <a href=\"/nolvadex\">Nolvadex</a> (40/40/20/20). Voor zwaardere cycles (16+ weken, hoge doses, stacks met <a href=\"/trenbolone\">tren</a>/<a href=\"/nandrolon\">deca</a>): front-load met 100 mg dag 1, dan 50 mg/dag voor weken 1-2. Start-timing zelfde als Nolva — hangt van ester af (Test E 14 dgn na laatste prik, deca 21-28 dgn, etc). Sommige gasten gebruiken Clomid solo op 50/50/25/25 of 100/50/50/25 voor extra LH-push — werkt maar bijwerkingen vermenigvuldigen. Voor lichte cycles (kortere oral-only cycles van 6 wkn): 25 mg/dag voor 3 weken vaak voldoende.",
       },
       {
         heading: "Risico's en bijwerkingen",
@@ -1363,7 +1363,7 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Wanneer wel/niet kiezen",
-        body: "Wel kiezen voor: zwaarder gesuppresseerde cycles (lange duur, hoge dose, harde stacks), PCT na HCG-bridge, restart-protocollen voor mannen met blijvende post-cycle hypogonadisme. Niet kiezen als: je gevoelig bent voor depressie/stemming, je een baan hebt waar visuele helderheid kritiek is (piloot, chirurg, etc), je een mild cycle hebt waar Nolva solo voldoet, of je een hoge mentale eisen-periode hebt (deadlines, examens — Clomid mist je hoofd). Switch naar enclomifeen of pure Nolva als bijwerkingen ondraaglijk zijn.",
+        body: "Wel kiezen voor: zwaarder gesuppresseerde cycles (lange duur, hoge dose, harde stacks), PCT na <a href=\"/hcg\">HCG</a>-bridge, restart-protocollen voor mannen met blijvende post-cycle hypogonadisme. Niet kiezen als: je gevoelig bent voor depressie/stemming, je een baan hebt waar visuele helderheid kritiek is (piloot, chirurg, etc), je een mild cycle hebt waar <a href=\"/nolvadex\">Nolva</a> solo voldoet, of je een hoge mentale eisen-periode hebt (deadlines, examens — Clomid mist je hoofd). Switch naar enclomifeen of pure Nolva als bijwerkingen ondraaglijk zijn.",
       },
     ],
     faqs: [
@@ -1398,7 +1398,7 @@ export const categoryContent: CategoryContent[] = [
           "Beide, niet één. De combo Nolva 40/40/20/20 + Clomid 50/50/25/25 is de standaard voor 90% van de cycles. Clomid biedt sterkere LH/FSH-push, Nolva biedt gyno-bescherming en mildere bijwerkingen. Solo Nolva kan voor lichte cycles (test only, 12 wkn), solo Clomid is meestal niet aan te raden door bijwerkingen. Voor wie absoluut één moet kiezen: Nolva-only met iets verhoogde dose (40/40/40/20) is de minder pijnlijke optie. Modern alternatief is enclomifeen (Androxal) — pure anti-oestrogene isomeer van Clomid zonder stemmingsbijwerkingen — maar duurder en lastiger te krijgen. Spaar Clomid voor wanneer je het echt nodig hebt: zware cycles, lange stacks.",
       },
     ],
-    related: ["nolvadex", "hcg", "arimidex"],
+    related: ["nolvadex", "hcg", "arimidex", "testosteron"],
     knowledge: ["pct-protocol-uitleg"],
   },
   {
@@ -1427,7 +1427,7 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Doseringen en cycle-protocol",
-        body: "Start lage dose op basis van cycle: 500 mg Test alleen meestal 0.25 mg E3D voldoende, 750 mg Test of stack met Dbol kan 0.5 mg E3D nodig zijn. Eerste bloedwerk op week 4-6 — E2 sensitive assay (NIET de standaard, vraag specifiek 'oestradiol sensitief LC-MS/MS'). Doel: E2 tussen 20-35 pg/mL. Boven 45: dose verhogen of frequenter. Onder 20: dose verlagen of overslaan. Een week na aanpassing weer bloedwerk. Voor anti-gyno on-cycle: arimidex is preventief, voor actieve gyno-knobbel start je beter met Nolva 20 mg/dag (snellere receptor-blockade). PCT-fase: GEEN Arimidex meer, want PCT heeft E2 nodig voor LH-feedback.",
+        body: "Start lage dose op basis van cycle: 500 mg <a href=\"/testosteron\">Test</a> alleen meestal 0.25 mg E3D voldoende, 750 mg Test of stack met <a href=\"/dianabol\">Dbol</a> kan 0.5 mg E3D nodig zijn. Eerste bloedwerk op week 4-6 — E2 sensitive assay (NIET de standaard, vraag specifiek 'oestradiol sensitief LC-MS/MS'). Doel: E2 tussen 20-35 pg/mL. Boven 45: dose verhogen of frequenter. Onder 20: dose verlagen of overslaan. Een week na aanpassing weer bloedwerk. Voor anti-gyno on-cycle: arimidex is preventief, voor actieve gyno-knobbel start je beter met <a href=\"/nolvadex\">Nolva</a> 20 mg/dag (snellere receptor-blockade). PCT-fase: GEEN Arimidex meer, want PCT heeft E2 nodig voor LH-feedback.",
       },
       {
         heading: "Risico's en bijwerkingen",
@@ -1439,7 +1439,7 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Wanneer wel/niet kiezen",
-        body: "Wel kiezen voor: cycles met aromatiseerbare compounds (test, dbol, Sustanon, EQ in hogere doses), gyno-prevention bij wie aanleg heeft, mannen op TRT met chronisch verhoogd E2. Niet kiezen als: je een non-aromatiseerbare cycle hebt (tren only, primobolan only, anavar/winstrol), je in PCT-fase zit (E2-suppressie tegenwerkt LH-restart), je libido al laag is door andere oorzaken (eerst dat oplossen voordat je AI toevoegt), of je geen toegang tot E2-bloedwerk hebt (blind doseren is een gok). Voor wie milder mentaal profiel wil: kies Aromasin (exemestane) als alternatief.",
+        body: "Wel kiezen voor: cycles met aromatiseerbare compounds (<a href=\"/testosteron\">test</a>, <a href=\"/dianabol\">dbol</a>, Sustanon, EQ in hogere doses), gyno-prevention bij wie aanleg heeft, mannen op TRT met chronisch verhoogd E2. Niet kiezen als: je een non-aromatiseerbare cycle hebt (tren only, primobolan only, anavar/winstrol), je in PCT-fase zit (E2-suppressie tegenwerkt LH-restart), je libido al laag is door andere oorzaken (eerst dat oplossen voordat je AI toevoegt), of je geen toegang tot E2-bloedwerk hebt (blind doseren is een gok). Voor wie milder mentaal profiel wil: kies Aromasin (exemestane) als alternatief.",
       },
     ],
     faqs: [
@@ -1474,7 +1474,7 @@ export const categoryContent: CategoryContent[] = [
           "Nee, want trenbolone aromatiseert niet — er wordt geen E2 uit gemaakt. Probleem: vrijwel niemand draait tren-only (en het is een slecht idee — libido stort in zonder test-basis). Op een Test + Tren stack heb je nog steeds Adex nodig voor de test-component. Veel gasten denken 'tren is droog dus ik schrap Adex' — en krijgen dan E2-bloat van hun test alsnog. Wel speelt op tren een ander oestrogeen-achtig probleem: progesteron-route gyno (door tren's binding aan PR), waar Adex NIET tegen helpt. Daarvoor heb je Nolva of caber nodig. Bloedwerk om E2 te scheiden van progesteron-gyno-signalen — symptomen overlappen.",
       },
     ],
-    related: ["nolvadex", "clomid", "hcg"],
+    related: ["nolvadex", "clomid", "hcg", "testosteron", "dianabol"],
     knowledge: ["oestrogeen-controle", "bloedwerk-voor-tijdens-na"],
   },
   {
@@ -1499,7 +1499,7 @@ export const categoryContent: CategoryContent[] = [
     sections: [
       {
         heading: "Wat is HCG en hoe werkt het",
-        body: "HCG is een glycoproteine dat door de placenta wordt geproduceerd tijdens zwangerschap — het houdt het corpus luteum actief in vrouwen. Bij mannen werkt HCG op de LH-receptor op Leydig-cellen in de testes — identieke binding als LH, dus de cellen denken dat hypofyse-LH binnenkomt en blijven testosteron produceren. Tijdens een anabolenkuur is exogeen testosteron hoog, hypothalamus stopt GnRH, hypofyse stopt LH, Leydig-cellen krijgen geen signaal en stoppen met werken — testes krimpen binnen 4-6 weken. HCG vervangt de LH-signal en houdt de machinerie draaiend. Belangrijk: HCG werkt op de testes, NIET op hypothalamus/hypofyse — herstart je hypofyse niet, dat blijft het werk van SERMs in PCT.",
+        body: "HCG is een glycoproteine dat door de placenta wordt geproduceerd tijdens zwangerschap — het houdt het corpus luteum actief in vrouwen. Bij mannen werkt HCG op de LH-receptor op Leydig-cellen in de testes — identieke binding als LH, dus de cellen denken dat hypofyse-LH binnenkomt en blijven <a href=\"/testosteron\">testosteron</a> produceren. Tijdens een anabolenkuur is exogeen testosteron hoog, hypothalamus stopt GnRH, hypofyse stopt LH, Leydig-cellen krijgen geen signaal en stoppen met werken — testes krimpen binnen 4-6 weken. HCG vervangt de LH-signal en houdt de machinerie draaiend. Belangrijk: HCG werkt op de testes, NIET op hypothalamus/hypofyse — herstart je hypofyse niet, dat blijft het werk van SERMs in PCT.",
       },
       {
         heading: "Doseringen en cycle-protocol",
@@ -1515,7 +1515,7 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Wanneer wel/niet kiezen",
-        body: "Wel gebruiken voor: lange cycles (12+ weken), zware stacks waar HPTA-suppressie diep gaat, mannen die vruchtbaar willen blijven (spermatogenese-behoud), blast-cruise gasten die op TRT-cruise testikulair volume willen behouden. Niet gebruiken als: het je eerste of tweede korte cycle is (10 weken test only herstelt vaak ook zonder HCG), je een korte oral-only cycle hebt, of je een geschiedenis hebt van hCG-allergie. Niet vervangen voor SERM-PCT — HCG is alleen testikulair, SERMs zijn voor hypofyse-as.",
+        body: "Wel gebruiken voor: lange cycles (12+ weken), zware stacks waar HPTA-suppressie diep gaat, mannen die vruchtbaar willen blijven (spermatogenese-behoud), blast-cruise gasten die op TRT-cruise testikulair volume willen behouden. Niet gebruiken als: het je eerste of tweede korte cycle is (10 weken test only herstelt vaak ook zonder HCG), je een korte oral-only cycle hebt, of je een geschiedenis hebt van hCG-allergie. Niet vervangen voor SERM-PCT — HCG is alleen testikulair, SERMs (<a href=\"/nolvadex\">Nolva</a>, <a href=\"/clomid\">Clomid</a>) zijn voor hypofyse-as.",
       },
     ],
     faqs: [
@@ -1550,7 +1550,7 @@ export const categoryContent: CategoryContent[] = [
           "Twee scholen. School 1 ('throughout'): 250-500 IE 2x per week vanaf week 3-4 tot 2 weken voor PCT. Voordelen: testes blijven on volume, geen krimp, Leydig-cellen blijven responsive, vlotter PCT-herstel. Nadeel: continu prikken, extra cost. School 2 ('bridge only'): geen HCG on-cycle, alleen 1000-2500 IE EOD voor 10-14 dagen aan einde cycle voor PCT-start. Voordelen: minder injecties, goedkoper. Nadeel: testes krimpen tijdens cycle, herstel kan trager. Modern advies: voor cycles < 12 weken school 2 voldoet, voor cycles > 12 weken of zware stacks school 1 (throughout) is superieur. Blast-cruise gasten gebruiken throughout op TRT-cruise voor jaren-stabiel testikulair volume + vruchtbaarheid-behoud.",
       },
     ],
-    related: ["nolvadex", "clomid", "arimidex"],
+    related: ["nolvadex", "clomid", "arimidex", "testosteron", "trenbolone"],
     knowledge: ["pct-protocol-uitleg"],
   },
 ];

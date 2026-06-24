@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import type { BlogPost } from "@/lib/supabase";
 
@@ -26,6 +26,12 @@ interface Props {
 
 export function KennisbankTabs({ articles, initialTab = "alle" }: Props) {
   const [tab, setTab] = useState<TabKey>(initialTab);
+  // Sync interne tab-state met URL-driven initialTab. Zonder dit blijft de tab
+  // hangen op de eerste mount-waarde als de gebruiker via header-submenu
+  // navigeert (?cat=kennis → ?cat=onderzoek levert anders geen update).
+  useEffect(() => {
+    setTab(initialTab);
+  }, [initialTab]);
   const filtered = tab === "alle" ? articles : articles.filter((a) => classify(a.category) === tab);
 
   return (

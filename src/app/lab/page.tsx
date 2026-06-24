@@ -14,9 +14,9 @@ import {
   FileCheck2,
   Search,
   Microscope,
-  Mail,
   Package,
 } from "lucide-react";
+import { LabRequestForm } from "@/components/shop/lab-request-form";
 
 export const revalidate = 3600;
 
@@ -159,23 +159,8 @@ export default function LabPage() {
                 Tarief: kostprijs van de Janoshik-test (~€60). Gratis bij vermoeden onveilig product.
               </p>
             </div>
-            <div className="space-y-3">
-              <a
-                href="mailto:lab@anabolenpro.com?subject=Eigen%20lab-test%20aanvraag&body=Hoi%20AnabolenPro%2C%0A%0AIk%20wil%20een%20product%20laten%20testen%20bij%20Janoshik.%0A%0AProduct%3A%20%0AMerk%2Fbatchcode%3A%20%0ATwijfel%20over%3A%20%0A%0AAlvast%20dank!"
-                className="block w-full rounded-md bg-accent px-5 py-4 text-center text-sm font-semibold text-accent-foreground hover:bg-accent-soft"
-              >
-                <Mail className="inline-block mr-2 h-4 w-4" />
-                Vraag test aan via e-mail
-              </a>
-              <Link
-                href="/contact"
-                className="block w-full rounded-md border border-primary-muted bg-paper-soft px-5 py-4 text-center text-sm font-medium text-primary hover:border-accent"
-              >
-                Of via het contactformulier
-              </Link>
-              <p className="text-[11px] text-primary/55 text-center pt-2">
-                Reactie binnen 1 werkdag · We helpen graag.
-              </p>
+            <div>
+              <LabRequestForm />
             </div>
           </div>
         </div>
