@@ -133,17 +133,17 @@ export default async function HomePage() {
               <FlaskConical size={12} /> Janoshik &amp; Anabolic Lab — batch 2606-A live
             </span>
             <h1 className="mt-5 font-display text-4xl md:text-6xl leading-[1.05] tracking-tight">
-              Anabolen kopen
+              Anabolen die écht kloppen
               <br />
-              <span className="text-accent-soft">die écht kloppen.</span>
+              <span className="text-accent-soft">met de lab-data.</span>
               <span className="block mt-3 text-base md:text-lg font-sans font-normal tracking-normal text-primary-foreground/70">
-                Lab-getest. Anoniem verpakt. Morgen in huis.
+                Janoshik HPLC per batch · Anoniem verpakt · Morgen in huis.
               </span>
             </h1>
             <p className="mt-5 text-lg text-primary-foreground/80 max-w-xl leading-relaxed">
-              Testosteron, trenbolone, anavar, dianabol, complete kuurpakketten met PCT erbij —
-              alles vanuit NL-magazijn. Iedere batch onafhankelijk getest, COA staat publiek op de
-              productpagina. Geen mysteriedoosjes, geen ompak-route via Polen, geen Engelse leverancier
+              Testosteron, trenbolone, anavar, dianabol, complete kuurpakketten met PCT — iedere
+              batch onafhankelijk getest door Janoshik Analytical, COA publiek per batchcode op de
+              productpagina. Geen mysteriedoosjes, geen ompak-route via Polen, geen leverancier
               die plots offline is.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
@@ -211,7 +211,7 @@ export default async function HomePage() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={c.image}
-                alt=""
+                alt={`${c.name} categorie`}
                 loading="lazy"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />

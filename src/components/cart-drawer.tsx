@@ -19,7 +19,7 @@ export function CartDrawer() {
             <p className="py-12 text-center text-sm text-text-muted">Mand is leeg</p>
           ) : cart.items.map((it) => (
             <div key={it.id} className="flex gap-3 border-b border-paper-border py-3">
-              {it.image && /* eslint-disable-next-line @next/next/no-img-element */ <img loading="lazy" decoding="async" src={it.image} alt="" className="h-16 w-16 rounded object-cover" />}
+              {it.image && /* eslint-disable-next-line @next/next/no-img-element */ <img loading="lazy" decoding="async" src={it.image} alt={it.name} className="h-16 w-16 rounded object-cover" />}
               <div className="flex-1">
                 <p className="text-sm font-medium leading-tight">{it.name}</p>
                 <p className="text-xs text-text-muted">{formatEUR(it.price_cents)}</p>

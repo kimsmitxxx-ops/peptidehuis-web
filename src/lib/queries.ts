@@ -116,16 +116,41 @@ export async function listBlogPosts(limit = 50): Promise<BlogPost[]> {
   } catch { return []; }
 }
 
-export async function getBlogPost(slug: string): Promise<BlogPost | null> {
+export async function getBlogPost(slug: string): Promise<(BlogPost & { author_info?: BlogAuthor | null }) | null> {
   try {
     const { data } = await supabase.from("blog_posts")
-      .select("*")
+      .select("*, blog_authors(id, slug, name, role, bio_short, bio_long, avatar_url, expertise, credentials)")
       .eq("shop_id", SHOP_ID)
       .eq("slug", slug)
       .eq("is_published", true)
       .maybeSingle();
-    return data as BlogPost | null;
+    if (!data) return null;
+    const { blog_authors, ...post } = data as any;
+    return { ...post, author_info: blog_authors || null } as any;
   } catch { return null; }
+}
+
+export type BlogAuthor = {
+  id: string;
+  slug: string;
+  name: string;
+  role: string | null;
+  bio_short: string | null;
+  bio_long: string | null;
+  avatar_url: string | null;
+  expertise: string[] | null;
+  credentials: string[] | null;
+};
+
+export async function listBlogAuthors(): Promise<BlogAuthor[]> {
+  try {
+    const { data } = await supabase.from("blog_authors")
+      .select("id, slug, name, role, bio_short, bio_long, avatar_url, expertise, credentials, sort_order")
+      .eq("shop_id", SHOP_ID)
+      .eq("is_active", true)
+      .order("sort_order");
+    return (data ?? []) as BlogAuthor[];
+  } catch { return []; }
 }
 
 export type ProductReview = {

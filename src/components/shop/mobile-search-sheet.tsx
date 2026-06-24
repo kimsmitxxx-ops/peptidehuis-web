@@ -84,7 +84,7 @@ export function MobileSearchSheet({ open, onOpenChange }: MobileSearchSheetProps
                     onClick={() => onOpenChange(false)}
                     className="flex items-center gap-3 py-3 hover:bg-muted/40 rounded px-2"
                   >
-                    <img loading="lazy" decoding="async" src={p.image} alt="" className="h-10 w-10 rounded object-cover" />
+                    <img loading="lazy" decoding="async" src={p.image} alt={p.name} className="h-10 w-10 rounded object-cover" />
                     <div className="min-w-0 flex-1">
                       <p className="text-sm font-medium text-text truncate">{p.name}</p>
                       <p className="text-xs text-text-muted truncate">{p.category}</p>

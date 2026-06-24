@@ -60,7 +60,7 @@ export function ArticleCard({
           className,
         )}
       >
-        <img loading="lazy" decoding="async" src={image} alt="" className="h-20 w-28 rounded object-cover shrink-0" />
+        <img loading="lazy" decoding="async" src={image} alt={title} className="h-20 w-28 rounded object-cover shrink-0" />
         <div className="flex-1 min-w-0">
           <Tag>{kindTag}</Tag>
           <h3 className="mt-1.5 font-display text-base text-text leading-snug line-clamp-2">{title}</h3>
@@ -80,7 +80,7 @@ export function ArticleCard({
           className,
         )}
       >
-        <img loading="lazy" decoding="async" src={image} alt="" className="absolute inset-0 h-full w-full object-cover" />
+        <img loading="lazy" decoding="async" src={image} alt={title} className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-text/85 via-text/40 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6 text-surface">
           <span className="inline-block rounded-sm border border-surface/60 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-widest">
@@ -101,7 +101,7 @@ export function ArticleCard({
       )}
     >
       <div className="aspect-[16/9] bg-primary-soft">
-        <img loading="lazy" decoding="async" src={image} alt="" className="h-full w-full object-cover opacity-95" />
+        <img loading="lazy" decoding="async" src={image} alt={title} className="h-full w-full object-cover opacity-95" />
       </div>
       <div className="p-5 space-y-3">
         <Tag>{kindTag}</Tag>

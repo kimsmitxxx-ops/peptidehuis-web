@@ -6,6 +6,7 @@ import { Badge } from "@/components/badge";
 import { FaqAccordion } from "@/components/faq-accordion";
 import type { Metadata } from "next";
 import { BookOpen, Beaker, MapPin, ArrowRight, FlaskConical, ShieldCheck } from "lucide-react";
+import { MedicalDisclaimer } from "@/components/medical-disclaimer";
 
 export const revalidate = 600;
 
@@ -136,6 +137,11 @@ export default function StofPage({ params }: { params: { stof: string } }) {
           ))}
         </section>
       )}
+
+      {/* Medische disclaimer voor YMYL-content op stof-info-pagina */}
+      <div className="mx-auto max-w-3xl px-4">
+        <MedicalDisclaimer variant="prominent" />
+      </div>
 
       {/* FAQ */}
       {c.faqs && c.faqs.length > 0 && (

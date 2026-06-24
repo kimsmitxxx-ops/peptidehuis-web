@@ -48,7 +48,7 @@ export function CartDrawer() {
                     /* eslint-disable-next-line @next/next/no-img-element */
                     <img
                       src={it.image}
-                      alt=""
+                      alt={it.name}
                       className="h-16 w-16 rounded object-cover shrink-0"
                     />
                   )}

@@ -61,9 +61,11 @@ export type BlogPost = {
   excerpt: string | null;
   body: string;
   image_url: string | null;
+  image_alt: string | null;
   category: string | null;
   published_at: string;
   author: string | null;
+  author_id: string | null;
   meta_title: string | null;
   meta_description: string | null;
 };

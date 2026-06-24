@@ -4,6 +4,7 @@ import { getProduct, formatEUR, listProducts, listProductReviews } from "@/lib/q
 import { AddToCartButton } from "@/components/add-to-cart-button";
 import { ProductCard } from "@/components/product-card";
 import { ProductSections } from "@/components/shop/product-sections";
+import { MedicalDisclaimer } from "@/components/medical-disclaimer";
 import { ProductGallery } from "@/components/shop/product-gallery";
 import { ShieldCheck, Truck, FlaskConical, ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
@@ -163,6 +164,11 @@ export default async function ProductDetailPage({ params }: { params: { categori
         reviewsCount={reviewsCount}
         avgRating={avgRating}
       />
+
+      {/* Medische disclaimer onder de product-content (E-E-A-T / YMYL) */}
+      <div className="max-w-3xl">
+        <MedicalDisclaimer />
+      </div>
 
       {related.length > 0 && (
         <section className="mt-16">
