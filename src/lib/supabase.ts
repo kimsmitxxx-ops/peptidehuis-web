@@ -46,6 +46,8 @@ export type Category = {
   name: string;
   description: string | null;
   intro_html: string | null;
+  seo_body_html: string | null;
+  faqs: { q: string; a: string }[] | null;
   meta_title: string | null;
   meta_description: string | null;
   hero_image: string | null;

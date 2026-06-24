@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getProduct, formatEUR, listProducts, listProductReviews } from "@/lib/queries";
 import { AddToCartButton } from "@/components/add-to-cart-button";
 import { ProductCard } from "@/components/product-card";
-import { ProductTabs } from "@/components/shop/product-tabs";
+import { ProductSections } from "@/components/shop/product-sections";
 import { ProductGallery } from "@/components/shop/product-gallery";
 import { ShieldCheck, Truck, FlaskConical, ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
@@ -153,8 +153,8 @@ export default async function ProductDetailPage({ params }: { params: { categori
         </div>
       </div>
 
-      {/* Tabs onder hoofd-grid: Beschrijving / Specs / FAQ / Reviews */}
-      <ProductTabs
+      {/* Sequentiele secties (SSR) onder hoofd-grid: Beschrijving / Specs / FAQ / Reviews */}
+      <ProductSections
         productId={p.id}
         description={p.long_description || p.description || null}
         specifications={p.specifications}
