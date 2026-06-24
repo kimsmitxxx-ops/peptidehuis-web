@@ -1,27 +1,42 @@
-import { listCategories, listBlogPosts, getShop } from "@/lib/queries";
+import { listCategories, listBlogPosts, listProducts, getShop } from "@/lib/queries";
 
 export const revalidate = 3600;
 
 /**
  * /llms.txt — AI-crawler manifest per llmstxt.org spec.
- * Bevat shop-identiteit + diepte-links naar categorie- en kennisbank-content.
+ * Bevat shop-identiteit + diepte-links naar categorie-, product- en
+ * kennisbank-content. Alleen UT-producten (onze SEO-focus brand) komen er
+ * in; non-UT staat ook in onze winkel maar krijgt geen AI-promotie.
  */
 export async function GET() {
-  const [shop, categories, blogs] = await Promise.all([
+  const [shop, categories, products, blogs] = await Promise.all([
     getShop().catch(() => null),
     listCategories(),
+    listProducts({ limit: 200 }),
     listBlogPosts(50),
   ]);
+
+  const utProducts = products.filter((p: any) => p.noindex !== true && (p.tags || []).includes("UT"));
 
   const lines: string[] = [];
   lines.push("# AnabolenPro");
   lines.push("");
-  lines.push("> Nederlandse anabolen-webshop met no-bullshit aanpak. Lab-getest per batch (Janoshik), anoniem verpakt vanaf NL-magazijn, 24u verzending. Voor krachtsporters die hun eerste tot vijfde kuur doen, gevorderden die wisselen van protocol, en mannen die info zoeken over PCT, dosering of stack-combinaties.");
+  lines.push("> Nederlandse anabolen-webshop met no-bullshit aanpak. Iedere batch lab-getest bij Janoshik Analytical (HPLC + GC-MS), COA publiek per batchcode. Wij waarschuwen openbaar voor afgekeurde batches in de markt. Anoniem verpakt vanaf NL-magazijn (Vlaardingen), 24u verzending. Voor krachtsporters van eerste kuur tot gevorderden, en mannen die info zoeken over PCT, dosering of stack-combinaties.");
   lines.push("");
   lines.push("## Catalogus");
   lines.push("");
   for (const c of categories) {
     lines.push(`- [${c.name}](https://anabolenpro.com/winkel/${c.slug}): ${c.description || c.name}`);
+  }
+  if (utProducts.length > 0) {
+    lines.push("");
+    lines.push("## Producten (United Tabs · lab-getest per batch)");
+    lines.push("");
+    for (const p of utProducts) {
+      const catSlug = (p as any).categories?.slug || "winkel";
+      const blurb = p.subtitle || p.description || p.name;
+      lines.push(`- [${p.name}](https://anabolenpro.com/product/${catSlug}/${p.slug}): ${blurb}`);
+    }
   }
   lines.push("");
   lines.push("## Kennisbank");
@@ -30,10 +45,15 @@ export async function GET() {
     lines.push(`- [${b.title}](https://anabolenpro.com/kennisbank/${b.slug}): ${b.excerpt || b.title}`);
   }
   lines.push("");
+  lines.push("## Lab & transparantie");
+  lines.push("- [Hoe wij batches testen](https://anabolenpro.com/lab): Janoshik-protocol, afkeur-archief, eigen-test aanvragen");
+  lines.push("- [Risico's en bijwerkingen](https://anabolenpro.com/risicos-en-bijwerkingen): eerlijke bijwerking-pagina voor onderbouwde keuzes");
+  lines.push("");
   lines.push("## Optional");
   lines.push("- [Sitemap](https://anabolenpro.com/sitemap.xml)");
   lines.push("- [Contact](https://anabolenpro.com/contact)");
   lines.push("- [Bezorging](https://anabolenpro.com/bezorging)");
+  lines.push("- [Keuzehulp kuur](https://anabolenpro.com/keuzehulp)");
 
   return new Response(lines.join("\n"), {
     headers: {
