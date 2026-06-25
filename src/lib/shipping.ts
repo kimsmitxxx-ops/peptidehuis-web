@@ -16,8 +16,8 @@ export const SHIPPING_FEE_CENTS = 1000; // €10 per zending
 export type ShippingMethod = "ut" | "rest";
 
 const METHOD_LABELS: Record<ShippingMethod, string> = {
-  ut: "UT-verzending (United Tabs)",
-  rest: "Standaard verzending",
+  ut: "Locatie 01 (Utinon)",
+  rest: "Locatie 02 (overige merken)",
 };
 
 /** Bepaal shipping-methode op basis van product-tags (UT-getagged -> 'ut'). */

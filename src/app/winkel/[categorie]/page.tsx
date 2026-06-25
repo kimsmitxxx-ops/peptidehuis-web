@@ -26,7 +26,7 @@ export default async function CategoryPage({
   searchParams,
 }: {
   params: { categorie: string };
-  searchParams: { stock?: string; merk?: string; stof?: string };
+  searchParams: { stock?: string; merk?: string; stof?: string; locatie?: string };
 }) {
   const [cat, allProducts, allCategories] = await Promise.all([
     getCategory(params.categorie),
@@ -38,6 +38,7 @@ export default async function CategoryPage({
   const stockOnly = searchParams.stock === "1";
   const merk = searchParams.merk || "";
   const stof = (searchParams.stof || "").toLowerCase();
+  const locatie = searchParams.locatie || "";
   const brandSet = new Set<string>();
   allProducts.forEach((p) => p.tags?.forEach((t) => { if (KNOWN_BRANDS.has(t)) brandSet.add(t); }));
   const brands = sortBrands(Array.from(brandSet));
@@ -46,6 +47,8 @@ export default async function CategoryPage({
     if (stockOnly && p.availability === "OutOfStock") return false;
     if (merk && !(p.tags || []).includes(merk)) return false;
     if (stof && !p.name.toLowerCase().includes(stof)) return false;
+    if (locatie === "01" && !(p.tags || []).includes("UT")) return false;
+    if (locatie === "02" && (p.tags || []).includes("UT")) return false;
     return true;
   });
   const products = sortProducts(filtered as any);
@@ -120,7 +123,7 @@ export default async function CategoryPage({
               ))}
             </div>
           </div>
-          <CatalogFilters brands={brands} stockOnly={stockOnly} activeBrand={merk} activeStof={stof} />
+          <CatalogFilters brands={brands} stockOnly={stockOnly} activeBrand={merk} activeStof={stof} activeLocatie={locatie} />
           <div className="rounded-lg border border-border bg-surface p-4 text-text space-y-3 text-sm">
             <h4 className="text-xs uppercase tracking-wider text-accent-muted font-semibold inline-flex items-center gap-1.5">
               <ShieldCheck size={12} /> Onze garanties

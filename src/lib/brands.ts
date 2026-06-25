@@ -5,7 +5,7 @@ export const KNOWN_BRANDS = new Set(BRAND_ORDER);
 
 // Volle merknamen voor display (tag value blijft korte code voor filter-state).
 export const BRAND_LABELS: Record<string, string> = {
-  "UT": "United Tabs",
+  "UT": "Utinon",
   "UP": "Unique Pharma",
   "LYY": "Long Yi Yao",
   "AP": "Adex Pharma",

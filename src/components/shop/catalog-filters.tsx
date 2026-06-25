@@ -1,7 +1,7 @@
 "use client";
 import { useRouter, usePathname } from "next/navigation";
 import { useCallback } from "react";
-import { Check, Tag as TagIcon, Beaker } from "lucide-react";
+import { Check, Tag as TagIcon, Beaker, Truck } from "lucide-react";
 import { brandLabel } from "@/lib/brands";
 
 // Bekende stoffen voor de stof-filter chips. Slug = filter-value (matched
@@ -28,9 +28,10 @@ interface Props {
   stockOnly: boolean;
   activeBrand: string;
   activeStof?: string;
+  activeLocatie?: string;
 }
 
-export function CatalogFilters({ brands, stockOnly, activeBrand, activeStof = "" }: Props) {
+export function CatalogFilters({ brands, stockOnly, activeBrand, activeStof = "", activeLocatie = "" }: Props) {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -102,6 +103,53 @@ export function CatalogFilters({ brands, stockOnly, activeBrand, activeStof = ""
           </div>
         </div>
       )}
+
+      {/* Verzendlocatie-filter — UT = Locatie 01, rest = Locatie 02. EUR 10 per locatie */}
+      <div className="rounded-lg border border-border bg-surface p-4">
+        <h4 className="text-xs uppercase tracking-wider text-accent-muted font-semibold mb-3 inline-flex items-center gap-1.5">
+          <Truck size={12} /> Verzendlocatie
+        </h4>
+        <div className="flex flex-wrap gap-1.5">
+          <button
+            type="button"
+            onClick={() => setParam("locatie", null)}
+            className={`rounded-full px-3 py-1 text-xs font-medium border ${
+              !activeLocatie
+                ? "bg-accent text-accent-foreground border-accent"
+                : "bg-background text-text border-border hover:border-accent hover:text-accent"
+            }`}
+          >
+            Alle
+          </button>
+          <button
+            type="button"
+            onClick={() => setParam("locatie", activeLocatie === "01" ? null : "01")}
+            className={`rounded-full px-3 py-1 text-xs font-medium border ${
+              activeLocatie === "01"
+                ? "bg-accent text-accent-foreground border-accent"
+                : "bg-background text-text border-border hover:border-accent hover:text-accent"
+            }`}
+            title="Utinon-magazijn"
+          >
+            Locatie 01
+          </button>
+          <button
+            type="button"
+            onClick={() => setParam("locatie", activeLocatie === "02" ? null : "02")}
+            className={`rounded-full px-3 py-1 text-xs font-medium border ${
+              activeLocatie === "02"
+                ? "bg-accent text-accent-foreground border-accent"
+                : "bg-background text-text border-border hover:border-accent hover:text-accent"
+            }`}
+            title="Standaard-magazijn (overige merken)"
+          >
+            Locatie 02
+          </button>
+        </div>
+        <p className="mt-2 text-[10px] text-text-subtle leading-snug">
+          €10 verzending per locatie. Bestellen uit beide = 2 zendingen = €20.
+        </p>
+      </div>
 
       {/* Stof-filter — geen aparte pagina, alleen ?stof=... query-param */}
       <div className="rounded-lg border border-border bg-surface p-4">
