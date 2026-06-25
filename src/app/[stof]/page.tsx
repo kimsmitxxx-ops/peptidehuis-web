@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { categoryContent, findCategoryContent } from "@/components/shop/data";
+import { getVerifiedSourcesFor, sourceUrl } from "@/components/shop/verified-sources";
 import { SectionHeading } from "@/components/section-heading";
 import { Badge } from "@/components/badge";
 import { FaqAccordion } from "@/components/faq-accordion";
@@ -135,6 +136,41 @@ export default function StofPage({ params }: { params: { stof: string } }) {
               />
             </div>
           ))}
+        </section>
+      )}
+
+      {/* Geverifieerde wetenschappelijke bronnen — handmatig HEAD-getest, alleen PubMed IDs die 200 retourneren */}
+      {getVerifiedSourcesFor(c.slug).length > 0 && (
+        <section className="mx-auto max-w-3xl px-4 py-10">
+          <div className="rounded-xl border border-paper-border bg-paper-soft p-6">
+            <p className="text-[10px] uppercase tracking-[0.18em] text-accent font-semibold">
+              Verder lezen — wetenschappelijke bronnen
+            </p>
+            <h2 className="mt-2 font-display text-xl text-primary leading-tight">
+              Studies waar deze pagina op gebaseerd is
+            </h2>
+            <p className="mt-2 text-xs text-text-muted">
+              Iedere link is geverifieerd — alleen bestaande PubMed-publicaties.
+            </p>
+            <ul className="mt-5 space-y-3">
+              {getVerifiedSourcesFor(c.slug).map((s) => (
+                <li key={s.pmid} className="text-sm">
+                  <a
+                    href={sourceUrl(s)}
+                    target="_blank"
+                    rel="noopener noreferrer nofollow"
+                    className="font-medium text-accent hover:underline"
+                  >
+                    {s.citation}
+                  </a>
+                  <span className="text-text-muted"> — {s.topic}</span>
+                  <span className="ml-1 text-[10px] text-text-subtle tabular">
+                    PMID {s.pmid}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </section>
       )}
 

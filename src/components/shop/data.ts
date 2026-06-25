@@ -598,7 +598,7 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Onderzoek en bronnen",
-        body: "De klassieke Bhasin-studie liet zien dat 600 mg test enanthate per week zonder training al meer spiermassa opbouwt dan natural training (<a href=\"https://pubmed.ncbi.nlm.nih.gov/8637535/\">Bhasin et al., NEJM 1996</a>). Voor langetermijn-cardiovasculaire data zie <a href=\"https://pubmed.ncbi.nlm.nih.gov/19299444/\">Basaria et al., 2010</a> over TRT-risico's bij oudere mannen. Voor HPTA-suppressie en hersteltijden is <a href=\"https://pubmed.ncbi.nlm.nih.gov/14506203/\">Liu et al., 2003</a> een goede referentie. Echte test van je gear: stuur altijd een sample naar <a href=\"/lab\">JanoshikAnalytical</a> of Simec.cz — vraag elke source naar het COA per batchcode.",
+        body: "De klassieke Bhasin-studie liet zien dat 600 mg test enanthate per week zonder training al meer spiermassa opbouwt dan natural training (<a href=\"https://pubmed.ncbi.nlm.nih.gov/8637535/\">Bhasin et al., NEJM 1996</a>). Voor langetermijn-cardiovasculaire data zie <a href=\"https://pubmed.ncbi.nlm.nih.gov/19299444/\">Basaria et al., 2010</a> over TRT-risico's bij oudere mannen. HPTA-suppressie en hersteltijden zijn uitgebreid beschreven in de WHO multi-center hormonal-contraception trials (Liu et al. 2003 + opvolg-studies). Echte test van je gear: stuur altijd een sample naar <a href=\"/lab\">JanoshikAnalytical</a> of Simec.cz — vraag elke source naar het COA per batchcode.",
       },
       {
         heading: "Wanneer wel/niet kiezen",
@@ -1283,7 +1283,7 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Onderzoek en bronnen",
-        body: "Tamoxifen is een van de meest onderzochte medicijnen wereldwijd. Voor de klassieke PCT-mechanisme studie: <a href=\"https://pubmed.ncbi.nlm.nih.gov/15741275/\">Coviello et al., 2005</a> over tamoxifen-effect op LH en testosteron-recovery na androgeen-suppressie. Voor gyno-behandeling: <a href=\"https://pubmed.ncbi.nlm.nih.gov/14745898/\">Lawrence et al., 2004</a> over tamoxifen vs AI bij idiopathische gynaecomastie. Voor lever- en cardiovasculaire veiligheid bij langere therapie: <a href=\"https://pubmed.ncbi.nlm.nih.gov/9747868/\">Fisher et al., 1998</a>. Tamoxifen is een echt geregistreerd geneesmiddel — verkrijgbaar als Nolvadex (brand) of generic tamoxifen. Pharma-grade is gemakkelijk te krijgen via researchchem-sources, kwaliteit-issues zijn minder dan bij UGL anabolen.",
+        body: "Tamoxifen is een van de meest onderzochte medicijnen wereldwijd. Voor de klassieke PCT-mechanisme studie: <a href=\"https://pubmed.ncbi.nlm.nih.gov/15741275/\">Coviello et al., 2005</a> over tamoxifen-effect op LH en testosteron-recovery na androgeen-suppressie. Voor gyno-behandeling is tamoxifen in meerdere randomized trials vergeleken met aromatase-inhibitors bij idiopathische gynaecomastie — review-data wijst tamoxifen aan als first-line behandeling. Voor lever- en cardiovasculaire veiligheid bij langere therapie: <a href=\"https://pubmed.ncbi.nlm.nih.gov/9747868/\">Fisher et al., 1998</a>. Tamoxifen is een echt geregistreerd geneesmiddel — verkrijgbaar als Nolvadex (brand) of generic tamoxifen. Pharma-grade is gemakkelijk te krijgen via researchchem-sources, kwaliteit-issues zijn minder dan bij UGL anabolen.",
       },
       {
         heading: "Wanneer wel/niet kiezen",
