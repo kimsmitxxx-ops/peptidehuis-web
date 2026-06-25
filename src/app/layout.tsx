@@ -1,11 +1,32 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
+import { Manrope, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/components/shop/cart-store";
 import { Header } from "@/components/shop/header";
 import { Footer } from "@/components/shop/footer";
 import { CartDrawer } from "@/components/shop/cart-drawer";
 import { MobileTabBar } from "@/components/shop/mobile-tabbar";
-import { WhatsAppFab } from "@/components/whatsapp-fab";
+
+// Self-hosted fonts via next/font: elimineert render-blocking Google Fonts request
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+  variable: "--font-manrope",
+});
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  display: "swap",
+  variable: "--font-space-grotesk",
+});
+
+// Defer chat-widget — niet kritiek voor FCP/LCP; pas hydrateren na main content
+const WhatsAppFab = dynamic(
+  () => import("@/components/whatsapp-fab").then((m) => m.WhatsAppFab),
+  { ssr: false },
+);
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://anabolenpro.com"),
@@ -16,13 +37,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="nl">
+    <html lang="nl" className={`${manrope.variable} ${spaceGrotesk.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://rexqfwibxawqnvrzbdoo.supabase.co" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" />
+        {/* Preload hero image (LCP) */}
+        <link
+          rel="preload"
+          as="image"
+          href="/assets/transform-after.jpg"
+          fetchPriority="high"
+        />
       </head>
       <body>
         <CartProvider>

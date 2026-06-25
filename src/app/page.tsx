@@ -174,6 +174,7 @@ export default async function HomePage() {
               afterSrc="/assets/transform-after.jpg"
               beforeLabel="Voor"
               afterLabel="Na"
+              priority
               className="aspect-[4/5] w-full"
             />
             <div className="hidden lg:block absolute -bottom-6 -right-6 rounded-lg bg-primary p-4 shadow-lift w-60 border border-primary-muted text-primary-foreground">

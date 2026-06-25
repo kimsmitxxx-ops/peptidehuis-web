@@ -11,6 +11,8 @@ export interface BeforeAfterSliderProps {
   className?: string;
   initial?: number; // 0-100
   autoPlay?: boolean;
+  /** Hint dat dit een hero/LCP-image is — fetchpriority + eager loading */
+  priority?: boolean;
 }
 
 export function BeforeAfterSlider({
@@ -21,6 +23,7 @@ export function BeforeAfterSlider({
   className,
   initial = 50,
   autoPlay = true,
+  priority = false,
 }: BeforeAfterSliderProps) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const [pos, setPos] = useState(initial);
@@ -52,20 +55,37 @@ export function BeforeAfterSlider({
     };
   }, [setFromClientX]);
 
-  // Auto demo
+  // Auto demo — defer tot na idle zodat hero-LCP niet vertraagt
   useEffect(() => {
     if (!autoPlay || hasInteracted) return;
     let raf = 0;
-    let start = performance.now();
-    const loop = (t: number) => {
-      const elapsed = (t - start) / 1000;
-      // Ease in/out between 20 and 80
-      const v = 50 + Math.sin(elapsed * 0.9) * 32;
-      setPos(v);
+    let idle: number | NodeJS.Timeout;
+    let cancelled = false;
+    const startLoop = () => {
+      if (cancelled) return;
+      const start = performance.now();
+      const loop = (t: number) => {
+        const elapsed = (t - start) / 1000;
+        const v = 50 + Math.sin(elapsed * 0.9) * 32;
+        setPos(v);
+        raf = requestAnimationFrame(loop);
+      };
       raf = requestAnimationFrame(loop);
     };
-    raf = requestAnimationFrame(loop);
-    return () => cancelAnimationFrame(raf);
+    if (typeof window !== "undefined" && "requestIdleCallback" in window) {
+      idle = (window as any).requestIdleCallback(startLoop, { timeout: 2000 });
+    } else {
+      idle = setTimeout(startLoop, 1500);
+    }
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(raf);
+      if (typeof window !== "undefined" && "cancelIdleCallback" in window) {
+        (window as any).cancelIdleCallback(idle);
+      } else {
+        clearTimeout(idle as NodeJS.Timeout);
+      }
+    };
   }, [autoPlay, hasInteracted]);
 
   return (
@@ -81,14 +101,20 @@ export function BeforeAfterSlider({
         setFromClientX(e.clientX);
       }}
     >
-      {/* After (full) */}
+      {/* After (full) — LCP-candidate op homepage hero */}
       <img
         src={afterSrc}
         alt={afterLabel}
         draggable={false}
+        width={800}
+        height={1000}
+        loading={priority ? "eager" : "lazy"}
+        // @ts-expect-error fetchpriority is geldig HTML attribuut maar nog niet in TS types
+        fetchpriority={priority ? "high" : "auto"}
+        decoding={priority ? "sync" : "async"}
         className="block w-full h-full object-cover"
       />
-      {/* Before (clipped) */}
+      {/* Before (clipped) — minder kritiek, lazy */}
       <div
         className="absolute inset-0 overflow-hidden"
         style={{ width: `${pos}%` }}
@@ -97,6 +123,10 @@ export function BeforeAfterSlider({
           src={beforeSrc}
           alt={beforeLabel}
           draggable={false}
+          width={800}
+          height={1000}
+          loading="lazy"
+          decoding="async"
           className="block h-full object-cover"
           style={{ width: `${(100 / Math.max(pos, 0.0001)) * 100}%`, maxWidth: "none" }}
         />
