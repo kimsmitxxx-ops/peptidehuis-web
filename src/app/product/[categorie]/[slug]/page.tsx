@@ -12,13 +12,16 @@ import type { Metadata } from "next";
 export const revalidate = 300;
 
 export async function generateMetadata({ params }: { params: { categorie: string; slug: string } }): Promise<Metadata> {
-  const p = await getProduct(params.slug);
+  const p = await getProduct(params.slug) as any;
   if (!p) return { title: "Niet gevonden" };
   const noindex = p.noindex === true;
+  // canonical_url heeft voorrang — UP producten linken naar UT-equivalent zodat
+  // Google de duplicate-content niet straft. Anders default self-canonical.
+  const canonical = p.canonical_url || `/product/${params.categorie}/${params.slug}`;
   return {
     title: p.meta_title || `${p.name} kopen voor ${formatEUR(p.price_cents)}`,
     description: p.meta_description || p.subtitle || p.description || `${p.name} bij anabolenpro — lab-getest, snelle verzending.`,
-    alternates: { canonical: `/product/${params.categorie}/${params.slug}` },
+    alternates: { canonical },
     robots: noindex ? { index: false, follow: false } : undefined,
     openGraph: {
       title: p.name,
@@ -186,6 +189,7 @@ export default async function ProductDetailPage({ params }: { params: { categori
                   tag={r.tags?.[0]}
                   category={r.categories?.name}
                   shortDescription={r.subtitle || undefined}
+                  usps={r.usps}
                 />
               </Link>
             ))}

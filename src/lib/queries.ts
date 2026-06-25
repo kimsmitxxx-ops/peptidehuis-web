@@ -22,12 +22,19 @@ function popularityScore(name: string): number {
   return 999;
 }
 
-// Sorteer producten: UT-merk eerst, dan op stof-populariteit (test > win > bold > tren), dan sort_order
+// Sorteer producten: UT eerst → UP daarna → overige merken, daarna op
+// stof-populariteit (test > win > bold > tren), daarna sort_order.
+function brandRank(tags: string[] | null | undefined): number {
+  if (tags?.includes("UT")) return 0;
+  if (tags?.includes("UP")) return 1;
+  return 2;
+}
+
 export function sortProducts<T extends { name: string; tags: string[] | null; sort_order?: number | null }>(products: T[]): T[] {
   return [...products].sort((a, b) => {
-    const aUT = a.tags?.includes("UT") ? 0 : 1;
-    const bUT = b.tags?.includes("UT") ? 0 : 1;
-    if (aUT !== bUT) return aUT - bUT;
+    const ba = brandRank(a.tags);
+    const bb = brandRank(b.tags);
+    if (ba !== bb) return ba - bb;
     const pa = popularityScore(a.name);
     const pb = popularityScore(b.name);
     if (pa !== pb) return pa - pb;
