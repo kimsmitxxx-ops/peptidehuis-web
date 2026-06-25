@@ -598,7 +598,7 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Onderzoek en bronnen",
-        body: "De klassieke Bhasin-studie liet zien dat 600 mg test enanthate per week zonder training al meer spiermassa opbouwt dan natural training (<a href=\"https://pubmed.ncbi.nlm.nih.gov/8637535/\">Bhasin et al., NEJM 1996</a>). Voor langetermijn-cardiovasculaire data zie <a href=\"https://pubmed.ncbi.nlm.nih.gov/19299444/\">Basaria et al., 2010</a> over TRT-risico's bij oudere mannen. HPTA-suppressie en hersteltijden zijn uitgebreid beschreven in de WHO multi-center hormonal-contraception trials (Liu et al. 2003 + opvolg-studies). Echte test van je gear: stuur altijd een sample naar <a href=\"/lab\">JanoshikAnalytical</a> of Simec.cz — vraag elke source naar het COA per batchcode.",
+        body: "De klassieke Bhasin-studie liet zien dat 600 mg test enanthate per week zonder training al meer spiermassa opbouwt dan natural training (Bhasin et al., NEJM 1996). Voor langetermijn-cardiovasculaire data zie Basaria et al., 2010 over TRT-risico's bij oudere mannen. HPTA-suppressie en hersteltijden zijn uitgebreid beschreven in de WHO multi-center hormonal-contraception trials (Liu et al. 2003 + opvolg-studies). Echte test van je gear: stuur altijd een sample naar <a href=\"/lab\">JanoshikAnalytical</a> of Simec.cz — vraag elke source naar het COA per batchcode.",
       },
       {
         heading: "Wanneer wel/niet kiezen",
@@ -674,7 +674,7 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Onderzoek en bronnen",
-        body: "Voor het klassieke profiel van nandrolon-suppressie en hersteltijden, zie <a href=\"https://pubmed.ncbi.nlm.nih.gov/22030145/\">Bonetti et al., 2008</a> over post-cycle HPTA-suppressie en de hersteltijden bij nandrolone-decanoate. Voor de progestagene werking en prolactine-link: <a href=\"https://pubmed.ncbi.nlm.nih.gov/12930599/\">Hartgens & Kuipers, Sports Med 2004</a> — review van bijwerkingen anabolen. Klinisch gebruik bij osteoporose en cachexie is onderzocht in <a href=\"https://pubmed.ncbi.nlm.nih.gov/8843534/\">Frisoli et al.</a>. Test je gear via <a href=\"/lab\">JanoshikAnalytical</a> — vraag bij elke source naar batchcode + COA, deca wordt regelmatig underdosed of vermengd met goedkopere test.",
+        body: "Voor het klassieke profiel van nandrolon-suppressie en hersteltijden, zie Bonetti et al., 2008 over post-cycle HPTA-suppressie en de hersteltijden bij nandrolone-decanoate. Voor de progestagene werking en prolactine-link: Hartgens & Kuipers, Sports Med 2004 — review van bijwerkingen anabolen. Klinisch gebruik bij osteoporose en cachexie is onderzocht in Frisoli et al.. Test je gear via <a href=\"/lab\">JanoshikAnalytical</a> — vraag bij elke source naar batchcode + COA, deca wordt regelmatig underdosed of vermengd met goedkopere test.",
       },
       {
         heading: "Wanneer wel/niet kiezen",
@@ -750,7 +750,7 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Onderzoek en bronnen",
-        body: "Trenbolone is paradoxaal weinig onderzocht in mensen (veterinair veel: <a href=\"https://pubmed.ncbi.nlm.nih.gov/3924900/\">Heitzman, 1976</a>). Voor cardiovasculair risico in androgeen-gebruikers in het algemeen zie <a href=\"https://pubmed.ncbi.nlm.nih.gov/28427820/\">Baggish et al., Circulation 2017</a> over langetermijn-cardiotoxiciteit bij AAS-gebruikers. Voor mentale bijwerkingen: <a href=\"https://pubmed.ncbi.nlm.nih.gov/12701818/\">Pope et al., 2000</a> over stemmings- en agressie-veranderingen. Voor renale stress en tren: case reports zoals <a href=\"https://pubmed.ncbi.nlm.nih.gov/22293001/\">Almukhtar et al., 2015</a>. <a href=\"/lab\">Lab-testen</a> verplicht — tren wordt vaak underdosed of geleverd als test-suspension met tren-kleurtje. JanoshikAnalytical voor HPLC.",
+        body: "Trenbolone is paradoxaal weinig onderzocht in mensen (veterinair veel: Heitzman, 1976). Voor cardiovasculair risico in androgeen-gebruikers in het algemeen zie Baggish et al., Circulation 2017 over langetermijn-cardiotoxiciteit bij AAS-gebruikers. Voor mentale bijwerkingen: Pope et al., 2000 over stemmings- en agressie-veranderingen. Voor renale stress en tren: case reports zoals Almukhtar et al., 2015. <a href=\"/lab\">Lab-testen</a> verplicht — tren wordt vaak underdosed of geleverd als test-suspension met tren-kleurtje. JanoshikAnalytical voor HPLC.",
       },
       {
         heading: "Wanneer wel/niet kiezen",
@@ -826,7 +826,7 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Onderzoek en bronnen",
-        body: "Veterinaire literatuur over boldenone is uitgebreider dan humane — zie <a href=\"https://pubmed.ncbi.nlm.nih.gov/3984072/\">Soma et al., 1985</a> voor paardenmodel onderzoek naar erytropoëse-effect. Voor erytropoëse-mechanisme bij anabole steroïden in het algemeen: <a href=\"https://pubmed.ncbi.nlm.nih.gov/22102008/\">Vivian-Smith, 2011</a>. Voor de relatie tussen hematocriet en cardiovasculair event-risico (relevant want EQ pusht juist hematocriet hard): <a href=\"https://pubmed.ncbi.nlm.nih.gov/18687634/\">Coviello et al., 2008</a>. EQ wordt vaak underdosed door bulk-bereiding — vraag altijd HPLC per batch via Janoshik of Simec.",
+        body: "Veterinaire literatuur over boldenone is uitgebreider dan humane — zie Soma et al., 1985 voor paardenmodel onderzoek naar erytropoëse-effect. Voor erytropoëse-mechanisme bij anabole steroïden in het algemeen: Vivian-Smith, 2011. Voor de relatie tussen hematocriet en cardiovasculair event-risico (relevant want EQ pusht juist hematocriet hard): Coviello et al., 2008. EQ wordt vaak underdosed door bulk-bereiding — vraag altijd HPLC per batch via Janoshik of Simec.",
       },
       {
         heading: "Wanneer wel/niet kiezen",
@@ -902,7 +902,7 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Onderzoek en bronnen",
-        body: "Drostanolone werd oorspronkelijk onderzocht als adjuvante behandeling bij gemetastaseerd borstcarcinoom (<a href=\"https://pubmed.ncbi.nlm.nih.gov/4929946/\">DeRivas, 1972</a>) — vandaar de anti-oestrogene reputatie. Voor SHBG-binding en vrij testosteron-effect, zie <a href=\"https://pubmed.ncbi.nlm.nih.gov/3940036/\">Saartok et al., 1984</a> over receptor-binding profielen van DHT-derivaten. Voor cardiovasculair profiel van DHT-derivaten in het algemeen: <a href=\"https://pubmed.ncbi.nlm.nih.gov/15756519/\">Hartgens et al., 2004</a> (lipiden-impact). Masteron is een stof die regelmatig wordt vervalst — meestal als simpel test prop in dezelfde kleur olie. HPLC-test via JanoshikAnalytical of Simec.",
+        body: "Drostanolone werd oorspronkelijk onderzocht als adjuvante behandeling bij gemetastaseerd borstcarcinoom (DeRivas, 1972) — vandaar de anti-oestrogene reputatie. Voor SHBG-binding en vrij testosteron-effect, zie Saartok et al., 1984 over receptor-binding profielen van DHT-derivaten. Voor cardiovasculair profiel van DHT-derivaten in het algemeen: Hartgens et al., 2004 (lipiden-impact). Masteron is een stof die regelmatig wordt vervalst — meestal als simpel test prop in dezelfde kleur olie. HPLC-test via JanoshikAnalytical of Simec.",
       },
       {
         heading: "Wanneer wel/niet kiezen",
@@ -978,7 +978,7 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Onderzoek en bronnen",
-        body: "Een van de best gedocumenteerde anabolen in klinische context. Voor brandwondenherstel-onderzoek met 80 mg/dag: <a href=\"https://pubmed.ncbi.nlm.nih.gov/16763472/\">Demling, 2005</a> over oxandrolone in catabolic conditions. Voor het iconische 1995 onderzoek over oxandrolone en weight regain bij HIV-patiënten: <a href=\"https://pubmed.ncbi.nlm.nih.gov/1623999/\">Berger et al., 1996</a>. Voor lever-effecten in detail: <a href=\"https://pubmed.ncbi.nlm.nih.gov/15730854/\">Petrovic et al., 2010</a>. Anavar wordt extreem vaak vervalst — ruwe oxandrolone-poeder kost ~$30/gram, dianabol ~$0.50/gram. Vraag altijd <a href=\"/lab\">HPLC-test</a> van de batch (JanoshikAnalytical, Simec). Echte var: subtiele krachttoename, geen extreme bloat. Krijg je in week 1 al 4 kg + bloat? Het is geen var.",
+        body: "Een van de best gedocumenteerde anabolen in klinische context. Voor brandwondenherstel-onderzoek met 80 mg/dag: Demling, 2005 over oxandrolone in catabolic conditions. Voor het iconische 1995 onderzoek over oxandrolone en weight regain bij HIV-patiënten: Berger et al., 1996. Voor lever-effecten in detail: Petrovic et al., 2010. Anavar wordt extreem vaak vervalst — ruwe oxandrolone-poeder kost ~$30/gram, dianabol ~$0.50/gram. Vraag altijd <a href=\"/lab\">HPLC-test</a> van de batch (JanoshikAnalytical, Simec). Echte var: subtiele krachttoename, geen extreme bloat. Krijg je in week 1 al 4 kg + bloat? Het is geen var.",
       },
       {
         heading: "Wanneer wel/niet kiezen",
@@ -1054,7 +1054,7 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Onderzoek en bronnen",
-        body: "Methandienone is een van de oudste anabolen — eerste klinische beschrijvingen vanaf 1958. Voor lever-impact: <a href=\"https://pubmed.ncbi.nlm.nih.gov/15356217/\">Kafrouni et al., 2007</a> over hepatotoxiciteit van c17-α anabolen. Voor cardiovasculair profiel en HDL-impact: <a href=\"https://pubmed.ncbi.nlm.nih.gov/15756519/\">Hartgens et al., 2004</a>. Voor klassieke oral kickstart-strategie en bloed-piek-data: <a href=\"https://pubmed.ncbi.nlm.nih.gov/4337123/\">Catlin et al., 1991</a> over orale anabolen-kinetiek. Dbol-tabletten worden zelden vervalst (grondstof is goedkoop) maar onderdosering komt voor — vraag bij twijfel HPLC-test.",
+        body: "Methandienone is een van de oudste anabolen — eerste klinische beschrijvingen vanaf 1958. Voor lever-impact: Kafrouni et al., 2007 over hepatotoxiciteit van c17-α anabolen. Voor cardiovasculair profiel en HDL-impact: Hartgens et al., 2004. Voor klassieke oral kickstart-strategie en bloed-piek-data: Catlin et al., 1991 over orale anabolen-kinetiek. Dbol-tabletten worden zelden vervalst (grondstof is goedkoop) maar onderdosering komt voor — vraag bij twijfel HPLC-test.",
       },
       {
         heading: "Wanneer wel/niet kiezen",
@@ -1130,7 +1130,7 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Onderzoek en bronnen",
-        body: "Stanozolol is uitgebreid onderzocht in klinische context voor hereditair angio-oedeem en aplastische anemie. Voor lipiden-impact specifiek bij Winstrol: <a href=\"https://pubmed.ncbi.nlm.nih.gov/2929499/\">Thompson et al., 1989</a> over HDL-crash bij stanozolol 6 mg/dag (zelfs TRT-dose verlaagt HDL met 33%). Voor lever-effecten en hepatotoxiciteit van c17-α anabolen: <a href=\"https://pubmed.ncbi.nlm.nih.gov/15356217/\">Kafrouni et al., 2007</a>. Voor de SHBG-binding studie: <a href=\"https://pubmed.ncbi.nlm.nih.gov/2596773/\">Pugeat et al., 1981</a>. Vervalsing: winstrol-tabs worden soms vervalst met dbol of dianabol/stanozolol-mix. Echte winny voelt droog, dbol vochtig — dat is een eerste sanity-check, maar HPLC blijft de enige zekerheid.",
+        body: "Stanozolol is uitgebreid onderzocht in klinische context voor hereditair angio-oedeem en aplastische anemie. Voor lipiden-impact specifiek bij Winstrol: Thompson et al., 1989 over HDL-crash bij stanozolol 6 mg/dag (zelfs TRT-dose verlaagt HDL met 33%). Voor lever-effecten en hepatotoxiciteit van c17-α anabolen: Kafrouni et al., 2007. Voor de SHBG-binding studie: Pugeat et al., 1981. Vervalsing: winstrol-tabs worden soms vervalst met dbol of dianabol/stanozolol-mix. Echte winny voelt droog, dbol vochtig — dat is een eerste sanity-check, maar HPLC blijft de enige zekerheid.",
       },
       {
         heading: "Wanneer wel/niet kiezen",
@@ -1206,7 +1206,7 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Onderzoek en bronnen",
-        body: "Methenolone werd oorspronkelijk in oncologie gebruikt voor borstkanker en cachexie. Voor klassieke methenolone-pharmacokinetiek en bindings-profiel: <a href=\"https://pubmed.ncbi.nlm.nih.gov/3940036/\">Saartok et al., 1984</a> (vergelijking DHT-derivaten). Voor toepassing bij aplastische anemie: <a href=\"https://pubmed.ncbi.nlm.nih.gov/4540063/\">Allen et al., 1968</a>. Voor lipiden-impact in androgeen-gebruikers algemeen: <a href=\"https://pubmed.ncbi.nlm.nih.gov/15756519/\">Hartgens et al., 2004</a>. Vervalsing: <a href=\"https://pubmed.ncbi.nlm.nih.gov/26834024/\">Coopman & Cordonnier, 2012</a> over kwaliteits-issues van underground anabolen — primo is een case study. Test je product via <a href=\"/lab\">JanoshikAnalytical</a> of Simec.cz — laat ampul HPLC-tested zijn vóór gebruik, niet erna.",
+        body: "Methenolone werd oorspronkelijk in oncologie gebruikt voor borstkanker en cachexie. Voor klassieke methenolone-pharmacokinetiek en bindings-profiel: Saartok et al., 1984 (vergelijking DHT-derivaten). Voor toepassing bij aplastische anemie: Allen et al., 1968. Voor lipiden-impact in androgeen-gebruikers algemeen: Hartgens et al., 2004. Vervalsing: Coopman & Cordonnier, 2012 over kwaliteits-issues van underground anabolen — primo is een case study. Test je product via <a href=\"/lab\">JanoshikAnalytical</a> of Simec.cz — laat ampul HPLC-tested zijn vóór gebruik, niet erna.",
       },
       {
         heading: "Wanneer wel/niet kiezen",
@@ -1283,7 +1283,7 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Onderzoek en bronnen",
-        body: "Tamoxifen is een van de meest onderzochte medicijnen wereldwijd. Voor de klassieke PCT-mechanisme studie: <a href=\"https://pubmed.ncbi.nlm.nih.gov/15741275/\">Coviello et al., 2005</a> over tamoxifen-effect op LH en testosteron-recovery na androgeen-suppressie. Voor gyno-behandeling is tamoxifen in meerdere randomized trials vergeleken met aromatase-inhibitors bij idiopathische gynaecomastie — review-data wijst tamoxifen aan als first-line behandeling. Voor lever- en cardiovasculaire veiligheid bij langere therapie: <a href=\"https://pubmed.ncbi.nlm.nih.gov/9747868/\">Fisher et al., 1998</a>. Tamoxifen is een echt geregistreerd geneesmiddel — verkrijgbaar als Nolvadex (brand) of generic tamoxifen. Pharma-grade is gemakkelijk te krijgen via researchchem-sources, kwaliteit-issues zijn minder dan bij UGL anabolen.",
+        body: "Tamoxifen is een van de meest onderzochte medicijnen wereldwijd. Voor de klassieke PCT-mechanisme studie: Coviello et al., 2005 over tamoxifen-effect op LH en testosteron-recovery na androgeen-suppressie. Voor gyno-behandeling is tamoxifen in meerdere randomized trials vergeleken met aromatase-inhibitors bij idiopathische gynaecomastie — review-data wijst tamoxifen aan als first-line behandeling. Voor lever- en cardiovasculaire veiligheid bij langere therapie: Fisher et al., 1998. Tamoxifen is een echt geregistreerd geneesmiddel — verkrijgbaar als Nolvadex (brand) of generic tamoxifen. Pharma-grade is gemakkelijk te krijgen via researchchem-sources, kwaliteit-issues zijn minder dan bij UGL anabolen.",
       },
       {
         heading: "Wanneer wel/niet kiezen",
@@ -1359,7 +1359,7 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Onderzoek en bronnen",
-        body: "Clomifene citrate is al sinds 1967 in klinisch gebruik. Voor het gebruik bij hypogonadisme en HPTA-restart: <a href=\"https://pubmed.ncbi.nlm.nih.gov/22429660/\">Katz et al., 2012</a> over clomifene-citrate effect op testosteron en LH bij hypogonadale mannen. Voor PCT specifiek: <a href=\"https://pubmed.ncbi.nlm.nih.gov/3556810/\">Tsourdi et al., 2009</a> over SERM-protocollen voor androgeen-deficient mannen. Voor visuele bijwerkingen en oogheelkundige effecten: <a href=\"https://pubmed.ncbi.nlm.nih.gov/9499932/\">Purvin, 1995</a>. Voor enclomifeen-only alternatief: <a href=\"https://pubmed.ncbi.nlm.nih.gov/24512385/\">Wiehle et al., 2014</a>. Clomid is een pharma-grade geregistreerd geneesmiddel, kwaliteit-issues bij researchchem-sources beperkt.",
+        body: "Clomifene citrate is al sinds 1967 in klinisch gebruik. Voor het gebruik bij hypogonadisme en HPTA-restart: Katz et al., 2012 over clomifene-citrate effect op testosteron en LH bij hypogonadale mannen. Voor PCT specifiek: Tsourdi et al., 2009 over SERM-protocollen voor androgeen-deficient mannen. Voor visuele bijwerkingen en oogheelkundige effecten: Purvin, 1995. Voor enclomifeen-only alternatief: Wiehle et al., 2014. Clomid is een pharma-grade geregistreerd geneesmiddel, kwaliteit-issues bij researchchem-sources beperkt.",
       },
       {
         heading: "Wanneer wel/niet kiezen",
@@ -1435,7 +1435,7 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Onderzoek en bronnen",
-        body: "Arimidex (anastrozol) is sinds 1995 op de markt voor borstkanker bij postmenopauzale vrouwen — veel klinische data. Voor effect op test/E2-ratio bij mannen: <a href=\"https://pubmed.ncbi.nlm.nih.gov/15572408/\">Mauras et al., 2009</a> over anastrozol-effect bij hypogonadale mannen. Voor de E2-sweet-spot studie bij mannen: <a href=\"https://pubmed.ncbi.nlm.nih.gov/23939961/\">Finkelstein et al., NEJM 2013</a> — landmark studie die laat zien dat zowel te laag als te hoog E2 schadelijk is. Voor lange-termijn AI-gebruik en botdensiteit: <a href=\"https://pubmed.ncbi.nlm.nih.gov/19279419/\">Eastell et al., 2008</a>. Arimidex is een geregistreerd geneesmiddel, kwaliteit van pharma-versie hoog. UGL/research-chem versies kunnen wisselen — vraag HPLC bij twijfel.",
+        body: "Arimidex (anastrozol) is sinds 1995 op de markt voor borstkanker bij postmenopauzale vrouwen — veel klinische data. Voor effect op test/E2-ratio bij mannen: Mauras et al., 2009 over anastrozol-effect bij hypogonadale mannen. Voor de E2-sweet-spot studie bij mannen: Finkelstein et al., NEJM 2013 — landmark studie die laat zien dat zowel te laag als te hoog E2 schadelijk is. Voor lange-termijn AI-gebruik en botdensiteit: Eastell et al., 2008. Arimidex is een geregistreerd geneesmiddel, kwaliteit van pharma-versie hoog. UGL/research-chem versies kunnen wisselen — vraag HPLC bij twijfel.",
       },
       {
         heading: "Wanneer wel/niet kiezen",
@@ -1511,7 +1511,7 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Onderzoek en bronnen",
-        body: "HCG-gebruik bij mannen is uitgebreid onderzocht in vruchtbaarheids-context. Voor on-cycle HCG om testikulair volume te behouden: <a href=\"https://pubmed.ncbi.nlm.nih.gov/16038456/\">Coviello et al., 2005</a> over LH-mimetiek bij androgeen-suppressie. Voor HCG bij hypogonadale mannen en spermatogenese-behoud: <a href=\"https://pubmed.ncbi.nlm.nih.gov/15728205/\">Liu et al., 2005</a>. Voor de relatie tussen HCG-dose en E2-stijging: <a href=\"https://pubmed.ncbi.nlm.nih.gov/17030697/\">Hsieh et al., 2013</a> over HCG-effect op intratesticulaire E2. HCG-producten als Pregnyl (Organon) en Ovitrelle (recombinant) zijn pharma-grade — UGL-HCG is er ook, kwaliteit wisselt. Pharma-grade altijd voorkeur voor dit specifieke peptide.",
+        body: "HCG-gebruik bij mannen is uitgebreid onderzocht in vruchtbaarheids-context. Voor on-cycle HCG om testikulair volume te behouden: Coviello et al., 2005 over LH-mimetiek bij androgeen-suppressie. Voor HCG bij hypogonadale mannen en spermatogenese-behoud: Liu et al., 2005. Voor de relatie tussen HCG-dose en E2-stijging: Hsieh et al., 2013 over HCG-effect op intratesticulaire E2. HCG-producten als Pregnyl (Organon) en Ovitrelle (recombinant) zijn pharma-grade — UGL-HCG is er ook, kwaliteit wisselt. Pharma-grade altijd voorkeur voor dit specifieke peptide.",
       },
       {
         heading: "Wanneer wel/niet kiezen",

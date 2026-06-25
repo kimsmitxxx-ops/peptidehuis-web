@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { categoryContent, findCategoryContent } from "@/components/shop/data";
-import { getVerifiedSourcesFor, sourceUrl } from "@/components/shop/verified-sources";
+import { getVerifiedSourcesFor, sourceUrl, formatCitation } from "@/components/shop/verified-sources";
 import { SectionHeading } from "@/components/section-heading";
 import { Badge } from "@/components/badge";
 import { FaqAccordion } from "@/components/faq-accordion";
@@ -139,7 +139,8 @@ export default function StofPage({ params }: { params: { stof: string } }) {
         </section>
       )}
 
-      {/* Geverifieerde wetenschappelijke bronnen — handmatig HEAD-getest, alleen PubMed IDs die 200 retourneren */}
+      {/* Geverifieerde wetenschappelijke bronnen — auto-gegenereerd uit PubMed ESEARCH
+          per stof zodat titel + auteurs ECHT zijn (geen GPT-hallucinaties). */}
       {getVerifiedSourcesFor(c.slug).length > 0 && (
         <section className="mx-auto max-w-3xl px-4 py-10">
           <div className="rounded-xl border border-paper-border bg-paper-soft p-6">
@@ -147,25 +148,27 @@ export default function StofPage({ params }: { params: { stof: string } }) {
               Verder lezen — wetenschappelijke bronnen
             </p>
             <h2 className="mt-2 font-display text-xl text-primary leading-tight">
-              Studies waar deze pagina op gebaseerd is
+              PubMed-papers over {c.name.toLowerCase()}
             </h2>
             <p className="mt-2 text-xs text-text-muted">
-              Iedere link is geverifieerd — alleen bestaande PubMed-publicaties.
+              Top relevante studies (PubMed ESEARCH, sorted by relevance). Iedere link en
+              titel komt direct uit PubMed — geen verzonnen citaties.
             </p>
             <ul className="mt-5 space-y-3">
               {getVerifiedSourcesFor(c.slug).map((s) => (
-                <li key={s.pmid} className="text-sm">
+                <li key={s.pmid} className="text-sm leading-snug">
                   <a
                     href={sourceUrl(s)}
                     target="_blank"
                     rel="noopener noreferrer nofollow"
-                    className="font-medium text-accent hover:underline"
+                    className="font-medium text-text hover:text-accent hover:underline"
                   >
-                    {s.citation}
+                    {s.title}
                   </a>
-                  <span className="text-text-muted"> — {s.topic}</span>
-                  <span className="ml-1 text-[10px] text-text-subtle tabular">
-                    PMID {s.pmid}
+                  <span className="block mt-0.5 text-xs text-text-muted">
+                    {formatCitation(s)}
+                    {s.journal && ` · ${s.journal}`}
+                    <span className="ml-1 text-text-subtle tabular">· PMID {s.pmid}</span>
                   </span>
                 </li>
               ))}
