@@ -72,6 +72,8 @@ export function ProductCard({
       name,
       price_cents: Math.round(priceFrom * 100),
       image,
+      // Tag-based shipping: als de product-card tag === "UT" -> ut-shipping
+      shipping_method: tag === "UT" ? "ut" : "rest",
     });
   }
 

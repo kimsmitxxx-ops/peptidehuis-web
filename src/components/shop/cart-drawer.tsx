@@ -3,16 +3,15 @@ import Link from "next/link";
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import { Button } from "@/components/button";
 import { Badge } from "@/components/badge";
-import { Minus, Plus, Trash2, ArrowRight, ShoppingBag } from "lucide-react";
+import { Minus, Plus, Trash2, ArrowRight, ShoppingBag, Truck } from "lucide-react";
 import { useCart } from "./cart-store";
 import { formatEUR } from "@/lib/queries";
+import { computeShipping } from "@/lib/shipping";
 
 export function CartDrawer() {
   const { isOpen, setOpen, items, setQty, remove, total } = useCart();
-
-  const shippingThresholdCents = 7500;
-  const progress = Math.min(100, Math.round((total / shippingThresholdCents) * 100));
-  const remainingCents = Math.max(0, shippingThresholdCents - total);
+  const shipping = computeShipping(items);
+  const grandTotal = total + shipping.shippingCents;
 
   return (
     <Sheet open={isOpen} onOpenChange={setOpen}>
@@ -99,26 +98,38 @@ export function CartDrawer() {
               className="border-t border-border bg-surface px-5 py-4 space-y-3"
               style={{ paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 1rem)" }}
             >
-              {remainingCents > 0 ? (
-                <div>
-                  <p className="text-xs text-text-muted mb-1.5">
-                    Nog <span className="font-medium text-text tabular">{formatEUR(remainingCents)}</span> tot gratis verzending
-                  </p>
-                  <div className="h-1.5 rounded-full bg-muted overflow-hidden">
-                    <div
-                      className="h-full bg-accent transition-all"
-                      style={{ width: `${progress}%` }}
-                    />
-                  </div>
+              {/* Verzending-breakdown: per shipping-method een regel */}
+              {shipping.lines.length > 0 && (
+                <div className="rounded-md border border-border bg-paper-soft p-2.5 space-y-1.5">
+                  {shipping.lines.map((line) => (
+                    <div key={line.method} className="flex items-baseline justify-between gap-2 text-xs">
+                      <span className="inline-flex items-center gap-1.5 text-text-muted">
+                        <Truck size={11} className="text-accent shrink-0" />
+                        <span className="truncate">{line.label}</span>
+                      </span>
+                      <span className="font-medium text-text tabular shrink-0">{formatEUR(line.cents)}</span>
+                    </div>
+                  ))}
+                  {shipping.lines.length > 1 && (
+                    <p className="text-[10px] text-text-subtle leading-snug pt-1 border-t border-border">
+                      Producten uit verschillende magazijnen — twee aparte zendingen, daarom 2× verzendkosten.
+                    </p>
+                  )}
                 </div>
-              ) : (
-                <Badge variant="success" className="w-full justify-center">
-                  Gratis verzending unlocked
-                </Badge>
               )}
-              <div className="flex items-baseline justify-between">
-                <span className="text-sm text-text-muted">Subtotaal</span>
-                <span className="font-display text-xl text-primary tabular">{formatEUR(total)}</span>
+              <div className="space-y-1.5">
+                <div className="flex items-baseline justify-between text-sm text-text-muted">
+                  <span>Subtotaal</span>
+                  <span className="tabular">{formatEUR(total)}</span>
+                </div>
+                <div className="flex items-baseline justify-between text-sm text-text-muted">
+                  <span>Verzending</span>
+                  <span className="tabular">{formatEUR(shipping.shippingCents)}</span>
+                </div>
+                <div className="flex items-baseline justify-between pt-1 border-t border-border">
+                  <span className="font-semibold text-text">Totaal</span>
+                  <span className="font-display text-xl text-primary tabular">{formatEUR(grandTotal)}</span>
+                </div>
               </div>
               <div className="grid grid-cols-2 gap-2">
                 <Link href="/winkelmand" onClick={() => setOpen(false)}>

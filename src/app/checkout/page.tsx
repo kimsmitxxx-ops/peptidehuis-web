@@ -75,7 +75,17 @@ export default function CheckoutPage() {
                 <div className="flex justify-between text-accent-muted"><span>Bulk-korting</span><span>−{formatEUR(totals.savings)}</span></div>
               )}
               <div className="flex justify-between text-text-muted"><span>Subtotaal</span><span>{formatEUR(totals.subtotal)}</span></div>
-              <div className="flex justify-between text-text-muted"><span>Verzending</span><span>{totals.shipping === 0 ? "Gratis" : formatEUR(totals.shipping)}</span></div>
+              <div className="flex justify-between text-text-muted">
+                <span>
+                  Verzending
+                  {totals.shippingMethodCount > 1 && (
+                    <span className="block text-[10px] text-text-subtle">
+                      {totals.shippingMethodCount}× zending vanuit verschillende magazijnen
+                    </span>
+                  )}
+                </span>
+                <span>{formatEUR(totals.shipping)}</span>
+              </div>
               <div className="mt-2 flex justify-between font-display text-lg pt-2 border-t border-paper-border"><span>Totaal</span><span>{formatEUR(totals.total)}</span></div>
             </div>
             <button type="submit" disabled={busy} className="mt-5 w-full rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground hover:bg-accent-soft disabled:opacity-50">

@@ -1,7 +1,16 @@
 "use client";
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 
-export type CartItem = { id: string; sku: string; name: string; price_cents: number; image: string | null; qty: number };
+export type CartItem = {
+  id: string;
+  sku: string;
+  name: string;
+  price_cents: number;
+  image: string | null;
+  qty: number;
+  /** "ut" voor UT-tagged producten, "rest" voor alle overige (default). */
+  shipping_method?: "ut" | "rest";
+};
 
 type Ctx = {
   items: CartItem[];

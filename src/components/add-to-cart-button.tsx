@@ -26,6 +26,7 @@ export function AddToCartButton({ product }: { product: Product }) {
         name: product.name,
         price_cents: product.price_cents,
         image: product.image_url,
+        shipping_method: product.tags?.includes("UT") ? "ut" : "rest",
       },
       qty,
     );

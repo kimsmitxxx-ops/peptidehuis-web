@@ -16,7 +16,14 @@ export function lineSubtotalCents(priceCents: number, qty: number): number {
   return Math.round(priceCents * (1 - pct / 100)) * qty;
 }
 
-export interface CartLikeItem { price_cents: number; qty: number }
+export interface CartLikeItem {
+  price_cents: number;
+  qty: number;
+  /** "ut" / "rest" — bepaalt of dit item via UT-shipping of standaard gaat */
+  shipping_method?: "ut" | "rest";
+}
+
+const SHIPPING_FEE_CENTS = 1000; // €10 per zending
 
 export function calcTotals(items: CartLikeItem[]) {
   let subtotalRaw = 0;
@@ -28,7 +35,10 @@ export function calcTotals(items: CartLikeItem[]) {
     subtotal += sub;
   }
   savings = subtotalRaw - subtotal;
-  const shipping = subtotal >= 7500 ? 0 : 595;
+  // Verzending = aantal unieke shipping-methodes in mand × €10
+  const methods = new Set<string>();
+  for (const it of items) methods.add(it.shipping_method || "rest");
+  const shipping = methods.size * SHIPPING_FEE_CENTS;
   const total = subtotal + shipping;
-  return { subtotalRaw, subtotal, savings, shipping, total };
+  return { subtotalRaw, subtotal, savings, shipping, total, shippingMethodCount: methods.size };
 }
