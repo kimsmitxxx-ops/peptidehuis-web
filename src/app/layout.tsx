@@ -5,8 +5,13 @@ import "./globals.css";
 import { CartProvider } from "@/components/shop/cart-store";
 import { Header } from "@/components/shop/header";
 import { Footer } from "@/components/shop/footer";
-import { CartDrawer } from "@/components/shop/cart-drawer";
 import { MobileTabBar } from "@/components/shop/mobile-tabbar";
+
+// CartDrawer is alleen zichtbaar als gebruiker op cart-icoon klikt -> defer hydratie
+const CartDrawer = dynamic(
+  () => import("@/components/shop/cart-drawer").then((m) => m.CartDrawer),
+  { ssr: false },
+);
 
 // Self-hosted fonts via next/font: elimineert render-blocking Google Fonts request
 const manrope = Manrope({
@@ -41,11 +46,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="preconnect" href="https://rexqfwibxawqnvrzbdoo.supabase.co" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
-        {/* Preload hero image (LCP) */}
+        {/* Preload hero image (LCP) — AVIF eerst voor moderne browsers (55KB vs 91KB jpg).
+            Browsers die geen AVIF doen, vallen automatisch op de webp/jpg <picture> source. */}
         <link
           rel="preload"
           as="image"
-          href="/assets/transform-after.jpg"
+          href="/assets/transform-after.avif"
+          type="image/avif"
           fetchPriority="high"
         />
       </head>

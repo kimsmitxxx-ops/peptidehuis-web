@@ -3,6 +3,12 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import { cn } from "@/lib/utils";
 import { ChevronsLeftRight } from "lucide-react";
 
+// Vervang de file-extension van een asset-pad. Gebruikt door <picture> om
+// .avif / .webp varianten te serveren naast de originele jpg/png.
+function swapExt(src: string, ext: string): string {
+  return src.replace(/\.(jpe?g|png)$/i, `.${ext}`);
+}
+
 export interface BeforeAfterSliderProps {
   beforeSrc: string;
   afterSrc: string;
@@ -101,35 +107,44 @@ export function BeforeAfterSlider({
         setFromClientX(e.clientX);
       }}
     >
-      {/* After (full) — LCP-candidate op homepage hero */}
-      <img
-        src={afterSrc}
-        alt={afterLabel}
-        draggable={false}
-        width={800}
-        height={1000}
-        loading={priority ? "eager" : "lazy"}
-        // @ts-expect-error fetchpriority is geldig HTML attribuut maar nog niet in TS types
-        fetchpriority={priority ? "high" : "auto"}
-        decoding={priority ? "sync" : "async"}
-        className="block w-full h-full object-cover"
-      />
-      {/* Before (clipped) — minder kritiek, lazy */}
+      {/* After (full) — LCP-candidate op homepage hero. <picture> serveert AVIF/WebP
+          waar ondersteund (originele JPG als fallback). */}
+      <picture>
+        <source srcSet={swapExt(afterSrc, "avif")} type="image/avif" />
+        <source srcSet={swapExt(afterSrc, "webp")} type="image/webp" />
+        <img
+          src={afterSrc}
+          alt={afterLabel}
+          draggable={false}
+          width={800}
+          height={1000}
+          loading={priority ? "eager" : "lazy"}
+          // @ts-expect-error fetchpriority is geldig HTML attribuut maar nog niet in TS types
+          fetchpriority={priority ? "high" : "auto"}
+          decoding={priority ? "sync" : "async"}
+          className="block w-full h-full object-cover"
+        />
+      </picture>
+      {/* Before (clipped) — minder kritiek, lazy + AVIF/WebP fallback */}
       <div
         className="absolute inset-0 overflow-hidden"
         style={{ width: `${pos}%` }}
       >
-        <img
-          src={beforeSrc}
-          alt={beforeLabel}
-          draggable={false}
-          width={800}
-          height={1000}
-          loading="lazy"
-          decoding="async"
-          className="block h-full object-cover"
-          style={{ width: `${(100 / Math.max(pos, 0.0001)) * 100}%`, maxWidth: "none" }}
-        />
+        <picture>
+          <source srcSet={swapExt(beforeSrc, "avif")} type="image/avif" />
+          <source srcSet={swapExt(beforeSrc, "webp")} type="image/webp" />
+          <img
+            src={beforeSrc}
+            alt={beforeLabel}
+            draggable={false}
+            width={800}
+            height={1000}
+            loading="lazy"
+            decoding="async"
+            className="block h-full object-cover"
+            style={{ width: `${(100 / Math.max(pos, 0.0001)) * 100}%`, maxWidth: "none" }}
+          />
+        </picture>
       </div>
 
       {/* Labels */}

@@ -145,7 +145,7 @@ export default async function CategoryPage({
                 {products.map((p) => (
                   <Link key={p.id} href={`/product/${p.categories?.slug || cat.slug}/${p.slug}`} className="block">
                     <ProductCard
-                      image={p.image_url || "/assets/cat-anabolen.png"}
+                      image={p.image_url || "/assets/cat-anabolen.webp"}
                       name={p.name}
                       slug={p.slug}
                       priceFrom={p.price_cents / 100}

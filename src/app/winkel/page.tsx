@@ -97,7 +97,7 @@ export default async function WinkelIndexPage({
             {products.map((p) => (
               <Link key={p.id} href={`/product/${p.categories?.slug || "winkel"}/${p.slug}`} className="block">
                 <ProductCard
-                  image={p.image_url || "/assets/cat-anabolen.png"}
+                  image={p.image_url || "/assets/cat-anabolen.webp"}
                   name={p.name}
                   slug={p.slug}
                   priceFrom={p.price_cents / 100}

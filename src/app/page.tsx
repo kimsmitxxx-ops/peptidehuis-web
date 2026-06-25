@@ -318,7 +318,7 @@ export default async function HomePage() {
                 className="block"
               >
                 <ProductCard
-                  image={p.image_url || "/assets/cat-anabolen.png"}
+                  image={p.image_url || "/assets/cat-anabolen.webp"}
                   name={p.name}
                   slug={p.slug}
                   priceFrom={p.price_cents / 100}
@@ -354,7 +354,7 @@ export default async function HomePage() {
                 className="block"
               >
                 <ProductCard
-                  image={p.image_url || "/assets/cat-anabolen.png"}
+                  image={p.image_url || "/assets/cat-anabolen.webp"}
                   name={p.name}
                   slug={p.slug}
                   priceFrom={p.price_cents / 100}
@@ -449,7 +449,7 @@ export default async function HomePage() {
                 }
                 title={a.title}
                 excerpt={a.excerpt || ""}
-                image={a.image_url || "/assets/cat-anabolen.png"}
+                image={a.image_url || "/assets/cat-anabolen.webp"}
                 publishedAt={a.published_at ? new Date(a.published_at).toLocaleDateString("nl-NL") : ""}
                 author={{ name: a.author || "Redactie", credentials: "AnabolenPro" }}
                 href={`/kennisbank/${a.slug}`}

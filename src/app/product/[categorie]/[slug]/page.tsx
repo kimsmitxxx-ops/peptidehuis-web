@@ -177,7 +177,7 @@ export default async function ProductDetailPage({ params }: { params: { categori
             {related.filter((r) => r.id !== p.id).slice(0, 4).map((r) => (
               <Link key={r.id} href={`/product/${r.categories?.slug || params.categorie}/${r.slug}`} className="block">
                 <ProductCard
-                  image={r.image_url || "/assets/cat-anabolen.png"}
+                  image={r.image_url || "/assets/cat-anabolen.webp"}
                   name={r.name}
                   slug={r.slug}
                   priceFrom={r.price_cents / 100}
