@@ -20,9 +20,9 @@ const carriers = [
 ];
 
 const usps = [
-  { icon: Clock, title: "Voor 22:00 = morgen in huis", sub: "Late cutoff, ook op vrijdag." },
+  { icon: Clock, title: "Snel verzonden", sub: "Dezelfde of volgende werkdag de deur uit met PostNL." },
   { icon: PackageCheck, title: "Neutrale verpakking", sub: "Geen logo, geen productnaam, geen vermelding op label." },
-  { icon: ShieldCheck, title: "Verzekerd verzonden", sub: "Tot €500 standaard verzekerd, hoger op verzoek mogelijk." },
+  { icon: ShieldCheck, title: "100% leveringsgarantie", sub: "Komt je pakket niet aan? Wij vergoeden de volledige bestelling — geen discussie." },
   { icon: Globe2, title: "EU-breed bezorgd", sub: "BE, DE, FR, AT, ES, IT, PL en SE binnen 1-3 werkdagen." },
 ];
 

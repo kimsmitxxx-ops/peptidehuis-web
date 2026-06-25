@@ -2,8 +2,8 @@
 import Link from "next/link";
 import { useCart } from "@/lib/cart-context";
 import { formatEUR } from "@/lib/queries";
-import { calcTotals } from "@/lib/bulk-discount";
-import { Trash2, Minus, Plus, ShoppingBag } from "lucide-react";
+import { calcTotals, unitDiscountPct } from "@/lib/bulk-discount";
+import { Trash2, Minus, Plus, ShoppingBag, Sparkles } from "lucide-react";
 
 export default function WinkelmandPage() {
   const cart = useCart();
@@ -22,12 +22,26 @@ export default function WinkelmandPage() {
       ) : (
         <div className="mt-6 grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-3">
-            {cart.items.map((it) => (
+            {cart.items.map((it) => {
+              const pct = unitDiscountPct(it.qty);
+              const unit = pct > 0 ? Math.round(it.price_cents * (1 - pct / 100)) : it.price_cents;
+              const lineTotal = unit * it.qty;
+              return (
               <div key={it.id} className="flex gap-4 rounded-xl border border-paper-border bg-paper-soft p-4">
                 {it.image && /* eslint-disable-next-line @next/next/no-img-element */ <img loading="lazy" decoding="async" src={it.image} alt={it.name} className="h-20 w-20 rounded object-cover" />}
                 <div className="flex-1">
                   <p className="font-medium">{it.name}</p>
-                  <p className="text-sm text-text-muted">{formatEUR(it.price_cents)}</p>
+                  {pct > 0 ? (
+                    <p className="text-sm">
+                      <span className="text-text-subtle line-through tabular">{formatEUR(it.price_cents)}</span>
+                      <span className="ml-2 text-accent font-medium tabular">{formatEUR(unit)}</span>
+                      <span className="ml-2 inline-flex items-center gap-1 rounded-full bg-accent/15 px-2 py-0.5 text-[11px] font-semibold text-accent">
+                        <Sparkles size={10} /> Bulk-korting −{pct}%
+                      </span>
+                    </p>
+                  ) : (
+                    <p className="text-sm text-text-muted">{formatEUR(it.price_cents)}</p>
+                  )}
                   <div className="mt-2 flex items-center gap-2">
                     <button onClick={() => cart.setQty(it.id, it.qty - 1)} className="rounded border border-paper-border p-1"><Minus className="h-3 w-3" /></button>
                     <span className="min-w-[2ch] text-center">{it.qty}</span>
@@ -35,9 +49,10 @@ export default function WinkelmandPage() {
                     <button onClick={() => cart.remove(it.id)} className="ml-auto text-text-subtle hover:text-danger"><Trash2 className="h-4 w-4" /></button>
                   </div>
                 </div>
-                <p className="font-display text-lg">{formatEUR(it.price_cents * it.qty)}</p>
+                <p className="font-display text-lg tabular">{formatEUR(lineTotal)}</p>
               </div>
-            ))}
+              );
+            })}
           </div>
           <div className="lg:col-span-1">
             <div className="sticky top-32 rounded-2xl border border-paper-border bg-paper-soft p-6">

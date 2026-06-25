@@ -2,13 +2,39 @@
 import Link from "next/link";
 import { useCart } from "@/lib/cart-context";
 import { formatEUR } from "@/lib/queries";
-import { calcTotals } from "@/lib/bulk-discount";
+import { calcTotals, unitDiscountPct } from "@/lib/bulk-discount";
+import { PaymentRow } from "@/components/payment-row";
+import { Sparkles, UserPlus, Lock } from "lucide-react";
 import { useState } from "react";
+
+const EU_COUNTRIES = [
+  { code: "NL", name: "Nederland" },
+  { code: "BE", name: "België" },
+  { code: "DE", name: "Duitsland" },
+  { code: "FR", name: "Frankrijk" },
+  { code: "ES", name: "Spanje" },
+  { code: "IT", name: "Italië" },
+  { code: "AT", name: "Oostenrijk" },
+  { code: "PT", name: "Portugal" },
+  { code: "PL", name: "Polen" },
+  { code: "SE", name: "Zweden" },
+];
 
 export default function CheckoutPage() {
   const cart = useCart();
   const totals = calcTotals(cart.items);
-  const [form, setForm] = useState({ email: "", name: "", street: "", postal: "", city: "", country: "NL", phone: "" });
+  const [form, setForm] = useState({
+    email: "",
+    name: "",
+    street: "",
+    house_number: "",
+    postal: "",
+    city: "",
+    country: "NL",
+    phone: "",
+    create_account: false,
+    password: "",
+  });
   const [busy, setBusy] = useState(false);
   const [done, setDone] = useState(false);
 
@@ -28,7 +54,7 @@ export default function CheckoutPage() {
     return (
       <div className="mx-auto max-w-md px-4 py-20 text-center">
         <h1 className="font-display text-3xl">Bedankt!</h1>
-        <p className="mt-3 text-text-muted">Je bestelling is binnen. Je ontvangt zo de IBAN-gegevens per email.</p>
+        <p className="mt-3 text-text-muted">Je bestelling is binnen. Je ontvangt zo de betaalinstructies per e-mail.</p>
         <Link href="/" className="mt-6 inline-flex rounded-full bg-accent px-5 py-2 text-sm font-semibold text-accent-foreground">Terug naar home</Link>
       </div>
     );
@@ -43,58 +69,210 @@ export default function CheckoutPage() {
       <h1 className="font-display text-3xl">Afrekenen</h1>
       <form onSubmit={submit} className="mt-6 grid gap-8 lg:grid-cols-3">
         <div className="space-y-4 lg:col-span-2">
-          {[
-            { k: "email", l: "Email", type: "email" },
-            { k: "name", l: "Naam" },
-            { k: "street", l: "Adres + huisnr" },
-            { k: "postal", l: "Postcode" },
-            { k: "city", l: "Stad" },
-            { k: "phone", l: "Telefoon (optioneel)", required: false },
-          ].map((f) => (
-            <label key={f.k} className="block">
-              <span className="mb-1 block text-sm font-medium">{f.l}</span>
+          <Field
+            k="email"
+            label="E-mailadres"
+            type="email"
+            value={form.email}
+            onChange={(v) => setForm({ ...form, email: v })}
+          />
+
+          {/* Maak account aan — checkbox + password */}
+          <div className="rounded-lg border border-accent/30 bg-accent-soft/15 p-4">
+            <label className="flex items-start gap-2.5 cursor-pointer">
               <input
-                type={(f as any).type || "text"} required={(f as any).required !== false}
-                value={(form as any)[f.k]} onChange={(e) => setForm({ ...form, [f.k]: e.target.value })}
-                className="w-full rounded-lg border border-paper-border bg-paper-soft px-3 py-2 text-sm outline-none focus:border-accent"
+                type="checkbox"
+                checked={form.create_account}
+                onChange={(e) => setForm({ ...form, create_account: e.target.checked })}
+                className="mt-0.5 h-4 w-4 rounded border-border accent-accent"
               />
+              <div className="text-sm">
+                <p className="font-semibold text-text inline-flex items-center gap-1.5">
+                  <UserPlus size={14} className="text-accent" /> Maak meteen een account aan
+                </p>
+                <p className="mt-0.5 text-xs text-text-muted">
+                  Volg je bestellingen, herhaal eerdere kuren in 1 klik en zie je COA-archief terug.
+                </p>
+              </div>
             </label>
-          ))}
+            {form.create_account && (
+              <div className="mt-3">
+                <label className="block">
+                  <span className="mb-1 block text-sm font-medium text-text inline-flex items-center gap-1.5">
+                    <Lock size={12} className="text-accent" /> Wachtwoord (min. 8 tekens)
+                  </span>
+                  <input
+                    type="password"
+                    required={form.create_account}
+                    minLength={8}
+                    value={form.password}
+                    onChange={(e) => setForm({ ...form, password: e.target.value })}
+                    className="w-full rounded-lg border border-paper-border bg-paper-soft px-3 py-2 text-sm outline-none focus:border-accent"
+                  />
+                </label>
+              </div>
+            )}
+          </div>
+
+          <Field
+            k="name"
+            label="Naam (voor- en achternaam)"
+            value={form.name}
+            onChange={(v) => setForm({ ...form, name: v })}
+          />
+
+          {/* Straat + huisnr apart */}
+          <div className="grid gap-3 grid-cols-[1fr_120px]">
+            <Field
+              k="street"
+              label="Straatnaam"
+              value={form.street}
+              onChange={(v) => setForm({ ...form, street: v })}
+            />
+            <Field
+              k="house_number"
+              label="Huisnr + toev."
+              value={form.house_number}
+              onChange={(v) => setForm({ ...form, house_number: v })}
+            />
+          </div>
+
+          {/* Postcode + stad */}
+          <div className="grid gap-3 grid-cols-[160px_1fr]">
+            <Field
+              k="postal"
+              label="Postcode"
+              value={form.postal}
+              onChange={(v) => setForm({ ...form, postal: v })}
+            />
+            <Field
+              k="city"
+              label="Stad"
+              value={form.city}
+              onChange={(v) => setForm({ ...form, city: v })}
+            />
+          </div>
+
+          {/* Land dropdown — NL default, BE 2e */}
+          <label className="block">
+            <span className="mb-1 block text-sm font-medium">Land</span>
+            <select
+              value={form.country}
+              onChange={(e) => setForm({ ...form, country: e.target.value })}
+              className="w-full rounded-lg border border-paper-border bg-paper-soft px-3 py-2 text-sm outline-none focus:border-accent"
+            >
+              {EU_COUNTRIES.map((c) => (
+                <option key={c.code} value={c.code}>{c.name}</option>
+              ))}
+            </select>
+          </label>
+
+          <Field
+            k="phone"
+            label="Telefoon (optioneel)"
+            value={form.phone}
+            onChange={(v) => setForm({ ...form, phone: v })}
+            required={false}
+          />
+
+          {/* Betaalopties — zelfde rij als op productpagina + Veilig betalen-blok */}
+          <div className="rounded-lg border border-border bg-surface p-4">
+            <p className="text-xs uppercase tracking-wider text-accent-muted font-semibold mb-2">
+              Veilig &amp; snel betalen
+            </p>
+            <p className="text-xs text-text-muted mb-3">
+              Na bevestigen krijg je per mail de betaalinstructies. Bestelling gaat direct na binnenkomst betaling de deur uit.
+            </p>
+            <PaymentRow variant="full" />
+          </div>
         </div>
+
         <div>
           <div className="sticky top-32 rounded-2xl border border-paper-border bg-paper-soft p-6">
             <h2 className="font-display text-xl">Overzicht</h2>
-            {cart.items.map((it) => (
-              <div key={it.id} className="mt-3 flex justify-between text-sm">
-                <span>{it.qty}× {it.name}</span>
-                <span>{formatEUR(it.price_cents * it.qty)}</span>
-              </div>
-            ))}
+            {cart.items.map((it) => {
+              const pct = unitDiscountPct(it.qty);
+              const unit = pct > 0 ? Math.round(it.price_cents * (1 - pct / 100)) : it.price_cents;
+              return (
+                <div key={it.id} className="mt-3 text-sm">
+                  <div className="flex justify-between">
+                    <span>{it.qty}× {it.name}</span>
+                    <span className="tabular">{formatEUR(unit * it.qty)}</span>
+                  </div>
+                  {pct > 0 && (
+                    <span className="inline-flex items-center gap-1 mt-0.5 text-[10px] text-accent font-semibold">
+                      <Sparkles size={9} /> Bulk-korting −{pct}%
+                    </span>
+                  )}
+                </div>
+              );
+            })}
             <div className="mt-4 border-t border-paper-border pt-4 text-sm space-y-1.5">
               {totals.savings > 0 && (
-                <div className="flex justify-between text-accent-muted"><span>Bulk-korting</span><span>−{formatEUR(totals.savings)}</span></div>
+                <div className="flex justify-between text-accent">
+                  <span>Bulk-korting</span>
+                  <span>−{formatEUR(totals.savings)}</span>
+                </div>
               )}
-              <div className="flex justify-between text-text-muted"><span>Subtotaal</span><span>{formatEUR(totals.subtotal)}</span></div>
+              <div className="flex justify-between text-text-muted">
+                <span>Subtotaal</span>
+                <span className="tabular">{formatEUR(totals.subtotal)}</span>
+              </div>
               <div className="flex justify-between text-text-muted">
                 <span>
                   Verzending
                   {totals.shippingMethodCount > 1 && (
                     <span className="block text-[10px] text-text-subtle">
-                      {totals.shippingMethodCount}× zending vanuit verschillende magazijnen
+                      {totals.shippingMethodCount}× zending uit verschillende magazijnen
                     </span>
                   )}
                 </span>
-                <span>{formatEUR(totals.shipping)}</span>
+                <span className="tabular">{formatEUR(totals.shipping)}</span>
               </div>
-              <div className="mt-2 flex justify-between font-display text-lg pt-2 border-t border-paper-border"><span>Totaal</span><span>{formatEUR(totals.total)}</span></div>
+              <div className="mt-2 flex justify-between font-display text-lg pt-2 border-t border-paper-border">
+                <span>Totaal</span>
+                <span className="tabular">{formatEUR(totals.total)}</span>
+              </div>
             </div>
             <button type="submit" disabled={busy} className="mt-5 w-full rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground hover:bg-accent-soft disabled:opacity-50">
               {busy ? "Bezig…" : "Plaats bestelling"}
             </button>
-            <p className="mt-3 text-center text-[11px] text-text-muted">Betalen via SEPA — IBAN per email</p>
+            <p className="mt-3 text-center text-[11px] text-text-muted">
+              Betaalinstructies via e-mail. Pakket verzonden zodra betaling binnen is.
+            </p>
           </div>
         </div>
       </form>
     </div>
+  );
+}
+
+function Field({
+  k,
+  label,
+  type = "text",
+  value,
+  onChange,
+  required = true,
+}: {
+  k: string;
+  label: string;
+  type?: string;
+  value: string;
+  onChange: (v: string) => void;
+  required?: boolean;
+}) {
+  return (
+    <label className="block">
+      <span className="mb-1 block text-sm font-medium">{label}</span>
+      <input
+        name={k}
+        type={type}
+        required={required}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="w-full rounded-lg border border-paper-border bg-paper-soft px-3 py-2 text-sm outline-none focus:border-accent"
+      />
+    </label>
   );
 }

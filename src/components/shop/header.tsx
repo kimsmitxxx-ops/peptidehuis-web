@@ -27,8 +27,8 @@ const LANGS: { code: Lang; label: string; flag: string }[] = [
 ];
 
 const TOPBAR_ITEMS = [
-  { Icon: Truck, text: "Gratis bezorging vanaf €75 · voor 23:00 besteld, morgen in huis" },
-  { Icon: ShieldCheck, text: "100% anoniem & discreet verpakt" },
+  { Icon: ShieldCheck, text: "100% leveringsgarantie — krijg je je pakket niet, geld terug" },
+  { Icon: Truck, text: "Snel verzonden — anoniem & discreet verpakt" },
   { Icon: Star, text: "4,8 / 5 · 2.412 geverifieerde reviews" },
 ];
 

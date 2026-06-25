@@ -6,6 +6,7 @@ import { ProductCard } from "@/components/product-card";
 import { ProductSections } from "@/components/shop/product-sections";
 import { MedicalDisclaimer } from "@/components/medical-disclaimer";
 import { ProductGallery } from "@/components/shop/product-gallery";
+import { PaymentRow } from "@/components/payment-row";
 import { ShieldCheck, Truck, FlaskConical, ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
 
@@ -122,7 +123,16 @@ export default async function ProductDetailPage({ params }: { params: { categori
           </div>
 
           <div className="mt-6">
-            <AddToCartButton product={p} />
+            {p.availability === "OutOfStock" ? (
+              <div className="rounded-lg border-2 border-danger/40 bg-danger-soft/30 p-5 text-center">
+                <p className="text-danger font-display text-xl">Uitverkocht</p>
+                <p className="mt-1 text-sm text-text-muted">
+                  Dit product is op dit moment niet leverbaar. Check de chat rechtsonder voor verwachte beschikbaarheid of bekijk vergelijkbare producten hieronder.
+                </p>
+              </div>
+            ) : (
+              <AddToCartButton product={p} />
+            )}
           </div>
 
           {/* USPs prominent — onder add-to-cart */}
@@ -144,8 +154,8 @@ export default async function ProductDetailPage({ params }: { params: { categori
             <div className="flex items-start gap-3 rounded-lg border border-border bg-paper-soft p-3">
               <Truck className="h-5 w-5 text-accent shrink-0 mt-0.5" />
               <div className="text-sm">
-                <p className="font-semibold text-text">Snel geleverd</p>
-                <p className="text-xs text-text-muted">Voor 22:00 besteld én betaald, morgen in huis via PostNL</p>
+                <p className="font-semibold text-text">Snel verzonden</p>
+                <p className="text-xs text-text-muted">100% leveringsgarantie — krijg je je pakket niet, dan vergoeden wij volledig.</p>
               </div>
             </div>
           </div>
@@ -154,6 +164,14 @@ export default async function ProductDetailPage({ params }: { params: { categori
           {p.tags && p.tags.length > 0 && (
             <p className="mt-2 text-xs text-text-muted"><strong>Tags:</strong> {p.tags.join(", ")}</p>
           )}
+
+          {/* Betaalopties — zelfde set als checkout zodat klant weet wat hij straks gaat zien */}
+          <div className="mt-6 rounded-lg border border-border bg-paper-soft p-3">
+            <p className="text-[10px] uppercase tracking-wider text-accent-muted font-semibold mb-2 inline-flex items-center gap-1.5">
+              <ShieldCheck size={11} /> Veilig betalen met
+            </p>
+            <PaymentRow variant="full" />
+          </div>
         </div>
       </div>
 

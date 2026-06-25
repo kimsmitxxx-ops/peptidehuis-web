@@ -3,15 +3,17 @@ import Link from "next/link";
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import { Button } from "@/components/button";
 import { Badge } from "@/components/badge";
-import { Minus, Plus, Trash2, ArrowRight, ShoppingBag, Truck } from "lucide-react";
+import { Minus, Plus, Trash2, ArrowRight, ShoppingBag, Truck, Sparkles } from "lucide-react";
 import { useCart } from "./cart-store";
 import { formatEUR } from "@/lib/queries";
 import { computeShipping } from "@/lib/shipping";
+import { unitDiscountPct, calcTotals } from "@/lib/bulk-discount";
 
 export function CartDrawer() {
-  const { isOpen, setOpen, items, setQty, remove, total } = useCart();
+  const { isOpen, setOpen, items, setQty, remove } = useCart();
+  const totals = calcTotals(items);
   const shipping = computeShipping(items);
-  const grandTotal = total + shipping.shippingCents;
+  const grandTotal = totals.subtotal + shipping.shippingCents;
 
   return (
     <Sheet open={isOpen} onOpenChange={setOpen}>
@@ -38,7 +40,13 @@ export function CartDrawer() {
         ) : (
           <>
             <div className="flex-1 overflow-y-auto px-5 py-4 space-y-3">
-              {items.map((it) => (
+              {items.map((it) => {
+                const discountPct = unitDiscountPct(it.qty);
+                const unitDiscountedCents = discountPct > 0
+                  ? Math.round(it.price_cents * (1 - discountPct / 100))
+                  : it.price_cents;
+                const lineSubtotal = unitDiscountedCents * it.qty;
+                return (
                 <article
                   key={it.id}
                   className="rounded-lg border border-border bg-surface p-3 flex gap-3"
@@ -64,6 +72,11 @@ export function CartDrawer() {
                         <Trash2 size={15} />
                       </button>
                     </div>
+                    {discountPct > 0 && (
+                      <span className="mt-1 inline-flex items-center gap-1 rounded-full bg-accent/15 px-2 py-0.5 text-[10px] font-semibold text-accent">
+                        <Sparkles size={9} /> Bulk-korting actief −{discountPct}%
+                      </span>
+                    )}
                     <div className="mt-2 flex items-center justify-between gap-2">
                       <div className="inline-flex items-center rounded border border-border bg-background">
                         <button
@@ -85,13 +98,25 @@ export function CartDrawer() {
                         </button>
                       </div>
                       <div className="text-right">
-                        <p className="text-xs text-text-muted tabular">{formatEUR(it.price_cents)}/st</p>
-                        <p className="text-sm font-semibold text-primary tabular">{formatEUR(it.price_cents * it.qty)}</p>
+                        {discountPct > 0 ? (
+                          <>
+                            <p className="text-xs text-text-subtle tabular line-through">
+                              {formatEUR(it.price_cents)}/st
+                            </p>
+                            <p className="text-xs text-accent tabular font-medium">
+                              {formatEUR(unitDiscountedCents)}/st
+                            </p>
+                          </>
+                        ) : (
+                          <p className="text-xs text-text-muted tabular">{formatEUR(it.price_cents)}/st</p>
+                        )}
+                        <p className="text-sm font-semibold text-primary tabular">{formatEUR(lineSubtotal)}</p>
                       </div>
                     </div>
                   </div>
                 </article>
-              ))}
+              );
+              })}
             </div>
 
             <footer
@@ -118,9 +143,23 @@ export function CartDrawer() {
                 </div>
               )}
               <div className="space-y-1.5">
+                {totals.savings > 0 && (
+                  <div className="flex items-baseline justify-between text-sm text-text-muted">
+                    <span>Subtotaal</span>
+                    <span className="tabular line-through text-text-subtle">{formatEUR(totals.subtotalRaw)}</span>
+                  </div>
+                )}
+                {totals.savings > 0 && (
+                  <div className="flex items-baseline justify-between text-sm text-accent">
+                    <span className="inline-flex items-center gap-1">
+                      <Sparkles size={11} /> Bulk-korting
+                    </span>
+                    <span className="tabular">−{formatEUR(totals.savings)}</span>
+                  </div>
+                )}
                 <div className="flex items-baseline justify-between text-sm text-text-muted">
-                  <span>Subtotaal</span>
-                  <span className="tabular">{formatEUR(total)}</span>
+                  <span>{totals.savings > 0 ? "Met korting" : "Subtotaal"}</span>
+                  <span className="tabular">{formatEUR(totals.subtotal)}</span>
                 </div>
                 <div className="flex items-baseline justify-between text-sm text-text-muted">
                   <span>Verzending</span>
