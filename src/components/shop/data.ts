@@ -554,6 +554,7 @@ export interface CategoryContent {
   aka?: string[];          // ["Test E", "Sustanon"]
   tagline: string;
   heroImage: string;
+  heroImageAlt?: string;
   intro: string;           // 2–3 zinnen, gebruikt als meta description
   longIntro: string;       // lead onder de h1
   keyFacts: { label: string; value: string }[];
@@ -570,7 +571,8 @@ export const categoryContent: CategoryContent[] = [
     name: "Testosteron",
     aka: ["Test E", "Test C", "Sustanon", "TRT"],
     tagline: "De basis van vrijwel elke anabolenkuur",
-    heroImage: "/assets/stof-testosteron.jpg",
+    heroImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/testosteron-hero.png",
+    heroImageAlt: "Donkere editorial foto van testosteron-vial voor de stof-pagina testosteron",
     intro:
       "Testosteron is de basis waar elke kuur op draait — zonder een testbasis loop je vast op libido, energie en stemming.",
     longIntro:
@@ -646,7 +648,8 @@ export const categoryContent: CategoryContent[] = [
     name: "Nandrolon",
     aka: ["Deca-Durabolin", "NPP"],
     tagline: "Mild profiel met goede gewrichtsondersteuning",
-    heroImage: "/assets/stof-nandrolon.jpg",
+    heroImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/nandrolon-hero.png",
+    heroImageAlt: "Donkere foto van nandrolon-ampules op een lab-tafel voor de stof-pagina nandrolon (deca)",
     intro:
       "Nandrolon (Deca/NPP) is de klassieke 'gewrichtsvriend' onder de anabolen — langzaam, mild en geliefd voor bulks waarin je full body squat zonder krakende knieën.",
     longIntro:
@@ -722,7 +725,8 @@ export const categoryContent: CategoryContent[] = [
     name: "Trenbolone",
     aka: ["Tren A", "Tren E", "Parabolan"],
     tagline: "De heaviest hitter — niet voor je eerste rodeo",
-    heroImage: "/assets/stof-trenbolone.jpg",
+    heroImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/trenbolone-hero.png",
+    heroImageAlt: "Donkere dramatische foto van een vial voor de stof-pagina trenbolone",
     intro:
       "Tren is de meest beruchte stof in de game: brutaal effectief voor recomp, droog en hard, maar met een bijwerkings-profiel waar geen enkele beginner doorheen wil komen.",
     longIntro:
@@ -798,7 +802,8 @@ export const categoryContent: CategoryContent[] = [
     name: "Boldenone",
     aka: ["Equipoise", "EQ"],
     tagline: "De endurance-monster met traag opbouwende pump",
-    heroImage: "/assets/stof-boldenone.jpg",
+    heroImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/boldenone-hero.png",
+    heroImageAlt: "Donkere moody foto van vials voor de stof-pagina boldenone (equipoise)",
     intro:
       "EQ is de langzame-brander van de bulkstoffen: trage opbouw, ongekende pumps en een eetlust waar je vrouw 's avonds bang van wordt.",
     longIntro:
@@ -874,7 +879,8 @@ export const categoryContent: CategoryContent[] = [
     name: "Masteron",
     aka: ["Drostanolone", "Mast P", "Mast E"],
     tagline: "Droog, hard en strak — de cosmetische kers op je cut",
-    heroImage: "/assets/stof-masteron.jpg",
+    heroImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/masteron-hero.png",
+    heroImageAlt: "Macro close-up foto van een vial voor de stof-pagina masteron",
     intro:
       "Masteron is de stof die je toevoegt als je al lean bent en die laatste graad van hardheid en visuele 3D-look wil. Op een vetpercentage van 20% zie je er niks van — onder de 12% steelt het de show.",
     longIntro:
@@ -950,7 +956,8 @@ export const categoryContent: CategoryContent[] = [
     name: "Anavar",
     aka: ["Oxandrolone"],
     tagline: "De milde oral met de meeste fakes in de scene",
-    heroImage: "/assets/stof-anavar.jpg",
+    heroImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/anavar-hero.png",
+    heroImageAlt: "Donkere productfoto van een blister voor de stof-pagina anavar",
     intro:
       "Anavar is de poster boy van 'milde' anabolen — strakke gains, kracht-boost, weinig bijwerkingen. Probleem: 80% van wat er als var verkocht wordt, is gewoon dianabol of winstrol met var-stickertje.",
     longIntro:
@@ -1026,7 +1033,8 @@ export const categoryContent: CategoryContent[] = [
     name: "Dianabol",
     aka: ["Methandienone", "Methandrostenolone", "Dbol"],
     tagline: "Ouderwetse mass-monster, perfect als kickstart",
-    heroImage: "/assets/stof-dianabol.jpg",
+    heroImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/dianabol-hero.png",
+    heroImageAlt: "Donkere editorial foto van tabletten voor de stof-pagina dianabol",
     intro:
       "Dbol is de oudste oral in de game en nog steeds populair: 4 weken op 30 mg en je zit 4-6 kg dikker met pumps die in je broek niet meer passen.",
     longIntro:
@@ -1102,7 +1110,8 @@ export const categoryContent: CategoryContent[] = [
     name: "Winstrol",
     aka: ["Stanozolol", "Winny"],
     tagline: "Droge, harde finisher — sloopt je gewrichten",
-    heroImage: "/assets/stof-winstrol.jpg",
+    heroImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/winstrol-hero.png",
+    heroImageAlt: "Silhouet foto van een tablet bottle voor de stof-pagina winstrol",
     intro:
       "Winstrol is de klassieke pre-contest finisher: droogt je uit, knalt vascularity en spierhardheid op een niveau dat geen andere stof matcht. Maar je gewrichten gaan janken.",
     longIntro:
@@ -1178,7 +1187,8 @@ export const categoryContent: CategoryContent[] = [
     name: "Primobolan",
     aka: ["Methenolone", "Primo"],
     tagline: "De Rolex onder de anabolen — duur, vaak fake, subtiel effect",
-    heroImage: "/assets/stof-primobolan.jpg",
+    heroImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/primobolan-hero.png",
+    heroImageAlt: "Editorial foto van een amber bottle voor de stof-pagina primobolan",
     intro:
       "Primo is de chique optie: mild profiel, geen bloat, geen aromatisatie, en een prijskaartje waar je tweede kuur op past. Maar 9 van de 10 ampullen die je krijgt zijn fake.",
     longIntro:
@@ -1255,7 +1265,8 @@ export const categoryContent: CategoryContent[] = [
     name: "Nolvadex",
     aka: ["Tamoxifen", "Tamox"],
     tagline: "De PCT-essential die je altijd op de plank hebt liggen",
-    heroImage: "/assets/stof-nolvadex.jpg",
+    heroImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/nolvadex-hero.png",
+    heroImageAlt: "Editorial foto van een amber bottle voor de stof-pagina nolvadex",
     intro:
       "Tamoxifen is de hoeksteen van elke serieuze PCT en je eerste line of defense als gyno-knobbeltjes opduiken. Geen kuur zonder Nolva in de kast.",
     longIntro:
@@ -1331,7 +1342,8 @@ export const categoryContent: CategoryContent[] = [
     name: "Clomid",
     aka: ["Clomifeen", "Clomifene Citrate"],
     tagline: "De zware jongen onder de SERMs voor HPTA-restart",
-    heroImage: "/assets/stof-clomid.jpg",
+    heroImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/clomid-hero.png",
+    heroImageAlt: "Editorial foto van een farmacie-bottle voor de stof-pagina clomid",
     intro:
       "Clomid is je heaviest hitter voor het stimuleren van LH/FSH na een cycle — maar bereid je voor op stemmingsdips en het gevoel dat je hele weken in een mistbank loopt.",
     longIntro:
@@ -1407,7 +1419,8 @@ export const categoryContent: CategoryContent[] = [
     name: "Arimidex",
     aka: ["Anastrozol", "Adex", "AI"],
     tagline: "Aromatase-remmer voor oestrogeen-controle op je cycle",
-    heroImage: "/assets/stof-arimidex.jpg",
+    heroImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/arimidex-hero.png",
+    heroImageAlt: "Macro foto van een klein bottle voor de stof-pagina arimidex",
     intro:
       "Arimidex is je veiligheidsklep voor oestrogeen op een aromatiseerbare kuur — micro-doseren op basis van bloedwerk, niet 'preventief' inslikken want te laag E2 sloopt je libido en gewrichten net zo hard.",
     longIntro:
@@ -1483,7 +1496,8 @@ export const categoryContent: CategoryContent[] = [
     name: "HCG",
     aka: ["Pregnyl", "Humaan Choriongonadotrofine", "Ovitrelle"],
     tagline: "Houdt je ballen wakker tijdens je cycle",
-    heroImage: "/assets/stof-hcg.jpg",
+    heroImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/hcg-hero.png",
+    heroImageAlt: "Forensische clinical foto van een vial voor de stof-pagina hcg",
     intro:
       "HCG is geen anabool en geen SERM — het mimic LH en houdt je testes actief tijdens je cycle. Resultaat: geen kleine raisin-ballen na je kuur en sneller HPTA-herstel.",
     longIntro:
