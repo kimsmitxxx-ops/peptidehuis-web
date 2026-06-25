@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default async function WinkelIndexPage({
   searchParams,
 }: {
-  searchParams: { stock?: string; merk?: string };
+  searchParams: { stock?: string; merk?: string; stof?: string };
 }) {
   const [categories, allProducts] = await Promise.all([
     listCategories(),
@@ -26,6 +26,7 @@ export default async function WinkelIndexPage({
 
   const stockOnly = searchParams.stock === "1";
   const merk = searchParams.merk || "";
+  const stof = (searchParams.stof || "").toLowerCase();
 
   const brandSet = new Set<string>();
   allProducts.forEach((p) => p.tags?.forEach((t) => { if (KNOWN_BRANDS.has(t)) brandSet.add(t); }));
@@ -34,6 +35,7 @@ export default async function WinkelIndexPage({
   const filtered = allProducts.filter((p) => {
     if (stockOnly && p.availability === "OutOfStock") return false;
     if (merk && !(p.tags || []).includes(merk)) return false;
+    if (stof && !p.name.toLowerCase().includes(stof)) return false;
     return true;
   });
   const products = sortProducts(filtered as any);
@@ -80,7 +82,7 @@ export default async function WinkelIndexPage({
               ))}
             </div>
           </div>
-          <CatalogFilters brands={brands} stockOnly={stockOnly} activeBrand={merk} />
+          <CatalogFilters brands={brands} stockOnly={stockOnly} activeBrand={merk} activeStof={stof} />
           <div className="rounded-lg border border-border bg-surface p-4 text-text space-y-3 text-sm">
             <h4 className="text-xs uppercase tracking-wider text-accent-muted font-semibold inline-flex items-center gap-1.5">
               <ShieldCheck size={12} /> Onze garanties

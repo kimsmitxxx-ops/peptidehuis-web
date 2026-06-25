@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getCategory, listProducts, listCategories, sortProducts } from "@/lib/queries";
 import { ProductCard } from "@/components/product-card";
 import { CatalogFilters } from "@/components/shop/catalog-filters";
+import { CollapsibleIntro } from "@/components/shop/collapsible-intro";
 import { KNOWN_BRANDS, sortBrands } from "@/lib/brands";
 import type { Metadata } from "next";
 import { BookOpen, Truck, ShieldCheck, FlaskConical, Sparkles } from "lucide-react";
@@ -25,7 +26,7 @@ export default async function CategoryPage({
   searchParams,
 }: {
   params: { categorie: string };
-  searchParams: { stock?: string; merk?: string };
+  searchParams: { stock?: string; merk?: string; stof?: string };
 }) {
   const [cat, allProducts, allCategories] = await Promise.all([
     getCategory(params.categorie),
@@ -36,6 +37,7 @@ export default async function CategoryPage({
 
   const stockOnly = searchParams.stock === "1";
   const merk = searchParams.merk || "";
+  const stof = (searchParams.stof || "").toLowerCase();
   const brandSet = new Set<string>();
   allProducts.forEach((p) => p.tags?.forEach((t) => { if (KNOWN_BRANDS.has(t)) brandSet.add(t); }));
   const brands = sortBrands(Array.from(brandSet));
@@ -43,6 +45,7 @@ export default async function CategoryPage({
   const filtered = allProducts.filter((p) => {
     if (stockOnly && p.availability === "OutOfStock") return false;
     if (merk && !(p.tags || []).includes(merk)) return false;
+    if (stof && !p.name.toLowerCase().includes(stof)) return false;
     return true;
   });
   const products = sortProducts(filtered as any);
@@ -79,12 +82,7 @@ export default async function CategoryPage({
       <h1 className="font-display text-3xl md:text-4xl">{cat.name}</h1>
       {cat.description && <p className="mt-3 max-w-3xl text-text-muted leading-relaxed">{cat.description}</p>}
 
-      {cat.intro_html && (
-        <div
-          className="prose prose-sm max-w-3xl mt-5 text-text [&>p]:my-3 [&>p]:leading-relaxed [&_a]:text-accent [&_a]:underline [&_a:hover]:text-accent-muted [&>h2]:font-display [&>h2]:text-xl [&>h2]:mt-6 [&>h2]:mb-2 [&>h3]:font-display [&>h3]:text-base [&>h3]:mt-4 [&>ul]:my-3 [&>ul]:pl-6 [&>ul]:list-disc"
-          dangerouslySetInnerHTML={{ __html: cat.intro_html }}
-        />
-      )}
+      {cat.intro_html && <CollapsibleIntro html={cat.intro_html} />}
 
       <div className="mt-6 rounded-lg border border-accent/30 bg-accent-soft/15 p-4 flex items-start gap-3">
         <Sparkles size={18} className="text-accent shrink-0 mt-0.5" />
@@ -122,7 +120,7 @@ export default async function CategoryPage({
               ))}
             </div>
           </div>
-          <CatalogFilters brands={brands} stockOnly={stockOnly} activeBrand={merk} />
+          <CatalogFilters brands={brands} stockOnly={stockOnly} activeBrand={merk} activeStof={stof} />
           <div className="rounded-lg border border-border bg-surface p-4 text-text space-y-3 text-sm">
             <h4 className="text-xs uppercase tracking-wider text-accent-muted font-semibold inline-flex items-center gap-1.5">
               <ShieldCheck size={12} /> Onze garanties
