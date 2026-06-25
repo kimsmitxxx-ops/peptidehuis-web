@@ -7,6 +7,7 @@ import { ProductSections } from "@/components/shop/product-sections";
 import { MedicalDisclaimer } from "@/components/medical-disclaimer";
 import { ProductGallery } from "@/components/shop/product-gallery";
 import { PaymentRow } from "@/components/payment-row";
+import { RestockNotifyForm } from "@/components/shop/restock-notify-form";
 import { ShieldCheck, Truck, FlaskConical, ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
 
