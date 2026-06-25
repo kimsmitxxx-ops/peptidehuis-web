@@ -1,0 +1,56 @@
+import { NextRequest, NextResponse } from "next/server";
+import { supabase } from "@/lib/supabase";
+
+const SHOP_ID = "18a96da9-9f9f-466f-ac2b-3ab0349b78a6";
+
+/**
+ * POST /api/restock-notify
+ *  body: { product_id, email, name?, website? (honeypot) }
+ * Honeypot field "website" — als ingevuld is het een bot, stil return 200.
+ */
+export async function POST(req: NextRequest) {
+  const body = await req.json().catch(() => ({}));
+  const product_id = String(body?.product_id || "").trim();
+  const email = String(body?.email || "").trim().toLowerCase();
+  const name = String(body?.name || "").trim();
+  const honeypot = String(body?.website || "").trim();
+
+  if (honeypot.length > 0) {
+    // Bot detected — silent OK zonder schrijven
+    return NextResponse.json({ ok: true });
+  }
+
+  if (!product_id || !email || !email.includes("@")) {
+    return NextResponse.json({ error: "product_id en geldig e-mailadres vereist" }, { status: 400 });
+  }
+
+  const { data: product } = await supabase
+    .from("products")
+    .select("id, name")
+    .eq("id", product_id)
+    .eq("shop_id", SHOP_ID)
+    .maybeSingle();
+
+  if (!product) {
+    return NextResponse.json({ error: "Product niet gevonden" }, { status: 404 });
+  }
+
+  const { error } = await supabase
+    .from("restock_notifications")
+    .upsert(
+      {
+        product_id,
+        email,
+        visitor_name: name || null,
+        notified_at: null,
+        unsubscribed_at: null,
+      },
+      { onConflict: "product_id,email", ignoreDuplicates: false },
+    );
+
+  if (error) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+
+  return NextResponse.json({ ok: true });
+}

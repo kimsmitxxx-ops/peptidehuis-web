@@ -124,12 +124,15 @@ export default async function ProductDetailPage({ params }: { params: { categori
 
           <div className="mt-6">
             {p.availability === "OutOfStock" ? (
-              <div className="rounded-lg border-2 border-danger/40 bg-danger-soft/30 p-5 text-center">
-                <p className="text-danger font-display text-xl">Uitverkocht</p>
-                <p className="mt-1 text-sm text-text-muted">
-                  Dit product is op dit moment niet leverbaar. Check de chat rechtsonder voor verwachte beschikbaarheid of bekijk vergelijkbare producten hieronder.
-                </p>
-              </div>
+              <>
+                <div className="rounded-lg border-2 border-danger/40 bg-danger-soft/30 p-5 text-center">
+                  <p className="text-danger font-display text-xl">Uitverkocht</p>
+                  <p className="mt-1 text-sm text-text-muted">
+                    Dit product is op dit moment niet leverbaar. Zet je e-mail hieronder achter — je hoort het direct zodra de nieuwe batch binnen is.
+                  </p>
+                </div>
+                <RestockNotifyForm productId={p.id} productName={p.name} />
+              </>
             ) : (
               <AddToCartButton product={p} />
             )}
