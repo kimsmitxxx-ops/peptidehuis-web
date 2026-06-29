@@ -47,7 +47,6 @@ export async function GET() {
   lines.push("");
   lines.push("## Lab & transparantie");
   lines.push("- [Hoe wij batches testen](https://anabolenpro.com/lab): Janoshik-protocol, afkeur-archief, eigen-test aanvragen");
-  lines.push("- [Risico's en bijwerkingen](https://anabolenpro.com/risicos-en-bijwerkingen): eerlijke bijwerking-pagina voor onderbouwde keuzes");
   lines.push("");
   lines.push("## Optional");
   lines.push("- [Sitemap](https://anabolenpro.com/sitemap.xml)");

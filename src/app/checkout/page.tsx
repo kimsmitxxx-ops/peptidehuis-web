@@ -36,29 +36,31 @@ export default function CheckoutPage() {
     password: "",
   });
   const [busy, setBusy] = useState(false);
-  const [done, setDone] = useState(false);
+  const [err, setErr] = useState<string | null>(null);
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setBusy(true);
+    setErr(null);
     try {
       const res = await fetch("/api/orders", {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...form, items: cart.items }),
       });
-      if (res.ok) { setDone(true); cart.clear(); }
-    } finally { setBusy(false); }
+      const j = await res.json().catch(() => ({}));
+      if (!res.ok || !j.order_id) {
+        setErr(j.error || "Bestelling kon niet worden aangemaakt");
+        return;
+      }
+      cart.clear();
+      // Redirect naar bedankt-pagina met betaalinstructies + screenshot-upload
+      window.location.href = `/checkout/bedankt/${j.order_id}`;
+    } catch {
+      setErr("Verbindingsfout — probeer opnieuw");
+    } finally {
+      setBusy(false);
+    }
   };
-
-  if (done) {
-    return (
-      <div className="mx-auto max-w-md px-4 py-20 text-center">
-        <h1 className="font-display text-3xl">Bedankt!</h1>
-        <p className="mt-3 text-text-muted">Je bestelling is binnen. Je ontvangt zo de betaalinstructies per e-mail.</p>
-        <Link href="/" className="mt-6 inline-flex rounded-full bg-accent px-5 py-2 text-sm font-semibold text-accent-foreground">Terug naar home</Link>
-      </div>
-    );
-  }
 
   if (cart.items.length === 0) {
     return <div className="mx-auto max-w-md px-4 py-20 text-center text-text-muted">Lege mand. <Link href="/winkel" className="text-accent underline">Naar winkel</Link></div>;
@@ -237,8 +239,9 @@ export default function CheckoutPage() {
             <button type="submit" disabled={busy} className="mt-5 w-full rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground hover:bg-accent-soft disabled:opacity-50">
               {busy ? "Bezig…" : "Plaats bestelling"}
             </button>
+            {err && <p className="mt-2 text-center text-xs text-danger">{err}</p>}
             <p className="mt-3 text-center text-[11px] text-text-muted">
-              Betaalinstructies via e-mail. Pakket verzonden zodra betaling binnen is.
+              Direct op de volgende pagina krijg je de bank/crypto-gegevens. Pakket verzonden zodra betaling binnen is.
             </p>
           </div>
         </div>

@@ -190,5 +190,41 @@ export async function getShop() {
   } catch { return null; }
 }
 
+export type PaymentInstructions = {
+  bank_name?: string;
+  iban?: string;
+  bic?: string;
+  account_holder?: string;
+  crypto_addresses?: Array<{ label: string; ticker: string; address: string }>;
+  instructions_html?: string;
+};
+
+export async function getShopPaymentInstructions(): Promise<PaymentInstructions | null> {
+  try {
+    const { data } = await supabase
+      .from("shops")
+      .select("payment_instructions")
+      .eq("id", SHOP_ID)
+      .maybeSingle();
+    return (data?.payment_instructions as PaymentInstructions) || null;
+  } catch {
+    return null;
+  }
+}
+
+export async function getOrderForConfirmation(orderId: string) {
+  try {
+    const { data } = await supabase
+      .from("orders")
+      .select("id, email, customer_name, total_cents, subtotal_cents, shipping_cents, created_at")
+      .eq("id", orderId)
+      .eq("shop_id", SHOP_ID)
+      .maybeSingle();
+    return data;
+  } catch {
+    return null;
+  }
+}
+
 export const formatEUR = (cents: number) =>
   new Intl.NumberFormat("nl-NL", { style: "currency", currency: "EUR" }).format(cents / 100);

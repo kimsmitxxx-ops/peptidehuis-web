@@ -30,7 +30,7 @@ export function Footer() {
               <FlaskConical size={14} className="text-accent" /> Eigen lab in Rotterdam · Janoshik &amp; Anabolic Lab
             </li>
             <li className="inline-flex items-center gap-2">
-              <Mail size={14} className="text-accent" /> support@anabolen-pro.nl
+              <Mail size={14} className="text-accent" /> support@anabolenpro.com
             </li>
             <li className="inline-flex items-center gap-2">
               <MapPin size={14} className="text-accent" /> Westhavenkade 12, 3134 NA Vlaardingen
@@ -50,7 +50,7 @@ export function Footer() {
                 </li>
               ))}
               <li>
-                <Link href="/winkel/injectie" className="text-accent hover:text-accent-soft">
+                <Link href="/winkel" className="text-accent hover:text-accent-soft">
                   Alle anabolen →
                 </Link>
               </li>
