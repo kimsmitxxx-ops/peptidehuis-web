@@ -1,0 +1,23 @@
+import { NextRequest, NextResponse } from "next/server";
+import { supabase } from "@/lib/supabase";
+
+const SHOP_ID = "18a96da9-9f9f-466f-ac2b-3ab0349b78a6";
+
+export async function POST(req: NextRequest) {
+  const body = await req.json().catch(() => ({}));
+  const email = String(body?.email || "").trim().toLowerCase();
+  const honeypot = String(body?.website || "").trim();
+
+  if (honeypot.length > 0) return NextResponse.json({ ok: true });
+  if (!email || !email.includes("@")) {
+    return NextResponse.json({ error: "Geldig e-mailadres vereist" }, { status: 400 });
+  }
+
+  // `leads` table exists per migration 003; UPSERT op unique (shop_id, email)
+  const { error } = await supabase.from("leads").upsert(
+    { shop_id: SHOP_ID, email, source: "newsletter", subscribed: true },
+    { onConflict: "shop_id,email" },
+  );
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  return NextResponse.json({ ok: true });
+}

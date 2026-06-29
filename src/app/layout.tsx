@@ -6,6 +6,7 @@ import { CartProvider } from "@/components/shop/cart-store";
 import { Header } from "@/components/shop/header";
 import { Footer } from "@/components/shop/footer";
 import { MobileTabBar } from "@/components/shop/mobile-tabbar";
+import { CookieConsent } from "@/components/cookie-consent";
 
 // CartDrawer is alleen zichtbaar als gebruiker op cart-icoon klikt -> defer hydratie
 const CartDrawer = dynamic(
@@ -63,6 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <main className="flex-1 pb-16 md:pb-0 min-w-0">{children}</main>
             <Footer />
             <WhatsAppFab />
+            <CookieConsent />
             <CartDrawer />
             <MobileTabBar />
           </div>
