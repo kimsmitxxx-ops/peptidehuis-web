@@ -30,6 +30,7 @@ export type Product = {
   category_id: string | null;
   package_type: string | null;
   tags: string[] | null;
+  stof_slugs?: string[] | null;
   availability: string | null;
   is_active: boolean;
   is_featured?: boolean;

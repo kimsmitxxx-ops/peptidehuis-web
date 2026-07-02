@@ -37,21 +37,10 @@ export default function ContactPage() {
           </div>
           <div className="rounded-md border border-primary-muted bg-primary p-6 text-primary-foreground">
             <Mail size={20} className="text-accent" />
-            <h3 className="mt-3 font-display text-lg text-primary-foreground">E-mail</h3>
-            <ul className="mt-2 space-y-1 text-sm">
-              <li>
-                <span className="text-primary-foreground/75">Algemeen: </span>
-                <a className="text-accent hover:underline" href="mailto:support@anabolenpro.com">support@anabolenpro.com</a>
-              </li>
-              <li>
-                <span className="text-primary-foreground/75">Retouren: </span>
-                <a className="text-accent hover:underline" href="mailto:retour@anabolenpro.com">retour@anabolenpro.com</a>
-              </li>
-              <li>
-                <span className="text-primary-foreground/75">Lab &amp; COA: </span>
-                <a className="text-accent hover:underline" href="mailto:lab@anabolenpro.com">lab@anabolenpro.com</a>
-              </li>
-            </ul>
+            <h3 className="mt-3 font-display text-lg text-primary-foreground">Stuur ons een bericht</h3>
+            <p className="mt-2 text-sm text-primary-foreground/75">
+              Gebruik het formulier hieronder. Zet je ordernummer erbij als het over een bestelling gaat, of vermeld je batchcode bij een lab-vraag. Antwoord binnen 1 werkdag.
+            </p>
           </div>
           <div className="rounded-md border border-primary-muted bg-primary p-6 text-primary-foreground">
             <Clock size={20} className="text-accent" />

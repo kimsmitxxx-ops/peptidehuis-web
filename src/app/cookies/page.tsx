@@ -80,7 +80,7 @@ export default function CookiesPage() {
 
         <h2>5. Vragen?</h2>
         <p>
-          Mail <a href="mailto:privacy@anabolenpro.com">privacy@anabolenpro.com</a> of bekijk
+          Stel je vraag via het <Link href="/contact">contactformulier</Link> of bekijk
           ons volledige <Link href="/privacy">privacy-beleid</Link>.
         </p>
       </article>

@@ -1,17 +1,22 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
-const SUPA_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || "";
-const SUPA_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || "";
+export const dynamic = "force-dynamic";
+
 const SHOP_ID = "18a96da9-9f9f-466f-ac2b-3ab0349b78a6";
 const MAX_BYTES = 5 * 1024 * 1024;
 const ACCEPTED = ["image/jpeg", "image/png", "image/webp"];
 const BUCKET = "payment-screenshots";
 
-// Service-role client want we uploaden naar privé bucket
-const sb = createClient(SUPA_URL, SUPA_KEY);
+function getServiceClient() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || "";
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY || "";
+  if (!url || !key) throw new Error("Supabase env vars ontbreken (URL of service key)");
+  return createClient(url, key);
+}
 
 export async function POST(req: NextRequest) {
+  const sb = getServiceClient();
   try {
     const form = await req.formData();
     const file = form.get("file") as File | null;

@@ -95,7 +95,7 @@ const sections: { id: string; title: string; body: string[] }[] = [
     id: "klachten",
     title: "10. Klachtenregeling",
     body: [
-      "Klachten over de uitvoering van de overeenkomst dienen binnen redelijke termijn, volledig en duidelijk omschreven, te worden ingediend bij Anabolen Pro via support@anabolenpro.com.",
+      "Klachten over de uitvoering van de overeenkomst dienen binnen redelijke termijn, volledig en duidelijk omschreven, te worden ingediend bij Anabolen Pro via het contactformulier op de website.",
       "Anabolen Pro reageert binnen 14 dagen na ontvangst van de klacht met een inhoudelijke reactie of een indicatie van de termijn waarop dat gebeurt.",
       "Komen klant en Anabolen Pro er onderling niet uit, dan kan het geschil worden voorgelegd aan de bevoegde rechter te Rotterdam.",
     ],
@@ -145,13 +145,9 @@ export default function VoorwaardenPage() {
           ))}
 
           <div className="rounded-md border border-border bg-surface p-5 text-sm text-text-muted">
-            Vragen over deze voorwaarden? Mail naar{" "}
-            <a href="mailto:support@anabolenpro.com" className="text-accent hover:underline">
-              support@anabolenpro.com
-            </a>{" "}
-            of ga naar{" "}
+            Vragen over deze voorwaarden? Stel ze via het{" "}
             <Link href="/contact" className="text-accent hover:underline">
-              contact
+              contactformulier
             </Link>
             .
           </div>

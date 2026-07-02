@@ -40,7 +40,7 @@ const faq = [
   {
     question: "Wat als mijn pakket niet aankomt?",
     answer:
-      "Is je pakket 14 dagen na de verzenddatum nog steeds niet bezorgd? Dan verzenden wij automatisch een nieuwe zending — zonder discussie en zonder extra kosten. Meld het bij support@anabolenpro.com met je ordernummer.",
+      "Is je pakket 14 dagen na de verzenddatum nog steeds niet bezorgd? Dan verzenden wij automatisch een nieuwe zending — zonder discussie en zonder extra kosten. Meld het via het contactformulier op de site met je ordernummer.",
   },
   {
     question: "Wat als een item niet meer leverbaar blijkt?",
@@ -50,7 +50,7 @@ const faq = [
   {
     question: "Klopt het gehalte niet met het COA — wat nu?",
     answer:
-      "Als een onafhankelijk lab-rapport aantoont dat het werkelijke gehalte meer dan 5% afwijkt van het COA dat wij hebben gepubliceerd, vervangen wij het product kosteloos in je volgende bestelling. Stuur ons het lab-rapport samen met je batchnummer via lab@anabolenpro.com.",
+      "Als een onafhankelijk lab-rapport aantoont dat het werkelijke gehalte meer dan 5% afwijkt van het COA dat wij hebben gepubliceerd, vervangen wij het product kosteloos in je volgende bestelling. Stuur ons het lab-rapport samen met je batchnummer via het contactformulier — je kunt bestanden meesturen als bijlage.",
   },
   {
     question: "Kan ik mijn geld terugkrijgen?",
@@ -108,9 +108,9 @@ export default function RetourPage() {
             <div className="mt-6 rounded-md border border-border bg-surface p-5">
               <Mail size={16} className="text-accent" />
               <p className="mt-2 font-medium text-text">Klantenservice</p>
-              <a href="mailto:support@anabolenpro.com" className="text-sm text-accent hover:underline">
-                support@anabolenpro.com
-              </a>
+              <Link href="/contact" className="text-sm text-accent hover:underline">
+                Stuur een bericht via het contactformulier
+              </Link>
               <p className="mt-2 text-xs text-text-subtle">Antwoord binnen 1 werkdag.</p>
             </div>
           </div>

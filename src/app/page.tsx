@@ -472,7 +472,7 @@ export default async function HomePage() {
           </p>
           <div className="mt-6 rounded-lg border border-accent/30 bg-accent-soft/15 p-4 text-sm text-text">
             <p className="font-semibold">Geen antwoord op jouw vraag?</p>
-            <p className="mt-1 text-text-muted">Mail naar <a className="text-accent hover:underline" href="mailto:support@anabolenpro.com">support@anabolenpro.com</a> of start een chat via de bubble rechtsonder.</p>
+            <p className="mt-1 text-text-muted">Stuur ons een bericht via het <Link className="text-accent hover:underline" href="/contact">contactformulier</Link> of start een chat via de bubble rechtsonder.</p>
           </div>
         </div>
         <FaqAccordion items={HOMEPAGE_FAQ} />

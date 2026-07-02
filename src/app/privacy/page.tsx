@@ -62,7 +62,7 @@ const sections = [
     title: "6. Jouw rechten",
     body: [
       "Je hebt het recht op inzage, correctie, verwijdering, beperking, dataportabiliteit en bezwaar tegen verwerking.",
-      "Een verzoek dien je in via privacy@anabolenpro.com. Wij reageren binnen 14 dagen.",
+      "Een verzoek dien je in via het contactformulier op de website. Wij reageren binnen 14 dagen.",
       "Ben je het oneens met onze afhandeling? Dan kun je een klacht indienen bij de Autoriteit Persoonsgegevens.",
     ],
   },
@@ -120,13 +120,9 @@ export default function PrivacyPage() {
           ))}
 
           <div className="rounded-md border border-border bg-surface p-5 text-sm text-text-muted">
-            Vragen?{" "}
-            <a href="mailto:privacy@anabolenpro.com" className="text-accent hover:underline">
-              privacy@anabolenpro.com
-            </a>{" "}
-            of via{" "}
+            Vragen? Stuur ze via het{" "}
             <Link href="/contact" className="text-accent hover:underline">
-              contact
+              contactformulier
             </Link>
             .
           </div>

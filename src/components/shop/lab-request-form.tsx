@@ -89,8 +89,7 @@ export function LabRequestForm() {
       </button>
       {state === "error" && (
         <p className="text-xs text-danger">
-          {errorMsg}. Mail anders direct naar{" "}
-          <a href="mailto:lab@anabolenpro.com" className="underline">lab@anabolenpro.com</a>.
+          {errorMsg}. Probeer anders het contactformulier op /contact.
         </p>
       )}
       <p className="text-[11px] text-primary/55">

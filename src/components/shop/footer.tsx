@@ -29,8 +29,10 @@ export function Footer() {
             <li className="inline-flex items-center gap-2">
               <FlaskConical size={14} className="text-accent" /> Eigen lab in Rotterdam · Janoshik &amp; Anabolic Lab
             </li>
-            <li className="inline-flex items-center gap-2">
-              <Mail size={14} className="text-accent" /> support@anabolenpro.com
+            <li>
+              <Link href="/contact" className="inline-flex items-center gap-2 text-primary-foreground/80 hover:text-accent">
+                <Mail size={14} className="text-accent" /> Contactformulier
+              </Link>
             </li>
             <li className="inline-flex items-center gap-2">
               <MapPin size={14} className="text-accent" /> Westhavenkade 12, 3134 NA Vlaardingen

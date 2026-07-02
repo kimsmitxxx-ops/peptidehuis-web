@@ -204,19 +204,11 @@ export default async function OverOnsPage() {
                 <dd className="text-text">Staat op de factuur na bestelling.</dd>
               </div>
               <div className="flex gap-2">
-                <dt className="w-28 text-text-muted">E-mail</dt>
+                <dt className="w-28 text-text-muted">Contact</dt>
                 <dd className="text-text">
-                  <a className="text-accent hover:underline" href="mailto:support@anabolenpro.com">
-                    support@anabolenpro.com
-                  </a>
-                </dd>
-              </div>
-              <div className="flex gap-2">
-                <dt className="w-28 text-text-muted">Lab</dt>
-                <dd className="text-text">
-                  <a className="text-accent hover:underline" href="mailto:lab@anabolenpro.com">
-                    lab@anabolenpro.com
-                  </a>
+                  <Link className="text-accent hover:underline" href="/contact">
+                    contactformulier op de site
+                  </Link>
                 </dd>
               </div>
               <div className="flex gap-2">

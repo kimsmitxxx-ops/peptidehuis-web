@@ -46,7 +46,7 @@ export default async function CategoryPage({
   const filtered = allProducts.filter((p) => {
     if (stockOnly && p.availability === "OutOfStock") return false;
     if (merk && !(p.tags || []).includes(merk)) return false;
-    if (stof && !p.name.toLowerCase().includes(stof)) return false;
+    if (stof && !(p.stof_slugs || []).includes(stof)) return false;
     if (locatie === "01" && !(p.tags || []).includes("UT")) return false;
     if (locatie === "02" && (p.tags || []).includes("UT")) return false;
     return true;
