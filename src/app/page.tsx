@@ -379,7 +379,7 @@ export default async function HomePage() {
         <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           <TrustCard icon={FlaskConical} heading="Eigen lab in Rotterdam" sub="HPLC + GC-MS op elke binnenkomende batch. Niets gaat de deur uit zonder dubbel-check." />
           <TrustCard icon={Award} heading="Onafhankelijk getest" sub="Janoshik (TS) en Anabolic Lab (US) verifiëren. COA staat publiek per batchcode op de productpagina." />
-          <TrustCard icon={Lock} heading="Discreet bezorgd" sub="Neutrale doos, geen logo of productnaam op het label. Alleen onze KvK-naam — staat nergens steroïde op." />
+          <TrustCard icon={Lock} heading="Discreet bezorgd" sub="Neutrale doos, geen logo of productnaam op het label. Alleen een neutrale bedrijfsnaam — staat nergens steroïde op." />
           <TrustCard icon={Headphones} heading="Echte mensen" sub="Live chat 09:00–21:00, ook weekend. Geen bot, geen ticketsysteem — direct iemand die het verschil tussen Test E en Sustanon kent." />
         </div>
       </section>

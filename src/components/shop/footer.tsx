@@ -109,7 +109,7 @@ export function Footer() {
 
       <div className="border-t border-primary-soft bg-primary-soft/40">
         <div className="mx-auto max-w-7xl px-4 py-5 flex flex-wrap items-center justify-between gap-3 text-xs text-primary-foreground/60">
-          <p>© {new Date().getFullYear()} Anabolen Pro B.V. · KvK 87654321 · BTW NL003456789B01</p>
+          <p>© {new Date().getFullYear()} Anabolen Pro B.V. · KvK + BTW-nummer op de factuur</p>
           <p>Producten voor onderzoeksdoeleinden in een laboratoriumomgeving.</p>
         </div>
       </div>

@@ -15,7 +15,7 @@ const sections: { id: string; title: string; body: string[] }[] = [
     id: "definities",
     title: "1. Definities",
     body: [
-      "Anabolen Pro: Anabolen Pro B.V., gevestigd te Westhavenkade 12, 3134 NA Vlaardingen, ingeschreven bij de KvK onder nummer 87654321.",
+      "Anabolen Pro: Anabolen Pro B.V., gevestigd te Westhavenkade 12, 3134 NA Vlaardingen. Ons KvK- en BTW-nummer staan op de factuur die je na bestelling ontvangt.",
       "Klant: de natuurlijke of rechtspersoon die een overeenkomst aangaat met Anabolen Pro.",
       "Producten: alle door Anabolen Pro aangeboden artikelen, uitsluitend bestemd voor onderzoeksdoeleinden in een laboratoriumomgeving en niet voor menselijke consumptie.",
     ],

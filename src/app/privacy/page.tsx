@@ -15,7 +15,7 @@ const sections = [
     id: "wie",
     title: "1. Wie zijn wij",
     body: [
-      "Anabolen Pro B.V. (KvK 87654321), gevestigd aan de Westhavenkade 12, 3134 NA Vlaardingen, is verwerkingsverantwoordelijke voor de gegevens die via anabolenpro.com worden verzameld.",
+      "Anabolen Pro B.V., gevestigd aan de Westhavenkade 12, 3134 NA Vlaardingen, is verwerkingsverantwoordelijke voor de gegevens die via anabolenpro.com worden verzameld. Ons KvK- en BTW-nummer staan op de factuur die je na je bestelling ontvangt.",
     ],
   },
   {

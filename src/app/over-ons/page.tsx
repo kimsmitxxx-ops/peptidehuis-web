@@ -200,12 +200,8 @@ export default async function OverOnsPage() {
                 <dd className="text-text">Westhavenkade 12, 3134 NA Vlaardingen</dd>
               </div>
               <div className="flex gap-2">
-                <dt className="w-28 text-text-muted">KvK</dt>
-                <dd className="text-text tabular">87654321</dd>
-              </div>
-              <div className="flex gap-2">
-                <dt className="w-28 text-text-muted">BTW</dt>
-                <dd className="text-text tabular">NL003456789B01</dd>
+                <dt className="w-28 text-text-muted">KvK / BTW</dt>
+                <dd className="text-text">Staat op de factuur na bestelling.</dd>
               </div>
               <div className="flex gap-2">
                 <dt className="w-28 text-text-muted">E-mail</dt>

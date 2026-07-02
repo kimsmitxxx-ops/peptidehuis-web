@@ -2,12 +2,13 @@
  * Curated VERIFIED wetenschappelijke bronnen per stof.
  *
  * IEDERE bron komt rechtstreeks uit PubMed ESEARCH met een stof-
- * specifieke query (mesh-terms in title/abstract). Auto-gegenereerd
- * door shop-dash/scripts/build-stof-sources.mjs — NIET handmatig
- * citaten schrijven, dat leidt tot mismatches met PMID.
+ * specifieke query (mesh-terms in title/abstract) + post-filter op titel:
+ *   - must-include stof-naam (bijv. 'nandrolone', 'trenbolone')
+ *   - exclude off-topic velden (meat science, veterinary, breast cancer, etc)
+ * Auto-gegenereerd door shop-dash/scripts/build-stof-sources.mjs.
  *
  * Re-build: node scripts/build-stof-sources.mjs > <output-pad>
- * Gegenereerd: 2026-06-25T12:36:20.040Z
+ * Gegenereerd: 2026-07-02T12:34:39.028Z
  */
 
 export type VerifiedSource = {
@@ -51,28 +52,21 @@ export const VERIFIED_SOURCES: Record<string, VerifiedSource[]> = {
       "journal": "Journal of applied physiology (Bethesda, Md. : 1985)"
     },
     {
-      "pmid": "29210989",
-      "title": "Supraphysiologic Testosterone Therapy in the Treatment of Prostate Cancer: Models, Mechanisms and Questions.",
-      "firstAuthor": "Mohammad OS",
-      "year": "2017",
-      "journal": "Cancers"
-    },
-    {
       "pmid": "31334979",
       "title": "Anabolic Steroid Toxicity.",
       "firstAuthor": "Middlebrook I",
       "year": "2026",
       "journal": ""
+    },
+    {
+      "pmid": "32448030",
+      "title": "Androgen Treatment in Adolescent Males With Hypogonadism.",
+      "firstAuthor": "Rey RA",
+      "year": "2020",
+      "journal": "American journal of men's health"
     }
   ],
   "nandrolon": [
-    {
-      "pmid": "38887114",
-      "title": "Impact of trenbolone on selected organs.",
-      "firstAuthor": "Borecki R",
-      "year": "2024",
-      "journal": "Endokrynologia Polska"
-    },
     {
       "pmid": "33187340",
       "title": "Nandrolone Decanoate: Use, Abuse and Side Effects.",
@@ -81,11 +75,11 @@ export const VERIFIED_SOURCES: Record<string, VerifiedSource[]> = {
       "journal": "Medicina (Kaunas, Lithuania)"
     },
     {
-      "pmid": "33158202",
-      "title": "Sudden Cardiac Death in Anabolic-Androgenic Steroid Users: A Literature Review.",
-      "firstAuthor": "Torrisi M",
-      "year": "2020",
-      "journal": "Medicina (Kaunas, Lithuania)"
+      "pmid": "41936385",
+      "title": "Effects of Nandrolone Decanoate on Muscle Strength, Body Composition and Bone Density: A Systematic Review and Meta-Analysis.",
+      "firstAuthor": "Prokopidis K",
+      "year": "2026",
+      "journal": "Journal of cachexia, sarcopenia and muscle"
     },
     {
       "pmid": "38003989",
@@ -95,11 +89,18 @@ export const VERIFIED_SOURCES: Record<string, VerifiedSource[]> = {
       "journal": "Medicina (Kaunas, Lithuania)"
     },
     {
-      "pmid": "41936385",
-      "title": "Effects of Nandrolone Decanoate on Muscle Strength, Body Composition and Bone Density: A Systematic Review and Meta-Analysis.",
-      "firstAuthor": "Prokopidis K",
-      "year": "2026",
-      "journal": "Journal of cachexia, sarcopenia and muscle"
+      "pmid": "41477377",
+      "title": "Nandrolone Decanoate for Postmenopausal Osteoporosis: A Systematic Review and Meta-Analysis of Randomized Trials.",
+      "firstAuthor": "Camara LC",
+      "year": "2025",
+      "journal": "Cureus"
+    },
+    {
+      "pmid": "36922878",
+      "title": "The toxic effects of anabolic steroids \"nandrolone decanoate\" on cardiac and skeletal muscles with the potential ameliorative effects of silymarin and fenugreek seeds extract in adult male albino rats.",
+      "firstAuthor": "Hassan DAE",
+      "year": "2023",
+      "journal": "BMC pharmacology & toxicology"
     }
   ],
   "trenbolone": [
@@ -118,25 +119,25 @@ export const VERIFIED_SOURCES: Record<string, VerifiedSource[]> = {
       "journal": "The International journal on drug policy"
     },
     {
-      "pmid": "24243897",
-      "title": "MEAT SCIENCE AND MUSCLE BIOLOGY SYMPOSIUM--anabolic implants and meat quality.",
-      "firstAuthor": "Duckett SK",
-      "year": "2014",
-      "journal": "Journal of animal science"
-    },
-    {
-      "pmid": "24928725",
-      "title": "Transcriptional regulation of myotrophic actions by testosterone and trenbolone on androgen-responsive muscle.",
-      "firstAuthor": "Ye F",
-      "year": "2014",
+      "pmid": "20138077",
+      "title": "Tissue selectivity and potential clinical applications of trenbolone (17beta-hydroxyestra-4,9,11-trien-3-one): A potent anabolic steroid with reduced androgenic and estrogenic activity.",
+      "firstAuthor": "Yarrow JF",
+      "year": "2010",
       "journal": "Steroids"
     },
     {
-      "pmid": "782871",
-      "title": "Pharmacological and endocrinological studies on anabolic agents.",
-      "firstAuthor": "Neumann F",
-      "year": "1976",
-      "journal": "Environmental quality and safety. Supplement"
+      "pmid": "3288174",
+      "title": "The genotoxicity of trenbolone, a synthetic steroid.",
+      "firstAuthor": "Richold M",
+      "year": "1988",
+      "journal": "Archives of toxicology"
+    },
+    {
+      "pmid": "1874853",
+      "title": "Disposition of 17 beta-trenbolone in humans.",
+      "firstAuthor": "Spranger B",
+      "year": "1991",
+      "journal": "Journal of chromatography"
     }
   ],
   "boldenone": [
@@ -148,18 +149,11 @@ export const VERIFIED_SOURCES: Record<string, VerifiedSource[]> = {
       "journal": "Food additives and contaminants"
     },
     {
-      "pmid": "21204296",
-      "title": "Sulbutiamine in sports.",
-      "firstAuthor": "Sobolevsky T",
-      "year": "2010",
-      "journal": "Drug testing and analysis"
-    },
-    {
-      "pmid": "30817935",
-      "title": "Supraphysiologic-dose anabolic-androgenic steroid use: A risk factor for dementia?",
-      "firstAuthor": "Kaufman MJ",
-      "year": "2019",
-      "journal": "Neuroscience and biobehavioral reviews"
+      "pmid": "8044023",
+      "title": "Identification and verification of the anabolic steroid boldenone in equine blood and urine by HPLC/ELISA.",
+      "firstAuthor": "Hagedorn HW",
+      "year": "1994",
+      "journal": "Biomedical chromatography : BMC"
     },
     {
       "pmid": "37264491",
@@ -169,11 +163,18 @@ export const VERIFIED_SOURCES: Record<string, VerifiedSource[]> = {
       "journal": "Journal of veterinary pharmacology and therapeutics"
     },
     {
-      "pmid": "38474077",
-      "title": "Anabolic Steroids Activate the NF-κB Pathway in Porcine Ovarian Putative Stem Cells Independently of the ZIP-9 Receptor.",
-      "firstAuthor": "Wartalski K",
-      "year": "2024",
-      "journal": "International journal of molecular sciences"
+      "pmid": "17613052",
+      "title": "Phytosterol consumption and the anabolic steroid boldenone in humans: a hypothesis piloted.",
+      "firstAuthor": "Ros MM",
+      "year": "2007",
+      "journal": "Food additives and contaminants"
+    },
+    {
+      "pmid": "34719837",
+      "title": "Inhibition of boldenone-induced aggression in rats by curcumin: Targeting TLR4/MyD88/TRAF-6/NF-κB pathway.",
+      "firstAuthor": "El-Shamarka ME",
+      "year": "2022",
+      "journal": "Journal of biochemical and molecular toxicology"
     }
   ],
   "masteron": [
@@ -185,18 +186,18 @@ export const VERIFIED_SOURCES: Record<string, VerifiedSource[]> = {
       "journal": "Molecules (Basel, Switzerland)"
     },
     {
-      "pmid": "15998196",
-      "title": "Intracerebroventricular self-administration of commonly abused anabolic-androgenic steroids in male hamsters (Mesocricetus auratus): nandrolone, drostanolone, oxymetholone, and stanozolol.",
-      "firstAuthor": "Ballard CL",
-      "year": "2005",
-      "journal": "Behavioral neuroscience"
-    },
-    {
       "pmid": "26826321",
       "title": "New drostanolone metabolites in human urine by liquid chromatography time-of-flight tandem mass spectrometry and their application for doping control.",
       "firstAuthor": "Liu Y",
       "year": "2016",
       "journal": "Steroids"
+    },
+    {
+      "pmid": "1606052",
+      "title": "The methyl-5 alpha-dihydrotestosterones mesterolone and drostanolone; gas chromatographic/mass spectrometric characterization of the urinary metabolites.",
+      "firstAuthor": "de Boer D",
+      "year": "1992",
+      "journal": "The Journal of steroid biochemistry and molecular biology"
     },
     {
       "pmid": "32386339",
@@ -206,41 +207,27 @@ export const VERIFIED_SOURCES: Record<string, VerifiedSource[]> = {
       "journal": "Drug testing and analysis"
     },
     {
-      "pmid": "36516229",
-      "title": "The Power of Keratinous Matrices (Head Hair, Body Hair and Nail Clippings) Analysis in a Case of Death Involving Anabolic Agents.",
-      "firstAuthor": "Gheddar L",
-      "year": "2023",
-      "journal": "Journal of analytical toxicology"
+      "pmid": "15998196",
+      "title": "Intracerebroventricular self-administration of commonly abused anabolic-androgenic steroids in male hamsters (Mesocricetus auratus): nandrolone, drostanolone, oxymetholone, and stanozolol.",
+      "firstAuthor": "Ballard CL",
+      "year": "2005",
+      "journal": "Behavioral neuroscience"
     }
   ],
   "primobolan": [
     {
-      "pmid": "39884271",
-      "title": "Identification, structure, and agonist design of an androgen membrane receptor.",
-      "firstAuthor": "Yang Z",
-      "year": "2025",
-      "journal": "Cell"
+      "pmid": "36843443",
+      "title": "LC-MS/(MS) confirmatory doping control analysis of intact phase II metabolites of methenolone and mesterolone after Girard's Reagent T derivatization.",
+      "firstAuthor": "Angelis YS",
+      "year": "2023",
+      "journal": "Drug testing and analysis"
     },
     {
-      "pmid": "41225275",
-      "title": "Method validation for the detection of the anabolic-androgenic steroids methenolone and 19-norandrosterone in wastewater and application to real wastewater samples.",
-      "firstAuthor": "Ertas BS",
-      "year": "2025",
-      "journal": "Environmental monitoring and assessment"
-    },
-    {
-      "pmid": "17216314",
-      "title": "Metabolism of methenolone acetate in a veal calf.",
-      "firstAuthor": "Van Hoof N",
-      "year": "2007",
-      "journal": "Veterinary research communications"
-    },
-    {
-      "pmid": "782871",
-      "title": "Pharmacological and endocrinological studies on anabolic agents.",
-      "firstAuthor": "Neumann F",
-      "year": "1976",
-      "journal": "Environmental quality and safety. Supplement"
+      "pmid": "26259657",
+      "title": "Comparison of sulfo-conjugated and gluco-conjugated urinary metabolites for detection of methenolone misuse in doping control by LC-HRMS, GC-MS and GC-HRMS.",
+      "firstAuthor": "Fragkaki AG",
+      "year": "2015",
+      "journal": "Journal of mass spectrometry : JMS"
     },
     {
       "pmid": "39113433",
@@ -248,53 +235,53 @@ export const VERIFIED_SOURCES: Record<string, VerifiedSource[]> = {
       "firstAuthor": "Gürses G",
       "year": "2024",
       "journal": "Journal of oral pathology & medicine : official publication of the International Association of Oral Pathologists and the American Academy of Oral Pathology"
+    },
+    {
+      "pmid": "32852087",
+      "title": "Quantitative analysis of total methenolone in animal source food by liquid chromatography-tandem mass spectrometry.",
+      "firstAuthor": "Zheng J",
+      "year": "2021",
+      "journal": "Drug testing and analysis"
+    },
+    {
+      "pmid": "1606051",
+      "title": "Studies on anabolic steroids--11. 18-hydroxylated metabolites of mesterolone, methenolone and stenbolone: new steroids isolated from human urine.",
+      "firstAuthor": "Masse R",
+      "year": "1992",
+      "journal": "The Journal of steroid biochemistry and molecular biology"
     }
   ],
   "anavar": [
     {
-      "pmid": "38746694",
-      "title": "Nutrition in Pediatric Burns.",
-      "firstAuthor": "Mrazek AA",
-      "year": "2024",
-      "journal": "Seminars in plastic surgery"
+      "pmid": "35832568",
+      "title": "A Reappraisal of Oxandrolone in Burn Management.",
+      "firstAuthor": "Kopel J",
+      "year": "2022",
+      "journal": "The Journal of pharmacy technology : jPT : official publication of the Association of Pharmacy Technicians"
     },
     {
-      "pmid": "23582468",
-      "title": "ESPEN endorsed recommendations: nutritional therapy in major burns.",
-      "firstAuthor": "Rousseau AF",
-      "year": "2013",
-      "journal": "Clinical nutrition (Edinburgh, Scotland)"
+      "pmid": "25351160",
+      "title": "Oxandrolone use in adult burn patients. Systematic review and meta-analysis.",
+      "firstAuthor": "Real DS",
+      "year": "2014",
+      "journal": "Acta cirurgica brasileira"
     },
     {
-      "pmid": "16932191",
-      "title": "Oxandrolone.",
-      "firstAuthor": "Akyurek M",
-      "year": "2006",
-      "journal": "Plastic and reconstructive surgery"
+      "pmid": "31504621",
+      "title": "Oxandrolone in the Treatment of Burn Injuries: A Systematic Review and Meta-analysis.",
+      "firstAuthor": "Ring J",
+      "year": "2020",
+      "journal": "Journal of burn care & research : official publication of the American Burn Association"
     },
     {
-      "pmid": "38177003",
-      "title": "Persistent inflammation, immunosuppression, and catabolism syndrome (PICS): a review of definitions, potential therapies, and research priorities.",
-      "firstAuthor": "Chadda KR",
-      "year": "2024",
-      "journal": "British journal of anaesthesia"
-    },
-    {
-      "pmid": "37149383",
-      "title": "Metabolic and Nutritional Support.",
-      "firstAuthor": "Shahrokhi S",
-      "year": "2023",
-      "journal": "The Surgical clinics of North America"
+      "pmid": "8970686",
+      "title": "Oxandrolone in AIDS-wasting myopathy.",
+      "firstAuthor": "Berger JR",
+      "year": "1996",
+      "journal": "AIDS (London, England)"
     }
   ],
   "dianabol": [
-    {
-      "pmid": "3044464",
-      "title": "Drug-induced pancreatitis.",
-      "firstAuthor": "Mallory A",
-      "year": "1988",
-      "journal": "Bailliere's clinical gastroenterology"
-    },
     {
       "pmid": "14237023",
       "title": "[METHANDROSTENOLONE].",
@@ -303,62 +290,69 @@ export const VERIFIED_SOURCES: Record<string, VerifiedSource[]> = {
       "journal": "Meditsinskaia promyshlennost' SSSR"
     },
     {
-      "pmid": "14298727",
-      "title": "PELIOSIS HEPATITIS.",
-      "firstAuthor": "MACKAY RC",
-      "year": "1965",
-      "journal": "Southern medical journal"
+      "pmid": "5911066",
+      "title": "Methandienone in pulmonary tuberculosis.",
+      "firstAuthor": "Bhatia JL",
+      "year": "1966",
+      "journal": "Journal of the Indian Medical Association"
     },
     {
-      "pmid": "14259901",
-      "title": "HORMONE-SULPHATASE RELATIONSHIPS.",
-      "firstAuthor": "PULKKINEN MO",
-      "year": "1965",
-      "journal": "Acta endocrinologica"
+      "pmid": "6511149",
+      "title": "Influence of exercise and Dianabol on the degradation rate of myofibrillar proteins of the heart and three fiber types of skeletal muscle of female guinea pigs.",
+      "firstAuthor": "Morano I",
+      "year": "1984",
+      "journal": "International journal of sports medicine"
     },
     {
-      "pmid": "15744984",
-      "title": "Methandienone (Dianabol) in corneal ulcers.",
-      "firstAuthor": "Mathur KN",
-      "year": "1971",
-      "journal": "Indian journal of ophthalmology"
+      "pmid": "61389",
+      "title": "\"Anabolic\" effects of methandienone in men undergoing athletic training.",
+      "firstAuthor": "Hervey GR",
+      "year": "1976",
+      "journal": "Lancet (London, England)"
+    },
+    {
+      "pmid": "6545487",
+      "title": "Contractile responses of rat lateral gastrocnemius and soleus to dianabol (17 beta-hydroxy-17-methyl-1,4-androstadien-3-one) and exercise.",
+      "firstAuthor": "Lubek BM",
+      "year": "1984",
+      "journal": "Steroids"
     }
   ],
   "winstrol": [
     {
-      "pmid": "33158202",
-      "title": "Sudden Cardiac Death in Anabolic-Androgenic Steroid Users: A Literature Review.",
-      "firstAuthor": "Torrisi M",
-      "year": "2020",
-      "journal": "Medicina (Kaunas, Lithuania)"
-    },
-    {
-      "pmid": "8844628",
-      "title": "Effects of androgens on haemostasis.",
-      "firstAuthor": "Winkler UH",
-      "year": "1996",
-      "journal": "Maturitas"
-    },
-    {
-      "pmid": "8463465",
-      "title": "The clinical spectrum of lipodermatosclerosis.",
-      "firstAuthor": "Kirsner RS",
-      "year": "1993",
-      "journal": "Journal of the American Academy of Dermatology"
-    },
-    {
-      "pmid": "24832911",
-      "title": "Anabolic-androgenic steroid use among Brazilian bodybuilders.",
-      "firstAuthor": "Nogueira FR",
-      "year": "2014",
-      "journal": "Substance use & misuse"
-    },
-    {
-      "pmid": "20020362",
-      "title": "Synthetic anabolic agents: steroids and nonsteroidal selective androgen receptor modulators.",
-      "firstAuthor": "Thevis M",
+      "pmid": "20566358",
+      "title": "Chromosome damage and cytotoxicity in oral mucosa cells after 2 months of exposure to anabolic steroids (decadurabolin and winstrol) in weight lifting.",
+      "firstAuthor": "Martins RA",
       "year": "2010",
-      "journal": "Handbook of experimental pharmacology"
+      "journal": "Steroids"
+    },
+    {
+      "pmid": "41731624",
+      "title": "Empagliflozin and platelet-rich plasma improve stanozolol induced cardiotoxicity by reducing NF-κB/P65, IL-1B and apoptosis.",
+      "firstAuthor": "Hafez SM",
+      "year": "2026",
+      "journal": "BMC pharmacology & toxicology"
+    },
+    {
+      "pmid": "38720122",
+      "title": "Effect of Stanozolol and/or Cannabis Abuse on Hypertrophic Mechanism and Oxidative Stress of Male Albino Rat Cardiac Tissue in Relation to Exercise: A Sport Abuse Practice.",
+      "firstAuthor": "Mowaad NA",
+      "year": "2024",
+      "journal": "Cardiovascular toxicology"
+    },
+    {
+      "pmid": "40534105",
+      "title": "Protective effects of allicin against stanozolol-induced cardiotoxicity: Physiological and histopathological evidence in a rabbit model.",
+      "firstAuthor": "Asker MH",
+      "year": "2025",
+      "journal": "Animal models and experimental medicine"
+    },
+    {
+      "pmid": "14091139",
+      "title": "[STANOZOLOL IN PEDIATRICS].",
+      "firstAuthor": "LIS M",
+      "year": "1963",
+      "journal": "La Semana medica"
     }
   ],
   "clomid": [
@@ -370,13 +364,6 @@ export const VERIFIED_SOURCES: Record<string, VerifiedSource[]> = {
       "journal": "Andrology"
     },
     {
-      "pmid": "24636400",
-      "title": "Anabolic steroid-induced hypogonadism: diagnosis and treatment.",
-      "firstAuthor": "Rahnema CD",
-      "year": "2014",
-      "journal": "Fertility and sterility"
-    },
-    {
       "pmid": "36680549",
       "title": "Clomiphene citrate for male infertility: A systematic review and meta-analysis.",
       "firstAuthor": "Huijben M",
@@ -384,116 +371,88 @@ export const VERIFIED_SOURCES: Record<string, VerifiedSource[]> = {
       "journal": "Andrology"
     },
     {
-      "pmid": "33375030",
-      "title": "Treatment of Men with Central Hypogonadism: Alternatives for Testosterone Replacement Therapy.",
-      "firstAuthor": "Ide V",
-      "year": "2020",
-      "journal": "International journal of molecular sciences"
+      "pmid": "39434750",
+      "title": "Safety and efficacy of enclomiphene and clomiphene for hypogonadal men.",
+      "firstAuthor": "Saffati G",
+      "year": "2024",
+      "journal": "Translational andrology and urology"
     },
     {
-      "pmid": "3127422",
-      "title": "Inhibin.",
-      "firstAuthor": "McNeilly AS",
-      "year": "1988",
-      "journal": "Human reproduction (Oxford, England)"
+      "pmid": "39338395",
+      "title": "Clomiphene Citrate Treatment as an Alternative Therapeutic Approach for Male Hypogonadism: Mechanisms and Clinical Implications.",
+      "firstAuthor": "Wu YC",
+      "year": "2024",
+      "journal": "Pharmaceuticals (Basel, Switzerland)"
+    },
+    {
+      "pmid": "41066380",
+      "title": "Clomiphene or enclomiphene citrate for the treatment of male hypogonadism: a systematic review and meta-analysis of randomized controlled trials.",
+      "firstAuthor": "Hohl A",
+      "year": "2025",
+      "journal": "Archives of endocrinology and metabolism"
     }
   ],
   "nolvadex": [
-    {
-      "pmid": "24636400",
-      "title": "Anabolic steroid-induced hypogonadism: diagnosis and treatment.",
-      "firstAuthor": "Rahnema CD",
-      "year": "2014",
-      "journal": "Fertility and sterility"
-    },
-    {
-      "pmid": "37592101",
-      "title": "Gynecomastia.",
-      "firstAuthor": "Ayyavoo A",
-      "year": "2023",
-      "journal": "Indian journal of pediatrics"
-    },
-    {
-      "pmid": "33375030",
-      "title": "Treatment of Men with Central Hypogonadism: Alternatives for Testosterone Replacement Therapy.",
-      "firstAuthor": "Ide V",
-      "year": "2020",
-      "journal": "International journal of molecular sciences"
-    },
-    {
-      "pmid": "25097095",
-      "title": "Adverse effects of androgen deprivation therapy and strategies to mitigate them.",
-      "firstAuthor": "Nguyen PL",
-      "year": "2015",
-      "journal": "European urology"
-    },
     {
       "pmid": "36864030",
       "title": "Short-term tamoxifen administration improves hepatic steatosis and glucose intolerance through JNK/MAPK in mice.",
       "firstAuthor": "Fang Z",
       "year": "2023",
       "journal": "Signal transduction and targeted therapy"
+    },
+    {
+      "pmid": "9426725",
+      "title": "Tamoxifen for flutamide/finasteride-induced gynecomastia.",
+      "firstAuthor": "Staiman VR",
+      "year": "1997",
+      "journal": "Urology"
+    },
+    {
+      "pmid": "10796497",
+      "title": "Clomiphene or tamoxifen for idiopathic oligo/asthenospermia.",
+      "firstAuthor": "Vandekerckhove P",
+      "year": "2000",
+      "journal": "The Cochrane database of systematic reviews"
     }
   ],
   "arimidex": [
     {
-      "pmid": "38021712",
-      "title": "Precocious Puberty: Types, Pathogenesis and Updated Management.",
-      "firstAuthor": "Alghamdi A",
-      "year": "2023",
-      "journal": "Cureus"
+      "pmid": "17904790",
+      "title": "Aromatase inhibitor and bone.",
+      "firstAuthor": "Miki Y",
+      "year": "2007",
+      "journal": "Biomedicine & pharmacotherapy = Biomedecine & pharmacotherapie"
     },
     {
-      "pmid": "37592101",
-      "title": "Gynecomastia.",
-      "firstAuthor": "Ayyavoo A",
-      "year": "2023",
-      "journal": "Indian journal of pediatrics"
+      "pmid": "10572233",
+      "title": "[Aromatase inhibitors].",
+      "firstAuthor": "Feutrie ML",
+      "year": "1999",
+      "journal": "Bulletin du cancer"
     },
     {
-      "pmid": "16361981",
-      "title": "Testotoxicosis: current viewpoint.",
-      "firstAuthor": "Reiter EO",
-      "year": "2005",
-      "journal": "Pediatric endocrinology reviews : PER"
+      "pmid": "23103016",
+      "title": "Aromatase inhibitors for male infertility.",
+      "firstAuthor": "Schlegel PN",
+      "year": "2012",
+      "journal": "Fertility and sterility"
     },
     {
-      "pmid": "42258614",
-      "title": "ATM-Related Cancer Predisposition.",
-      "firstAuthor": "Adam MP",
-      "year": "1993",
-      "journal": ""
+      "pmid": "9394367",
+      "title": "Anastrozole: a new selective nonsteroidal aromatase inhibitor.",
+      "firstAuthor": "Goss PE",
+      "year": "1997",
+      "journal": "Oncology (Williston Park, N.Y.)"
     },
     {
-      "pmid": "40326775",
-      "title": "The Combination of Aromatase Inhibitors and GH Treatment for Idiopathic Short Stature in Male Adolescents.",
-      "firstAuthor": "Cui Y",
-      "year": "2025",
-      "journal": "The Journal of clinical endocrinology and metabolism"
+      "pmid": "10418994",
+      "title": "Aromatase and its inhibitors.",
+      "firstAuthor": "Brodie A",
+      "year": "1999",
+      "journal": "The Journal of steroid biochemistry and molecular biology"
     }
   ],
   "hcg": [
-    {
-      "pmid": "38683021",
-      "title": "A Current Perspective on Delayed Puberty and Its Management.",
-      "firstAuthor": "Abacı A",
-      "year": "2024",
-      "journal": "Journal of clinical research in pediatric endocrinology"
-    },
-    {
-      "pmid": "32010061",
-      "title": "Hypogonadism and Cryptorchidism.",
-      "firstAuthor": "Rodprasert W",
-      "year": "2019",
-      "journal": "Frontiers in endocrinology"
-    },
-    {
-      "pmid": "31983283",
-      "title": "m(6)A mRNA methylation regulates testosterone synthesis through modulating autophagy in Leydig cells.",
-      "firstAuthor": "Chen Y",
-      "year": "2021",
-      "journal": "Autophagy"
-    },
     {
       "pmid": "33345656",
       "title": "Human chorionic gonadotropin treatment: a viable option for management of secondary hypogonadism and male infertility.",
@@ -502,11 +461,32 @@ export const VERIFIED_SOURCES: Record<string, VerifiedSource[]> = {
       "journal": "Expert review of endocrinology & metabolism"
     },
     {
-      "pmid": "27132576",
-      "title": "Testosterone and Male Infertility.",
-      "firstAuthor": "Ohlander SJ",
-      "year": "2016",
-      "journal": "The Urologic clinics of North America"
+      "pmid": "39442683",
+      "title": "Optimal restoration of spermatogenesis after testosterone therapy using human chorionic gonadotropin and follicle-stimulating hormone.",
+      "firstAuthor": "Stocks BT",
+      "year": "2025",
+      "journal": "Fertility and sterility"
+    },
+    {
+      "pmid": "37673783",
+      "title": "Insulin-like Factor 3, Basal and Human Chorionic Gonadotropin-Stimulated Testosterone as Biomarkers to Predict the Effect of Testosterone Replacement in Testicular Cancer Survivors With Mild Leydig Cell Insufficiency.",
+      "firstAuthor": "Medici C",
+      "year": "2024",
+      "journal": "Clinical genitourinary cancer"
+    },
+    {
+      "pmid": "39901824",
+      "title": "Human chorionic gonadotropin-based clinical treatments for infertile men with non-obstructive azoospermia.",
+      "firstAuthor": "Esteves SC",
+      "year": "2026",
+      "journal": "Andrology"
+    },
+    {
+      "pmid": "38572627",
+      "title": "Fertility outcomes in male adults with congenital hypogonadotropic hypogonadism treated during puberty with human chorionic gonadotropin and recombinant follicle stimulating hormone.",
+      "firstAuthor": "Grob F",
+      "year": "2024",
+      "journal": "Journal of paediatrics and child health"
     }
   ]
 };
