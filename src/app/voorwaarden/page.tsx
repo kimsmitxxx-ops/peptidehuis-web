@@ -46,13 +46,13 @@ const sections: { id: string; title: string; body: string[] }[] = [
     ],
   },
   {
-    id: "herroeping",
-    title: "5. Herroepingsrecht",
+    id: "retour-en-terugbetaling",
+    title: "5. Retour en terugbetaling",
     body: [
-      "De klant heeft het recht de overeenkomst binnen 14 dagen na ontvangst, zonder opgaaf van reden, te ontbinden.",
-      "Producten dienen ongeopend, in originele en ongeschonden verpakking met intact zegel te worden geretourneerd.",
-      "De directe kosten van retourzending bedragen €4,95 en komen voor rekening van de klant, tenzij sprake is van een lab-garantieclaim of foutieve levering.",
-      "Anabolen Pro betaalt het volledige aankoopbedrag inclusief verzendkosten binnen 5 werkdagen na ontvangst en controle terug.",
+      "Vanwege de aard van onze producten en de vertrouwelijke branche waarin wij opereren, kunnen wij geen fysiek retour-adres publiek voeren. Retourzendingen zijn daarom niet mogelijk.",
+      "Terugbetaling van een geplaatste en betaalde bestelling is niet mogelijk. Zodra de betaling bij ons binnen is, gaat de bestelling in behandeling en kan er niet meer worden geannuleerd of teruggedraaid.",
+      "Komt je pakket door vertraging of vermissing niet aan? Dan sturen wij binnen 14 dagen na de oorspronkelijke verzenddatum kosteloos een nieuwe zending — zonder discussie.",
+      "Zijn bepaalde items op het moment van verwerking niet leverbaar? Dan bieden wij alternatieve items van gelijke waarde aan, of verzenden we die items apart na zodra ze weer op voorraad zijn.",
     ],
   },
   {
@@ -60,7 +60,7 @@ const sections: { id: string; title: string; body: string[] }[] = [
     title: "6. Prijzen en betaling",
     body: [
       "De op de website vermelde prijzen zijn in euro's en inclusief 21% BTW.",
-      "Betaling vindt plaats via iDEAL, Bancontact, bank-overboeking of crypto. De bestelling wordt pas verwerkt na ontvangst van de betaling.",
+      "Betaling vindt plaats via bank-overboeking (IBAN) of crypto (BTC/ETH/USDT). Zodra de betaling bij ons binnen is, gaat de bestelling in behandeling.",
       "Anabolen Pro behoudt zich het recht voor prijzen te wijzigen; eenmaal geplaatste orders blijven ongewijzigd.",
     ],
   },
@@ -69,9 +69,9 @@ const sections: { id: string; title: string; body: string[] }[] = [
     title: "7. Levering",
     body: [
       "Anabolen Pro neemt de grootst mogelijke zorgvuldigheid in acht bij ontvangst en uitvoering van bestellingen.",
-      "Het adres dat door de klant is opgegeven, geldt als plaats van levering.",
-      "Genoemde levertijden zijn indicatief. De maximale leveringstermijn bedraagt 30 dagen, tenzij anders overeengekomen.",
-      "Het risico van beschadiging en vermissing van producten gaat over op de klant op het moment van bezorging.",
+      "Het adres dat door de klant is opgegeven, geldt als plaats van levering. Wij verzenden uitsluitend naar vaste huisadressen (geen PostNL-afhaalpunten als aflever-optie).",
+      "Genoemde levertijden zijn indicatief. De maximale leveringstermijn bedraagt 14 dagen, gerekend vanaf de dag na verzending. Is het pakket dan nog niet aangekomen, dan verzenden wij automatisch opnieuw.",
+      "Het risico van beschadiging en vermissing gaat over op de klant op het moment van bezorging aan het opgegeven huisadres.",
     ],
   },
   {
@@ -79,7 +79,7 @@ const sections: { id: string; title: string; body: string[] }[] = [
     title: "8. Lab-garantie en conformiteit",
     body: [
       "Anabolen Pro staat ervoor in dat elk product voldoet aan de specificaties zoals weergegeven op het Certificate of Analysis (COA) van de bijbehorende batch.",
-      "Wijkt het werkelijke gehalte, vastgesteld door een onafhankelijk laboratorium, meer dan 5% af van het opgegeven COA, dan vervangt Anabolen Pro het product kosteloos of betaalt het volledige aankoopbedrag terug.",
+      "Wijkt het werkelijke gehalte, vastgesteld door een onafhankelijk laboratorium, meer dan 5% af van het opgegeven COA, dan vervangt Anabolen Pro het product kosteloos in de volgende zending.",
     ],
   },
   {

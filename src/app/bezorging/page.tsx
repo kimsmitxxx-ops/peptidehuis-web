@@ -8,39 +8,74 @@ export const revalidate = 86400;
 
 export const metadata: Metadata = {
   title: "Bezorging — AnabolenPro",
-  description: "Vandaag voor 22:00 besteld, morgen in huis. Discrete verzending vanuit Nederland met track & trace, gratis vanaf €75.",
+  description:
+    "Snel verzonden vanuit Nederland via PostNL en DPD. Betaling vóór 11:00 = zelfde dag verzonden. Discreet, met track & trace, alleen naar huisadressen.",
   alternates: { canonical: "/bezorging" },
 };
 
 const carriers = [
-  { name: "PostNL Standaard", cost: "€4,95", note: "Vandaag voor 22:00 besteld, morgen in huis (ma t/m za)." },
-  { name: "PostNL Avond", cost: "€7,50", note: "Bezorging tussen 18:00 en 22:00, ideaal als je overdag werkt." },
-  { name: "PostNL Pakketpunt", cost: "€3,95", note: "Afhalen op een door jou gekozen punt, anoniem en op jouw tijd." },
-  { name: "DHL Express EU", cost: "€14,95", note: "Binnen 1-3 werkdagen in BE, DE, FR, AT, ES, IT, PL en SE." },
+  { name: "PostNL Standaard NL", cost: "€10,00", note: "Betaling vóór 11:00 werkdag binnen = zelfde dag verzonden, morgen in huis." },
+  { name: "PostNL België", cost: "€15,00", note: "1-3 werkdagen na verzending." },
+  { name: "DPD Nederland", cost: "€10,00", note: "Alternatief PostNL. Betaling vóór 11:00 = zelfde dag verzonden." },
+  { name: "DPD EU", cost: "€15,00", note: "Binnen 3-5 werkdagen naar DE, FR, AT, ES, IT, PL, SE." },
 ];
 
 const usps = [
-  { icon: Clock, title: "Snel verzonden", sub: "Dezelfde of volgende werkdag de deur uit met PostNL." },
+  { icon: Clock, title: "Snel verzonden", sub: "Betaling voor 11:00 werkdag binnen = zelfde dag nog de deur uit." },
   { icon: PackageCheck, title: "Neutrale verpakking", sub: "Geen logo, geen productnaam, geen vermelding op label." },
-  { icon: ShieldCheck, title: "100% leveringsgarantie", sub: "Komt je pakket niet aan? Wij vergoeden de volledige bestelling — geen discussie." },
-  { icon: Globe2, title: "EU-breed bezorgd", sub: "BE, DE, FR, AT, ES, IT, PL en SE binnen 1-3 werkdagen." },
+  { icon: ShieldCheck, title: "100% leveringsgarantie", sub: "Komt je pakket niet aan? Wij verzenden opnieuw — geen discussie, geen extra kosten." },
+  { icon: Globe2, title: "EU-breed bezorgd", sub: "NL en BE dagelijks. DE, FR, AT, ES, IT, PL, SE binnen 3-5 werkdagen." },
 ];
 
 const faq = [
-  { question: "Hoe snel wordt mijn pakket verstuurd?", answer: "Alle orders die op werkdagen vóór 22:00 binnenkomen, worden dezelfde avond nog verwerkt en gaan om 22:30 mee met de laatste lichting. In het weekend gaan orders maandagochtend de deur uit." },
-  { question: "Hoe ziet de verpakking eruit?", answer: "Een neutrale bruine of grijze doos zonder logo, productnaam of branding op de buitenkant. Op het verzendlabel staat alleen onze KvK-naam en jouw adres. Niets verraadt de inhoud." },
-  { question: "Kan ik mijn order volgen?", answer: "Ja. Zodra het label is aangemaakt, ontvang je per e-mail een track & trace-code van PostNL of DHL." },
-  { question: "Wat als ik niet thuis ben?", answer: "PostNL biedt je het pakket nog één keer aan, daarna gaat het naar het dichtstbijzijnde afhaalpunt. Je hebt 7 dagen om het op te halen met je legitimatie." },
-  { question: "Bezorgen jullie ook naar afhaalpunten?", answer: "Ja, je kiest tijdens het afrekenen een PostNL- of DHL-afhaalpunt naar keuze. Vaak de discreetste optie." },
-  { question: "Wordt er een handtekening gevraagd?", answer: "Bij orders boven €150 vragen we standaard om een handtekening bij ontvangst, om verlies of diefstal te voorkomen. Onder dat bedrag is een handtekening optioneel." },
+  {
+    question: "Hoe snel wordt mijn pakket verstuurd?",
+    answer:
+      "Als je betaling vóór 11:00 op een werkdag binnen is, gaat je pakket dezelfde dag nog de deur uit. Betaling na 11:00 of in het weekend? Dan vertrekt je bestelling de eerstvolgende werkdag.",
+  },
+  {
+    question: "Hoe ziet de verpakking eruit?",
+    answer:
+      "Neutrale bruine of grijze doos zonder logo, productnaam of branding op de buitenkant. Op het verzendlabel staat alleen onze bedrijfsnaam en jouw adres. Niets verraadt de inhoud.",
+  },
+  {
+    question: "Kan ik mijn order volgen?",
+    answer:
+      "Ja. Zodra het label is aangemaakt, ontvang je per e-mail een track & trace-code van PostNL of DPD.",
+  },
+  {
+    question: "Wat als ik niet thuis ben?",
+    answer:
+      "PostNL of DPD biedt het pakket nog één keer aan. Daarna gaat het naar het dichtstbijzijnde afhaalpunt van de betreffende vervoerder. Je hebt daar 7 dagen om het op te halen met je legitimatie.",
+  },
+  {
+    question: "Bezorgen jullie ook naar PostNL-afhaalpunten?",
+    answer:
+      "Nee, wij kunnen helaas niet direct naar PostNL-afhaalpunten versturen omdat we in onze branche geen contract met PostNL kunnen afsluiten. We verzenden alleen naar vaste huisadressen. Mis je het pakket op je huisadres, dan gaat het wel naar je dichtstbijzijnde afhaalpunt.",
+  },
+  {
+    question: "Wordt er een handtekening gevraagd?",
+    answer:
+      "Nee. Standaard vragen we geen handtekening bij ontvangst — je pakket wordt gewoon bezorgd of in de brievenbus / bij de buren gelaten volgens de standaard PostNL/DPD-procedure.",
+  },
+  {
+    question: "Wat is de maximale leveringstermijn?",
+    answer:
+      "Maximaal 14 dagen na verzending. Is je pakket na 14 dagen nog steeds niet aangekomen door vertraging of vermissing? Dan verzenden wij automatisch een nieuwe bestelling — zonder discussie.",
+  },
+  {
+    question: "Kan ik meerdere merken tegelijk bestellen?",
+    answer:
+      "Ja. Wij werken met twee verzendlocaties: één voor Utinon-producten (Locatie 01) en één voor de overige merken (Locatie 02). Bestel je uit beide, dan krijg je twee pakketten en betaal je 2× verzendkosten.",
+  },
 ];
 
 const timeline = [
-  { t: "0:00", h: "Bestelling geplaatst", d: "Directe bevestiging per e-mail met ordernummer." },
-  { t: "+15 min", h: "Betaling verwerkt", d: "iDEAL, Bancontact en bank-overboeking gaan direct door." },
-  { t: "Zelfde dag 21:00", h: "Order ingepakt", d: "Picker controleert batch en COA-nummer per item." },
-  { t: "Zelfde dag 22:30", h: "Bij PostNL", d: "Track & trace per mail, label is dan al actief." },
-  { t: "Volgende dag", h: "Bezorgd", d: "Tussen 09:00 en 21:30 bij jou aan de deur of op het afhaalpunt." },
+  { t: "0:00", h: "Bestelling geplaatst", d: "Directe bevestiging per e-mail met ordernummer + betaalinstructies." },
+  { t: "Voor 11:00", h: "Betaling binnen", d: "Bankoverboeking (IBAN) of crypto. Zodra we het zien, is je order in behandeling." },
+  { t: "Zelfde werkdag 15:00", h: "Order ingepakt", d: "Picker controleert batchcode en COA-nummer per item, neutrale verpakking." },
+  { t: "Zelfde werkdag 17:00", h: "Bij PostNL / DPD", d: "Track & trace per mail, label is dan al actief." },
+  { t: "Volgende werkdag", h: "Bezorgd", d: "NL: tussen 09:00 en 21:30 aan je vaste huisadres. BE: 1-3 werkdagen. Rest EU: 3-5 werkdagen." },
 ];
 
 export default function BezorgingPage() {
@@ -48,8 +83,8 @@ export default function BezorgingPage() {
     <>
       <PageHero
         eyebrow="Bezorging"
-        title="Discreet, snel en met track & trace door heel Europa"
-        intro="Wij verzenden zelf vanuit Vlaardingen. Geen postbus in het buitenland, geen ompak-route. Vandaag besteld voor 22:00, morgen in huis."
+        title="Snel verzonden, discreet verpakt, track & trace"
+        intro="Wij verzenden zelf vanuit Nederland. Betaling vóór 11:00 op een werkdag = zelfde dag nog de deur uit met PostNL of DPD. Alleen naar vaste huisadressen — geen postbussen, geen afhaalpunten als aflever-optie."
       />
 
       <section className="mx-auto max-w-7xl px-4 py-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
@@ -65,7 +100,7 @@ export default function BezorgingPage() {
       <section className="mx-auto max-w-7xl px-4 pb-14">
         <h2 className="font-display text-2xl text-text">Bezorgopties &amp; tarieven</h2>
         <p className="mt-2 text-sm text-text-muted">
-          Gratis verzending in Nederland vanaf €75. Daaronder rekenen we kostprijs door.
+          Verzending is altijd €10 (NL) of €15 (BE/EU). Wij rekenen deze kosten altijd door — geen gratis-verzending drempel.
         </p>
         <div className="mt-6 overflow-hidden rounded-md border border-border">
           <table className="w-full text-sm">
@@ -88,7 +123,8 @@ export default function BezorgingPage() {
           </table>
         </div>
         <p className="mt-4 text-xs text-text-subtle">
-          Gratis PostNL Standaard vanaf €75 in NL · vanaf €150 in BE/DE.
+          Bestel je uit beide verzendlocaties (Utinon + overige merken), dan betaal je 2× verzendkosten omdat het uit
+          verschillende magazijnen komt.
         </p>
       </section>
 
@@ -126,9 +162,9 @@ export default function BezorgingPage() {
             </p>
             <div className="mt-6 rounded-md border border-border bg-surface p-5 text-sm text-text-muted">
               <MapPin size={16} className="text-accent" />
-              <p className="mt-2 font-medium text-text">Magazijn Vlaardingen</p>
-              <p>Westhavenkade 12, 3134 NA Vlaardingen</p>
-              <p className="mt-1 text-xs text-text-subtle">Geen afhaalpunt — alleen verzending.</p>
+              <p className="mt-2 font-medium text-text">Magazijn Nederland</p>
+              <p>Verzending vanuit onze eigen NL-locatie.</p>
+              <p className="mt-1 text-xs text-text-subtle">Geen bezoek mogelijk — alleen verzending.</p>
             </div>
           </div>
           <FaqAccordion items={faq} />

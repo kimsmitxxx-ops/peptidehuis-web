@@ -2,45 +2,70 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { PageHero } from "@/components/shop/page-hero";
 import { FaqAccordion } from "@/components/faq-accordion";
-import { RotateCcw, ShieldCheck, FlaskConical, Mail } from "lucide-react";
+import { ShieldCheck, FlaskConical, Mail, AlertTriangle } from "lucide-react";
 
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: "Retourneren & garantie — AnabolenPro",
-  description: "Retourneren binnen 14 dagen, ongebroken zegel. Lab-garantie op iedere batch met openbare COA.",
+  title: "Retour en terugbetaling — AnabolenPro",
+  description:
+    "Retourzendingen zijn in onze branche niet mogelijk. Wat wél: 100% leveringsgarantie bij vertraging of vermissing en lab-vervanging bij batch-afwijking.",
   alternates: { canonical: "/retourneren" },
 };
 
 const cards = [
-  { icon: RotateCcw, title: "14 dagen herroeping", sub: "Wettelijk recht. Zegel intact en originele verpakking blijft de voorwaarde." },
-  { icon: FlaskConical, title: "Lab-garantie per batch", sub: "Afwijking groter dan 5% van het COA? Geld terug of nieuwe batch." },
-  { icon: ShieldCheck, title: "Snelle afhandeling", sub: "RMA binnen 1 werkdag, terugbetaling binnen 5 werkdagen na ontvangst." },
-];
-
-const steps = [
-  { n: "01", h: "Mail je ordernummer", d: "Naar retour@anabolenpro.com, met een korte reden en eventueel het batchnummer." },
-  { n: "02", h: "Ontvang je RMA-label", d: "Binnen 1 werkdag krijg je een gefrankeerd PostNL-label per e-mail." },
-  { n: "03", h: "Breng pakket weg", d: "Plak het label op de originele doos en lever in bij elk PostNL-punt." },
-  { n: "04", h: "Wij betalen terug", d: "Binnen 5 werkdagen na ontvangst staat het bedrag op je rekening." },
+  {
+    icon: ShieldCheck,
+    title: "100% leveringsgarantie",
+    sub: "Komt je pakket niet aan binnen 14 dagen? Nieuwe verzending zonder discussie of extra kosten.",
+  },
+  {
+    icon: FlaskConical,
+    title: "Lab-garantie per batch",
+    sub: "Wijkt het gehalte meer dan 5% af van het COA? Wij vervangen het item kosteloos in je volgende bestelling.",
+  },
+  {
+    icon: AlertTriangle,
+    title: "Niet leverbaar item?",
+    sub: "Wij bieden een alternatief van gelijke waarde of verzenden het item apart na zodra het weer op voorraad is.",
+  },
 ];
 
 const faq = [
-  { question: "Welk product mag ik retourneren?", answer: "Alleen producten waarvan het zegel onbeschadigd is en die in originele verpakking zitten. Open verpakkingen kunnen wij om kwaliteitsredenen niet terugnemen." },
-  { question: "Hoe meld ik een retour aan?", answer: "Mail je ordernummer naar retour@anabolenpro.com. Binnen 1 werkdag ontvang je een RMA-nummer en een retourlabel." },
-  { question: "Wie betaalt de retourkosten?", answer: "Bij herroeping binnen 14 dagen betaal jij €4,95 retourkosten (wordt verrekend met je terugbetaling). Bij een lab-garantieclaim of foutieve levering vergoeden wij alles, inclusief verzending." },
-  { question: "Wanneer krijg ik mijn geld terug?", answer: "Binnen 5 werkdagen na ontvangst en controle in ons magazijn. Het bedrag wordt teruggestort op de rekening waarmee je betaald hebt." },
-  { question: "Wat gebeurt er bij een lab-garantieclaim?", answer: "Verschilt het werkelijke gehalte op je batch meer dan 5% van wat op het COA staat? Stuur ons je batchnummer en een onafhankelijke labanalyse. Wij vervangen het product kosteloos of betalen volledig terug." },
-  { question: "Geldt het herroepingsrecht ook bij actie-aanbiedingen?", answer: "Ja. Het wettelijke herroepingsrecht van 14 dagen geldt voor elk product in onze winkel, ook tijdens kortingsacties of bundels — zolang het zegel intact is." },
+  {
+    question: "Kan ik mijn bestelling retourneren of annuleren?",
+    answer:
+      "Nee. Vanwege de branche waarin wij opereren kunnen wij helaas geen fysiek retour-adres publiek voeren, en zodra je betaling bij ons binnen is, gaat de bestelling in behandeling en kan er niet meer geannuleerd of teruggedraaid worden.",
+  },
+  {
+    question: "Wat als mijn pakket niet aankomt?",
+    answer:
+      "Is je pakket 14 dagen na de verzenddatum nog steeds niet bezorgd? Dan verzenden wij automatisch een nieuwe zending — zonder discussie en zonder extra kosten. Meld het bij support@anabolenpro.com met je ordernummer.",
+  },
+  {
+    question: "Wat als een item niet meer leverbaar blijkt?",
+    answer:
+      "Als tijdens de verwerking blijkt dat een item toch niet meer leverbaar is, bieden wij een alternatief van gelijke waarde aan. Wil je liever wachten? Dan versturen we het niet-leverbare item apart na zodra het weer binnen is — zonder extra verzendkosten.",
+  },
+  {
+    question: "Klopt het gehalte niet met het COA — wat nu?",
+    answer:
+      "Als een onafhankelijk lab-rapport aantoont dat het werkelijke gehalte meer dan 5% afwijkt van het COA dat wij hebben gepubliceerd, vervangen wij het product kosteloos in je volgende bestelling. Stuur ons het lab-rapport samen met je batchnummer via lab@anabolenpro.com.",
+  },
+  {
+    question: "Kan ik mijn geld terugkrijgen?",
+    answer:
+      "Nee, terugbetalingen zijn niet mogelijk. Wat we wél doen: bij niet-aankomst = opnieuw verzenden, bij batch-afwijking = kosteloze vervanging in je volgende bestelling. Neem daarom vóór je betaalt goed de tijd om je bestelling te controleren.",
+  },
 ];
 
 export default function RetourPage() {
   return (
     <>
       <PageHero
-        eyebrow="Retourneren & garantie"
-        title="14 dagen bedenktijd én levenslange lab-garantie per batch"
-        intro="Niet tevreden over je bestelling of klopt het gehalte niet met het COA? Wij regelen het, zonder discussie."
+        eyebrow="Retour & garantie"
+        title="Geen retour, wél 100% leveringsgarantie"
+        intro="Wij kunnen geen retour-adres publiek voeren, dus retourzendingen zijn niet mogelijk. Terugbetalingen ook niet — zodra je betaling binnen is, gaat je bestelling in behandeling. Wél garanderen we dat je pakket aankomt: doet-ie dat niet, dan verzenden we opnieuw."
       />
 
       <section className="mx-auto max-w-7xl px-4 py-14 grid gap-5 md:grid-cols-3">
@@ -53,26 +78,19 @@ export default function RetourPage() {
         ))}
       </section>
 
-      <section className="bg-surface border-y border-border">
-        <div className="mx-auto max-w-7xl px-4 py-14 grid gap-10 lg:grid-cols-[1fr_1.4fr]">
-          <div>
-            <p className="text-xs uppercase tracking-[0.15em] text-accent font-semibold">Stappenplan</p>
-            <h2 className="mt-2 font-display text-2xl text-text">Retour in 4 stappen</h2>
-            <p className="mt-3 text-sm text-text-muted leading-relaxed">
-              Wij sturen je een gefrankeerd PostNL-label. Geen geprint formulier, geen vragenlijst — alleen je ordernummer en de reden.
-            </p>
+      <section className="mx-auto max-w-7xl px-4 pb-14">
+        <div className="rounded-xl border border-amber-300 bg-amber-50/60 p-6 text-amber-900">
+          <div className="flex items-start gap-3">
+            <AlertTriangle size={20} className="shrink-0 mt-0.5" />
+            <div>
+              <h2 className="font-display text-lg">Let op vóór je betaalt</h2>
+              <p className="mt-1.5 text-sm">
+                Zodra je betaling bij ons binnen is, gaat je bestelling direct in behandeling. Terugdraaien of
+                annuleren is dan niet meer mogelijk. Controleer je bestelling en je adresgegevens dus goed voordat je
+                de overboeking uitvoert.
+              </p>
+            </div>
           </div>
-          <ol className="space-y-5">
-            {steps.map((s) => (
-              <li key={s.n} className="grid grid-cols-[56px_1fr] gap-4 items-start">
-                <span className="font-display text-2xl text-accent tabular">{s.n}</span>
-                <div>
-                  <p className="font-medium text-text">{s.h}</p>
-                  <p className="text-sm text-text-muted">{s.d}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
         </div>
       </section>
 
@@ -82,13 +100,18 @@ export default function RetourPage() {
             <h2 className="font-display text-2xl text-text">Veelgestelde vragen</h2>
             <p className="mt-2 text-sm text-text-muted">
               Twijfel je over jouw situatie?{" "}
-              <Link href="/contact" className="text-accent hover:underline">Neem contact op</Link>.
+              <Link href="/contact" className="text-accent hover:underline">
+                Neem contact op
+              </Link>
+              .
             </p>
             <div className="mt-6 rounded-md border border-border bg-surface p-5">
               <Mail size={16} className="text-accent" />
-              <p className="mt-2 font-medium text-text">Retourservice</p>
-              <a href="mailto:retour@anabolenpro.com" className="text-sm text-accent hover:underline">retour@anabolenpro.com</a>
-              <p className="mt-2 text-xs text-text-subtle">Antwoord binnen 1 werkdag, vaak sneller.</p>
+              <p className="mt-2 font-medium text-text">Klantenservice</p>
+              <a href="mailto:support@anabolenpro.com" className="text-sm text-accent hover:underline">
+                support@anabolenpro.com
+              </a>
+              <p className="mt-2 text-xs text-text-subtle">Antwoord binnen 1 werkdag.</p>
             </div>
           </div>
           <FaqAccordion items={faq} />

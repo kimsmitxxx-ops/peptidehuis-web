@@ -159,7 +159,7 @@ export default async function ProductDetailPage({ params }: { params: { categori
               <Truck className="h-5 w-5 text-accent shrink-0 mt-0.5" />
               <div className="text-sm">
                 <p className="font-semibold text-text">Snel verzonden</p>
-                <p className="text-xs text-text-muted">100% leveringsgarantie — krijg je je pakket niet, dan vergoeden wij volledig.</p>
+                <p className="text-xs text-text-muted">100% leveringsgarantie — pakket niet aangekomen? Wij verzenden opnieuw, zonder gedoe.</p>
               </div>
             </div>
           </div>

@@ -51,12 +51,12 @@ const HOMEPAGE_FAQ = [
   {
     question: "Hoe ziet de verpakking eruit en wat staat er op het label?",
     answer:
-      "Bruine of grijze kartonnen doos zonder logo, zonder QR-code, zonder afbeelding. Op het PostNL-label staat alleen onze KvK-naam (\"Anabolen Pro B.V.\") en jouw adres. Geen vermelding van productnaam, geen \"medisch\" stempel, geen waarschuwingsstickers. Postbezorger ziet één van de duizenden anonieme webshop-pakketjes. Buren ook.",
+      "Bruine of grijze kartonnen doos zonder logo, zonder QR-code, zonder afbeelding. Op het verzendlabel staat alleen onze bedrijfsnaam en jouw adres. Geen vermelding van productnaam, geen \"medisch\" stempel, geen waarschuwingsstickers. De bezorger ziet één van de duizenden anonieme webshop-pakketjes. Wij verzenden alleen naar vaste huisadressen — geen PostNL-afhaalpunten als aflever-optie.",
   },
   {
     question: "Hoe lang duurt verzending binnen Nederland en hoe wordt betaald?",
     answer:
-      "Voor 22:00 besteld én betaald op werkdag = morgen in huis met PostNL Standaard. Vrijdag voor 22:00 = zaterdag in huis. Weekend bestellingen gaan maandagavond de deur uit. Betalen doe je via bank-overschrijving in je eigen bank-app (IBAN) of crypto (BTC/ETH/USDT). Geen kaart, geen kredietkaart-spoor, geen tussenpartij. Bij IBAN verschijnt op je afschrift alleen de bedrijfsnaam, geen productomschrijving.",
+      "Als je betaling vóór 11:00 op een werkdag binnen is, wordt je pakket dezelfde dag nog verzonden — morgen in huis met PostNL of DPD. Betaling na 11:00 of in het weekend? Dan gaat je bestelling de eerstvolgende werkdag de deur uit. Betalen doe je via bank-overschrijving (IBAN) of crypto (BTC/ETH/USDT). Geen kaart, geen tussenpartij. Op je bankafschrift verschijnt alleen onze bedrijfsnaam, geen productomschrijving.",
   },
   {
     question: "Welke bijwerkingen kan ik verwachten en hoe houd ik die in de gaten?",
@@ -69,9 +69,9 @@ const HOMEPAGE_FAQ = [
       "Volledig vervangen: nee. Maar het verschil tussen iemand die geoptimaliseerd traint+eet en iemand die dat niet doet is groter dan veel mensen denken. Concreet werkt: creatine monohydraat (5 g/dag, +10–15% kracht binnen 4 weken), 1.6–2.2 g eiwit per kg lichaamsgewicht, progressive overload met 3–5x training per week, 7+ uur slaap, vitamine D + zink + magnesium als je tekort hebt. Je natural plafond hangt af van genetica (FFMI ~25 voor de meeste mannen). Voor lifestyle-redenen kies je natural; voor competitie-niveau is anabolen vrijwel altijd onderdeel van het verhaal — dat is geen oordeel, gewoon hoe het is.",
   },
   {
-    question: "Mag ik retourneren als ik van gedachten verander of als er iets mis is?",
+    question: "Kan ik mijn bestelling retourneren of annuleren als ik van gedachten verander?",
     answer:
-      "Ja. Binnen 14 dagen herroepingsrecht, mits zegel intact en originele verpakking — wettelijk recht. Retourkosten €4,95 (komt op je terugbetaling in mindering). Bij lab-garantieclaim (gehalte wijkt >5% af van het COA, aantoonbaar met onafhankelijk lab) vergoeden wij alles inclusief verzending en sturen nieuwe batch of betalen 100% terug. Mail retour@anabolenpro.com met je ordernummer, binnen 1 werkdag krijg je RMA-label.",
+      "Nee. Vanwege onze branche kunnen we geen fysiek retour-adres publiek voeren en zodra je betaling binnen is, gaat de bestelling in behandeling. Neem daarom vóór je betaalt goed de tijd om je bestelling te controleren. Wél garanderen we dat je pakket aankomt: doet-ie dat niet binnen 14 dagen na verzending, dan sturen wij automatisch een nieuwe. En bij een aantoonbare batch-afwijking (>5% van het COA) krijg je het item kosteloos vervangen in je volgende bestelling.",
   },
   {
     question: "Werken kuurpakketten beter dan losse producten kopen?",

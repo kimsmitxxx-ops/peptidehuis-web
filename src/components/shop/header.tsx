@@ -27,7 +27,7 @@ const LANGS: { code: Lang; label: string; flag: string }[] = [
 ];
 
 const TOPBAR_ITEMS = [
-  { Icon: ShieldCheck, text: "100% leveringsgarantie — krijg je je pakket niet, geld terug" },
+  { Icon: ShieldCheck, text: "100% leveringsgarantie — pakket niet aangekomen? Nieuwe verzending zonder gedoe" },
   { Icon: Truck, text: "Snel verzonden — anoniem & discreet verpakt" },
   { Icon: Star, text: "4,8 / 5 · 2.412 geverifieerde reviews" },
 ];
