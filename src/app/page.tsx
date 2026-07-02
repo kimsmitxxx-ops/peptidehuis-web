@@ -216,7 +216,9 @@ export default async function HomePage() {
                 loading="lazy"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/75 to-primary/10" />
+              {/* Lichte zwarte overlay voor editorial gevoel + tekst-leesbaarheid */}
+              <div className="absolute inset-0 bg-black/25" />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-5">
                 <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-soft">
                   Categorie
