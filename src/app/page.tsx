@@ -281,7 +281,7 @@ export default async function HomePage() {
               variant="eyebrow-plus-display"
               eyebrow="Post-cycle therapy"
               ctaLabel="Lees protocol"
-              ctaHref="/kennisbank/pct-protocol-uitleg"
+              ctaHref="/kennisbank/welke-pct-past-bij-een-deca-kuur-nolva-clomid-hcg-timing"
             >
               Skip de PCT en je herstelt half jaar later nog steeds niet
             </SectionHeading>

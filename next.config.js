@@ -18,6 +18,13 @@ module.exports = {
       { source: "/media/:path*", destination: `${SUPABASE_URL}/storage/v1/object/public/product-media/anabolenpro/:path*` },
     ];
   },
+  async redirects() {
+    return [
+      // Blogs die van shop-dash 'buildInternalLinks' onderzoek/-slug krijgen: op deze
+      // site heten ze /kennisbank/*. Redirect zodat oude bodies niet 404 geven.
+      { source: "/onderzoek/:slug", destination: "/kennisbank/:slug", permanent: true },
+    ];
+  },
   async headers() {
     const longCache = "public, max-age=31536000, immutable";
     return [

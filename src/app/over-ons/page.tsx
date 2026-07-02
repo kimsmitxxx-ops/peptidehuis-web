@@ -235,7 +235,7 @@ export default async function OverOnsPage() {
             <p className="mt-3 text-sm text-text-muted leading-relaxed">
               Onze content is geschreven door enhanced atleten en een medisch consultant — geen
               copywriters. Bij twijfel of klachten: raadpleeg een arts en stop het gebruik. Bij
-              bloedwerk-vragen: lees onze gids in de <Link href="/kennisbank/bloedwerk-voor-tijdens-na" className="text-accent hover:underline">kennisbank</Link>.
+              bloedwerk-vragen: lees onze gids in de <Link href="/kennisbank/welk-bloedwerk-doe-je-voor-tijdens-en-na-een-aas-kuur" className="text-accent hover:underline">kennisbank</Link>.
             </p>
             <Link
               href="/contact"

@@ -69,7 +69,7 @@ export function Footer() {
                 </li>
               ))}
               <li>
-                <Link href="/kennisbank/pct-protocol-uitleg" className="text-accent hover:text-accent-soft">
+                <Link href="/kennisbank/welke-pct-past-bij-een-deca-kuur-nolva-clomid-hcg-timing" className="text-accent hover:text-accent-soft">
                   PCT-protocol →
                 </Link>
               </li>
@@ -78,10 +78,10 @@ export function Footer() {
           <div>
             <h4 className="font-display text-base mb-3 text-primary-foreground">Kennisbank</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/kennisbank/testosteron-kuur-opbouwen" className="text-primary-foreground/70 hover:text-accent">Eerste kuur opbouwen</Link></li>
-              <li><Link href="/kennisbank/bloedwerk-voor-tijdens-na" className="text-primary-foreground/70 hover:text-accent">Bloedwerk uitgelegd</Link></li>
-              <li><Link href="/kennisbank/leverbescherming-tijdens-orale-kuur" className="text-primary-foreground/70 hover:text-accent">Leverbescherming</Link></li>
-              <li><Link href="/kennisbank/oestrogeen-controle" className="text-primary-foreground/70 hover:text-accent">Oestrogeen-controle</Link></li>
+              <li><Link href="/kennisbank/herstel-na-je-eerste-testosteron-kuur-3-6-maanden-realistisch" className="text-primary-foreground/70 hover:text-accent">Eerste kuur opbouwen</Link></li>
+              <li><Link href="/kennisbank/welk-bloedwerk-doe-je-voor-tijdens-en-na-een-aas-kuur" className="text-primary-foreground/70 hover:text-accent">Bloedwerk uitgelegd</Link></li>
+              <li><Link href="/kennisbank/top-5-fouten-die-beginners-maken-in-hun-eerste-kuur" className="text-primary-foreground/70 hover:text-accent">5 beginnersfouten</Link></li>
+              <li><Link href="/risicos-en-bijwerkingen" className="text-primary-foreground/70 hover:text-accent">Risico's + bloedwerk</Link></li>
               <li><Link href="/kennisbank" className="text-accent hover:text-accent-soft">Alle artikelen →</Link></li>
             </ul>
           </div>

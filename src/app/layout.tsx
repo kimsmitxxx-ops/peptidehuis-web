@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://anabolenpro.com"),
   title: { default: "AnabolenPro — lab-getest, vandaag besteld, morgen in huis", template: "%s · AnabolenPro" },
   description: "AnabolenPro: Janoshik lab-getest, anoniem verpakt, 24u verzending vanaf NL-magazijn. Anavar, Dianabol, testosteron-esters, PCT, kuurpakketten.",
-  robots: { index: false, follow: false },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
