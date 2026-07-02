@@ -8,7 +8,8 @@ import { MedicalDisclaimer } from "@/components/medical-disclaimer";
 import { ProductGallery } from "@/components/shop/product-gallery";
 import { PaymentRow } from "@/components/payment-row";
 import { RestockNotifyForm } from "@/components/shop/restock-notify-form";
-import { ShieldCheck, Truck, FlaskConical, ArrowLeft } from "lucide-react";
+import { ShieldCheck, Truck, FlaskConical, ArrowLeft, MapPin } from "lucide-react";
+import { shippingMethodForTags, shippingLabel } from "@/lib/shipping";
 import type { Metadata } from "next";
 
 export const revalidate = 300;
@@ -165,9 +166,10 @@ export default async function ProductDetailPage({ params }: { params: { categori
           </div>
 
           {p.package_type && <p className="mt-4 text-xs text-text-muted"><strong>Verpakking:</strong> {p.package_type}</p>}
-          {p.tags && p.tags.length > 0 && (
-            <p className="mt-2 text-xs text-text-muted"><strong>Tags:</strong> {p.tags.join(", ")}</p>
-          )}
+          <p className="mt-2 flex items-center gap-1.5 text-xs text-text-muted">
+            <MapPin size={12} className="text-accent" />
+            <strong>Verzonden vanuit:</strong> {shippingLabel(shippingMethodForTags(p.tags))}
+          </p>
 
           {/* Betaalopties — zelfde set als checkout zodat klant weet wat hij straks gaat zien */}
           <div className="mt-6 rounded-lg border border-border bg-paper-soft p-3">
