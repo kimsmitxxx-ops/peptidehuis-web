@@ -1854,7 +1854,7 @@ export const mainCategories: MainCategory[] = [
     slug: "injectie",
     name: "Injectie",
     tagline: "Testosteron-esters, trenbolone, deca, masteron — alle injecteerbare anabolen.",
-    image: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/category/injectie-hero.jpg",
+    image: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/category/injectie-hero.webp",
     to: "/winkel/injectie",
   },
   {
