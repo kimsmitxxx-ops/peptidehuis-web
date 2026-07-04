@@ -555,6 +555,8 @@ export interface CategoryContent {
   tagline: string;
   heroImage: string;
   heroImageAlt?: string;
+  resultImage?: string;
+  resultImageAlt?: string;
   intro: string;           // 2–3 zinnen, gebruikt als meta description
   longIntro: string;       // lead onder de h1
   keyFacts: { label: string; value: string }[];
@@ -573,6 +575,8 @@ export const categoryContent: CategoryContent[] = [
     tagline: "De basis van vrijwel elke anabolenkuur",
     heroImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/testosteron-hero.jpg",
     heroImageAlt: "Donkere editorial foto van testosteron-vial voor de stof-pagina testosteron",
+    resultImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/testosteron-resultaat.webp",
+    resultImageAlt: "Testosteron kuur resultaat — gespierde bodybuilder toont testosteron gains met kwaliteitsspiermassa en volle schouders",
     intro:
       "Testosteron is de basis waar elke kuur op draait — zonder een testbasis loop je vast op libido, energie en stemming.",
     longIntro:
@@ -650,6 +654,8 @@ export const categoryContent: CategoryContent[] = [
     tagline: "Mild profiel met goede gewrichtsondersteuning",
     heroImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/nandrolon-hero.jpg",
     heroImageAlt: "Donkere foto van nandrolon-ampules op een lab-tafel voor de stof-pagina nandrolon (deca)",
+    resultImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/nandrolon-resultaat.webp",
+    resultImageAlt: "Nandrolon deca kuur resultaat — thick bodybuilder toont typische deca full-look met brede rug en volle borstspieren",
     intro:
       "Nandrolon (Deca/NPP) is de klassieke 'gewrichtsvriend' onder de anabolen — langzaam, mild en geliefd voor bulks waarin je full body squat zonder krakende knieën.",
     longIntro:
@@ -727,6 +733,8 @@ export const categoryContent: CategoryContent[] = [
     tagline: "De heaviest hitter — niet voor je eerste rodeo",
     heroImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/trenbolone-hero.jpg",
     heroImageAlt: "Donkere dramatische foto van een vial voor de stof-pagina trenbolone",
+    resultImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/trenbolone-resultaat.webp",
+    resultImageAlt: "Trenbolone kuur resultaat — extreem shredded hardcore bodybuilder toont tren dry ripped fysiek met striations en vascular arms",
     intro:
       "Tren is de meest beruchte stof in de game: brutaal effectief voor recomp, droog en hard, maar met een bijwerkings-profiel waar geen enkele beginner doorheen wil komen.",
     longIntro:
@@ -804,6 +812,8 @@ export const categoryContent: CategoryContent[] = [
     tagline: "De endurance-monster met traag opbouwende pump",
     heroImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/boldenone-hero.jpg",
     heroImageAlt: "Donkere moody foto van vials voor de stof-pagina boldenone (equipoise)",
+    resultImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/boldenone-resultaat.webp",
+    resultImageAlt: "Boldenone equipoise kuur resultaat — lean vascular bodybuilder toont boldenone gains met brede rug en zichtbare aderen",
     intro:
       "EQ is de langzame-brander van de bulkstoffen: trage opbouw, ongekende pumps en een eetlust waar je vrouw 's avonds bang van wordt.",
     longIntro:
@@ -881,6 +891,8 @@ export const categoryContent: CategoryContent[] = [
     tagline: "Droog, hard en strak — de cosmetische kers op je cut",
     heroImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/masteron-hero.jpg",
     heroImageAlt: "Macro close-up foto van een vial voor de stof-pagina masteron",
+    resultImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/masteron-resultaat.webp",
+    resultImageAlt: "Masteron kuur resultaat — droog hard gedefinieerde bodybuilder toont masteron cut look zonder waterretentie, competition ready",
     intro:
       "Masteron is de stof die je toevoegt als je al lean bent en die laatste graad van hardheid en visuele 3D-look wil. Op een vetpercentage van 20% zie je er niks van — onder de 12% steelt het de show.",
     longIntro:
@@ -958,6 +970,8 @@ export const categoryContent: CategoryContent[] = [
     tagline: "De milde oral met de meeste fakes in de scene",
     heroImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/anavar-hero.jpg",
     heroImageAlt: "Donkere productfoto van een blister voor de stof-pagina anavar",
+    resultImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/anavar-resultaat.webp",
+    resultImageAlt: "Anavar kuur resultaat vrouw en man — gespierde fit man en getrainde vrouw tonen anavar cutting result met lean definition",
     intro:
       "Anavar is de poster boy van 'milde' anabolen — strakke gains, kracht-boost, weinig bijwerkingen. Probleem: 80% van wat er als var verkocht wordt, is gewoon dianabol of winstrol met var-stickertje.",
     longIntro:
@@ -1035,6 +1049,8 @@ export const categoryContent: CategoryContent[] = [
     tagline: "Ouderwetse mass-monster, perfect als kickstart",
     heroImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/dianabol-hero.jpg",
     heroImageAlt: "Donkere editorial foto van tabletten voor de stof-pagina dianabol",
+    resultImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/dianabol-resultaat.webp",
+    resultImageAlt: "Dianabol kuur resultaat — massive full puffy bodybuilder toont typische dianabol bulk look met grote armen en volle borstspieren",
     intro:
       "Dbol is de oudste oral in de game en nog steeds populair: 4 weken op 30 mg en je zit 4-6 kg dikker met pumps die in je broek niet meer passen.",
     longIntro:
@@ -1112,6 +1128,8 @@ export const categoryContent: CategoryContent[] = [
     tagline: "Droge, harde finisher — sloopt je gewrichten",
     heroImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/winstrol-hero.jpg",
     heroImageAlt: "Silhouet foto van een tablet bottle voor de stof-pagina winstrol",
+    resultImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/winstrol-resultaat.webp",
+    resultImageAlt: "Winstrol kuur resultaat — extreem shredded droge vascular bodybuilder toont winstrol competition-stage look met striations",
     intro:
       "Winstrol is de klassieke pre-contest finisher: droogt je uit, knalt vascularity en spierhardheid op een niveau dat geen andere stof matcht. Maar je gewrichten gaan janken.",
     longIntro:
@@ -1189,6 +1207,8 @@ export const categoryContent: CategoryContent[] = [
     tagline: "De Rolex onder de anabolen — duur, vaak fake, subtiel effect",
     heroImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/primobolan-hero.jpg",
     heroImageAlt: "Editorial foto van een amber bottle voor de stof-pagina primobolan",
+    resultImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/primobolan-resultaat.webp",
+    resultImageAlt: "Primobolan kuur resultaat — lean droge kwaliteitsspiermassa bodybuilder toont primobolan clean-cut fysiek",
     intro:
       "Primo is de chique optie: mild profiel, geen bloat, geen aromatisatie, en een prijskaartje waar je tweede kuur op past. Maar 9 van de 10 ampullen die je krijgt zijn fake.",
     longIntro:
@@ -1267,6 +1287,8 @@ export const categoryContent: CategoryContent[] = [
     tagline: "De PCT-essential die je altijd op de plank hebt liggen",
     heroImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/nolvadex-hero.jpg",
     heroImageAlt: "Editorial foto van een amber bottle voor de stof-pagina nolvadex",
+    resultImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/nolvadex-resultaat.webp",
+    resultImageAlt: "Nolvadex tamoxifen PCT resultaat — fit gespierde man met lab-rapport toont nolvadex post-cycle herstel na anabolen kuur",
     intro:
       "Tamoxifen is de hoeksteen van elke serieuze PCT en je eerste line of defense als gyno-knobbeltjes opduiken. Geen kuur zonder Nolva in de kast.",
     longIntro:
@@ -1344,6 +1366,8 @@ export const categoryContent: CategoryContent[] = [
     tagline: "De zware jongen onder de SERMs voor HPTA-restart",
     heroImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/clomid-hero.jpg",
     heroImageAlt: "Editorial foto van een farmacie-bottle voor de stof-pagina clomid",
+    resultImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/clomid-resultaat.webp",
+    resultImageAlt: "Clomid PCT resultaat — gespierde man met bloedwerk in de hand toont clomid post-cycle recovery na testosteron kuur",
     intro:
       "Clomid is je heaviest hitter voor het stimuleren van LH/FSH na een cycle — maar bereid je voor op stemmingsdips en het gevoel dat je hele weken in een mistbank loopt.",
     longIntro:
@@ -1421,6 +1445,8 @@ export const categoryContent: CategoryContent[] = [
     tagline: "Aromatase-remmer voor oestrogeen-controle op je cycle",
     heroImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/arimidex-hero.jpg",
     heroImageAlt: "Macro foto van een klein bottle voor de stof-pagina arimidex",
+    resultImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/arimidex-resultaat.webp",
+    resultImageAlt: "Arimidex anastrozole resultaat — droog gedefinieerd gespierde bodybuilder toont arimidex effect zonder oestrogeen waterretentie",
     intro:
       "Arimidex is je veiligheidsklep voor oestrogeen op een aromatiseerbare kuur — micro-doseren op basis van bloedwerk, niet 'preventief' inslikken want te laag E2 sloopt je libido en gewrichten net zo hard.",
     longIntro:
@@ -1498,6 +1524,8 @@ export const categoryContent: CategoryContent[] = [
     tagline: "Houdt je ballen wakker tijdens je cycle",
     heroImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/hcg-hero.jpg",
     heroImageAlt: "Forensische clinical foto van een vial voor de stof-pagina hcg",
+    resultImage: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/stof/hcg-resultaat.webp",
+    resultImageAlt: "HCG kuur resultaat — gezonde gespierde man met HCG vial toont typische Leydig-cell restauratie tijdens of na anabolen",
     intro:
       "HCG is geen anabool en geen SERM — het mimic LH en houdt je testes actief tijdens je cycle. Resultaat: geen kleine raisin-ballen na je kuur en sneller HPTA-herstel.",
     longIntro:

@@ -124,6 +124,31 @@ export default function StofPage({ params }: { params: { stof: string } }) {
         </section>
       )}
 
+      {/* Result-image: typische look die deze stof geeft (bodybuilder physique-match) */}
+      {c.resultImage && (
+        <section className="mx-auto max-w-3xl px-4 py-8">
+          <div className="rounded-xl overflow-hidden border border-paper-border bg-primary shadow-card">
+            <div className="relative aspect-[3/2]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={c.resultImage}
+                alt={c.resultImageAlt || `${c.name} kuur resultaat`}
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black/15" />
+            </div>
+            <div className="p-4 text-primary-foreground/80">
+              <p className="text-[10px] uppercase tracking-[0.18em] text-accent-soft font-semibold">
+                Typische {c.name}-look
+              </p>
+              <p className="mt-1 text-sm">{c.resultImageAlt}</p>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Lange content sections */}
       {c.sections && c.sections.length > 0 && (
         <section className="mx-auto max-w-3xl px-4 py-14 space-y-10">
