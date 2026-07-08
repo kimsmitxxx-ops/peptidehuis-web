@@ -16,6 +16,8 @@ module.exports = {
     return [
       // Clean /media/<path> URLs → Supabase Storage (shop_slug=anabolenpro)
       { source: "/media/:path*", destination: `${SUPABASE_URL}/storage/v1/object/public/product-media/anabolenpro/:path*` },
+      // Clean /img/<path> URLs → Supabase Storage blog-images bucket (categorie/stof/blog heros)
+      { source: "/img/:path*", destination: `${SUPABASE_URL}/storage/v1/object/public/blog-images/:path*` },
     ];
   },
   async redirects() {
@@ -34,6 +36,7 @@ module.exports = {
       // Static assets — 1 jaar cache
       { source: "/assets/:path*", headers: [{ key: "Cache-Control", value: longCache }] },
       { source: "/media/:path*", headers: [{ key: "Cache-Control", value: "public, max-age=86400, s-maxage=604800" }] },
+      { source: "/img/:path*", headers: [{ key: "Cache-Control", value: "public, max-age=86400, s-maxage=604800" }] },
       { source: "/_next/static/:path*", headers: [{ key: "Cache-Control", value: longCache }] },
     ];
   },
