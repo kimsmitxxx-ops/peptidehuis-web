@@ -1903,7 +1903,7 @@ export const mainCategories: MainCategory[] = [
     slug: "nakuur",
     name: "Nakuur (PCT)",
     tagline: "Clomid, Nolvadex, HCG — herstel je eigen hormoonas na een kuur.",
-    image: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/category/nakuur-hero.jpg",
+    image: "https://rexqfwibxawqnvrzbdoo.supabase.co/storage/v1/object/public/blog-images/category/nakuur-hero.webp",
     to: "/winkel/nakuur",
   },
   {
