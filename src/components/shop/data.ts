@@ -366,7 +366,7 @@ export const products: Product[] = [
     shortDescription:
       "DHT-derivaat met sterk droog karakter en hoge androgene activiteit per milligram.",
     longDescription:
-      "Stanozolol is c17-alfa gealkyleerd voor orale opname. Geliefd in voorbereidingsperiodes wegens lage aromatisatie.",
+      "Stanozolol is c17-alfa gealkyleerd voor orale opname. Geliefd in voorbereidingsperiodes wegens lage omzetting in oestrogeen.",
     priceFrom: 34.95,
     image: img("photo-1587854692152-cbe660dbde88"),
     gallery: [img("photo-1587854692152-cbe660dbde88")],
@@ -392,7 +392,7 @@ export const products: Product[] = [
     shortDescription:
       "Mild DHT-derivaat, bekend om hoog kostenniveau en clean profiel.",
     longDescription:
-      "Primobolan is een methenolone-derivaat zonder aromatisatie. Onafhankelijk getest om vervalsing uit te sluiten — een notoir veel-vervalste stof.",
+      "Primobolan is een methenolone-derivaat zonder omzetting in oestrogeen. Onafhankelijk getest om vervalsing uit te sluiten — een notoir veel-vervalste stof.",
     priceFrom: 119.95,
     image: img("photo-1631549916768-4119b2e5f926"),
     gallery: [img("photo-1631549916768-4119b2e5f926")],
@@ -596,19 +596,19 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Doseringen en cycle-protocol",
-        body: "Beginners draaien 12-16 weken Test E op 400-500 mg/week, gesplitst in 2 prikken (maandag/donderdag) om bloedwaarden stabiel te houden. Intermediates schuiven richting 500-750 mg/week en stacken vaak met een 19-nor of DHT-derivaat. Een TRT-cruise tussen blasts ligt op 150-200 mg/week. Sustanon 250 prik je idealiter ook 2x per week ondanks de marketing van 'eens per week' — anders krijg je bloedwaarde-pieken. Eerste bloedwerk op week 6: totaal test, vrij test, E2 (sensitive assay), hematocriet, LDL/HDL.",
+        body: "Beginners draaien 12-16 weken Test E op 400-500 mg/week, gesplitst in 2 prikken (maandag/donderdag) om bloedwaarden stabiel te houden. Intermediates schuiven richting 500-750 mg/week en stacken vaak met een 19-nor of DHT-derivaat. Een TRT-cruise tussen blasts ligt op 150-200 mg/week. Sustanon 250 prik je idealiter ook 2x per week ondanks de marketing van 'eens per week' — anders krijg je bloedwaarde-pieken. Eerste bloedwerk op week 6: totaal test, vrij test, E2 (sensitive assay), bloeddikte (hematocriet), LDL/HDL.",
       },
       {
         heading: "Risico's en bijwerkingen",
-        body: "Verwacht acne op rug en schouders, lichte vochtretentie en gestegen libido in de eerste weken. Wat je serieus moet monitoren via <a href=\"/risicos-en-bijwerkingen\">bloedwerk</a>: hematocriet boven 54 betekent bloeddonatie (verhoogd trombose-risico), E2 boven ~45 pg/mL in combinatie met gevoelige tepels betekent <a href=\"/arimidex\">AI</a> bijsturen, LDL kan 20-30% stijgen. Bloeddruk vaak +5/10 mmHg. Na de kuur kan herstel 3-6 maanden duren, en bij hoge dosis/lange kuren is volledig herstel niet gegarandeerd.",
+        body: "Verwacht acne op rug en schouders, lichte vochtretentie en gestegen libido in de eerste weken. Wat je serieus moet monitoren via <a href=\"/risicos-en-bijwerkingen\">bloedwerk</a>: bloeddikte (hematocriet) boven 54 betekent bloeddonatie (verhoogd trombose-risico), E2 boven ~45 pg/mL in combinatie met gevoelige tepels betekent <a href=\"/arimidex\">AI</a> bijsturen, LDL kan 20-30% stijgen. Bloeddruk vaak +5/10 mmHg. Na de kuur kan herstel 3-6 maanden duren, en bij hoge dosis/lange kuren is volledig herstel niet gegarandeerd.",
       },
       {
         heading: "Onderzoek en bronnen",
-        body: "De klassieke Bhasin-studie liet zien dat 600 mg test enanthate per week zonder training al meer spiermassa opbouwt dan natural training (Bhasin et al., NEJM 1996). Voor langetermijn-cardiovasculaire data zie Basaria et al., 2010 over TRT-risico's bij oudere mannen. HPTA-suppressie en hersteltijden zijn uitgebreid beschreven in de WHO multi-center hormonal-contraception trials (Liu et al. 2003 + opvolg-studies). Echte test van je gear: stuur altijd een sample naar <a href=\"/lab\">JanoshikAnalytical</a> of Simec.cz — vraag elke source naar het COA per batchcode.",
+        body: "De klassieke Bhasin-studie liet zien dat 600 mg test enanthate per week zonder training al meer spiermassa opbouwt dan natural training (Bhasin et al., NEJM 1996). Voor langetermijn-cardiovasculaire data zie Basaria et al., 2010 over TRT-risico's bij oudere mannen. onderdrukking van je eigen testosteron-productie en hersteltijden zijn uitgebreid beschreven in de WHO multi-center hormonal-contraception trials (Liu et al. 2003 + opvolg-studies). Echte test van je gear: stuur altijd een sample naar <a href=\"/lab\">JanoshikAnalytical</a> of Simec.cz — vraag elke source naar het COA per batchcode.",
       },
       {
         heading: "Wanneer wel/niet kiezen",
-        body: "Wel kiezen als: het je eerste of tweede kuur is, je een stabiele basis wil voor een stack met <a href=\"/nandrolon\">deca</a>/<a href=\"/boldenone\">boldenone</a>/<a href=\"/trenbolone\">tren</a>, of je tussen blasts cruiset. Niet kiezen als: je een doping-gecontroleerde sport doet (detectie tot 3 maanden), je hematocriet al hoog van nature is, of je een familie-geschiedenis hebt van prostaatkanker. Tieners blijven van testosteron af — je groeischijven sluiten vroegtijdig.",
+        body: "Wel kiezen als: het je eerste of tweede kuur is, je een stabiele basis wil voor een stack met <a href=\"/nandrolon\">deca</a>/<a href=\"/boldenone\">boldenone</a>/<a href=\"/trenbolone\">tren</a>, of je tussen blasts cruiset. Niet kiezen als: je een doping-gecontroleerde sport doet (detectie tot 3 maanden), je bloeddikte (hematocriet) al hoog van nature is, of je een familie-geschiedenis hebt van prostaatkanker. Tieners blijven van testosteron af — je groeischijven sluiten vroegtijdig.",
       },
     ],
     faqs: [
@@ -625,7 +625,7 @@ export const categoryContent: CategoryContent[] = [
       {
         question: "Welke bloedwaardes moet ik checken bij een testosteron-kuur?",
         answer:
-          "Baseline (vóór de kuur): totaal en vrij testosteron, LH, FSH, oestradiol (sensitive assay, niet de standaard), SHBG, hematocriet, hemoglobine, lipidenprofiel (LDL/HDL/triglyceriden), ALAT/ASAT, creatinine, prolactine, PSA als je boven de 40 bent. Mid-cycle op week 6: totaal test, E2 sensitive, hematocriet, lipiden. Bij hematocriet boven 54 onmiddellijk doneren of dosis verlagen. Na PCT op week 4-6: totaal test, LH, FSH om te checken of je as is hersteld. Lab-tip: Bloedwaardentest.nl of Huisartslab werken zonder verwijzing en sensitive E2 is daar standaard.",
+          "Baseline (vóór de kuur): totaal en vrij testosteron, LH, FSH, oestradiol (sensitive assay, niet de standaard), SHBG, bloeddikte (hematocriet), hemoglobine, lipidenprofiel (LDL/HDL/triglyceriden), ALAT/ASAT, creatinine, prolactine, PSA als je boven de 40 bent. Mid-cycle op week 6: totaal test, E2 sensitive, bloeddikte (hematocriet), lipiden. Bij bloeddikte (hematocriet) boven 54 onmiddellijk doneren of dosis verlagen. Na PCT op week 4-6: totaal test, LH, FSH om te checken of je as is hersteld. Lab-tip: Bloedwaardentest.nl of Huisartslab werken zonder verwijzing en sensitive E2 is daar standaard.",
       },
       {
         question: "Is testosteron geschikt voor een eerste kuur?",
@@ -679,11 +679,11 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Risico's en bijwerkingen",
-        body: "Prolactine stijging is het beruchtste — controleer week 6 en houd het onder 20 ng/mL. Deca dick (libido op nul) komt door progestagene werking + te lage test-dosis. Bloeddruk stijgt door vochtretentie en verhoogde hematocriet. Mentaal kun je een 'flat' gevoel krijgen — dromen worden levendig of nachtmerries. Langere kuren (>16 weken) en hogere doses (>600 mg) maken HPTA-herstel een hel. Sommige gasten zitten 6-9 maanden post-cycle in lage test, en in extreme gevallen heb je een restart-protocol nodig.",
+        body: "Prolactine stijging is het beruchtste — controleer week 6 en houd het onder 20 ng/mL. Deca dick (libido op nul) komt door progestagene werking + te lage test-dosis. Bloeddruk stijgt door vochtretentie en verhoogde bloeddikte (hematocriet). Mentaal kun je een 'flat' gevoel krijgen — dromen worden levendig of nachtmerries. Langere kuren (>16 weken) en hogere doses (>600 mg) maken HPTA-herstel een hel. Sommige gasten zitten 6-9 maanden post-cycle in lage test, en in extreme gevallen heb je een restart-protocol nodig.",
       },
       {
         heading: "Onderzoek en bronnen",
-        body: "Voor het klassieke profiel van nandrolon-suppressie en hersteltijden, zie Bonetti et al., 2008 over post-cycle HPTA-suppressie en de hersteltijden bij nandrolone-decanoate. Voor de progestagene werking en prolactine-link: Hartgens & Kuipers, Sports Med 2004 — review van bijwerkingen anabolen. Klinisch gebruik bij osteoporose en cachexie is onderzocht in Frisoli et al.. Test je gear via <a href=\"/lab\">JanoshikAnalytical</a> — vraag bij elke source naar batchcode + COA, deca wordt regelmatig underdosed of vermengd met goedkopere test.",
+        body: "Voor het klassieke profiel van nandrolon-suppressie en hersteltijden, zie Bonetti et al., 2008 over post-cycle onderdrukking van je eigen testosteron-productie en de hersteltijden bij nandrolone-decanoate. Voor de progestagene werking en prolactine-link: Hartgens & Kuipers, Sports Med 2004 — review van bijwerkingen anabolen. Klinisch gebruik bij osteoporose en cachexie is onderzocht in Frisoli et al.. Test je gear via <a href=\"/lab\">JanoshikAnalytical</a> — vraag bij elke source naar batchcode + COA, deca wordt regelmatig underdosed of vermengd met goedkopere test.",
       },
       {
         heading: "Wanneer wel/niet kiezen",
@@ -704,7 +704,7 @@ export const categoryContent: CategoryContent[] = [
       {
         question: "Welke bloedwaardes monitoren bij een deca-kuur?",
         answer:
-          "Bovenop de standaard test-bloedwaardes (totaal test, E2 sensitive, hematocriet, lipiden, ALAT/ASAT): prolactine vóór de kuur als baseline en op week 6 en week 12. Onder 20 ng/mL houden. IGF-1 stijgt vaak duidelijk — informatief, geen actiepunt. Hematocriet check je extra scherp want deca pusht erytropoëse hard — boven 54 doneren. Bloeddruk thuis 2x per week meten, deca geeft soms forse vochtretentie. Na PCT op week 6-8: totaal test, LH, FSH, prolactine. Bij prolactine hoog: cabergoline 0.5 mg 2x/week tot het zakt.",
+          "Bovenop de standaard test-bloedwaardes (totaal test, E2 sensitive, bloeddikte (hematocriet), lipiden, ALAT/ASAT): prolactine vóór de kuur als baseline en op week 6 en week 12. Onder 20 ng/mL houden. IGF-1 stijgt vaak duidelijk — informatief, geen actiepunt. Hematocriet check je extra scherp want deca pusht erytropoëse hard — boven 54 doneren. Bloeddruk thuis 2x per week meten, deca geeft soms forse vochtretentie. Na PCT op week 6-8: totaal test, LH, FSH, prolactine. Bij prolactine hoog: cabergoline 0.5 mg 2x/week tot het zakt.",
       },
       {
         question: "Is nandrolon geschikt voor een eerste kuur?",
@@ -750,7 +750,7 @@ export const categoryContent: CategoryContent[] = [
     sections: [
       {
         heading: "Wat is trenbolone en hoe werkt het",
-        body: "Trenbolone is een 19-nor verbinding (afgeleid van <a href=\"/nandrolon\">nandrolon</a>) maar dan met dubbele binding op de 9 en 11 positie — dat maakt hem niet-aromatiseerbaar én geeft hem een androgene/anabole ratio van 500:500 vs test 100:100. Hij bindt 3x sterker aan de androgeen-receptor dan test, blokkeert glucocorticoïden (vandaar zijn anti-katabole reputatie), en pusht IGF-1 in spierweefsel. Vetverbranding gaat omhoog via beta-adrenerge stimulatie. Maar: bindt aan progesteron-receptor (gyno-risico via die route, niet via aromatisatie), pusht prolactine, en stresst nieren/cardiovasculair flink. Geen tren zonder <a href=\"/testosteron\">test</a>-basis — pure tren only is een snelle weg naar mentale ellende.",
+        body: "Trenbolone is een 19-nor verbinding (afgeleid van <a href=\"/nandrolon\">nandrolon</a>) maar dan met dubbele binding op de 9 en 11 positie — dat maakt hem niet-aromatiseerbaar én geeft hem een androgene/anabole ratio van 500:500 vs test 100:100. Hij bindt 3x sterker aan de androgeen-receptor dan test, blokkeert glucocorticoïden (vandaar zijn anti-katabole reputatie), en pusht IGF-1 in spierweefsel. Vetverbranding gaat omhoog via beta-adrenerge stimulatie. Maar: bindt aan progesteron-receptor (gyno-risico via die route, niet via omzetting in oestrogeen), pusht prolactine, en stresst nieren/cardiovasculair flink. Geen tren zonder <a href=\"/testosteron\">test</a>-basis — pure tren only is een snelle weg naar mentale ellende.",
       },
       {
         heading: "Doseringen en cycle-protocol",
@@ -783,7 +783,7 @@ export const categoryContent: CategoryContent[] = [
       {
         question: "Welke bloedwaardes moet ik checken op een tren-kuur?",
         answer:
-          "Naast standaard test-bloedwerk: prolactine vóór en op week 4 (onder 20 ng/mL), creatinine en eGFR (nierfunctie — tren stresst nieren, donkere urine kan misleiden), lipiden-panel scherper want LDL kan verdubbelen, bloeddruk zelf thuis 3x/week, hematocriet (snel naar 54+). RBC, hemoglobine. ECG of cardio-check overwegen als je harder traint dan voorheen. Mentaal: houd een dagboek bij — slaap-uren, stemming, agressie. Bij rode vlaggen (slaap <5 uur structureel, mentale instabiliteit, BP >150/95): dosis halveren of staken. Tren is geen 'doorduwen' stof.",
+          "Naast standaard test-bloedwerk: prolactine vóór en op week 4 (onder 20 ng/mL), creatinine en eGFR (nierfunctie — tren stresst nieren, donkere urine kan misleiden), lipiden-panel scherper want LDL kan verdubbelen, bloeddruk zelf thuis 3x/week, bloeddikte (hematocriet) (snel naar 54+). RBC, hemoglobine. ECG of cardio-check overwegen als je harder traint dan voorheen. Mentaal: houd een dagboek bij — slaap-uren, stemming, agressie. Bij rode vlaggen (slaap <5 uur structureel, mentale instabiliteit, BP >150/95): dosis halveren of staken. Tren is geen 'doorduwen' stof.",
       },
       {
         question: "Is tren geschikt voor een eerste kuur?",
@@ -817,7 +817,7 @@ export const categoryContent: CategoryContent[] = [
     intro:
       "EQ is de langzame-brander van de bulkstoffen: trage opbouw, ongekende pumps en een eetlust waar je vrouw 's avonds bang van wordt.",
     longIntro:
-      "Boldenone is de keuze voor wie 16-20 weken wil draaien zonder de cardiovasculaire klap van tren of de progestagene gedoetjes van deca. Het pusht erytropoëse hard, dus je cardio voelt episch en pumps in de gym zijn obsceen. De catch: hematocriet gaat door het dak — frequent bloeddonatie staat in je agenda. En het werkt traag: de eerste echte gains zien je pas in week 5 of 6.",
+      "Boldenone is de keuze voor wie 16-20 weken wil draaien zonder de cardiovasculaire klap van tren of de progestagene gedoetjes van deca. Het pusht erytropoëse hard, dus je cardio voelt episch en pumps in de gym zijn obsceen. De catch: bloeddikte (hematocriet) gaat door het dak — frequent bloeddonatie staat in je agenda. En het werkt traag: de eerste echte gains zien je pas in week 5 of 6.",
     keyFacts: [
       { label: "Type", value: "Testosteron-derivaat (1-test) — injectable" },
       { label: "Halfwaardetijd", value: "Undecylenate ~14 dgn" },
@@ -829,23 +829,23 @@ export const categoryContent: CategoryContent[] = [
     sections: [
       {
         heading: "Wat is boldenone en hoe werkt het",
-        body: "Boldenone is <a href=\"/testosteron\">testosteron</a> met een extra dubbele binding op carbon 1 — chemisch bijna identiek aan <a href=\"/dianabol\">dianabol</a> minus de c17-methylatie (vandaar injectable in plaats van oral). Het bindt redelijk aan de androgeen-receptor maar het echte unieke effect zit in extreme erytropoëse: rode bloedcellen schieten omhoog, hematocriet stijgt snel, en je cardio-output wordt absurd. Pumps tijdens training kunnen pijnlijk zijn (denk: rugpump tijdens deadlifts waardoor je moet stoppen). Het aromatiseert mild, ongeveer de helft van test. Verhoogt eetlust significant via ghrelin-modulatie — handig voor bulk, lastig als je een cut probeert.",
+        body: "Boldenone is <a href=\"/testosteron\">testosteron</a> met een extra dubbele binding op carbon 1 — chemisch bijna identiek aan <a href=\"/dianabol\">dianabol</a> minus de c17-methylatie (vandaar injectable in plaats van oral). Het bindt redelijk aan de androgeen-receptor maar het echte unieke effect zit in extreme erytropoëse: rode bloedcellen schieten omhoog, bloeddikte (hematocriet) stijgt snel, en je cardio-output wordt absurd. Pumps tijdens training kunnen pijnlijk zijn (denk: rugpump tijdens deadlifts waardoor je moet stoppen). Het aromatiseert mild, ongeveer de helft van test. Verhoogt eetlust significant via ghrelin-modulatie — handig voor bulk, lastig als je een cut probeert.",
       },
       {
         heading: "Doseringen en cycle-protocol",
-        body: "Beginner EQ-cycle (na ten minste 2 test-only kuren): <a href=\"/testosteron\">Test E</a> 400 mg/wk + EQ 500 mg/wk, 16 weken minimum want EQ kickt traag in. Sommigen voegen <a href=\"/dianabol\">Dbol</a> 30 mg/dag toe voor weken 1-4 als kickstart, dan zit je niet zes weken op je gevoel te wachten. Intermediate: Test 500 + EQ 600-700 mg/wk, 18-20 weken. <a href=\"/arimidex\">Adex</a> op basis van bloedwerk (lage aromatisatie maar dosering is hoog). Hematocriet vóór de kuur meten — boven 50 al, dan plan een donatie in voor week 8. Voor 18-weekse kuren is bloedwerk op weken 6, 12 en 18 het minimum.",
+        body: "Beginner EQ-cycle (na ten minste 2 test-only kuren): <a href=\"/testosteron\">Test E</a> 400 mg/wk + EQ 500 mg/wk, 16 weken minimum want EQ kickt traag in. Sommigen voegen <a href=\"/dianabol\">Dbol</a> 30 mg/dag toe voor weken 1-4 als kickstart, dan zit je niet zes weken op je gevoel te wachten. Intermediate: Test 500 + EQ 600-700 mg/wk, 18-20 weken. <a href=\"/arimidex\">Adex</a> op basis van bloedwerk (lage omzetting in oestrogeen maar dosering is hoog). Hematocriet vóór de kuur meten — boven 50 al, dan plan een donatie in voor week 8. Voor 18-weekse kuren is bloedwerk op weken 6, 12 en 18 het minimum.",
       },
       {
         heading: "Risico's en bijwerkingen",
-        body: "Hematocriet — dit is de big one. EQ kan binnen 10 weken je hematocriet 5-8 punten omhoog tikken. Boven 54 ben je in trombose-risico territorium en moet je bloed doneren of dosis halveren. Klachten van hoge hematocriet: hoofdpijn, duizeligheid bij staan, rode/paarse gelaatskleur, hoge bloeddruk. Andere bijwerkingen: extreem verhoogde eetlust (kan handig zijn, kan saboteren), milde acne, langzame angst-stijging bij sommige gevoelige gasten ('EQ-angst', deels door hematocriet-druk). PCT-timing: 21 dagen na laatste prik door die lange undecylenate-ester.",
+        body: "Hematocriet — dit is de big one. EQ kan binnen 10 weken je bloeddikte (hematocriet) 5-8 punten omhoog tikken. Boven 54 ben je in trombose-risico territorium en moet je bloed doneren of dosis halveren. Klachten van hoge bloeddikte (hematocriet): hoofdpijn, duizeligheid bij staan, rode/paarse gelaatskleur, hoge bloeddruk. Andere bijwerkingen: extreem verhoogde eetlust (kan handig zijn, kan saboteren), milde acne, langzame angst-stijging bij sommige gevoelige gasten ('EQ-angst', deels door bloeddikte (hematocriet)-druk). PCT-timing: 21 dagen na laatste prik door die lange undecylenate-ester.",
       },
       {
         heading: "Onderzoek en bronnen",
-        body: "Veterinaire literatuur over boldenone is uitgebreider dan humane — zie Soma et al., 1985 voor paardenmodel onderzoek naar erytropoëse-effect. Voor erytropoëse-mechanisme bij anabole steroïden in het algemeen: Vivian-Smith, 2011. Voor de relatie tussen hematocriet en cardiovasculair event-risico (relevant want EQ pusht juist hematocriet hard): Coviello et al., 2008. EQ wordt vaak underdosed door bulk-bereiding — vraag altijd HPLC per batch via Janoshik of Simec.",
+        body: "Veterinaire literatuur over boldenone is uitgebreider dan humane — zie Soma et al., 1985 voor paardenmodel onderzoek naar erytropoëse-effect. Voor erytropoëse-mechanisme bij anabole steroïden in het algemeen: Vivian-Smith, 2011. Voor de relatie tussen bloeddikte (hematocriet) en cardiovasculair event-risico (relevant want EQ pusht juist bloeddikte (hematocriet) hard): Coviello et al., 2008. EQ wordt vaak underdosed door bulk-bereiding — vraag altijd HPLC per batch via Janoshik of Simec.",
       },
       {
         heading: "Wanneer wel/niet kiezen",
-        body: "Wel kiezen als: je een lange bulk wil draaien (16+ weken), je cardio wil verbeteren naast krachttraining, je een mild profiel zoekt (geen tren-stress, geen deca-progestageen), en je bereid bent om bloed te doneren. Niet kiezen als: je een korte 8-10 weekse kuur wil (EQ kickt te traag), je hematocriet baseline al >50 is, je angst-gevoelig bent, je geen training-volume hebt om de eetlust-stijging te benutten (anders wordt het vet, geen spier).",
+        body: "Wel kiezen als: je een lange bulk wil draaien (16+ weken), je cardio wil verbeteren naast krachttraining, je een mild profiel zoekt (geen tren-stress, geen deca-progestageen), en je bereid bent om bloed te doneren. Niet kiezen als: je een korte 8-10 weekse kuur wil (EQ kickt te traag), je bloeddikte (hematocriet) baseline al >50 is, je angst-gevoelig bent, je geen training-volume hebt om de eetlust-stijging te benutten (anders wordt het vet, geen spier).",
       },
     ],
     faqs: [
@@ -857,22 +857,22 @@ export const categoryContent: CategoryContent[] = [
       {
         question: "Kan ik EQ stacken met testosteron en deca?",
         answer:
-          "Ja, dit is een klassieke 'Old School Bulk' stack: Test 500 + Deca 400 + EQ 500, 16-18 weken. Het werkt goed maar je stapelt risico's: hematocriet van zowel deca als EQ samen, suppressie compleet, en bloedwerk is verplicht elke 6 weken. Bloeddonatie elke 8-10 weken niet vergeten. Cabergoline 0.5 mg E3D voor het deca-prolactine-component. PCT pas 3 weken na laatste prik (zowel deca als EQ hebben lange esters). Deze stack is voor gevorderden — kuur 4 of later, niet je tweede. Een wat slimmere variant: Test + EQ + lage dosis Tren A voor recomp (vermijdt de prolactine-stack).",
+          "Ja, dit is een klassieke 'Old School Bulk' stack: Test 500 + Deca 400 + EQ 500, 16-18 weken. Het werkt goed maar je stapelt risico's: bloeddikte (hematocriet) van zowel deca als EQ samen, suppressie compleet, en bloedwerk is verplicht elke 6 weken. Bloeddonatie elke 8-10 weken niet vergeten. Cabergoline 0.5 mg E3D voor het deca-prolactine-component. PCT pas 3 weken na laatste prik (zowel deca als EQ hebben lange esters). Deze stack is voor gevorderden — kuur 4 of later, niet je tweede. Een wat slimmere variant: Test + EQ + lage dosis Tren A voor recomp (vermijdt de prolactine-stack).",
       },
       {
-        question: "Hoe vaak moet ik hematocriet meten op EQ?",
+        question: "Hoe vaak moet ik bloeddikte (hematocriet) meten op EQ?",
         answer:
-          "Baseline vóór de kuur — als je al boven 48 zit, overweeg een andere stof of plan donatie vooraf. Op week 6: eerste check, vaak al +3-5 punten. Op week 10: tweede check, hier passeren veel mensen de 52-54 grens. Boven 54 hematocriet: doneer bloed (450 ml halve liter brengt je 3-4 punten omlaag) of halveer EQ-dosis. Boven 56: stop EQ tot waarden zakken. Symptomen van te hoge hematocriet: hoofdpijn die niet weggaat, duizelig bij opstaan, oren ruisen, gezicht/handen flush rood. Lange-termijn risico: trombose, vooral bij dehydratie of langdurig stilzitten (vliegreis). Drink 3+ liter water per dag op EQ.",
+          "Baseline vóór de kuur — als je al boven 48 zit, overweeg een andere stof of plan donatie vooraf. Op week 6: eerste check, vaak al +3-5 punten. Op week 10: tweede check, hier passeren veel mensen de 52-54 grens. Boven 54 bloeddikte (hematocriet): doneer bloed (450 ml halve liter brengt je 3-4 punten omlaag) of halveer EQ-dosis. Boven 56: stop EQ tot waarden zakken. Symptomen van te hoge bloeddikte (hematocriet): hoofdpijn die niet weggaat, duizelig bij opstaan, oren ruisen, gezicht/handen flush rood. Lange-termijn risico: trombose, vooral bij dehydratie of langdurig stilzitten (vliegreis). Drink 3+ liter water per dag op EQ.",
       },
       {
         question: "Is boldenone geschikt voor een eerste kuur?",
         answer:
-          "Mwah — kan, maar Test E is een betere keuze. EQ heeft als nadeel dat het traag werkt (je voelt week 1-4 niets) en dat 1e-kuur gasten dan vaak in paniek de dosis verhogen of dingen toevoegen. Bovendien is de hematocriet-stijging serieuzer dan bij test alleen, en als beginner heb je geen routine in bloedwerk-interpretatie. Het advies: kuur 1 = Test E alleen, kuur 2 = Test + Deca of Test + EQ als je een langere bulk wil. Doe je het toch als eerste: 500 mg Test + 400 mg EQ, 16 weken, donor-pas regelen. Verwachting bijstellen — eerste gains pas week 5-6.",
+          "Mwah — kan, maar Test E is een betere keuze. EQ heeft als nadeel dat het traag werkt (je voelt week 1-4 niets) en dat 1e-kuur gasten dan vaak in paniek de dosis verhogen of dingen toevoegen. Bovendien is de bloeddikte (hematocriet)-stijging serieuzer dan bij test alleen, en als beginner heb je geen routine in bloedwerk-interpretatie. Het advies: kuur 1 = Test E alleen, kuur 2 = Test + Deca of Test + EQ als je een langere bulk wil. Doe je het toch als eerste: 500 mg Test + 400 mg EQ, 16 weken, donor-pas regelen. Verwachting bijstellen — eerste gains pas week 5-6.",
       },
       {
         question: "Welke bloedwaardes monitoren bij een EQ-kuur?",
         answer:
-          "Hematocriet en hemoglobine zijn de big ones — frequenter meten dan op test alleen, dus week 6, 10, 14. Verder standaard: totaal test, E2 sensitive, lipiden (HDL daalt op EQ ook), ALAT/ASAT, creatinine, bloeddruk thuis 2x/week. Hartslag in rust ook bijhouden — boven 80 in rust kan teken zijn van te hoge hematocriet of cardiovasculaire stress. Tijdens cardio-sessies: hoe hoger je hematocriet, hoe meer je rust-hartslag dalt en je VO2 piekwaarde stijgt. Dit voelt geweldig maar is fysiologisch een gevarenzone. Niet trainen onder een paddo van pre-workout — EQ + stim + hoge hematocriet = bloeddruk-piek.",
+          "Hematocriet en hemoglobine zijn de big ones — frequenter meten dan op test alleen, dus week 6, 10, 14. Verder standaard: totaal test, E2 sensitive, lipiden (HDL daalt op EQ ook), ALAT/ASAT, creatinine, bloeddruk thuis 2x/week. Hartslag in rust ook bijhouden — boven 80 in rust kan teken zijn van te hoge bloeddikte (hematocriet) of cardiovasculaire stress. Tijdens cardio-sessies: hoe hoger je bloeddikte (hematocriet), hoe meer je rust-hartslag dalt en je VO2 piekwaarde stijgt. Dit voelt geweldig maar is fysiologisch een gevarenzone. Niet trainen onder een paddo van pre-workout — EQ + stim + hoge bloeddikte (hematocriet) = bloeddruk-piek.",
       },
       {
         question: "Werkt EQ alleen of moet ik test erbij?",
@@ -881,7 +881,7 @@ export const categoryContent: CategoryContent[] = [
       },
     ],
     related: ["testosteron", "nandrolon", "masteron", "primobolan"],
-    knowledge: ["hematocriet-en-bloeddonatie"],
+    knowledge: ["bloeddikte (hematocriet)-en-bloeddonatie"],
   },
   {
     slug: "masteron",
@@ -908,7 +908,7 @@ export const categoryContent: CategoryContent[] = [
     sections: [
       {
         heading: "Wat is masteron en hoe werkt het",
-        body: "Masteron (drostanolone) is een afgeleide van DHT — toegevoegd is een 2-methyl-groep die het beschermt tegen 3-alpha-HSD-afbraak in spierweefsel. Het bindt aan SHBG, waardoor minder van je test gebonden wordt en meer vrij <a href=\"/testosteron\">testosteron</a> circuleert. Daarnaast werkt het als zwakke aromatase-binder zonder receptor-activatie — vandaar mild anti-oestrogeen effect. Geen aromatisatie betekent geen vochtretentie, geen E2-bloat. Het geeft een 'gripperig' droog gevoel in spieren en visuele hardheid die op foto's pops. Geen massa-builder — een esthetische polish-stof.",
+        body: "Masteron (drostanolone) is een afgeleide van DHT — toegevoegd is een 2-methyl-groep die het beschermt tegen 3-alpha-HSD-afbraak in spierweefsel. Het bindt aan SHBG, waardoor minder van je test gebonden wordt en meer vrij <a href=\"/testosteron\">testosteron</a> circuleert. Daarnaast werkt het als zwakke aromatase-binder zonder receptor-activatie — vandaar mild anti-oestrogeen effect. Geen omzetting in oestrogeen betekent geen vochtretentie, geen E2-bloat. Het geeft een 'gripperig' droog gevoel in spieren en visuele hardheid die op foto's pops. Geen massa-builder — een esthetische polish-stof.",
       },
       {
         heading: "Doseringen en cycle-protocol",
@@ -916,11 +916,11 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Risico's en bijwerkingen",
-        body: "Mild profiel maar wel echt androgeen — bij genetische gevoeligheid kan het haaruitval versnellen (zichtbaar binnen 6-8 weken bij wie aanleg heeft). Acne kan ook opspelen, vooral op rug en schouders. Cardiovasculair: LDL stijgt 15-25%, HDL daalt 30-40% bij hogere doses — vergelijkbaar met andere DHT-derivaten. Prostaat-volume kan licht stijgen (PSA-check als je 40+ bent). Stemming meestal stabiel, libido vaak verhoogd door SHBG-binding. Geen lever-issues (injectable), geen oestrogene rommel. PCT-timing: 3 weken na Mast E, 10 dagen na Mast P.",
+        body: "Mild profiel maar wel echt androgeen — bij genetische gevoeligheid kan het haaruitval versnellen (zichtbaar binnen 6-8 weken bij wie aanleg heeft). Acne kan ook opspelen, vooral op rug en schouders. Cardiovasculair: LDL stijgt 15-25%, HDL daalt 30-40% bij hogere doses — vergelijkbaar met andere DHT-derivaten. Prostaat-volume kan licht stijgen (PSA-check als je 40+ bent). Stemming meestal stabiel, libido vaak verhoogd door hormoon-binding. Geen lever-issues (injectable), geen oestrogene rommel. PCT-timing: 3 weken na Mast E, 10 dagen na Mast P.",
       },
       {
         heading: "Onderzoek en bronnen",
-        body: "Drostanolone werd oorspronkelijk onderzocht als adjuvante behandeling bij gemetastaseerd borstcarcinoom (DeRivas, 1972) — vandaar de anti-oestrogene reputatie. Voor SHBG-binding en vrij testosteron-effect, zie Saartok et al., 1984 over receptor-binding profielen van DHT-derivaten. Voor cardiovasculair profiel van DHT-derivaten in het algemeen: Hartgens et al., 2004 (lipiden-impact). Masteron is een stof die regelmatig wordt vervalst — meestal als simpel test prop in dezelfde kleur olie. HPLC-test via JanoshikAnalytical of Simec.",
+        body: "Drostanolone werd oorspronkelijk onderzocht als adjuvante behandeling bij gemetastaseerd borstcarcinoom (DeRivas, 1972) — vandaar de anti-oestrogene reputatie. Voor hormoon-binding en vrij testosteron-effect, zie Saartok et al., 1984 over receptor-binding profielen van DHT-derivaten. Voor cardiovasculair profiel van DHT-derivaten in het algemeen: Hartgens et al., 2004 (lipiden-impact). Masteron is een stof die regelmatig wordt vervalst — meestal als simpel test prop in dezelfde kleur olie. HPLC-test via JanoshikAnalytical of Simec.",
       },
       {
         heading: "Wanneer wel/niet kiezen",
@@ -941,7 +941,7 @@ export const categoryContent: CategoryContent[] = [
       {
         question: "Welke bloedwaardes monitoren op masteron?",
         answer:
-          "Standaard: totaal test, vrij test (interessant want Mast pusht vrij test omhoog via SHBG-binding — vrij kan verdubbelen), E2 sensitive, hematocriet, LDL/HDL/triglyceriden, ALAT/ASAT, creatinine. Bij langere kuren of hogere doses (>500 mg/wk) ook prostaat: PSA-waarde, vooral als je 35+ bent. Lipiden zijn de belangrijkste — DHT-derivaten zoals Mast (en zeker in combinatie met Winstrol of Tren) kunnen HDL halveren. Bij ernstig verstoord lipiden-profiel: dosis verlagen of supplementen toevoegen (omega-3 EPA/DHA 4g/dag, niacine, cardio). Bloeddruk thuis 2x/week. Stop bij rode vlaggen in plaats van door te duwen voor een show.",
+          "Standaard: totaal test, vrij test (interessant want Mast pusht vrij test omhoog via hormoon-binding — vrij kan verdubbelen), E2 sensitive, bloeddikte (hematocriet), LDL/HDL/triglyceriden, ALAT/ASAT, creatinine. Bij langere kuren of hogere doses (>500 mg/wk) ook prostaat: PSA-waarde, vooral als je 35+ bent. Lipiden zijn de belangrijkste — DHT-derivaten zoals Mast (en zeker in combinatie met Winstrol of Tren) kunnen HDL halveren. Bij ernstig verstoord lipiden-profiel: dosis verlagen of supplementen toevoegen (omega-3 EPA/DHA 4g/dag, niacine, cardio). Bloeddruk thuis 2x/week. Stop bij rode vlaggen in plaats van door te duwen voor een show.",
       },
       {
         question: "Is masteron geschikt voor een eerste kuur?",
@@ -975,7 +975,7 @@ export const categoryContent: CategoryContent[] = [
     intro:
       "Anavar is de poster boy van 'milde' anabolen — strakke gains, kracht-boost, weinig bijwerkingen. Probleem: 80% van wat er als var verkocht wordt, is gewoon dianabol of winstrol met var-stickertje.",
     longIntro:
-      "Oxandrolone is een orale DHT met een uniek profiel: weinig vochtretentie, geen aromatisatie, lage androgene impact en in klinisch onderzoek zelfs gebruikt bij brandwondenpatiënten en HIV-wasting. Bodybuilders zetten het in voor cuts, kracht-fases en als 'finisher' in de laatste weken. Maar: ruwe oxandrolone-grondstof is een van de duurste op de wereldmarkt — gevolg is dat onbetrouwbare sources je dbol of winny verkopen onder var-label. Lab-getest of niet kopen.",
+      "Oxandrolone is een orale DHT met een uniek profiel: weinig vochtretentie, geen omzetting in oestrogeen, lage androgene impact en in klinisch onderzoek zelfs gebruikt bij brandwondenpatiënten en HIV-wasting. Bodybuilders zetten het in voor cuts, kracht-fases en als 'finisher' in de laatste weken. Maar: ruwe oxandrolone-grondstof is een van de duurste op de wereldmarkt — gevolg is dat onbetrouwbare sources je dbol of winny verkopen onder var-label. Lab-getest of niet kopen.",
     keyFacts: [
       { label: "Type", value: "Oraal DHT-derivaat (c17-α)" },
       { label: "Halfwaardetijd", value: "~8 uur" },
@@ -1074,7 +1074,7 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Risico's en bijwerkingen",
-        body: "Lever-enzymen stijgen 2-4x bovengrens — normaal op dbol, herstelt 4-6 weken na stop. Bloeddruk gaat hard omhoog door vochtretentie en E2-spike — verwacht +10-20 systolisch. Hoofdpijn vooral in week 1-2 (E2-piek). HDL crasht 30-50%. Gyno-risico hoog door agressieve aromatisatie — adex erbij is geen optioneel ding, het is verplicht. Acne, vooral op rug. Lethargie/sufheid kan voorkomen door methyl-groep belasting. Suppressie van eigen test compleet binnen 7-10 dagen. Pure Dbol-only cycles (geen test) zijn een drama — libido op nul tegen week 3.",
+        body: "Lever-enzymen stijgen 2-4x bovengrens — normaal op dbol, herstelt 4-6 weken na stop. Bloeddruk gaat hard omhoog door vochtretentie en E2-spike — verwacht +10-20 systolisch. Hoofdpijn vooral in week 1-2 (E2-piek). HDL crasht 30-50%. Gyno-risico hoog door agressieve omzetting in oestrogeen — adex erbij is geen optioneel ding, het is verplicht. Acne, vooral op rug. Lethargie/sufheid kan voorkomen door methyl-groep belasting. Suppressie van eigen test compleet binnen 7-10 dagen. Pure Dbol-only cycles (geen test) zijn een drama — libido op nul tegen week 3.",
       },
       {
         heading: "Onderzoek en bronnen",
@@ -1094,7 +1094,7 @@ export const categoryContent: CategoryContent[] = [
       {
         question: "Kan ik dianabol stacken met deca?",
         answer:
-          "Ja, klassieke 'old school bulk': Test E 500 + Deca 400 + Dbol 30 mg in weken 1-4, totale cycle 14-16 weken. Werkt fantastisch voor mass: dbol kickstart, test als basis, deca voor langzame kwalitatieve gains. Vereisten: caber 0.25 mg 2x/wk vanaf week 1 (deca-prolactine + dbol-E2-piek), adex 0.5 mg E3D, lever-supps voor de dbol-weken, scherp bloedwerk op week 4, 8, 12. Bloeddonatie waarschijnlijk nodig rond week 10 (hematocriet stijgt op deca). Niet voor eerste of tweede cycle — dit is intermediate/advanced territorium met serieus management.",
+          "Ja, klassieke 'old school bulk': Test E 500 + Deca 400 + Dbol 30 mg in weken 1-4, totale cycle 14-16 weken. Werkt fantastisch voor mass: dbol kickstart, test als basis, deca voor langzame kwalitatieve gains. Vereisten: caber 0.25 mg 2x/wk vanaf week 1 (deca-prolactine + dbol-E2-piek), adex 0.5 mg E3D, lever-supps voor de dbol-weken, scherp bloedwerk op week 4, 8, 12. Bloeddonatie waarschijnlijk nodig rond week 10 (bloeddikte (hematocriet) stijgt op deca). Niet voor eerste of tweede cycle — dit is intermediate/advanced territorium met serieus management.",
       },
       {
         question: "Welke bloedwaardes monitoren op dianabol?",
@@ -1104,7 +1104,7 @@ export const categoryContent: CategoryContent[] = [
       {
         question: "Is dianabol geschikt voor een eerste kuur?",
         answer:
-          "Sterk afgeraden als solo eerste-cycle (dbol only), prima als 4-week kickstart op een test-cycle. Pure dbol-only kuur is een mythe die nog rondzweeft uit '70s bodybuilding-folklore — je krijgt volledige HPTA-suppressie, geen libido, water gains die binnen 2 weken na stop weg zijn, en je hebt alsnog een PCT nodig. Wat wel zinvol is voor een eerste-kuur intermediate: Test E 500 mg/wk x 14 wkn + Dbol 25-30 mg/dag in weken 1-4. Geeft snelle resultaten en bouwt mooie basis. Eerste-kuur puristen: gewoon test alleen, dbol kan in cycle 2 of 3.",
+          "Sterk afgeraden als solo eerste-cycle (dbol only), prima als 4-week kickstart op een test-cycle. Pure dbol-only kuur is een mythe die nog rondzweeft uit '70s bodybuilding-folklore — je krijgt volledige onderdrukking van je eigen testosteron-productie, geen libido, water gains die binnen 2 weken na stop weg zijn, en je hebt alsnog een PCT nodig. Wat wel zinvol is voor een eerste-kuur intermediate: Test E 500 mg/wk x 14 wkn + Dbol 25-30 mg/dag in weken 1-4. Geeft snelle resultaten en bouwt mooie basis. Eerste-kuur puristen: gewoon test alleen, dbol kan in cycle 2 of 3.",
       },
       {
         question: "Dianabol of anadrol — welke kiezen?",
@@ -1133,7 +1133,7 @@ export const categoryContent: CategoryContent[] = [
     intro:
       "Winstrol is de klassieke pre-contest finisher: droogt je uit, knalt vascularity en spierhardheid op een niveau dat geen andere stof matcht. Maar je gewrichten gaan janken.",
     longIntro:
-      "Stanozolol is een oral of injectable DHT-derivaat met een uniek profiel: extreme droogheid, harde uitstraling en sterke SHBG-binding (waardoor vrij test omhoog gaat). Vooral populair in de laatste 4-6 weken vóór een show of beach-trip. Maar twee dingen om over na te denken: lever-belasting is hoog (zowel oral als injectable — injectable winny gaat ook door je lever), en de gewrichtspijn-meldingen zijn niet overdreven. Squat-sessies kunnen vervelend worden.",
+      "Stanozolol is een oral of injectable DHT-derivaat met een uniek profiel: extreme droogheid, harde uitstraling en sterke hormoon-binding (waardoor vrij test omhoog gaat). Vooral populair in de laatste 4-6 weken vóór een show of beach-trip. Maar twee dingen om over na te denken: lever-belasting is hoog (zowel oral als injectable — injectable winny gaat ook door je lever), en de gewrichtspijn-meldingen zijn niet overdreven. Squat-sessies kunnen vervelend worden.",
     keyFacts: [
       { label: "Type", value: "DHT-derivaat (c17-α) — oraal of injectable" },
       { label: "Halfwaardetijd", value: "Oraal ~9 uur · Injectable ~24 uur" },
@@ -1145,7 +1145,7 @@ export const categoryContent: CategoryContent[] = [
     sections: [
       {
         heading: "Wat is winstrol en hoe werkt het",
-        body: "Stanozolol is een DHT-derivaat met een pyrazol-ring gekoppeld aan het A-ring — dat maakt het oraal opneembaar én geeft de unieke 'droge' werking. Het bindt aan de androgeen-receptor, pusht eiwitsynthese, en cruciale eigenschap: het bindt agressief aan SHBG (Sex Hormone Binding Globulin), waardoor minder van je test gebonden wordt en meer vrij circulerend testosteron beschikbaar komt. Dit verklaart waarom Winstrol-stacks vaak supercharged voelen — je test-cycle krijgt een free-test boost. Geen aromatisatie, geen vochtretentie — vandaar het strakke 'sliced' uiterlijk. Injectable winny is een microcrystalline suspension in water — die kristallen geven extra pip (post-injection pain), maar dezelfde stanozolol-molecuul als de tabletten.",
+        body: "Stanozolol is een DHT-derivaat met een pyrazol-ring gekoppeld aan het A-ring — dat maakt het oraal opneembaar én geeft de unieke 'droge' werking. Het bindt aan de androgeen-receptor, pusht eiwitsynthese, en cruciale eigenschap: het bindt agressief aan SHBG (Sex Hormone Binding Globulin), waardoor minder van je test gebonden wordt en meer vrij circulerend testosteron beschikbaar komt. Dit verklaart waarom Winstrol-stacks vaak supercharged voelen — je test-cycle krijgt een free-test boost. Geen omzetting in oestrogeen, geen vochtretentie — vandaar het strakke 'sliced' uiterlijk. Injectable winny is een microcrystalline suspension in water — die kristallen geven extra pip (post-injection pain), maar dezelfde stanozolol-molecuul als de tabletten.",
       },
       {
         heading: "Doseringen en cycle-protocol",
@@ -1157,7 +1157,7 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Onderzoek en bronnen",
-        body: "Stanozolol is uitgebreid onderzocht in klinische context voor hereditair angio-oedeem en aplastische anemie. Voor lipiden-impact specifiek bij Winstrol: Thompson et al., 1989 over HDL-crash bij stanozolol 6 mg/dag (zelfs TRT-dose verlaagt HDL met 33%). Voor lever-effecten en hepatotoxiciteit van c17-α anabolen: Kafrouni et al., 2007. Voor de SHBG-binding studie: Pugeat et al., 1981. Vervalsing: winstrol-tabs worden soms vervalst met dbol of dianabol/stanozolol-mix. Echte winny voelt droog, dbol vochtig — dat is een eerste sanity-check, maar HPLC blijft de enige zekerheid.",
+        body: "Stanozolol is uitgebreid onderzocht in klinische context voor hereditair angio-oedeem en aplastische anemie. Voor lipiden-impact specifiek bij Winstrol: Thompson et al., 1989 over HDL-crash bij stanozolol 6 mg/dag (zelfs TRT-dose verlaagt HDL met 33%). Voor lever-effecten en hepatotoxiciteit van c17-α anabolen: Kafrouni et al., 2007. Voor de hormoon-binding studie: Pugeat et al., 1981. Vervalsing: winstrol-tabs worden soms vervalst met dbol of dianabol/stanozolol-mix. Echte winny voelt droog, dbol vochtig — dat is een eerste sanity-check, maar HPLC blijft de enige zekerheid.",
       },
       {
         heading: "Wanneer wel/niet kiezen",
@@ -1210,7 +1210,7 @@ export const categoryContent: CategoryContent[] = [
     resultImage: "/img/stof/primobolan-resultaat.webp",
     resultImageAlt: "Primobolan kuur resultaat — lean droge kwaliteitsspiermassa bodybuilder toont primobolan clean-cut fysiek",
     intro:
-      "Primo is de chique optie: mild profiel, geen bloat, geen aromatisatie, en een prijskaartje waar je tweede kuur op past. Maar 9 van de 10 ampullen die je krijgt zijn fake.",
+      "Primo is de chique optie: mild profiel, geen bloat, geen omzetting in oestrogeen, en een prijskaartje waar je tweede kuur op past. Maar 9 van de 10 ampullen die je krijgt zijn fake.",
     longIntro:
       "Methenolone Enanthate heeft een bijna magische reputatie: 'cleaner gains', schone aankomst, geen oestrogeen-issues, weinig androgene rommel. Arnold zou het gebruikt hebben. Profis zweren erbij. En het werkt — als je echt product hebt. Probleem: ruwe methenolone-grondstof kost ongeveer $60-100 per gram, vergeleken met test enanthate op $0.50-1 per gram. Resultaat: bijna alle goedkope primo op de markt is vervalst met test of nandrolon. Zonder lab-test koop je geen primo, je koopt een verhaal.",
     keyFacts: [
@@ -1232,7 +1232,7 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Risico's en bijwerkingen",
-        body: "Het mildste profiel van alle injectables — vandaar de populariteit bij voorzichtige gebruikers. Geen aromatisatie = geen E2-issues. Lage androgene activiteit = weinig acne, weinig haaruitval impact (maar bij genetische aanleg nog steeds mogelijk). Lipiden-impact mild vergeleken met andere DHT's, HDL daalt 15-25%. Lever-enzymen blijven stabiel bij Primo E (injectable). Suppressie is reëel maar herstel meestal vlotter dan op bv <a href=\"/trenbolone\">tren</a> of <a href=\"/nandrolon\">deca</a>. Belangrijkste risico: dat je geen echt primo hebt. Verkeerde stof in plaats van methenolone (vaak test) geeft je een ander bijwerkingsprofiel dan verwacht — denk je dat je geen E2-management nodig hebt, dan groei je gyno omdat de ampul gewoon Test E was.",
+        body: "Het mildste profiel van alle injectables — vandaar de populariteit bij voorzichtige gebruikers. Geen omzetting in oestrogeen = geen E2-issues. Lage androgene activiteit = weinig acne, weinig haaruitval impact (maar bij genetische aanleg nog steeds mogelijk). Lipiden-impact mild vergeleken met andere DHT's, HDL daalt 15-25%. Lever-enzymen blijven stabiel bij Primo E (injectable). Suppressie is reëel maar herstel meestal vlotter dan op bv <a href=\"/trenbolone\">tren</a> of <a href=\"/nandrolon\">deca</a>. Belangrijkste risico: dat je geen echt primo hebt. Verkeerde stof in plaats van methenolone (vaak test) geeft je een ander bijwerkingsprofiel dan verwacht — denk je dat je geen E2-management nodig hebt, dan groei je gyno omdat de ampul gewoon Test E was.",
       },
       {
         heading: "Onderzoek en bronnen",
@@ -1252,12 +1252,12 @@ export const categoryContent: CategoryContent[] = [
       {
         question: "Kan ik primobolan stacken met anavar of testosteron?",
         answer:
-          "Ja, dit is een klassieke 'lean gains' stack: Test E 250 + Primo E 600 + Anavar 50 mg laatste 6 weken, 14 wkn cycle. Veel gebruikt door physique-atleten en mannen die strakke recomp willen zonder bloat. Adex niet of nauwelijks nodig (lage aromatisatie). Lever-supps tijdens var-fase. Bloedwerk vrij rustig (mild profiel) maar wel checken op week 8. Andere optie: Test 200 + Primo 700 + Mast E 400 voor pre-vakantie/recreatief contest. Stacking met Tren is mogelijk maar negeert het hele 'mild' karakter dat primo aantrekkelijk maakt — kies één smaak gevorderde stof.",
+          "Ja, dit is een klassieke 'lean gains' stack: Test E 250 + Primo E 600 + Anavar 50 mg laatste 6 weken, 14 wkn cycle. Veel gebruikt door physique-atleten en mannen die strakke recomp willen zonder bloat. Adex niet of nauwelijks nodig (lage omzetting in oestrogeen). Lever-supps tijdens var-fase. Bloedwerk vrij rustig (mild profiel) maar wel checken op week 8. Andere optie: Test 200 + Primo 700 + Mast E 400 voor pre-vakantie/recreatief contest. Stacking met Tren is mogelijk maar negeert het hele 'mild' karakter dat primo aantrekkelijk maakt — kies één smaak gevorderde stof.",
       },
       {
         question: "Welke bloedwaardes monitoren op primobolan?",
         answer:
-          "Mild profiel, dus minder paranoia maar nog steeds bloedwerk: totaal test, vrij test, E2 sensitive (vanwege test-basis), hematocriet, lipiden (HDL daalt mild op primo, harder als je het stacked met andere DHT's), ALAT/ASAT (rustig op injectable primo, alleen issue als je acetate of stacked oral gebruikt), creatinine, bloeddruk. Bij langere stacks of hogere doses ook prolactine. PSA bij 40+. Baseline meten, week 6 mid-cycle, week 6-8 post-PCT. Een unieke check: als je 'primo' draait en je E2 schiet omhoog of je krijgt vochtretentie, is je product waarschijnlijk gewoon test — laat dan ampul HPLC-testen.",
+          "Mild profiel, dus minder paranoia maar nog steeds bloedwerk: totaal test, vrij test, E2 sensitive (vanwege test-basis), bloeddikte (hematocriet), lipiden (HDL daalt mild op primo, harder als je het stacked met andere DHT's), ALAT/ASAT (rustig op injectable primo, alleen issue als je acetate of stacked oral gebruikt), creatinine, bloeddruk. Bij langere stacks of hogere doses ook prolactine. PSA bij 40+. Baseline meten, week 6 mid-cycle, week 6-8 post-PCT. Een unieke check: als je 'primo' draait en je E2 schiet omhoog of je krijgt vochtretentie, is je product waarschijnlijk gewoon test — laat dan ampul HPLC-testen.",
       },
       {
         question: "Is primobolan geschikt voor een eerste kuur?",
@@ -1316,7 +1316,7 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Onderzoek en bronnen",
-        body: "Tamoxifen is een van de meest onderzochte medicijnen wereldwijd. Voor de klassieke PCT-mechanisme studie: Coviello et al., 2005 over tamoxifen-effect op LH en testosteron-recovery na androgeen-suppressie. Voor gyno-behandeling is tamoxifen in meerdere randomized trials vergeleken met aromatase-inhibitors bij idiopathische gynaecomastie — review-data wijst tamoxifen aan als first-line behandeling. Voor lever- en cardiovasculaire veiligheid bij langere therapie: Fisher et al., 1998. Tamoxifen is een echt geregistreerd geneesmiddel — verkrijgbaar als Nolvadex (brand) of generic tamoxifen. Pharma-grade is gemakkelijk te krijgen via researchchem-sources, kwaliteit-issues zijn minder dan bij UGL anabolen.",
+        body: "Tamoxifen is een van de meest onderzochte medicijnen wereldwijd. Voor de klassieke PCT-mechanisme studie: Coviello et al., 2005 over tamoxifen-effect op LH en testosteron-recovery na androgeen-suppressie. Voor gyno-behandeling is tamoxifen in meerdere randomized trials vergeleken met AI (anti-oestrogeen middel)s bij idiopathische gynaecomastie — review-data wijst tamoxifen aan als first-line behandeling. Voor lever- en cardiovasculaire veiligheid bij langere therapie: Fisher et al., 1998. Tamoxifen is een echt geregistreerd geneesmiddel — verkrijgbaar als Nolvadex (brand) of generic tamoxifen. Pharma-grade is gemakkelijk te krijgen via researchchem-sources, kwaliteit-issues zijn minder dan bij UGL anabolen.",
       },
       {
         heading: "Wanneer wel/niet kiezen",
@@ -1557,7 +1557,7 @@ export const categoryContent: CategoryContent[] = [
       },
       {
         heading: "Wanneer wel/niet kiezen",
-        body: "Wel gebruiken voor: lange cycles (12+ weken), zware stacks waar HPTA-suppressie diep gaat, mannen die vruchtbaar willen blijven (spermatogenese-behoud), blast-cruise gasten die op TRT-cruise testikulair volume willen behouden. Niet gebruiken als: het je eerste of tweede korte cycle is (10 weken test only herstelt vaak ook zonder HCG), je een korte oral-only cycle hebt, of je een geschiedenis hebt van hCG-allergie. Niet vervangen voor SERM-PCT — HCG is alleen testikulair, SERMs (<a href=\"/nolvadex\">Nolva</a>, <a href=\"/clomid\">Clomid</a>) zijn voor hypofyse-as.",
+        body: "Wel gebruiken voor: lange cycles (12+ weken), zware stacks waar onderdrukking van je eigen testosteron-productie diep gaat, mannen die vruchtbaar willen blijven (spermatogenese-behoud), blast-cruise gasten die op TRT-cruise testikulair volume willen behouden. Niet gebruiken als: het je eerste of tweede korte cycle is (10 weken test only herstelt vaak ook zonder HCG), je een korte oral-only cycle hebt, of je een geschiedenis hebt van hCG-allergie. Niet vervangen voor SERM-PCT — HCG is alleen testikulair, SERMs (<a href=\"/nolvadex\">Nolva</a>, <a href=\"/clomid\">Clomid</a>) zijn voor hypofyse-as.",
       },
     ],
     faqs: [
@@ -1661,7 +1661,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
         "10 tot 16 weken is het meest beschreven bereik. Korter dan 10 weken laat langwerkende esters niet stabiel oplopen; langer dan 16 weken stapelt bijwerkingsrisico zonder evenredige winst.",
       ]},
       { heading: "Bloedwerk", paragraphs: [
-        "Voor start, halverwege en 6 weken na PCT: totaal testosteron, vrij testosteron, oestradiol (gevoelig), hematocriet, lever (ALT/AST), nuchter lipidenprofiel, prolactine.",
+        "Voor start, halverwege en 6 weken na PCT: totaal testosteron, vrij testosteron, oestradiol (gevoelig), bloeddikte (hematocriet), lever (ALT/AST), nuchter lipidenprofiel, prolactine.",
       ]},
       { heading: "PCT plannen vóór je begint", paragraphs: [
         "Een cyclus zonder PCT-plan is in literatuur onverdedigbaar. Bestel tamoxifen en clomid vóór start, niet erna.",
@@ -1706,7 +1706,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
         "Voor start: totaal en vrij testosteron, SHBG, oestradiol gevoelig, LH, FSH, prolactine, volledig bloedbeeld (Hb, Ht), nuchter lipidenprofiel, lever (ALT/AST/GGT), nier (eGFR), nuchter glucose.",
       ]},
       { heading: "Midcycle", paragraphs: [
-        "Week 6: totaal testosteron, oestradiol, hematocriet, lever, lipidenprofiel.",
+        "Week 6: totaal testosteron, oestradiol, bloeddikte (hematocriet), lever, lipidenprofiel.",
       ]},
       { heading: "Post-PCT", paragraphs: [
         "6 weken na laatste SERM-dosis: totaal en vrij testosteron, LH, FSH, oestradiol. Vergelijk met baseline.",
@@ -1799,14 +1799,14 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     publishedAt: "28-03-2026",
     author: { name: "Mark de Wit", credentials: "onderzoeksjournalist" },
     body: [
-      { heading: "Gemeenschappelijk", paragraphs: ["Geen aromatisatie, sterke androgene component, drogend karakter, gunstig in cut-fases."]},
+      { heading: "Gemeenschappelijk", paragraphs: ["Geen omzetting in oestrogeen, sterke androgene component, drogend karakter, gunstig in cut-fases."]},
       { heading: "Per stof", paragraphs: ["Masteron is mild antioestrogeen, Winstrol verlaagt SHBG sterk, Anavar is mild voor lever, Primobolan is duurst maar schoonst."]},
     ],
     related: [],
     relatedCategories: ["masteron", "winstrol", "anavar", "primobolan"],
   },
   {
-    slug: "hematocriet-en-bloeddonatie",
+    slug: "bloeddikte (hematocriet)-en-bloeddonatie",
     kindTag: "Protocol",
     title: "Hematocriet bewaken en wanneer bloed te doneren",
     excerpt: "Hoe androgene therapie rode bloedcellen verhoogt en wat te doen.",
@@ -1815,7 +1815,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     author: { name: "Dr. Iris Verhoef", credentials: "biochemicus" },
     body: [
       { heading: "Het probleem", paragraphs: ["Testosteron stimuleert erytropoëse. Hematocriet >54% verhoogt risico op trombo-embolie."]},
-      { heading: "Wat te doen", paragraphs: ["Donatie bij Sanquin (mits toegestaan) of phlebotomie via huisarts verlaagt hematocriet effectief."]},
+      { heading: "Wat te doen", paragraphs: ["Donatie bij Sanquin (mits toegestaan) of phlebotomie via huisarts verlaagt bloeddikte (hematocriet) effectief."]},
     ],
     related: [],
     relatedCategories: ["boldenone", "testosteron"],
