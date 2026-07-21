@@ -84,9 +84,9 @@ const HOMEPAGE_FAQ = [
       "Medisch antwoord: pas nadat je natuurlijke groei klaar is, oftewel ergens tussen 23 en 25 jaar. Daarvoor zit je groeischijven nog open en kan AAS-gebruik die voortijdig sluiten — je wordt korter dan je had kunnen zijn. Ook is je eigen testosteron-productie tussen 18 en 23 op zijn hoogtepunt; je hebt niks toe te voegen behalve risico. Realistisch gebruiken veel mensen het eerder — onze rol is dan zorgen dat je weet wat je doet, niet doen alsof het probleem niet bestaat.",
   },
   {
-    question: "Wat is FFMI en waarom matter dat voor mijn doelen?",
+    question: "Hebben jullie een 100% leveringsgarantie?",
     answer:
-      "FFMI (Fat-Free Mass Index) is je vetvrije massa gestandaardiseerd voor lengte. Natuurlijke mannen zonder enhancers hebben zelden meer dan FFMI 24–25; daarboven kom je in gebied dat statistisch alleen haalbaar is met AAS, peptiden of buitengewone genetica. Bereken: vetvrije massa (kg) / lengte² (m²) + 6.1 × (1.8 – lengte in meters). Voor planning: vorm verwachting voor wat je natural kan halen vs. wat je verwacht van een cycle. Tien jaar fanatiek trainen + perfect dieet zit je in de buurt van FFMI 23–24; een eerste 16-weken test-only cycle voegt typisch 2–4 punten toe waarvan ~50% behouden blijft post-PCT.",
+      "Ja. Als je pakket door welke reden dan ook niet aankomt (kwijtgeraakt, teruggestuurd, transportschade), verzenden wij automatisch een nieuwe zending — zonder discussie, zonder extra kosten en zonder dat je aanvullend bewijs hoeft aan te leveren. Meld het via het contactformulier met je ordernummer, wij regelen de rest.",
   },
 ];
 
