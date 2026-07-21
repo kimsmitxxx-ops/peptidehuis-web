@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default async function WinkelIndexPage({
   searchParams,
 }: {
-  searchParams: { stock?: string; merk?: string; stof?: string; locatie?: string };
+  searchParams: { stock?: string; merk?: string; stof?: string; locatie?: string; q?: string };
 }) {
   const [categories, allProducts] = await Promise.all([
     listCategories(),
@@ -28,6 +28,7 @@ export default async function WinkelIndexPage({
   const merk = searchParams.merk || "";
   const stof = (searchParams.stof || "").toLowerCase();
   const locatie = searchParams.locatie || "";
+  const q = (searchParams.q || "").trim().toLowerCase();
 
   const brandSet = new Set<string>();
   allProducts.forEach((p) => p.tags?.forEach((t) => { if (KNOWN_BRANDS.has(t)) brandSet.add(t); }));
@@ -39,6 +40,10 @@ export default async function WinkelIndexPage({
     if (stof && !(p.stof_slugs || []).includes(stof)) return false;
     if (locatie === "01" && !(p.tags || []).includes("UT")) return false;
     if (locatie === "02" && (p.tags || []).includes("UT")) return false;
+    if (q) {
+      const hay = `${p.name} ${p.slug} ${(p.tags || []).join(" ")} ${(p.stof_slugs || []).join(" ")} ${p.subtitle || ""}`.toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
     return true;
   });
   const products = sortProducts(filtered as any);

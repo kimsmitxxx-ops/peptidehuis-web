@@ -53,17 +53,28 @@ export function CartDrawer() {
                 >
                   {it.image && (
                     /* eslint-disable-next-line @next/next/no-img-element */
-                    <img
-                      src={it.image}
-                      alt={it.name}
-                      className="h-16 w-16 rounded object-cover shrink-0"
-                    />
+                    <Link
+                      href={`/product/winkel/${it.id}`}
+                      onClick={() => setOpen(false)}
+                      className="shrink-0"
+                      aria-label={`Open ${it.name}`}
+                    >
+                      <img
+                        src={it.image}
+                        alt={it.name}
+                        className="h-16 w-16 rounded object-cover shrink-0 hover:opacity-80 transition"
+                      />
+                    </Link>
                   )}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-start justify-between gap-2">
-                      <p className="font-medium text-sm text-text leading-snug line-clamp-2">
+                      <Link
+                        href={`/product/winkel/${it.id}`}
+                        onClick={() => setOpen(false)}
+                        className="font-medium text-sm text-text leading-snug line-clamp-2 hover:text-accent"
+                      >
                         {it.name}
-                      </p>
+                      </Link>
                       <button
                         onClick={() => remove(it.id)}
                         className="text-text-muted hover:text-danger shrink-0"

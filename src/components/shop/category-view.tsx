@@ -200,7 +200,7 @@ export function CategoryView({ content: c }: CategoryViewProps) {
 
       {/* Trust */}
       <section className="mx-auto max-w-7xl px-4 py-12 grid gap-5 md:grid-cols-3">
-        <TrustCard icon={FlaskConical} heading="HPLC-getest per batch" sub="Janoshik en Anabolic Lab verificatie." />
+        <TrustCard icon={FlaskConical} heading="Onafhankelijk lab-getest" sub="Iedere batch gecheckt door een extern lab — rapport per batchcode publiek." />
         <TrustCard icon={ShieldCheck} heading="Discreet verpakt" sub="Neutrale verpakking, geen vermelding." />
         <TrustCard icon={Beaker} heading="Volledige terugbetaling" sub="Bij batch die niet matcht met COA." />
       </section>

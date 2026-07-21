@@ -71,11 +71,26 @@ function suggest(a: Answers): Suggestion[] {
   }
 
   if (a.goal === "mass" || a.goal === "lean-bulk") {
+    if (a.form === "oraal") {
+      return [
+        { title: "Kuurpakket TABS ONLY | Utinon", why: "Volledig oraal-protocol (Dianabol + Anavar + Turinabol + PCT). Geen injecties nodig — al kan een test-basis het effect flink verhogen.", category: "kuurpakketten", href: "/winkel/kuurpakketten" },
+        { title: "Dianabol 10 mg/tab", why: "Klassieke oral voor massa. Snelle gains eerste 4-6 weken, lever-belastend dus altijd cycle-limits volgen.", category: "pillen-tabletten", href: "/winkel/pillen-tabletten" },
+        { title: "Oxymetholone 25 mg/tab", why: "Zwaarste oral op de markt voor mass. Fors, veel water, alleen voor intermediate+.", category: "pillen-tabletten", href: "/winkel/pillen-tabletten" },
+      ];
+    }
+    if (a.form === "mix") {
+      return [
+        { title: "Kuurpakket Beginners Massa | Utinon", why: "Test-basis (injectie) + Dianabol kickstart (oraal) + PCT. Klassieke mass-stack.", category: "kuurpakketten", href: "/winkel/kuurpakketten" },
+        { title: "Testosteron Enanthate 250 (UT)", why: "Basis van elke mix-cycle. 300-500 mg/week gecombineerd met een oral naar keuze.", category: "injectie", href: "/winkel/injectie" },
+        { title: "Dianabol 10 mg/tab (UT)", why: "Optionele oral kickstart voor de eerste 4 weken — snelle gains terwijl test opbouwt.", category: "pillen-tabletten", href: "/winkel/pillen-tabletten" },
+      ];
+    }
+    // form === "injectie" of onbekend
     if (a.experience === "beginner") {
       return [
         { title: "Testosteron Enanthate 500mg/week", why: "Solide eerste bulk. 16 weken + PCT. Test doet 80% van het werk in een bulk.", category: "injectie", href: "/winkel/injectie" },
         { title: "Kuurpakket Beginners Massa | Utinon", why: "Test + Deca + PCT, doseringen op elkaar afgestemd. UT-merk, lab-getest.", category: "kuurpakketten", href: "/winkel/kuurpakketten" },
-        { title: "Dianabol kickstart", why: "Optioneel: 30mg/dag eerste 4 weken voor snelle gains terwijl test op niveau komt.", category: "pillen-tabletten", href: "/winkel/pillen-tabletten" },
+        { title: "Sustanon 250", why: "4-ester test-mix voor iets stabielere bloedwaardes met minder prikken.", category: "injectie", href: "/winkel/injectie" },
       ];
     }
     return [
@@ -86,10 +101,24 @@ function suggest(a: Answers): Suggestion[] {
   }
 
   if (a.goal === "recomp") {
+    if (a.form === "oraal") {
+      return [
+        { title: "Anavar 10mg", why: "Solide oral voor recomp — strakheid + force, weinig water, weinig nadeel.", category: "pillen-tabletten", href: "/winkel/pillen-tabletten" },
+        { title: "Kuurpakket TABS ONLY | Utinon", why: "Volledig oraal recomp-protocol met PCT. Minder anabool dan een injectie-cycle maar wel effectief.", category: "kuurpakketten", href: "/winkel/kuurpakketten" },
+        { title: "Winstrol 10mg/tab", why: "Droge harde look, geen water, wel lever-belastend dus max 6 weken.", category: "pillen-tabletten", href: "/winkel/pillen-tabletten" },
+      ];
+    }
+    if (a.form === "mix") {
+      return [
+        { title: "Testosteron + Anavar stack", why: "TRT-dose test (injectie) + Anavar (oraal). Droge recomp met de beste van beide werelden.", category: "kuurpakketten", href: "/winkel/kuurpakketten" },
+        { title: "Testosteron Enanthate 250 (UT)", why: "Injectie-basis voor de mix. Combineer met Anavar of Winstrol oral.", category: "injectie", href: "/winkel/injectie" },
+        { title: "Anavar 10 mg/tab (UT)", why: "Oral partner. 40-60 mg/dag, 8 weken.", category: "pillen-tabletten", href: "/winkel/pillen-tabletten" },
+      ];
+    }
     return [
       { title: "Testosteron + Masteron stack", why: "TRT-dose test + 400mg/w Mast E. Droge, harde recomp zonder veel water.", category: "injectie", href: "/winkel/injectie" },
-      { title: "Kuurpakket TABS ONLY | Utinon", why: "Oraal-only protocol voor mensen die niet willen prikken. Minder anabool maar geschikt voor recomp.", category: "kuurpakketten", href: "/winkel/kuurpakketten" },
-      { title: "Anavar 10mg", why: "Solide losse keuze voor recomp — strakheid + force, weinig nadeel.", category: "pillen-tabletten", href: "/winkel/pillen-tabletten" },
+      { title: "Masteron Propionate 100 (UT)", why: "Klassieker voor droog effect, geen aromatisatie. Perfect naast test.", category: "injectie", href: "/winkel/injectie" },
+      { title: "Anavar 10mg (UT)", why: "Optionele oral voor extra strakheid als je een mix wilt overwegen.", category: "pillen-tabletten", href: "/winkel/pillen-tabletten" },
     ];
   }
 

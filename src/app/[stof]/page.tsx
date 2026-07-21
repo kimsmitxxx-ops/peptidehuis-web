@@ -235,7 +235,7 @@ export default function StofPage({ params }: { params: { stof: string } }) {
                 Klaar om {c.name} te bestellen?
               </h3>
               <p className="mt-1 text-primary-foreground/70 max-w-xl">
-                Onze {c.name.toLowerCase()}-batches zijn lab-getest, anoniem verpakt en morgen in huis.
+                Onze {c.name.toLowerCase()}-batches zijn lab-getest, anoniem verpakt en snel verzonden.
               </p>
             </div>
           </div>

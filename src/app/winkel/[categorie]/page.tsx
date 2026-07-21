@@ -26,7 +26,7 @@ export default async function CategoryPage({
   searchParams,
 }: {
   params: { categorie: string };
-  searchParams: { stock?: string; merk?: string; stof?: string; locatie?: string };
+  searchParams: { stock?: string; merk?: string; stof?: string; locatie?: string; q?: string };
 }) {
   const [cat, allProducts, allCategories] = await Promise.all([
     getCategory(params.categorie),
@@ -39,6 +39,7 @@ export default async function CategoryPage({
   const merk = searchParams.merk || "";
   const stof = (searchParams.stof || "").toLowerCase();
   const locatie = searchParams.locatie || "";
+  const q = (searchParams.q || "").trim().toLowerCase();
   const brandSet = new Set<string>();
   allProducts.forEach((p) => p.tags?.forEach((t) => { if (KNOWN_BRANDS.has(t)) brandSet.add(t); }));
   const brands = sortBrands(Array.from(brandSet));
@@ -49,6 +50,10 @@ export default async function CategoryPage({
     if (stof && !(p.stof_slugs || []).includes(stof)) return false;
     if (locatie === "01" && !(p.tags || []).includes("UT")) return false;
     if (locatie === "02" && (p.tags || []).includes("UT")) return false;
+    if (q) {
+      const hay = `${p.name} ${p.slug} ${(p.tags || []).join(" ")} ${(p.stof_slugs || []).join(" ")} ${p.subtitle || ""}`.toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
     return true;
   });
   const products = sortProducts(filtered as any);

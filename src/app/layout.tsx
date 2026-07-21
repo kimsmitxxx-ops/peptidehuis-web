@@ -36,9 +36,16 @@ const WhatsAppFab = dynamic(
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://anabolenpro.com"),
-  title: { default: "AnabolenPro — lab-getest, vandaag besteld, morgen in huis", template: "%s · AnabolenPro" },
-  description: "AnabolenPro: Janoshik lab-getest, anoniem verpakt, 24u verzending vanaf NL-magazijn. Anavar, Dianabol, testosteron-esters, PCT, kuurpakketten.",
+  title: { default: "AnabolenPro — lab-getest, vandaag besteld, vandaag verstuurd", template: "%s · AnabolenPro" },
+  description: "AnabolenPro: onafhankelijk lab-getest, anoniem verpakt, 24u verzending vanaf NL-magazijn. Anavar, Dianabol, testosteron-esters, PCT, kuurpakketten.",
   robots: { index: true, follow: true },
+  icons: {
+    icon: [{ url: "/icon.png", type: "image/png" }],
+    apple: [{ url: "/apple-icon.png", type: "image/png" }],
+  },
+  openGraph: {
+    images: [{ url: "/opengraph-image.png", width: 1200, height: 630 }],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

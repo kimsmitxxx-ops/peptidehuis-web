@@ -157,16 +157,17 @@ export function Header(_props: HeaderProps = {}) {
             <span className="text-accent">PRO</span>
           </span>
         </Link>
-        <div className="hidden md:flex flex-1 max-w-2xl mx-auto">
+        <form action="/winkel" method="get" className="hidden md:flex flex-1 max-w-2xl mx-auto">
           <div className="relative w-full">
             <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-accent-muted" />
             <input
               type="search"
+              name="q"
               placeholder={lang === "EN" ? "Search products" : "Zoek producten — bv. testosteron, anavar, hgh"}
               className="w-full h-10 pl-10 pr-3 rounded-md border border-accent/40 bg-success-soft text-sm font-medium text-primary placeholder:text-primary/55 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-accent shadow-sm"
             />
           </div>
-        </div>
+        </form>
         <nav className="ml-auto flex items-center gap-0.5">
           <Link
             href="/account"

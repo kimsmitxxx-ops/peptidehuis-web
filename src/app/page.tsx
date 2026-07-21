@@ -46,7 +46,7 @@ const HOMEPAGE_FAQ = [
   {
     question: "Hoe weet ik dat de anabolen die ik koop écht zijn en niet underdosed?",
     answer:
-      "Elke batch die wij verkopen heeft een batchcode op het flesje. Die code zoek je op de productpagina onder COA — daar staat het PDF-rapport van Janoshik Analytical (TS) of Anabolic Lab (US): werkzame stof, gemeten zuiverheid (minimum 97%), oplosmiddel-residu en eventuele isomeren. Geen rapport = geen verkoop. Ben je nog kritischer: stuur zelf een flesje op naar Janoshik (~€80), wij vergoeden het verschil als jouw meting buiten 5% van onze meting valt.",
+      "Elke batch die wij verkopen heeft een batchcode op het flesje. Die code zoek je op de productpagina onder COA — daar staat het lab-rapport: werkzame stof, gemeten zuiverheid (minimum 97%), oplosmiddel-residu en eventuele isomeren. Geen rapport = geen verkoop. Ben je nog kritischer: stuur zelf een flesje op naar een onafhankelijk lab (~€80), wij vergoeden het verschil als jouw meting buiten 5% van onze meting valt.",
   },
   {
     question: "Hoe ziet de verpakking eruit en wat staat er op het label?",
@@ -130,21 +130,21 @@ export default async function HomePage() {
         <div className="relative mx-auto max-w-7xl px-4 py-16 md:py-24 grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center">
           <div className="text-primary-foreground">
             <span className="inline-flex items-center gap-2 rounded-sm border border-primary-foreground/20 bg-primary-foreground/5 px-3 py-1 text-xs uppercase tracking-[0.18em] text-accent-soft">
-              <FlaskConical size={12} /> Janoshik &amp; Anabolic Lab — batch 2606-A live
+              <FlaskConical size={12} /> Onafhankelijk lab-getest — batch 2606-A live
             </span>
             <h1 className="mt-5 font-display text-4xl md:text-6xl leading-[1.05] tracking-tight">
               Anabolen die écht kloppen
               <br />
               <span className="text-accent-soft">met de lab-data.</span>
               <span className="block mt-3 text-base md:text-lg font-sans font-normal tracking-normal text-primary-foreground/70">
-                Janoshik HPLC per batch · Anoniem verpakt · Morgen in huis.
+                Iedere batch onafhankelijk lab-getest · Anoniem verpakt · Vandaag verstuurd.
               </span>
             </h1>
             <p className="mt-5 text-lg text-primary-foreground/80 max-w-xl leading-relaxed">
               Testosteron, trenbolone, anavar, dianabol, complete kuurpakketten met PCT — iedere
-              batch onafhankelijk getest door Janoshik Analytical, COA publiek per batchcode op de
-              productpagina. Geen mysteriedoosjes, geen ompak-route via Polen, geen leverancier
-              die plots offline is.
+              batch wordt onafhankelijk lab-getest en het rapport staat publiek per batchcode
+              op de productpagina. Geen mysteriedoosjes, geen ompak-route via Polen, geen
+              leverancier die plots offline is.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link href="/winkel">
@@ -160,7 +160,7 @@ export default async function HomePage() {
             </div>
             <div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-primary-foreground/75">
               <span className="inline-flex items-center gap-2">
-                <Stars value={4.8} size="sm" count={2412} /> 4,8 op basis van 2.412 reviews
+                <Stars value={4.8} size="sm" count={1206} /> 4,8 op basis van 1.206 reviews
               </span>
               <span className="inline-flex items-center gap-2">
                 <PackageCheck size={16} className="text-accent-soft" /> 18.000+ pakketten verzonden
@@ -183,7 +183,7 @@ export default async function HomePage() {
                 <span className="text-sm font-medium">Batch TE-2605-A</span>
               </div>
               <p className="mt-1 text-xs text-primary-foreground/70">
-                99,4% zuiverheid · Janoshik geverifieerd
+                99,4% zuiverheid · onafhankelijk lab-geverifieerd
               </p>
             </div>
           </div>
@@ -380,8 +380,8 @@ export default async function HomePage() {
         </SectionHeading>
         <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           <TrustCard icon={FlaskConical} heading="Eigen lab in Rotterdam" sub="HPLC + GC-MS op elke binnenkomende batch. Niets gaat de deur uit zonder dubbel-check." />
-          <TrustCard icon={Award} heading="Onafhankelijk getest" sub="Janoshik (TS) en Anabolic Lab (US) verifiëren. COA staat publiek per batchcode op de productpagina." />
-          <TrustCard icon={Lock} heading="Discreet bezorgd" sub="Neutrale doos, geen logo of productnaam op het label. Alleen een neutrale bedrijfsnaam — staat nergens steroïde op." />
+          <TrustCard icon={Award} heading="Onafhankelijk getest" sub="Iedere batch wordt door een onafhankelijk lab gecheckt. Het rapport staat publiek per batchcode op de productpagina." />
+          <TrustCard icon={Lock} heading="Discreet bezorgd" sub="Neutrale doos, geen logo of productnaam op het label. Staat nergens steroïde op." />
           <TrustCard icon={Headphones} heading="Echte mensen" sub="Live chat 09:00–21:00, ook weekend. Geen bot, geen ticketsysteem — direct iemand die het verschil tussen Test E en Sustanon kent." />
         </div>
       </section>
@@ -396,7 +396,7 @@ export default async function HomePage() {
             </h2>
             <p className="mt-4 text-text-muted leading-relaxed max-w-xl">
               Geen "ja vertrouw ons maar" — gewoon kijken. Pak het flesje, scan de QR of zoek de
-              batchcode op onze lab-pagina, en je hebt het PDF-rapport van Janoshik in 10 seconden.
+              batchcode op onze lab-pagina, en je hebt het lab-rapport in 10 seconden.
               We laten ook de afgekeurde batches staan, met de reden erbij. Dat is voor ons
               transparantie, niet "marketing".
             </p>
@@ -410,7 +410,7 @@ export default async function HomePage() {
           </div>
           <LabBadge
             variant="full"
-            labName="Janoshik Analytical"
+            labName="Onafhankelijk lab"
             batchCode="TE-2605-A"
             testDate="12-05-2026"
             purityPct={99.4}

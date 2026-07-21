@@ -60,10 +60,13 @@ export async function POST(req: NextRequest) {
   const { data: order, error } = await supabase.from("orders").insert({
     shop_id: SHOP_ID,
     customer_id: customerId,
-    email, customer_name: name,
+    customer_email: email,
+    customer_name: name,
+    customer_phone: phone || null,
     shipping_street: fullStreet, shipping_postal: postal, shipping_city: city, shipping_country: country,
     subtotal_cents: subtotal, shipping_cents: shipping, total_cents: total,
     status: "pending_payment",
+    reference: `AP-${Date.now().toString(36).toUpperCase()}`,
   }).select().single();
 
   if (error || !order) {

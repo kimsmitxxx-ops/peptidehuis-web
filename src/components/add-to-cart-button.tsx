@@ -19,9 +19,12 @@ export function AddToCartButton({ product }: { product: Product }) {
   const inc = () => setQty((q) => q + 1);
 
   function addToCart() {
+    // Gebruik slug als cart-id (stabiel tussen productcard + productdetail).
+    // Anders zag cart-context dezelfde stof als 2 verschillende items en werd
+    // de bulk-korting niet toegepast.
     cart.add(
       {
-        id: product.id,
+        id: product.slug,
         sku: product.sku,
         name: product.name,
         price_cents: product.price_cents,

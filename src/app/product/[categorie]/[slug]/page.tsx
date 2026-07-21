@@ -146,7 +146,7 @@ export default async function ProductDetailPage({ params }: { params: { categori
               <FlaskConical className="h-5 w-5 text-accent shrink-0 mt-0.5" />
               <div className="text-sm">
                 <p className="font-semibold text-text">100% lab-getest</p>
-                <p className="text-xs text-text-muted">Iedere batch HPLC + GC-MS bij Janoshik of Anabolic Lab</p>
+                <p className="text-xs text-text-muted">Iedere batch getest door een onafhankelijk lab</p>
               </div>
             </div>
             <div className="flex items-start gap-3 rounded-lg border border-border bg-paper-soft p-3">
