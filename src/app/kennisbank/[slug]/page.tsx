@@ -4,6 +4,7 @@ import { getBlogPost, listBlogPosts } from "@/lib/queries";
 import { ArrowLeft, BadgeCheck } from "lucide-react";
 import type { Metadata } from "next";
 import { MedicalDisclaimer } from "@/components/medical-disclaimer";
+import { highlightGlossary } from "@/lib/glossary-highlight";
 
 export const revalidate = 600;
 
@@ -155,7 +156,7 @@ export default async function KennisbankDetail({ params }: { params: { slug: str
                    [&>a]:text-accent [&>a]:underline
                    [&_a]:text-accent [&_a]:underline
                    [&>blockquote]:border-l-4 [&>blockquote]:border-accent [&>blockquote]:pl-4 [&>blockquote]:italic"
-        dangerouslySetInnerHTML={{ __html: p.body || "" }}
+        dangerouslySetInnerHTML={{ __html: highlightGlossary(p.body || "") }}
       />
 
       {/* Author bio-blok onderaan voor extra E-E-A-T signaal */}

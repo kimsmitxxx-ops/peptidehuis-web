@@ -72,3 +72,19 @@ html, body {
 .text-muted-foreground { color: rgb(var(--color-text-muted)); }
 .bg-card { background: rgb(var(--color-paper-soft)); }
 .text-card-foreground { color: rgb(var(--color-text)); }
+
+/*
+ * Glossary hover-tooltip via native <abbr title="..."> element.
+ * Content wordt server-side gewrapt door lib/glossary-highlight.ts.
+ * Browser toont title-attribute als native tooltip; wij stylen alleen
+ * de underline zodat de gebruiker ziet dat het term interactief is.
+ */
+abbr[title] {
+  text-decoration: underline dotted rgb(var(--color-accent) / 0.6);
+  text-underline-offset: 2px;
+  cursor: help;
+  border-bottom: 0;
+}
+abbr[title]:hover {
+  text-decoration-color: rgb(var(--color-accent));
+}

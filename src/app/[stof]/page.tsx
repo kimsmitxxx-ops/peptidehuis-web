@@ -8,6 +8,7 @@ import { FaqAccordion } from "@/components/faq-accordion";
 import type { Metadata } from "next";
 import { BookOpen, Beaker, MapPin, ArrowRight, FlaskConical, ShieldCheck } from "lucide-react";
 import { MedicalDisclaimer } from "@/components/medical-disclaimer";
+import { highlightGlossary } from "@/lib/glossary-highlight";
 
 export const revalidate = 600;
 
@@ -157,7 +158,7 @@ export default function StofPage({ params }: { params: { stof: string } }) {
               <h2 className="font-display text-2xl md:text-3xl mt-2">{s.heading}</h2>
               <p
                 className="mt-3 text-text leading-relaxed [&_a]:text-accent [&_a]:underline [&_a:hover]:text-accent-muted"
-                dangerouslySetInnerHTML={{ __html: s.body }}
+                dangerouslySetInnerHTML={{ __html: highlightGlossary(s.body) }}
               />
             </div>
           ))}
