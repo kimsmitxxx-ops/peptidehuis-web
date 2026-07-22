@@ -246,7 +246,9 @@ function ChatPanel({ open, onOpenChange }: { open: boolean; onOpenChange: (v: bo
         {step === "intake" ? (
           <form onSubmit={submit} className="flex-1 overflow-y-auto px-5 py-4 space-y-3">
             <p className="text-sm text-text-muted">
-              Vraag over een product, batchcode of bestelling? Stuur een bericht — we reageren tussen 09:00 en 21:00.
+              Vraag over een product, batchcode of bestelling? Stuur een bericht — we reageren
+              tussen 09:00 en 21:00. Standaardvragen krijg je meteen antwoord op, specifieke
+              vragen zetten we door naar een medewerker en beantwoorden we via e-mail.
             </p>
             <label className="block">
               <span className="text-xs font-medium text-text mb-1 block">Naam (optioneel)</span>
@@ -257,9 +259,13 @@ function ChatPanel({ open, onOpenChange }: { open: boolean; onOpenChange: (v: bo
               />
             </label>
             <label className="block">
-              <span className="text-xs font-medium text-text mb-1 block">E-mail (voor antwoord)</span>
+              <span className="text-xs font-medium text-text mb-1 block">
+                E-mail <span className="text-danger">*</span>
+                <span className="ml-1 text-text-subtle font-normal">— voor het antwoord van onze medewerker</span>
+              </span>
               <input
                 type="email"
+                required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="jij@voorbeeld.nl"
@@ -280,11 +286,16 @@ function ChatPanel({ open, onOpenChange }: { open: boolean; onOpenChange: (v: bo
             {error && <p className="text-sm text-danger flex items-center gap-1"><AlertCircle size={14} /> {error}</p>}
             <button
               type="submit"
-              disabled={sending || !input.trim()}
+              disabled={sending || !input.trim() || !email.trim() || !email.includes("@")}
               className="w-full inline-flex items-center justify-center gap-2 rounded-md bg-accent px-5 h-11 text-sm font-semibold text-accent-foreground hover:bg-accent-soft disabled:opacity-50"
             >
               {sending ? (<><Loader2 size={15} className="animate-spin" /> Versturen…</>) : (<><Send size={15} /> Start chat</>)}
             </button>
+            <p className="text-[11px] text-text-subtle">
+              We beantwoorden algemene vragen automatisch. Krijgen we jouw vraag niet
+              instant beantwoord, dan sturen we een persoonlijk antwoord naar je e-mail —
+              meestal binnen een uur tijdens openingstijden.
+            </p>
           </form>
         ) : (
           <>
