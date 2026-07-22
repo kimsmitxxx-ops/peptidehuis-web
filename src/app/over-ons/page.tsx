@@ -51,7 +51,7 @@ const pillars = [
   {
     icon: MapPin,
     h: "NL-magazijn in Vlaardingen",
-    p: "Alles verzonden vanaf Westhavenkade 12, 3134 NA Vlaardingen. Anoniem verpakt, voor 22:00 besteld én betaald = morgen in huis met PostNL.",
+    p: "Alles verzonden vanaf Westhavenkade 12, 3134 NA Vlaardingen. Anoniem verpakt, betaling voor 11:00 op een werkdag = dezelfde dag verstuurd via PostNL of DPD.",
   },
 ];
 

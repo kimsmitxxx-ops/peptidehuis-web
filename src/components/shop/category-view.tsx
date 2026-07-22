@@ -143,8 +143,6 @@ export function CategoryView({ content: c }: CategoryViewProps) {
                     name={p.name}
                     slug={p.slug}
                     priceFrom={p.priceFrom}
-                    ratingValue={p.rating}
-                    ratingCount={p.ratingCount}
                     inStock={p.inStock}
                     tag={p.tag}
                     shortDescription={p.shortDescription}

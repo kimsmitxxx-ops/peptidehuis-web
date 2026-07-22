@@ -56,7 +56,7 @@ const HOMEPAGE_FAQ = [
   {
     question: "Hoe lang duurt verzending binnen Nederland en hoe wordt betaald?",
     answer:
-      "Als je betaling vóór 11:00 op een werkdag binnen is, wordt je pakket dezelfde dag nog verzonden — morgen in huis met PostNL of DPD. Betaling na 11:00 of in het weekend? Dan gaat je bestelling de eerstvolgende werkdag de deur uit. Betalen doe je via bank-overschrijving (IBAN) of crypto (BTC/ETH/USDT). Geen kaart, geen tussenpartij. Op je bankafschrift verschijnt alleen onze bedrijfsnaam, geen productomschrijving.",
+      "Als je betaling vóór 11:00 op een werkdag binnen is, wordt je pakket dezelfde dag nog verstuurd via PostNL of DPD. Betaling na 11:00 of in het weekend? Dan gaat je bestelling de eerstvolgende werkdag de deur uit. Betalen doe je via bank-overschrijving (IBAN) of crypto (BTC/ETH/USDT). Geen kaart, geen tussenpartij. Op je bankafschrift verschijnt alleen onze bedrijfsnaam, geen productomschrijving.",
   },
   {
     question: "Welke bijwerkingen kan ik verwachten en hoe houd ik die in de gaten?",
@@ -324,8 +324,6 @@ export default async function HomePage() {
                   name={p.name}
                   slug={p.slug}
                   priceFrom={p.price_cents / 100}
-                  ratingValue={4.8}
-                  ratingCount={0}
                   inStock={p.availability !== "OutOfStock"}
                   tag="Uitgelicht"
                   category={p.categories?.name}
@@ -360,8 +358,6 @@ export default async function HomePage() {
                   name={p.name}
                   slug={p.slug}
                   priceFrom={p.price_cents / 100}
-                  ratingValue={4.8}
-                  ratingCount={0}
                   inStock={p.availability !== "OutOfStock"}
                   tag={p.tags?.[0]}
                   category={p.categories?.name}

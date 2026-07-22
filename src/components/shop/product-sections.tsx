@@ -66,11 +66,15 @@ export function ProductSections({
   const hasSpecs = !!specifications && Object.keys(specifications).length > 0;
   const hasFaqs = !!faqs && faqs.length > 0;
 
+  // Reviews-sectie tijdelijk uitgeschakeld — komt terug zodra er voldoende
+  // echte reviews binnen zijn.
+  const REVIEWS_ENABLED = false;
+
   const sections = [
     hasDescription && { id: "beschrijving", label: "Beschrijving" },
     hasSpecs && { id: "specs", label: "Specificaties" },
     hasFaqs && { id: "faq", label: "FAQ" },
-    { id: "reviews", label: `Reviews${count ? ` (${count})` : ""}` },
+    REVIEWS_ENABLED && { id: "reviews", label: `Reviews${count ? ` (${count})` : ""}` },
   ].filter(Boolean) as { id: string; label: string }[];
 
   if (sections.length === 0) return null;
@@ -141,6 +145,7 @@ export function ProductSections({
         </section>
       )}
 
+      {REVIEWS_ENABLED && (
       <section>
         <SectionHead icon={Star} title={`Reviews${count ? ` (${count})` : ""}`} id="reviews" />
         <div className="mt-4 space-y-4">
@@ -195,6 +200,7 @@ export function ProductSections({
           {productId && <ReviewForm productId={productId} />}
         </div>
       </section>
+      )}
     </div>
   );
 }

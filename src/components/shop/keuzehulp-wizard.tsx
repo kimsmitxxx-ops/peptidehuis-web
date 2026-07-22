@@ -46,8 +46,23 @@ const BUDGET_OPTIONS: { key: Budget; label: string; sub: string }[] = [
 ];
 
 function suggest(a: Answers): Suggestion[] {
-  // Eerste kuur → test-only altijd
+  // Eerste kuur → form-afhankelijk
   if (a.goal === "eerste") {
+    if (a.form === "oraal") {
+      return [
+        { title: "Kuurpakket TABS ONLY | Utinon", why: "Volledig oraal beginners-pakket (Dianabol + Anavar + Turinabol + PCT). Geen prikken nodig. NB: test-basis (injectie) blijft de veiligste eerste kuur — orale-only geeft snellere maar minder stabiele gains en meer lever-belasting.", category: "kuurpakketten", href: "/winkel/kuurpakketten" },
+        { title: "Anavar 10 mg/tab", why: "Mildste oral voor beginners. 40-50 mg/dag, 8 weken max. Weinig bijwerkingen, geen aromatisatie.", category: "pillen-tabletten", href: "/winkel/pillen-tabletten" },
+        { title: "Nakuur (PCT) pakket", why: "Voor na de cycle — Clomid + Nolvadex. Ook bij oraal-only nodig om HPTA-as te herstellen.", category: "nakuur", href: "/winkel/nakuur" },
+      ];
+    }
+    if (a.form === "mix") {
+      return [
+        { title: "Kuurpakket Beginners Massa | Utinon", why: "Test-basis (injectie) + Dianabol kickstart (oraal) + PCT. Klassieke eerste mix-cycle met doseringen uitgelegd.", category: "kuurpakketten", href: "/winkel/kuurpakketten" },
+        { title: "Testosteron Enanthate 250", why: "Injectie-basis voor de mix — 300-500 mg/week, 12-16 weken.", category: "injectie", href: "/winkel/injectie" },
+        { title: "Dianabol 10 mg/tab", why: "Oral kickstart eerste 4 weken — snelle gains terwijl test opbouwt.", category: "pillen-tabletten", href: "/winkel/pillen-tabletten" },
+      ];
+    }
+    // form === "injectie" of onbekend
     return [
       { title: "Testosteron Enanthate 250", why: "Klassieke eerste kuur — 300–500mg/week, 12–16 weken. Voorspelbare bijwerkingen, stabiele bloedwaardes.", category: "injectie", href: "/winkel/injectie" },
       { title: "Kuurpakket Beginners Massa", why: "Alles erin: test, PCT (Clomid+Nolva), en bijbehorende dosering uitgelegd.", category: "kuurpakketten", href: "/winkel/kuurpakketten" },

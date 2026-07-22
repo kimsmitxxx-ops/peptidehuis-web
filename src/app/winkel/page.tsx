@@ -111,7 +111,6 @@ export default async function WinkelIndexPage({
                   name={p.name}
                   slug={p.slug}
                   priceFrom={p.price_cents / 100}
-                  ratingValue={4.8}
                   inStock={p.availability !== "OutOfStock"}
                   tag={p.tags?.[0]}
                   category={p.categories?.name}

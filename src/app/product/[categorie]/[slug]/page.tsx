@@ -208,7 +208,6 @@ export default async function ProductDetailPage({ params }: { params: { categori
                   name={r.name}
                   slug={r.slug}
                   priceFrom={r.price_cents / 100}
-                  ratingValue={4.8}
                   inStock={r.availability !== "OutOfStock"}
                   tag={r.tags?.[0]}
                   category={r.categories?.name}

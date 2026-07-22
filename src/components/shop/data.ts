@@ -1125,13 +1125,13 @@ export const categoryContent: CategoryContent[] = [
     group: "anabolen",
     name: "Winstrol",
     aka: ["Stanozolol", "Winny"],
-    tagline: "Droge, harde finisher — sloopt je gewrichten",
+    tagline: "Droge harde finisher — pre-contest klassieker",
     heroImage: "/img/stof/winstrol-hero.jpg",
     heroImageAlt: "Silhouet foto van een tablet bottle voor de stof-pagina winstrol",
     resultImage: "/img/stof/winstrol-resultaat.webp",
     resultImageAlt: "Winstrol kuur resultaat — extreem shredded droge vascular bodybuilder toont winstrol competition-stage look met striations",
     intro:
-      "Winstrol is de klassieke pre-contest finisher: droogt je uit, knalt vascularity en spierhardheid op een niveau dat geen andere stof matcht. Maar je gewrichten gaan janken.",
+      "Winstrol is de klassieke pre-contest finisher: droogt je uit, knalt vascularity en spierhardheid op een niveau dat geen andere stof matcht. Wel droog voor je gewrichten, dus altijd combineren met een test-basis en niet langer dan 6-8 weken.",
     longIntro:
       "Stanozolol is een oral of injectable DHT-derivaat met een uniek profiel: extreme droogheid, harde uitstraling en sterke hormoon-binding (waardoor vrij test omhoog gaat). Vooral populair in de laatste 4-6 weken vóór een show of beach-trip. Maar twee dingen om over na te denken: lever-belasting is hoog (zowel oral als injectable — injectable winny gaat ook door je lever), en de gewrichtspijn-meldingen zijn niet overdreven. Squat-sessies kunnen vervelend worden.",
     keyFacts: [
@@ -1204,15 +1204,15 @@ export const categoryContent: CategoryContent[] = [
     group: "anabolen",
     name: "Primobolan",
     aka: ["Methenolone", "Primo"],
-    tagline: "De Rolex onder de anabolen — duur, vaak fake, subtiel effect",
+    tagline: "De Rolex onder de anabolen — mild, clean, premium",
     heroImage: "/img/stof/primobolan-hero.jpg",
     heroImageAlt: "Editorial foto van een amber bottle voor de stof-pagina primobolan",
     resultImage: "/img/stof/primobolan-resultaat.webp",
     resultImageAlt: "Primobolan kuur resultaat — lean droge kwaliteitsspiermassa bodybuilder toont primobolan clean-cut fysiek",
     intro:
-      "Primo is de chique optie: mild profiel, geen bloat, geen omzetting in oestrogeen, en een prijskaartje waar je tweede kuur op past. Maar 9 van de 10 ampullen die je krijgt zijn fake.",
+      "Primo is de chique optie: mild profiel, geen bloat, geen omzetting in oestrogeen, en een prijskaartje waar je tweede kuur op past. Kwaliteit is cruciaal — daarom lab-test iedere batch bij Janoshik voor je hem in handen krijgt.",
     longIntro:
-      "Methenolone Enanthate heeft een bijna magische reputatie: 'cleaner gains', schone aankomst, geen oestrogeen-issues, weinig androgene rommel. Arnold zou het gebruikt hebben. Profis zweren erbij. En het werkt — als je echt product hebt. Probleem: ruwe methenolone-grondstof kost ongeveer $60-100 per gram, vergeleken met test enanthate op $0.50-1 per gram. Resultaat: bijna alle goedkope primo op de markt is vervalst met test of nandrolon. Zonder lab-test koop je geen primo, je koopt een verhaal.",
+      "Methenolone Enanthate heeft een bijna magische reputatie: 'cleaner gains', schone aankomst, geen oestrogeen-issues, weinig androgene rommel. Arnold zou het gebruikt hebben, profis zweren erbij. En het werkt — mits het product klopt. Ruwe methenolone-grondstof kost ongeveer $60-100 per gram, tegen test enanthate op $0.50-1 per gram. Daarom is een Janoshik lab-test per batch bij Primo geen luxe maar standaard bij ons — alleen zo weet je zeker dat er echt Methenolone in zit.",
     keyFacts: [
       { label: "Type", value: "DHT-derivaat — injectable (Primo E) of oral (Primo Acetate)" },
       { label: "Halfwaardetijd", value: "Enanthate ~10 dagen · Acetate ~5 uur" },
