@@ -31,62 +31,62 @@ const HOMEPAGE_FAQ = [
   {
     question: "Wat is de beste anabolenkuur voor beginners?",
     answer:
-      "Voor een eerste kuur wordt vrijwel unaniem testosteron-only aangeraden: 300–500 mg testosteron enanthate of cypionate per week, 12 tot 16 weken. Testosteron is de stof die je lichaam al kent, dus bijwerkingen zijn voorspelbaar en je weet hoe je lijf reageert vóór je iets ingewikkelders erbij doet. PCT (Clomid + Nolvadex) start je 2 weken na de laatste injectie. Geen dianabol-kickstart als eerste kuur — die voegt risico toe zonder dat je weet of de basis werkt.",
+      "Testosteron-only, 300–500 mg per week, 12 tot 16 weken. Test kent je lichaam al, dus je weet wat je bijwerkingen zijn en hoe je erop reageert. Combineren met dianabol of iets anders bewaar je voor kuur 2 of 3 — eerst weten of de basis werkt. Nakuur (PCT) start 2 weken na de laatste prik.",
   },
   {
-    question: "Wat is het verschil tussen testosteron enanthate, cypionate en sustanon?",
+    question: "Wat is het verschil tussen Test E, Test C en Sustanon?",
     answer:
-      "Test E (enanthate) en Test C (cypionate) zijn praktisch identiek: halfwaardetijd van ongeveer 8 dagen, 2x per week injecteren is genoeg voor stabiele bloedwaardes. Sustanon is een mix van 4 esters (propionaat, fenylpropionaat, isocaproaat, decanoaat). Daardoor krijg je sneller een effect (de korte esters trappen vroeg in) maar voor strakke piek-en-dal moet je 2–3x per week injecteren. Pure prijs/kwaliteit kies je Test E of C; Sustanon is handiger als je sneller op niveau wil komen.",
+      "Test E en Test C zijn praktisch hetzelfde: 2× per week injecteren, stabiele waardes. Sustanon is een mix van 4 esters — sneller effect maar je moet 2–3× per week prikken voor stabiele bloedwaardes. Kies Test E of C voor beste prijs; Sustanon als je sneller op niveau wil.",
   },
   {
-    question: "Hoe lang moet een PCT duren en welke producten heb ik nodig?",
+    question: "Hoe lang duurt een PCT en wat heb ik nodig?",
     answer:
-      "Een standaard PCT duurt 4 weken en bestaat uit Clomid (50/50/25/25 mg per dag) gecombineerd met Nolvadex (20/20/10/10 mg). Start 2 weken na je laatste lange-ester injectie of meteen na een orale-only cycle. HCG kun je optioneel inzetten in de cruise/blast naar PCT-transitie om je testikels al voor de PCT wakker te schudden (500–1500 IE 2x/week, 2 weken). Skip de PCT en je herstelt soms een half jaar later nog steeds niet — dat is geen bangmakerij, dat is gewoon hoe HPTA-suppressie werkt.",
+      "4 weken Clomid + Nolvadex. Dosering: Clomid 50/50/25/25 mg per dag, Nolvadex 20/20/10/10 mg. Start 2 weken na je laatste injectie. hCG kun je optioneel gebruiken vlak vóór PCT om je testikels alvast wakker te maken. Skip je de PCT? Dan kan herstel maanden extra kosten.",
   },
   {
-    question: "Hoe weet ik dat de anabolen die ik koop écht zijn en niet underdosed?",
+    question: "Hoe weet ik dat wat ik koop echt is en niet underdosed?",
     answer:
-      "Elke batch die wij verkopen heeft een batchcode op het flesje. Die code zoek je op de productpagina onder COA — daar staat het lab-rapport: werkzame stof, gemeten zuiverheid (minimum 97%), oplosmiddel-residu en eventuele isomeren. Geen rapport = geen verkoop. Ben je nog kritischer: stuur zelf een flesje op naar een onafhankelijk lab (~€80), wij vergoeden het verschil als jouw meting buiten 5% van onze meting valt.",
+      "Iedere batch heeft een batchcode op het flesje. Die zoek je op onze /lab-pagina en krijgt het volledige labrapport (Janoshik) met werkzame stof + zuiverheid. Geen rapport = geen verkoop. Extra zeker weten? Stuur zelf een flesje op naar een lab (~€80) — wijkt onze meting >5% af, dan vergoeden we het verschil.",
   },
   {
-    question: "Hoe ziet de verpakking eruit en wat staat er op het label?",
+    question: "Hoe ziet de verpakking eruit?",
     answer:
-      "Bruine of grijze kartonnen doos zonder logo, zonder QR-code, zonder afbeelding. Op het verzendlabel staat alleen onze bedrijfsnaam en jouw adres. Geen vermelding van productnaam, geen \"medisch\" stempel, geen waarschuwingsstickers. De bezorger ziet één van de duizenden anonieme webshop-pakketjes. Wij verzenden alleen naar vaste huisadressen — geen PostNL-afhaalpunten als aflever-optie.",
+      "Bruine of grijze doos zonder logo, zonder QR-code, zonder afbeelding. Op het label alleen onze bedrijfsnaam en jouw adres — geen productnaam, geen medisch-stempel. Ziet eruit als elk ander webshop-pakket. Alleen naar vaste huisadressen, geen PostNL-afhaalpunten.",
   },
   {
-    question: "Hoe lang duurt verzending binnen Nederland en hoe wordt betaald?",
+    question: "Hoe snel is de verzending in Nederland en hoe betaal ik?",
     answer:
-      "Als je betaling vóór 11:00 op een werkdag binnen is, wordt je pakket dezelfde dag nog verstuurd via PostNL of DPD. Betaling na 11:00 of in het weekend? Dan gaat je bestelling de eerstvolgende werkdag de deur uit. Betalen doe je via bank-overschrijving (IBAN) of crypto (BTC/ETH/USDT). Geen kaart, geen tussenpartij. Op je bankafschrift verschijnt alleen onze bedrijfsnaam, geen productomschrijving.",
+      "Betaling voor 11:00 op een werkdag = dezelfde dag verstuurd via PostNL of DPD. Betaling na 11:00 of in het weekend gaat de eerstvolgende werkdag de deur uit. Betalen doe je via IBAN of crypto (BTC/ETH/USDT). Op je bankafschrift staat alleen onze bedrijfsnaam.",
   },
   {
-    question: "Welke bijwerkingen kan ik verwachten en hoe houd ik die in de gaten?",
+    question: "Welke bijwerkingen kan ik verwachten?",
     answer:
-      "Standaard tijdens een testosteron-cycle: acne, hogere bloeddruk, hogere hematocriet (= dikker bloed, geeft hoofdpijn), mogelijk gynecomastie via aromatisatie naar oestradiol, lagere natuurlijke testosteronproductie (HPTA-suppressie). Trenbolone voegt slapeloosheid, nachtelijk zweten en mentale onrust toe. Houd in de gaten via bloedwerk vóór, tijdens (week 6) en na de cycle: lipidenpanel, LH, FSH, totaal+vrij testosteron, oestradiol, SHBG, hematocriet, ALT/AST, creatinine. Bij hematocriet >54 doneer je bloed, bij oestradiol >40 pg/ml voeg je een AI toe.",
+      "Standaard bij testosteron: acne, hogere bloeddruk, dikker bloed (hematocriet), risico op gynecomastie via oestrogeen. Je eigen productie wordt tijdelijk stilgezet — dat herstel je met PCT. Trenbolone voegt slaapproblemen en nachtelijk zweten toe. Bloedwerk vóór, tijdens (week 6) en na de kuur laat zien of alles binnen normale waardes blijft.",
   },
   {
-    question: "Wat zijn natuurlijke alternatieven voor anabolen en werken die echt?",
+    question: "Werken natuurlijke alternatieven?",
     answer:
-      "Volledig vervangen: nee. Maar het verschil tussen iemand die geoptimaliseerd traint+eet en iemand die dat niet doet is groter dan veel mensen denken. Concreet werkt: creatine monohydraat (5 g/dag, +10–15% kracht binnen 4 weken), 1.6–2.2 g eiwit per kg lichaamsgewicht, progressive overload met 3–5x training per week, 7+ uur slaap, vitamine D + zink + magnesium als je tekort hebt. Je natural plafond hangt af van genetica (FFMI ~25 voor de meeste mannen). Voor lifestyle-redenen kies je natural; voor competitie-niveau is anabolen vrijwel altijd onderdeel van het verhaal — dat is geen oordeel, gewoon hoe het is.",
+      "Volledig vervangen: nee. Maar goed trainen + eten + slapen scheelt meer dan mensen denken. Concreet werkt: 5 g creatine per dag, 1.6–2.2 g eiwit per kilo, 3–5× per week trainen met progressive overload, 7+ uur slaap, en bijstellen van tekorten (vitamine D, zink, magnesium). Voor competitie-niveau spelen AAS meestal een rol — dat is geen oordeel, gewoon hoe het werkt.",
   },
   {
-    question: "Kan ik mijn bestelling retourneren of annuleren als ik van gedachten verander?",
+    question: "Kan ik mijn bestelling retourneren?",
     answer:
-      "Nee. Vanwege onze branche kunnen we geen fysiek retour-adres publiek voeren en zodra je betaling binnen is, gaat de bestelling in behandeling. Neem daarom vóór je betaalt goed de tijd om je bestelling te controleren. Wél garanderen we dat je pakket aankomt: doet-ie dat niet binnen 14 dagen na verzending, dan sturen wij automatisch een nieuwe. En bij een aantoonbare batch-afwijking (>5% van het COA) krijg je het item kosteloos vervangen in je volgende bestelling.",
+      "Nee — zodra je betaling binnen is gaat het pakket dezelfde dag de deur uit, dus check je bestelling voordat je betaalt. Wél garanderen we levering: komt je pakket niet binnen 14 dagen aan, dan sturen wij automatisch een nieuwe. Wijkt een batch >5% af van het COA, dan krijg je het item kosteloos vervangen bij je volgende bestelling.",
   },
   {
-    question: "Werken kuurpakketten beter dan losse producten kopen?",
+    question: "Werken kuurpakketten beter dan losse producten?",
     answer:
-      "Voor beginners en intermediates ja — wij stellen pakketten samen waarin de doseringen op elkaar afgestemd zijn (geen rare verhoudingen) en de PCT zit er al in. Scheelt je de berekening en zorgt dat je niet halverwege merkt dat je Nolvadex vergat te bestellen. Ervaren gebruikers met een specifiek doel (lean bulk, recomp, contest prep) stellen vaak liever zelf samen — daar zijn losse producten goedkoper en preciezer.",
+      "Voor beginners en intermediates: ja. Doseringen zijn op elkaar afgestemd en de PCT zit erin — scheelt je de reken- en bestelklus. Ervaren gebruikers stellen vaak zelf samen omdat ze doelgerichter en goedkoper uitkomen. Wij verkopen beide.",
   },
   {
-    question: "Vanaf welke leeftijd kan je veilig anabolen gebruiken?",
+    question: "Vanaf welke leeftijd kun je veilig anabolen gebruiken?",
     answer:
-      "Medisch antwoord: pas nadat je natuurlijke groei klaar is, oftewel ergens tussen 23 en 25 jaar. Daarvoor zit je groeischijven nog open en kan AAS-gebruik die voortijdig sluiten — je wordt korter dan je had kunnen zijn. Ook is je eigen testosteron-productie tussen 18 en 23 op zijn hoogtepunt; je hebt niks toe te voegen behalve risico. Realistisch gebruiken veel mensen het eerder — onze rol is dan zorgen dat je weet wat je doet, niet doen alsof het probleem niet bestaat.",
+      "Medisch: pas na 23–25 jaar, wanneer je natuurlijke groei klaar is. Daarvoor zit je groeischijven nog open en zet AAS die voortijdig dicht — je wordt korter. Tussen je 18 en 23 zit je eigen testosteron ook op zijn hoogtepunt — er is dus letterlijk niks toe te voegen behalve risico. Realistisch gebruiken veel mensen het eerder — onze rol is dan zorgen dat je weet wat je doet.",
   },
   {
     question: "Hebben jullie een 100% leveringsgarantie?",
     answer:
-      "Ja. Als je pakket door welke reden dan ook niet aankomt (kwijtgeraakt, teruggestuurd, transportschade), verzenden wij automatisch een nieuwe zending — zonder discussie, zonder extra kosten en zonder dat je aanvullend bewijs hoeft aan te leveren. Meld het via het contactformulier met je ordernummer, wij regelen de rest.",
+      "Ja. Komt je pakket niet aan — kwijtgeraakt, teruggestuurd of transportschade — dan verzenden wij automatisch een nieuwe zending. Zonder discussie, zonder extra kosten, zonder aanvullend bewijs. Meld het via het contactformulier met je ordernummer, wij regelen de rest.",
   },
 ];
 
