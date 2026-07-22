@@ -2,7 +2,7 @@ import { supabase, type Product, type Category, type BlogPost } from "./supabase
 
 // Hardcoded shop_id voor anabolenpro — fallback voor scoped JWT die niet werkt.
 // RLS-policies in shop-dash migration 021 staan anon SELECT toe op deze shop.
-const SHOP_ID = "18a96da9-9f9f-466f-ac2b-3ab0349b78a6";
+const SHOP_ID = "42ddf952-d3c1-4c81-8029-7b4c54a84913";
 
 // Populariteits-volgorde van stoffen (eerst = bovenaan). UT-merk overrules dit.
 const STOF_POPULARITY = [

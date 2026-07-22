@@ -3,7 +3,7 @@ import { useState } from "react";
 import { CheckCircle2, Loader2, Mail } from "lucide-react";
 
 const SHOP_DASH_API = process.env.NEXT_PUBLIC_SHOP_DASH_URL || "https://shop-dash-ruby.vercel.app";
-const SHOP_ID = "18a96da9-9f9f-466f-ac2b-3ab0349b78a6";
+const SHOP_ID = "42ddf952-d3c1-4c81-8029-7b4c54a84913";
 
 type State = "idle" | "sending" | "sent" | "error";
 

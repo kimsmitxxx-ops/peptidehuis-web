@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 import { listProducts, listCategories, listBlogPosts } from "@/lib/queries";
 
-const BASE = "https://anabolenpro.com";
+const BASE = "https://peptidehuis.nl";
 
 export const revalidate = 3600;
 

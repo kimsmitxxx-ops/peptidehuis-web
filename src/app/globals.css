@@ -3,41 +3,43 @@
 @tailwind utilities;
 
 /*
- * anabolenpro.com design tokens (Tailwind v3 alpha-value compatibel).
+ * peptidehuis.nl design tokens (Tailwind v3 alpha-value compatibel).
  * Kleuren als space-separated RGB triplets zodat opacity modifiers werken:
  * bg-primary/95 → rgb(var(--color-primary) / 0.95).
  */
 :root {
-  /* Surfaces */
-  --color-background: 244 242 234;
-  --color-surface: 230 239 231;
-  --color-paper: 241 239 231;
-  --color-paper-soft: 251 250 246;
-  --color-paper-ink: 17 36 30;
-  --color-paper-ink-muted: 75 91 83;
-  --color-paper-border: 228 226 216;
+  /* Peptidehuis — warm cream + champagne gold (retakopen-verwant) */
 
-  /* Primary (deep green panel) */
-  --color-primary: 17 36 30;
-  --color-primary-soft: 26 51 41;
-  --color-primary-muted: 36 74 60;
-  --color-primary-foreground: 242 245 241;
+  /* Surfaces (warm cream) */
+  --color-background: 250 246 236;
+  --color-surface: 244 238 224;
+  --color-paper: 247 242 230;
+  --color-paper-soft: 253 251 244;
+  --color-paper-ink: 43 30 18;
+  --color-paper-ink-muted: 108 88 68;
+  --color-paper-border: 224 214 194;
 
-  /* Accent (vivid clinical green) */
-  --color-accent: 43 179 106;
-  --color-accent-soft: 61 220 132;
-  --color-accent-muted: 31 142 81;
-  --color-accent-foreground: 8 18 14;
+  /* Primary (deep ink for hero + footer, warme donkere tint) */
+  --color-primary: 41 30 20;
+  --color-primary-soft: 56 42 30;
+  --color-primary-muted: 78 60 46;
+  --color-primary-foreground: 250 245 232;
+
+  /* Accent (champagne gold) */
+  --color-accent: 192 155 90;
+  --color-accent-soft: 220 190 130;
+  --color-accent-muted: 165 130 70;
+  --color-accent-foreground: 44 30 18;
 
   /* Text */
-  --color-text: 17 36 30;
-  --color-text-muted: 75 91 83;
-  --color-text-subtle: 122 137 131;
-  --color-foreground: 17 36 30;
+  --color-text: 41 30 20;
+  --color-text-muted: 108 88 68;
+  --color-text-subtle: 150 130 108;
+  --color-foreground: 41 30 20;
 
-  /* Borders */
-  --color-border: 228 226 216;
-  --color-border-strong: 207 206 194;
+  /* Borders (zacht warm bruin-grijs) */
+  --color-border: 224 214 194;
+  --color-border-strong: 200 186 160;
 
   /* Semantic */
   --color-success: 31 142 81;

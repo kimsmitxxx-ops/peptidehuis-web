@@ -35,9 +35,9 @@ const WhatsAppFab = dynamic(
 );
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://anabolenpro.com"),
-  title: { default: "AnabolenPro — lab-getest, vandaag besteld, vandaag verstuurd", template: "%s · AnabolenPro" },
-  description: "AnabolenPro: onafhankelijk lab-getest, anoniem verpakt, 24u verzending vanaf NL-magazijn. Anavar, Dianabol, testosteron-esters, PCT, kuurpakketten.",
+  metadataBase: new URL("https://peptidehuis.nl"),
+  title: { default: "Peptidehuis — onderzoeks-peptiden, ≥98% HPLC, COA per batch", template: "%s · Peptidehuis" },
+  description: "20+ onderzoeks-peptiden: BPC-157, Retatrutide, CJC-1295, Semaglutide, Ipamorelin en meer. Lab-grade ≥98% HPLC, gevriesdroogd, COA per batchcode, discreet verzonden vanaf NL.",
   robots: { index: true, follow: true },
   icons: {
     icon: [{ url: "/icon.png", type: "image/png" }],
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="nl" className={`${manrope.variable} ${spaceGrotesk.variable}`}>
+    <html lang="nl" data-shop="peptidehuis" className={`${manrope.variable} ${spaceGrotesk.variable}`}>
       <head>
         <link rel="preconnect" href="https://rexqfwibxawqnvrzbdoo.supabase.co" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />

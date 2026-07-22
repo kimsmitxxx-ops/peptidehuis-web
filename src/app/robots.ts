@@ -16,7 +16,7 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
     rules: [
       { userAgent: "*", allow: "/", disallow: ["/account", "/api/", "/checkout"] },
     ],
-    sitemap: "https://anabolenpro.com/sitemap.xml",
-    host: "https://anabolenpro.com",
+    sitemap: "https://peptidehuis.nl/sitemap.xml",
+    host: "https://peptidehuis.nl",
   };
 }
