@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import { createServiceClient } from "@/lib/supabase";
+
+export const dynamic = "force-dynamic";
 
 const SHOP_ID = "18a96da9-9f9f-466f-ac2b-3ab0349b78a6";
 
@@ -13,8 +15,16 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Geldig e-mailadres vereist" }, { status: 400 });
   }
 
+  // Service-role client — RLS blokkeert anon inserts op leads.
+  let sb;
+  try {
+    sb = createServiceClient();
+  } catch (e: any) {
+    return NextResponse.json({ error: `Server-config fout: ${e.message}` }, { status: 500 });
+  }
+
   // `leads` table exists per migration 003; UPSERT op unique (shop_id, email)
-  const { error } = await supabase.from("leads").upsert(
+  const { error } = await sb.from("leads").upsert(
     { shop_id: SHOP_ID, email, source: "newsletter", subscribed: true },
     { onConflict: "shop_id,email" },
   );

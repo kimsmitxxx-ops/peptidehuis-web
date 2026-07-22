@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import { supabase, createServiceClient } from "@/lib/supabase";
+
+export const dynamic = "force-dynamic";
 
 const SHOP_ID = "18a96da9-9f9f-466f-ac2b-3ab0349b78a6";
 
@@ -35,7 +37,15 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Product niet gevonden" }, { status: 404 });
   }
 
-  const { error } = await supabase
+  // Service-role client — RLS blokkeert anon inserts op restock_notifications.
+  let write;
+  try {
+    write = createServiceClient();
+  } catch (e: any) {
+    return NextResponse.json({ error: `Server-config fout: ${e.message}` }, { status: 500 });
+  }
+
+  const { error } = await write
     .from("restock_notifications")
     .upsert(
       {

@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import { createServiceClient } from "@/lib/supabase";
 import { unitDiscountPct } from "@/lib/bulk-discount";
+
+export const dynamic = "force-dynamic";
 
 const SHOP_ID = "18a96da9-9f9f-466f-ac2b-3ab0349b78a6"; // anabolenpro
 const SHIPPING_FEE_CENTS = 1000; // EUR 10 per zending
@@ -30,6 +32,14 @@ export async function POST(req: NextRequest) {
     ) {
       return NextResponse.json({ error: "Ongeldige cart-item" }, { status: 400 });
     }
+  }
+
+  // Service-role client — writes moeten RLS-policies overslaan.
+  let supabase;
+  try {
+    supabase = createServiceClient();
+  } catch (e: any) {
+    return NextResponse.json({ error: `Server-config fout: ${e.message}` }, { status: 500 });
   }
 
   let customerId: string | null = null;
