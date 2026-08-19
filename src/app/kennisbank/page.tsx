@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 export const revalidate = 600;
 
 export const metadata: Metadata = {
-  title: "Kennisbank onderzoekspeptiden — BPC-157, Retatrutide, CJC-1295 · Peptidehuis",
+  title: "Kennisbank onderzoekspeptiden - BPC-157, Retatrutide, CJC-1295 · Peptidehuis",
   description:
     "Onafhankelijke gidsen over onderzoeks-peptiden: werkingsmechanisme, HPLC-zuiverheid, reconstitutie, doseringsschema's en veiligheidsadviezen. Voor onderzoekers en biochemici.",
   alternates: { canonical: "/kennisbank" },

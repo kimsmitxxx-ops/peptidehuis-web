@@ -37,7 +37,7 @@ const WhatsAppFab = dynamic(
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://peptidehuis.nl"),
-  title: { default: "Peptidehuis — onderzoeks-peptiden, ≥98% HPLC, COA per batch", template: "%s · Peptidehuis" },
+  title: { default: "Peptidehuis - onderzoeks-peptiden, ≥98% HPLC, COA per batch", template: "%s · Peptidehuis" },
   description: "20+ onderzoeks-peptiden: BPC-157, Retatrutide, CJC-1295, Semaglutide, Ipamorelin en meer. Lab-grade ≥98% HPLC, gevriesdroogd, COA per batchcode, discreet verzonden vanaf NL.",
   robots: { index: true, follow: true },
   icons: {

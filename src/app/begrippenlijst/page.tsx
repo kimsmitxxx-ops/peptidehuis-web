@@ -5,7 +5,7 @@ import { BookOpen } from "lucide-react";
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: "Begrippenlijst anabolen & AAS — HPLC, PCT, HPTA, aromatisatie | Peptidehuis",
+  title: "Begrippenlijst anabolen & AAS - HPLC, PCT, HPTA, aromatisatie | Peptidehuis",
   description:
     "Uitleg van de begrippen die je tegenkomt op peptidehuis.nl en in de kennisbank: AAS, aromatisatie, HPTA, PCT, bloedwerk, Janoshik, ester, half-life en meer. Voor beginners en ervaren gebruikers.",
   alternates: { canonical: "/begrippenlijst" },
