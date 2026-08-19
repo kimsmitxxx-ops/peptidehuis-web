@@ -1,6 +1,6 @@
 import { supabase, type Product, type Category, type BlogPost } from "./supabase";
 
-// Hardcoded shop_id voor anabolenpro — fallback voor scoped JWT die niet werkt.
+// Hardcoded shop_id voor anabolenpro - fallback voor scoped JWT die niet werkt.
 // RLS-policies in shop-dash migration 021 staan anon SELECT toe op deze shop.
 const SHOP_ID = "42ddf952-d3c1-4c81-8029-7b4c54a84913";
 

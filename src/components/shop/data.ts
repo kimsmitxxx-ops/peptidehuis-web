@@ -19,11 +19,11 @@ export interface MainCategory {
 }
 
 export const mainCategories: MainCategory[] = [
-  { slug: "genezing", name: "Genezing & herstel", tagline: "BPC-157, TB-500, KPV — voor pees-, spier- en weefselherstel.", image: catHealing, to: "/winkel/genezing" },
-  { slug: "vetverlies", name: "Vetverlies", tagline: "Retatrutide, Semaglutide, Tirzepatide, HGH Fragment — GLP-1 en beta-oxidatie.", image: catFatloss, to: "/winkel/vetverlies" },
-  { slug: "spiergroei", name: "Spiergroei & GH", tagline: "CJC-1295, Ipamorelin, MOTS-c — natuurlijke GH-release en spiergroei.", image: catGrowth, to: "/winkel/spiergroei" },
-  { slug: "cognitie", name: "Cognitie & stemming", tagline: "Selank, Semax, DSIP — nootropics voor focus, slaap en stress.", image: catCognitive, to: "/winkel/cognitie" },
-  { slug: "longevity", name: "Longevity", tagline: "Epithalon, Thymosin Alpha-1, NAD+, Humanin — anti-aging en cellulair herstel.", image: catLongevity, to: "/winkel/longevity" },
+  { slug: "genezing", name: "Genezing & herstel", tagline: "BPC-157, TB-500, KPV - voor pees-, spier- en weefselherstel.", image: catHealing, to: "/winkel/genezing" },
+  { slug: "vetverlies", name: "Vetverlies", tagline: "Retatrutide, Semaglutide, Tirzepatide, HGH Fragment - GLP-1 en beta-oxidatie.", image: catFatloss, to: "/winkel/vetverlies" },
+  { slug: "spiergroei", name: "Spiergroei & GH", tagline: "CJC-1295, Ipamorelin, MOTS-c - natuurlijke GH-release en spiergroei.", image: catGrowth, to: "/winkel/spiergroei" },
+  { slug: "cognitie", name: "Cognitie & stemming", tagline: "Selank, Semax, DSIP - nootropics voor focus, slaap en stress.", image: catCognitive, to: "/winkel/cognitie" },
+  { slug: "longevity", name: "Longevity", tagline: "Epithalon, Thymosin Alpha-1, NAD+, Humanin - anti-aging en cellulair herstel.", image: catLongevity, to: "/winkel/longevity" },
 ];
 
 // Legacy exports voor backwards-compat met components die nog verwijzen

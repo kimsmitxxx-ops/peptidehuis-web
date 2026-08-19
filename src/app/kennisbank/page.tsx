@@ -33,7 +33,7 @@ export default async function KennisbankPage({
       </h1>
       <p className="mt-4 max-w-2xl text-text-muted leading-relaxed">
         Onafhankelijke gidsen over de top 20 onderzoeks-peptiden. Werkingsmechanismen,
-        reconstitutie-protocollen, HPLC-zuiverheid, doseringsschema's — geschreven voor
+        reconstitutie-protocollen, HPLC-zuiverheid, doseringsschema's - geschreven voor
         onderzoekers en biochemici.
       </p>
 

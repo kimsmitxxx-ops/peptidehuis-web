@@ -15,22 +15,22 @@ const HOMEPAGE_FAQ = [
   {
     question: "Wat zijn onderzoeks-peptiden precies?",
     answer:
-      "Korte ketens aminozuren (2-50) die als signaal-molecuul werken in het lichaam. Ze binden aan specifieke receptoren en activeren processen zoals weefselherstel, GH-afgifte, vetverbranding of neuroplasticiteit. Onze peptiden zijn lab-grade (≥98% HPLC) uitsluitend voor onderzoek — niet voor humane consumptie.",
+      "Korte ketens aminozuren (2-50) die als signaal-molecuul werken in het lichaam. Ze binden aan specifieke receptoren en activeren processen zoals weefselherstel, GH-afgifte, vetverbranding of neuroplasticiteit. Onze peptiden zijn lab-grade (≥98% HPLC) uitsluitend voor onderzoek - niet voor humane consumptie.",
   },
   {
-    question: "Waarom hier kopen — waarom geen andere leverancier?",
+    question: "Waarom hier kopen - waarom geen andere leverancier?",
     answer:
-      "Iedere batch heeft een openbaar COA met HPLC-zuiverheid ≥98%, monomeer-fractie ≥95%, endotoxine <5 EU/mg. Direct van EU-gecertificeerde synthese-labs — geen ompak-route via drop-shippers. Gevriesdroogd geleverd voor maximale stabiliteit. Discrete verzending vanaf NL binnen 24 uur.",
+      "Iedere batch heeft een openbaar COA met HPLC-zuiverheid ≥98%, monomeer-fractie ≥95%, endotoxine <5 EU/mg. Direct van EU-gecertificeerde synthese-labs - geen ompak-route via drop-shippers. Gevriesdroogd geleverd voor maximale stabiliteit. Discrete verzending vanaf NL binnen 24 uur.",
   },
   {
     question: "Hoe bewaar en gebruik ik gevriesdroogde peptiden?",
     answer:
-      "Ongeopend: koelkast (2-8°C), donker, tot 24 maanden stabiel. Reconstitutie met bacteriostatisch water (0,9% benzylalcohol) — rustig langs de wand injecteren, zwenken tot helder. Aangemaakt gekoeld bewaren, binnen 30 dagen gebruiken.",
+      "Ongeopend: koelkast (2-8°C), donker, tot 24 maanden stabiel. Reconstitutie met bacteriostatisch water (0,9% benzylalcohol) - rustig langs de wand injecteren, zwenken tot helder. Aangemaakt gekoeld bewaren, binnen 30 dagen gebruiken.",
   },
   {
     question: "Wat is het verschil tussen Retatrutide, Tirzepatide en Semaglutide?",
     answer:
-      "Semaglutide (Ozempic) is een GLP-1 mono-agonist — één receptor. Tirzepatide (Mounjaro) is dual-agonist (GLP-1 + GIP) — twee receptoren. Retatrutide is triple-agonist: GLP-1, GIP én glucagon. Meer receptoren = meer effect: fase-II studies toonden tot 24% gewichtsverlies bij 12 mg/week.",
+      "Semaglutide (Ozempic) is een GLP-1 mono-agonist - één receptor. Tirzepatide (Mounjaro) is dual-agonist (GLP-1 + GIP) - twee receptoren. Retatrutide is triple-agonist: GLP-1, GIP én glucagon. Meer receptoren = meer effect: fase-II studies toonden tot 24% gewichtsverlies bij 12 mg/week.",
   },
   {
     question: "Welke peptide voor pees-/spierletsel herstel?",
@@ -40,7 +40,7 @@ const HOMEPAGE_FAQ = [
   {
     question: "Heb ik een recept nodig?",
     answer:
-      "Nee — deze peptiden worden geleverd voor onderzoeksdoeleinden en vallen niet onder receptplicht in NL/EU. Wel belangrijk: uitsluitend voor lab- en in-vitro-onderzoek, niet voor humane toepassing. Onderzoekers zijn zelf verantwoordelijk voor gepaste ethische goedkeuring.",
+      "Nee - deze peptiden worden geleverd voor onderzoeksdoeleinden en vallen niet onder receptplicht in NL/EU. Wel belangrijk: uitsluitend voor lab- en in-vitro-onderzoek, niet voor humane toepassing. Onderzoekers zijn zelf verantwoordelijk voor gepaste ethische goedkeuring.",
   },
   {
     question: "Hoe lang duurt de verzending?",
@@ -50,7 +50,7 @@ const HOMEPAGE_FAQ = [
   {
     question: "Wat is een COA en waarom belangrijk?",
     answer:
-      "Certificate of Analysis — per batch een lab-rapport met identiteit (mass-spec), HPLC-zuiverheid, monomeer-fractie, endotoxine (LAL-test). Zonder COA weet je niet wat je hebt. Al onze COA's zijn digitaal opvraagbaar per batchcode.",
+      "Certificate of Analysis - per batch een lab-rapport met identiteit (mass-spec), HPLC-zuiverheid, monomeer-fractie, endotoxine (LAL-test). Zonder COA weet je niet wat je hebt. Al onze COA's zijn digitaal opvraagbaar per batchcode.",
   },
 ];
 
@@ -110,11 +110,11 @@ export default async function HomePage() {
               <br />
               <span className="text-accent-soft">van EU-gecertificeerde synthese-labs.</span>
               <span className="block mt-3 text-base md:text-lg font-sans font-normal tracking-normal text-primary-foreground/70">
-                BPC-157 · Retatrutide · Tirzepatide · Semaglutide · CJC-1295 · Ipamorelin — 20+ peptiden.
+                BPC-157 · Retatrutide · Tirzepatide · Semaglutide · CJC-1295 · Ipamorelin - 20+ peptiden.
               </span>
             </h1>
             <p className="mt-5 text-lg text-primary-foreground/80 max-w-xl leading-relaxed">
-              Genezing, vetverlies, spiergroei, cognitie en longevity — de top 20 onderzoeks-peptiden
+              Genezing, vetverlies, spiergroei, cognitie en longevity - de top 20 onderzoeks-peptiden
               op één plek. Iedere batch met openbaar COA, gevriesdroogd geleverd, discrete verzending
               vanuit NL. Voor lab- en in-vitro onderzoek.
             </p>
