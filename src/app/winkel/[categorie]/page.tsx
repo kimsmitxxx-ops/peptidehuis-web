@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: { categorie: string
   if (!cat) return { title: "Niet gevonden" };
   return {
     title: cat.meta_title || `${cat.name} kopen`,
-    description: cat.meta_description || cat.description || `${cat.name} bij anabolenpro - lab-getest, snel uit Nederland.`,
+    description: cat.meta_description || cat.description || `${cat.name} bij Peptidehuis - lab-getest, snel uit Nederland.`,
     alternates: { canonical: `/winkel/${cat.slug}` },
     openGraph: { title: cat.name, description: cat.description || undefined, type: "website" },
   };
@@ -38,7 +38,6 @@ export default async function CategoryPage({
   const stockOnly = searchParams.stock === "1";
   const merk = searchParams.merk || "";
   const stof = (searchParams.stof || "").toLowerCase();
-  const locatie = searchParams.locatie || "";
   const q = (searchParams.q || "").trim().toLowerCase();
   const brandSet = new Set<string>();
   allProducts.forEach((p) => p.tags?.forEach((t) => { if (KNOWN_BRANDS.has(t)) brandSet.add(t); }));
@@ -47,9 +46,7 @@ export default async function CategoryPage({
   const filtered = allProducts.filter((p) => {
     if (stockOnly && p.availability === "OutOfStock") return false;
     if (merk && !(p.tags || []).includes(merk)) return false;
-    if (stof && !(p.stof_slugs || []).includes(stof)) return false;
-    if (locatie === "01" && !(p.tags || []).includes("UT")) return false;
-    if (locatie === "02" && (p.tags || []).includes("UT")) return false;
+    if (stof && !`${p.name} ${p.slug}`.toLowerCase().includes(stof)) return false;
     if (q) {
       const hay = `${p.name} ${p.slug} ${(p.tags || []).join(" ")} ${(p.stof_slugs || []).join(" ")} ${p.subtitle || ""}`.toLowerCase();
       if (!hay.includes(q)) return false;
@@ -128,7 +125,7 @@ export default async function CategoryPage({
               ))}
             </div>
           </div>
-          <CatalogFilters brands={brands} stockOnly={stockOnly} activeBrand={merk} activeStof={stof} activeLocatie={locatie} />
+          <CatalogFilters brands={brands} stockOnly={stockOnly} activeBrand={merk} activeStof={stof} />
           <div className="rounded-lg border border-border bg-surface p-4 text-text space-y-3 text-sm">
             <h4 className="text-xs uppercase tracking-wider text-accent-muted font-semibold inline-flex items-center gap-1.5">
               <ShieldCheck size={12} /> Onze garanties
@@ -151,7 +148,7 @@ export default async function CategoryPage({
                 {products.map((p) => (
                   <Link key={p.id} href={`/product/${p.categories?.slug || cat.slug}/${p.slug}`} className="block">
                     <ProductCard
-                      image={p.image_url || "/assets/cat-anabolen.webp"}
+                      image={p.image_url || "/assets/vial-placeholder.jpg"}
                       name={p.name}
                       slug={p.slug}
                       priceFrom={p.price_cents / 100}

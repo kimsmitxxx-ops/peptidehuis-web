@@ -5,7 +5,7 @@ import { HomeUspBar } from "@/components/shop/home-usp-bar";
 import { ArticleCard } from "@/components/article-card";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { NewsletterForm } from "@/components/newsletter-form";
-import { mainCategories } from "@/components/shop/data";
+import { mainCategories, categoryIcon } from "@/components/shop/data";
 import { Truck, ShieldCheck, PackageCheck, ArrowRight, FlaskConical, Beaker } from "lucide-react";
 
 export const revalidate = 300;
@@ -56,22 +56,32 @@ const HOMEPAGE_FAQ = [
 
 export default async function HomePage() {
   const [dbProducts, dbArticles, dbCategories, featuredProducts] = await Promise.all([
-    listProducts({ limit: 24 }),
+    listProducts({ limit: 200 }),
     listBlogPosts(3),
     listCategories(),
     listFeaturedProducts(8),
   ]);
 
+  const countBySlug = new Map<string, number>();
+  for (const p of dbProducts as any[]) {
+    const s = p.categories?.slug;
+    if (s) countBySlug.set(s, (countBySlug.get(s) || 0) + 1);
+  }
+
   const cats =
     dbCategories.length > 0
-      ? dbCategories.slice(0, 6).map((c, i) => ({
-          slug: c.slug,
-          name: c.name,
-          tagline: c.description || mainCategories[i % mainCategories.length].tagline,
-          image: c.hero_image || mainCategories[i % mainCategories.length].image,
-          to: `/winkel/${c.slug}`,
-        }))
-      : mainCategories;
+      ? dbCategories.map((c) => {
+          const fallback = mainCategories.find((m) => m.slug === c.slug);
+          return {
+            slug: c.slug,
+            name: c.name,
+            tagline: c.description || fallback?.tagline || c.name,
+            icon: categoryIcon(c.slug),
+            count: countBySlug.get(c.slug) || 0,
+            to: `/winkel/${c.slug}`,
+          };
+        })
+      : mainCategories.map((m) => ({ ...m, count: 0 }));
 
   const bestsellers = dbProducts.slice(0, 4);
   const featured = featuredProducts.slice(0, 8);
@@ -97,7 +107,7 @@ export default async function HomePage() {
           className="absolute inset-0 opacity-25"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 20% 30%, var(--color-accent) 0%, transparent 40%), radial-gradient(circle at 80% 70%, var(--color-accent-soft) 0%, transparent 35%)",
+              "radial-gradient(circle at 20% 30%, rgb(var(--color-accent)) 0%, transparent 40%), radial-gradient(circle at 80% 70%, rgb(var(--color-accent-soft)) 0%, transparent 35%)",
           }}
         />
         <div className="relative mx-auto max-w-7xl px-4 py-16 md:py-24 grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center">
@@ -110,13 +120,13 @@ export default async function HomePage() {
               <br />
               <span className="text-accent-soft">van EU-gecertificeerde synthese-labs.</span>
               <span className="block mt-3 text-base md:text-lg font-sans font-normal tracking-normal text-primary-foreground/70">
-                BPC-157 · Retatrutide · Tirzepatide · Semaglutide · CJC-1295 · Ipamorelin - 20+ peptiden.
+                BPC-157 · Retatrutide · Tirzepatide · Semaglutide · CJC-1295 · Ipamorelin - 30+ peptiden.
               </span>
             </h1>
             <p className="mt-5 text-lg text-primary-foreground/80 max-w-xl leading-relaxed">
-              Genezing, vetverlies, spiergroei, cognitie en longevity - de top 20 onderzoeks-peptiden
-              op één plek. Iedere batch met openbaar COA, gevriesdroogd geleverd, discrete verzending
-              vanuit NL. Voor lab- en in-vitro onderzoek.
+              Genezing, vetverlies, spiergroei, cognitie, libido, huid en longevity - alle
+              onderzoeks-peptiden op één plek. Iedere batch met openbaar COA, gevriesdroogd geleverd,
+              discrete verzending vanuit NL. Voor lab- en in-vitro onderzoek.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link href="/winkel" className="inline-flex items-center gap-2 rounded bg-accent px-6 h-12 text-accent-foreground font-medium hover:bg-accent-muted transition-colors">
@@ -129,17 +139,22 @@ export default async function HomePage() {
           </div>
 
           <div className="grid grid-cols-2 gap-3">
-            {cats.slice(0, 4).map((c) => (
-              <Link
-                key={c.slug}
-                href={c.to}
-                className="group relative overflow-hidden rounded-lg border border-primary-foreground/10 bg-primary-foreground/5 p-4 hover:border-accent transition-colors"
-              >
-                <p className="text-xs uppercase tracking-wider text-accent-soft">{c.name}</p>
-                <p className="mt-2 text-sm text-primary-foreground/80 leading-snug">{c.tagline}</p>
-                <ArrowRight size={14} className="mt-4 text-accent group-hover:translate-x-1 transition-transform" />
-              </Link>
-            ))}
+            {cats.slice(0, 4).map((c) => {
+              const Icon = c.icon;
+              return (
+                <Link
+                  key={c.slug}
+                  href={c.to}
+                  className="group relative overflow-hidden rounded-lg border border-primary-foreground/15 bg-primary-foreground/5 p-4 hover:bg-primary-foreground/10 hover:border-accent-soft transition-colors"
+                >
+                  <p className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-accent-soft">
+                    {Icon && <Icon size={16} strokeWidth={1.6} />} {c.name}
+                  </p>
+                  <p className="mt-2 text-sm text-primary-foreground/80 leading-snug">{c.tagline}</p>
+                  <ArrowRight size={14} className="mt-4 text-accent-soft group-hover:translate-x-1 transition-transform" />
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -161,7 +176,7 @@ export default async function HomePage() {
             {featured.map((p) => (
               <Link key={p.id} href={`/product/${p.categories?.slug || "winkel"}/${p.slug}`} className="block">
                 <ProductCard
-                  image={p.image_url || "/assets/cat-peptide-healing.jpg"}
+                  image={p.image_url || "/assets/vial-placeholder.jpg"}
                   name={p.name}
                   slug={p.slug}
                   priceFrom={p.price_cents / 100}
@@ -183,7 +198,7 @@ export default async function HomePage() {
             {bestsellers.map((p) => (
               <Link key={p.id} href={`/product/${p.categories?.slug || "winkel"}/${p.slug}`} className="block">
                 <ProductCard
-                  image={p.image_url || "/assets/cat-peptide-healing.jpg"}
+                  image={p.image_url || "/assets/vial-placeholder.jpg"}
                   name={p.name}
                   slug={p.slug}
                   priceFrom={p.price_cents / 100}
@@ -201,15 +216,28 @@ export default async function HomePage() {
       <section className="bg-surface py-16">
         <div className="mx-auto max-w-7xl px-4">
           <p className="text-xs uppercase tracking-[0.15em] text-accent font-semibold">Categorieën</p>
-          <h2 className="mt-2 font-display text-3xl md:text-4xl">Per doel gerangschikt</h2>
+          <h2 className="mt-2 font-display text-3xl md:text-4xl">Onderzoek per categorie</h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {cats.map((c) => (
-              <Link key={c.slug} href={c.to} className="group rounded-lg border border-border bg-background p-6 hover:border-accent transition-colors">
-                <p className="font-display text-xl text-text group-hover:text-accent">{c.name}</p>
-                <p className="mt-2 text-sm text-text-muted leading-relaxed line-clamp-2">{c.tagline}</p>
-                <ArrowRight size={14} className="mt-4 text-accent group-hover:translate-x-1 transition-transform" />
-              </Link>
-            ))}
+            {cats.map((c) => {
+              const Icon = c.icon;
+              return (
+                <Link key={c.slug} href={c.to} className="group flex flex-col rounded-xl border border-border bg-background p-6 hover:border-accent hover:shadow-lift transition-all">
+                  <p className="inline-flex items-center gap-2.5 font-display text-lg text-text group-hover:text-accent">
+                    {Icon && (
+                      <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-accent/10 text-accent ring-1 ring-accent/20">
+                        <Icon size={20} strokeWidth={1.6} />
+                      </span>
+                    )}
+                    {c.name}
+                  </p>
+                  <p className="mt-3 text-sm text-text-muted leading-relaxed line-clamp-2">{c.tagline}</p>
+                  <span className="mt-4 flex items-center justify-between text-xs text-text-subtle">
+                    {c.count > 0 ? `${c.count} ${c.count === 1 ? "product" : "producten"}` : ""}
+                    <ArrowRight size={14} className="text-accent group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -230,7 +258,7 @@ export default async function HomePage() {
               <Link key={a.id} href={`/kennisbank/${a.slug}`} className="block group">
                 <ArticleCard
                   title={a.title}
-                  image={a.image_url || "/assets/cat-peptide-healing.jpg"}
+                  image={a.image_url || "/assets/vial-placeholder.jpg"}
                   excerpt={a.excerpt || ""}
                   kindTag={a.category || "Onderzoek"}
                   publishedAt={new Date(a.published_at).toLocaleDateString("nl-NL", { day: "numeric", month: "short", year: "numeric" })}

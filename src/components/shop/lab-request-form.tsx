@@ -56,7 +56,7 @@ export function LabRequestForm() {
         <CheckCircle2 size={22} className="text-success" />
         <h3 className="mt-2 font-display text-xl">Aanvraag binnen - top!</h3>
         <p className="mt-2 text-sm text-primary/75">
-          We nemen binnen 1 werkdag contact op met instructies hoe je je flacon naar Vlaardingen
+          We nemen binnen 1 werkdag contact op met instructies hoe je je flacon naar ons magazijn
           stuurt en wat er daarna gebeurt. Check je inbox (en spam).
         </p>
       </div>
@@ -69,7 +69,7 @@ export function LabRequestForm() {
         <Input name="name" label="Naam" placeholder="Voor- en achternaam" required />
         <Input name="email" label="E-mail" type="email" placeholder="jij@voorbeeld.nl" required />
       </div>
-      <Input name="product" label="Product" placeholder="bv. Testosteron Enanthate 250" required />
+      <Input name="product" label="Product" placeholder="bv. BPC-157 5 mg" required />
       <Input name="merk" label="Merk + batchcode (indien bekend)" placeholder="bv. Pharmacom · batch L23-0411" />
       <Input name="twijfel" label="Waarom wil je laten testen?" placeholder="bv. 'gear werkt niet zoals verwacht'" />
       <button

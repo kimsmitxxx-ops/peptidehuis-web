@@ -9,8 +9,8 @@ import { BookOpen, Truck, ShieldCheck, FlaskConical, Sparkles } from "lucide-rea
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Winkel - alle anabolen, PCT en kuurpakketten",
-  description: "Volledig overzicht van anabolenpro: Anavar, Dianabol, Testosteron-esters, Trenbolone, Masteron, Boldenone, PCT en kuurpakketten. Lab-getest per batch.",
+  title: "Winkel - alle onderzoekspeptiden",
+  description: "Volledig overzicht van Peptidehuis: BPC-157, TB-500, Semaglutide, Tirzepatide, Retatrutide, CJC-1295, Ipamorelin en meer. Lab-getest per batch, COA op aanvraag.",
   alternates: { canonical: "/winkel" },
 };
 
@@ -27,7 +27,6 @@ export default async function WinkelIndexPage({
   const stockOnly = searchParams.stock === "1";
   const merk = searchParams.merk || "";
   const stof = (searchParams.stof || "").toLowerCase();
-  const locatie = searchParams.locatie || "";
   const q = (searchParams.q || "").trim().toLowerCase();
 
   const brandSet = new Set<string>();
@@ -37,9 +36,7 @@ export default async function WinkelIndexPage({
   const filtered = allProducts.filter((p) => {
     if (stockOnly && p.availability === "OutOfStock") return false;
     if (merk && !(p.tags || []).includes(merk)) return false;
-    if (stof && !(p.stof_slugs || []).includes(stof)) return false;
-    if (locatie === "01" && !(p.tags || []).includes("UT")) return false;
-    if (locatie === "02" && (p.tags || []).includes("UT")) return false;
+    if (stof && !`${p.name} ${p.slug}`.toLowerCase().includes(stof)) return false;
     if (q) {
       const hay = `${p.name} ${p.slug} ${(p.tags || []).join(" ")} ${(p.stof_slugs || []).join(" ")} ${p.subtitle || ""}`.toLowerCase();
       if (!hay.includes(q)) return false;
@@ -55,7 +52,7 @@ export default async function WinkelIndexPage({
       </div>
       <h1 className="font-display text-3xl md:text-4xl">Volledige catalogus</h1>
       <p className="mt-3 max-w-2xl text-text-muted">
-        Alles van anabolenpro op één plek. Klik op een categorie voor diepgaande info of scroll voor het hele aanbod.
+        Alle onderzoekspeptiden van Peptidehuis op één plek. Klik op een categorie voor diepgaande info of scroll voor het hele aanbod.
       </p>
 
       <div className="mt-6 rounded-lg border border-accent/30 bg-accent-soft/15 p-4 flex items-start gap-3">
@@ -90,7 +87,7 @@ export default async function WinkelIndexPage({
               ))}
             </div>
           </div>
-          <CatalogFilters brands={brands} stockOnly={stockOnly} activeBrand={merk} activeStof={stof} activeLocatie={locatie} />
+          <CatalogFilters brands={brands} stockOnly={stockOnly} activeBrand={merk} activeStof={stof} />
           <div className="rounded-lg border border-border bg-surface p-4 text-text space-y-3 text-sm">
             <h4 className="text-xs uppercase tracking-wider text-accent-muted font-semibold inline-flex items-center gap-1.5">
               <ShieldCheck size={12} /> Onze garanties
@@ -107,7 +104,7 @@ export default async function WinkelIndexPage({
             {products.map((p) => (
               <Link key={p.id} href={`/product/${p.categories?.slug || "winkel"}/${p.slug}`} className="block">
                 <ProductCard
-                  image={p.image_url || "/assets/cat-anabolen.webp"}
+                  image={p.image_url || "/assets/vial-placeholder.jpg"}
                   name={p.name}
                   slug={p.slug}
                   priceFrom={p.price_cents / 100}

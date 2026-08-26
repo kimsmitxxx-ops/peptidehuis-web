@@ -151,7 +151,7 @@ export default function LabPage() {
                 originele PDF-rapport in je mailbox. Goed voor jou, goed voor de community.
               </p>
               <ul className="mt-5 space-y-2 text-sm text-primary/80">
-                <li className="flex items-start gap-2"><Package size={16} className="text-accent shrink-0 mt-0.5" /> Stuur 1 flacon naar ons NL-magazijn (Vlaardingen)</li>
+                <li className="flex items-start gap-2"><Package size={16} className="text-accent shrink-0 mt-0.5" /> Stuur 1 flacon naar ons NL-magazijn</li>
                 <li className="flex items-start gap-2"><FlaskConical size={16} className="text-accent shrink-0 mt-0.5" /> Wij sturen door naar Janoshik (HPLC-UV) - duurt 2-3 weken</li>
                 <li className="flex items-start gap-2"><CheckCircle2 size={16} className="text-accent shrink-0 mt-0.5" /> COA per mail, ook publiek als jij dat wil zodat anderen profiteren</li>
               </ul>
@@ -179,7 +179,7 @@ export default function LabPage() {
             <ShieldCheck size={32} className="text-accent shrink-0" />
             <div>
               <h3 className="font-display text-2xl text-primary-foreground">Liever eerst de wetenschap lezen?</h3>
-              <p className="mt-1 text-primary-foreground/70 max-w-xl">Onze kennisbank bundelt studies over bloedwerk, PCT-protocollen en veiligheid.</p>
+              <p className="mt-1 text-primary-foreground/70 max-w-xl">Onze kennisbank bundelt studies over werkingsmechanismen, reconstitutie en onderzoeksprotocollen.</p>
             </div>
           </div>
           <div className="flex flex-wrap gap-3">

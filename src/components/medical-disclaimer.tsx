@@ -41,14 +41,14 @@ export function MedicalDisclaimer({ variant = "inline", extra }: Props) {
         <div className="space-y-1.5 leading-relaxed">
           <p>
             <strong>Disclaimer.</strong> De informatie op deze pagina is bedoeld voor educatieve
-            doeleinden en harm-reduction - niet als medisch advies. Anabolen, peptiden en SERM/AI
-            kunnen ernstige bijwerkingen geven (hart, lever, hormonale as) en zijn in Nederland
-            niet toegelaten voor humaan gebruik buiten medisch voorschrift.
+            doeleinden - niet als medisch advies. Onderzoekspeptiden zijn in Nederland niet
+            toegelaten voor humaan gebruik en kunnen bijwerkingen en onbekende langetermijneffecten
+            hebben; veel onderzoek is pre-klinisch.
           </p>
           <p>
-            Gebruik je deze stoffen, doe het dan onder bloedwerk-monitoring (voor, tijdens en na)
-            en raadpleeg een arts bij twijfel of klachten. Onze producten worden verkocht als
-            <em> research-grade materialen</em> - niet als medicatie.
+            Onze producten worden verkocht als <em>research-grade materialen</em>, uitsluitend
+            voor lab- en in-vitro-onderzoek - niet als medicatie of supplement. Raadpleeg bij
+            gezondheidsvragen altijd een arts.
           </p>
           {extra && <p className="mt-2 font-medium">{extra}</p>}
         </div>

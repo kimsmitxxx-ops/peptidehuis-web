@@ -64,15 +64,15 @@ const faq = [
       "Maximaal 14 dagen na verzending. Is je pakket na 14 dagen nog steeds niet aangekomen door vertraging of vermissing? Dan verzenden wij automatisch een nieuwe bestelling - zonder discussie.",
   },
   {
-    question: "Kan ik meerdere merken tegelijk bestellen?",
+    question: "Moeten peptiden gekoeld verzonden worden?",
     answer:
-      "Ja. Wij werken met twee verzendlocaties: één voor Utinon-producten (Locatie 01) en één voor de overige merken (Locatie 02). Bestel je uit beide, dan krijg je twee pakketten en betaal je 2× verzendkosten.",
+      "Nee. Gevriesdroogd (gelyofiliseerd) poeder is bij verzendtemperatuur prima stabiel; koeling is pas nodig na reconstitutie. Bewaar je vials na ontvangst koel en donker, dan blijven ze maandenlang goed.",
   },
 ];
 
 const timeline = [
   { t: "0:00", h: "Bestelling geplaatst", d: "Directe bevestiging per e-mail met ordernummer + betaalinstructies." },
-  { t: "Voor 11:00", h: "Betaling binnen", d: "Bankoverboeking (IBAN) of crypto. Zodra we het zien, is je order in behandeling." },
+  { t: "Voor 11:00", h: "Betaling binnen", d: "Bankoverboeking via de betaalpagina. Zodra we het zien, is je order in behandeling." },
   { t: "Zelfde werkdag 15:00", h: "Order ingepakt", d: "Picker controleert batchcode en COA-nummer per item, neutrale verpakking." },
   { t: "Zelfde werkdag 17:00", h: "Bij PostNL / DPD", d: "Track & trace per mail, label is dan al actief." },
   { t: "Volgende werkdag", h: "Bezorgd", d: "NL: tussen 09:00 en 21:30 aan je vaste huisadres. BE: 1-3 werkdagen. Rest EU: 3-5 werkdagen." },
@@ -123,8 +123,7 @@ export default function BezorgingPage() {
           </table>
         </div>
         <p className="mt-4 text-xs text-text-subtle">
-          Bestel je uit beide verzendlocaties (Utinon + overige merken), dan betaal je 2× verzendkosten omdat het uit
-          verschillende magazijnen komt.
+          Alles wordt verzonden vanuit één NL-magazijn, dus je betaalt altijd maar één keer verzendkosten per bestelling.
         </p>
       </section>
 

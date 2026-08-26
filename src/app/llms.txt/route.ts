@@ -5,8 +5,7 @@ export const revalidate = 3600;
 /**
  * /llms.txt - AI-crawler manifest per llmstxt.org spec.
  * Bevat shop-identiteit + diepte-links naar categorie-, product- en
- * kennisbank-content. Alleen UT-producten (onze SEO-focus brand) komen er
- * in; non-UT staat ook in onze winkel maar krijgt geen AI-promotie.
+ * kennisbank-content.
  */
 export async function GET() {
   const [shop, categories, products, blogs] = await Promise.all([
@@ -16,23 +15,23 @@ export async function GET() {
     listBlogPosts(50),
   ]);
 
-  const utProducts = products.filter((p: any) => p.noindex !== true && (p.tags || []).includes("UT"));
+  const indexableProducts = products.filter((p: any) => p.noindex !== true);
 
   const lines: string[] = [];
   lines.push("# Peptidehuis");
   lines.push("");
-  lines.push("> Nederlandse anabolen-webshop met no-bullshit aanpak. Iedere batch lab-getest bij Janoshik Analytical (HPLC + GC-MS), COA publiek per batchcode. Wij waarschuwen openbaar voor afgekeurde batches in de markt. Anoniem verpakt vanaf NL-magazijn (Vlaardingen), 24u verzending. Voor krachtsporters van eerste kuur tot gevorderden, en mannen die info zoeken over PCT, dosering of stack-combinaties.");
+  lines.push("> Nederlandse webshop voor onderzoekspeptiden: de top 20 peptiden voor genezing, vetverlies, spiergroei, cognitie en longevity. Iedere batch lab-getest bij Janoshik Analytical (HPLC), COA per batchcode. Anoniem verpakt vanaf NL-magazijn, snelle verzending. Uitsluitend voor onderzoeksdoeleinden - niet voor menselijke consumptie. Voor onderzoekers en biohackers die info zoeken over werkingsmechanismen, halfwaardetijden en reconstitutie.");
   lines.push("");
   lines.push("## Catalogus");
   lines.push("");
   for (const c of categories) {
     lines.push(`- [${c.name}](https://peptidehuis.nl/winkel/${c.slug}): ${c.description || c.name}`);
   }
-  if (utProducts.length > 0) {
+  if (indexableProducts.length > 0) {
     lines.push("");
-    lines.push("## Producten (United Tabs · lab-getest per batch)");
+    lines.push("## Producten (lab-getest per batch)");
     lines.push("");
-    for (const p of utProducts) {
+    for (const p of indexableProducts) {
       const catSlug = (p as any).categories?.slug || "winkel";
       const blurb = p.subtitle || p.description || p.name;
       lines.push(`- [${p.name}](https://peptidehuis.nl/product/${catSlug}/${p.slug}): ${blurb}`);

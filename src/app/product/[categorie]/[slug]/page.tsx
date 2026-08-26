@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: { categorie: string
   const canonical = p.canonical_url || `/product/${params.categorie}/${params.slug}`;
   return {
     title: p.meta_title || `${p.name} kopen voor ${formatEUR(p.price_cents)}`,
-    description: p.meta_description || p.subtitle || p.description || `${p.name} bij anabolenpro - lab-getest, snelle verzending.`,
+    description: p.meta_description || p.subtitle || p.description || `${p.name} bij Peptidehuis - lab-getest, snelle verzending.`,
     alternates: { canonical },
     robots: noindex ? { index: false, follow: false } : undefined,
     openGraph: {
@@ -204,7 +204,7 @@ export default async function ProductDetailPage({ params }: { params: { categori
             {related.filter((r) => r.id !== p.id).slice(0, 4).map((r) => (
               <Link key={r.id} href={`/product/${r.categories?.slug || params.categorie}/${r.slug}`} className="block">
                 <ProductCard
-                  image={r.image_url || "/assets/cat-anabolen.webp"}
+                  image={r.image_url || "/assets/vial-placeholder.jpg"}
                   name={r.name}
                   slug={r.slug}
                   priceFrom={r.price_cents / 100}

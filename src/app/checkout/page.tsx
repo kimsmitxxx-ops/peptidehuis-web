@@ -241,7 +241,7 @@ export default function CheckoutPage() {
             </button>
             {err && <p className="mt-2 text-center text-xs text-danger">{err}</p>}
             <p className="mt-3 text-center text-[11px] text-text-muted">
-              Direct op de volgende pagina krijg je de bank/crypto-gegevens. Pakket verzonden zodra betaling binnen is.
+              Direct op de volgende pagina krijg je de betaalinstructies. Pakket verzonden zodra betaling binnen is.
             </p>
           </div>
         </div>

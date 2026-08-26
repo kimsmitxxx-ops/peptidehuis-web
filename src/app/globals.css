@@ -8,38 +8,38 @@
  * bg-primary/95 → rgb(var(--color-primary) / 0.95).
  */
 :root {
-  /* Peptidehuis — warm cream + champagne gold (retakopen-verwant) */
+  /* Peptidehuis — clinical navy + kobaltblauw */
 
-  /* Surfaces (warm cream) */
-  --color-background: 250 246 236;
-  --color-surface: 244 238 224;
-  --color-paper: 247 242 230;
-  --color-paper-soft: 253 251 244;
-  --color-paper-ink: 43 30 18;
-  --color-paper-ink-muted: 108 88 68;
-  --color-paper-border: 224 214 194;
+  /* Surfaces (koel, licht blauwgrijs) */
+  --color-background: 245 248 254;
+  --color-surface: 236 242 251;
+  --color-paper: 240 244 252;
+  --color-paper-soft: 251 252 255;
+  --color-paper-ink: 11 31 68;
+  --color-paper-ink-muted: 74 93 133;
+  --color-paper-border: 211 221 240;
 
-  /* Primary (deep ink for hero + footer, warme donkere tint) */
-  --color-primary: 41 30 20;
-  --color-primary-soft: 56 42 30;
-  --color-primary-muted: 78 60 46;
-  --color-primary-foreground: 250 245 232;
+  /* Primary (diep navy voor hero + footer) */
+  --color-primary: 6 31 77;
+  --color-primary-soft: 10 42 99;
+  --color-primary-muted: 22 60 122;
+  --color-primary-foreground: 242 246 255;
 
-  /* Accent (champagne gold) */
-  --color-accent: 192 155 90;
-  --color-accent-soft: 220 190 130;
-  --color-accent-muted: 165 130 70;
-  --color-accent-foreground: 44 30 18;
+  /* Accent (kobaltblauw) */
+  --color-accent: 58 106 232;
+  --color-accent-soft: 111 155 255;
+  --color-accent-muted: 41 82 196;
+  --color-accent-foreground: 255 255 255;
 
   /* Text */
-  --color-text: 41 30 20;
-  --color-text-muted: 108 88 68;
-  --color-text-subtle: 150 130 108;
-  --color-foreground: 41 30 20;
+  --color-text: 11 31 68;
+  --color-text-muted: 74 93 133;
+  --color-text-subtle: 122 138 173;
+  --color-foreground: 11 31 68;
 
-  /* Borders (zacht warm bruin-grijs) */
-  --color-border: 224 214 194;
-  --color-border-strong: 200 186 160;
+  /* Borders (koel blauwgrijs) */
+  --color-border: 211 221 240;
+  --color-border-strong: 178 194 224;
 
   /* Semantic */
   --color-success: 31 142 81;

@@ -1,12 +1,9 @@
 /**
  * Shipping-methode logica.
  *
- * Peptidehuis werkt met TWEE verzend-locaties:
- *   - "ut"   = UT (United Tabs) producten - verzonden vanuit UT-magazijn
- *   - "rest" = Alle overige producten - verzonden vanuit hoofdmagazijn Vlaardingen
- *
- * Klanten mogen producten uit beide groepen tegelijk bestellen - dan worden er
- * twee aparte zendingen verstuurd en betaal je 2× de verzendkosten.
+ * Peptidehuis verzendt alles vanuit één NL-magazijn; het multi-locatie
+ * mechanisme (per methode een aparte zending + verzendkosten) blijft staan
+ * voor het geval er later een tweede locatie bijkomt.
  */
 
 import type { CartItem } from "@/lib/cart-context";
@@ -16,13 +13,12 @@ export const SHIPPING_FEE_CENTS = 1000; // €10 per zending
 export type ShippingMethod = "ut" | "rest";
 
 const METHOD_LABELS: Record<ShippingMethod, string> = {
-  ut: "Locatie 01 (Utinon)",
-  rest: "Locatie 02 (overige merken)",
+  ut: "NL-magazijn",
+  rest: "NL-magazijn",
 };
 
-/** Bepaal shipping-methode op basis van product-tags (UT-getagged -> 'ut'). */
-export function shippingMethodForTags(tags: string[] | null | undefined): ShippingMethod {
-  return tags?.includes("UT") ? "ut" : "rest";
+export function shippingMethodForTags(_tags: string[] | null | undefined): ShippingMethod {
+  return "rest";
 }
 
 export type ShippingBreakdown = {

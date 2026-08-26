@@ -15,7 +15,7 @@ const sections: { id: string; title: string; body: string[] }[] = [
     id: "definities",
     title: "1. Definities",
     body: [
-      "peptidehuis: peptidehuis B.V., gevestigd te Westhavenkade 12, 3134 NA Vlaardingen. Ons KvK- en BTW-nummer staan op de factuur die je na bestelling ontvangt.",
+      "peptidehuis: peptidehuis B.V., gevestigd in Nederland. Ons vestigingsadres, KvK- en BTW-nummer staan op de factuur die je na bestelling ontvangt.",
       "Klant: de natuurlijke of rechtspersoon die een overeenkomst aangaat met peptidehuis.",
       "Producten: alle door peptidehuis aangeboden artikelen, uitsluitend bestemd voor onderzoeksdoeleinden in een laboratoriumomgeving en niet voor menselijke consumptie.",
     ],
@@ -60,7 +60,7 @@ const sections: { id: string; title: string; body: string[] }[] = [
     title: "6. Prijzen en betaling",
     body: [
       "De op de website vermelde prijzen zijn in euro's en inclusief 21% BTW.",
-      "Betaling vindt plaats via bank-overboeking (IBAN) of crypto (BTC/ETH/USDT). Zodra de betaling bij ons binnen is, gaat de bestelling in behandeling.",
+      "Betaling vindt plaats via bank-overboeking; de gegevens ontvang je op de betaalpagina na het plaatsen van je bestelling. Zodra de betaling bij ons binnen is, gaat de bestelling in behandeling.",
       "peptidehuis behoudt zich het recht voor prijzen te wijzigen; eenmaal geplaatste orders blijven ongewijzigd.",
     ],
   },

@@ -1,62 +1,44 @@
 /**
  * Shared static data voor peptidehuis-web.
- * Product-catalog + blogs komen uit Supabase; deze file bevat alleen
- * hero-illustraties en category-tegel fallbacks voor de homepage.
+ * Product-catalog + blogs komen uit Supabase; deze file bevat de
+ * categorie-structuur met lijn-icons (Lucide) voor homepage-tegels,
+ * footer en mobiel menu. Geen categorie-afbeeldingen nodig: de tegels
+ * zijn icon-gedreven.
  */
 
-const catHealing = "/assets/cat-peptide-healing.jpg";
-const catFatloss = "/assets/cat-peptide-fatloss.jpg";
-const catGrowth = "/assets/cat-peptide-growth.jpg";
-const catCognitive = "/assets/cat-peptide-cognitive.jpg";
-const catLongevity = "/assets/cat-peptide-longevity.jpg";
+import type { LucideIcon } from "lucide-react";
+import {
+  HeartPulse,
+  Zap,
+  BicepsFlexed,
+  Brain,
+  Flame,
+  Sun,
+  Dna,
+  Package,
+  Beaker,
+} from "lucide-react";
 
 export interface MainCategory {
   slug: string;
   name: string;
   tagline: string;
-  image: string;
   to: string;
+  icon: LucideIcon;
 }
 
 export const mainCategories: MainCategory[] = [
-  { slug: "genezing", name: "Genezing & herstel", tagline: "BPC-157, TB-500, KPV - voor pees-, spier- en weefselherstel.", image: catHealing, to: "/winkel/genezing" },
-  { slug: "vetverlies", name: "Vetverlies", tagline: "Retatrutide, Semaglutide, Tirzepatide, HGH Fragment - GLP-1 en beta-oxidatie.", image: catFatloss, to: "/winkel/vetverlies" },
-  { slug: "spiergroei", name: "Spiergroei & GH", tagline: "CJC-1295, Ipamorelin, MOTS-c - natuurlijke GH-release en spiergroei.", image: catGrowth, to: "/winkel/spiergroei" },
-  { slug: "cognitie", name: "Cognitie & stemming", tagline: "Selank, Semax, DSIP - nootropics voor focus, slaap en stress.", image: catCognitive, to: "/winkel/cognitie" },
-  { slug: "longevity", name: "Longevity", tagline: "Epithalon, Thymosin Alpha-1, NAD+, Humanin - anti-aging en cellulair herstel.", image: catLongevity, to: "/winkel/longevity" },
+  { slug: "genezing", name: "Genezing & herstel", tagline: "BPC-157, TB-500, KPV - voor pees-, spier- en weefselherstel.", to: "/winkel/genezing", icon: HeartPulse },
+  { slug: "vetverlies", name: "Vetverlies", tagline: "Retatrutide, Semaglutide, Tirzepatide - de GLP-1-klasse.", to: "/winkel/vetverlies", icon: Zap },
+  { slug: "spiergroei", name: "Spiergroei & GH", tagline: "CJC-1295, Ipamorelin, Tesamorelin - de GH-as.", to: "/winkel/spiergroei", icon: BicepsFlexed },
+  { slug: "cognitie", name: "Cognitie & focus", tagline: "Selank, Semax, DSIP - focus, stress en slaap.", to: "/winkel/cognitie", icon: Brain },
+  { slug: "libido", name: "Libido & seksuele gezondheid", tagline: "PT-141 en Oxytocine - centraal werkende peptiden.", to: "/winkel/libido", icon: Flame },
+  { slug: "huid-bruining", name: "Huid, haar & bruining", tagline: "GHK-Cu, SNAP-8, Melanotan - huid en pigmentatie.", to: "/winkel/huid-bruining", icon: Sun },
+  { slug: "longevity", name: "Longevity & anti-aging", tagline: "Epithalon, NAD+, SS-31 - cellulair herstel.", to: "/winkel/longevity", icon: Dna },
+  { slug: "bundels", name: "Bundels", tagline: "Veelgebruikte combinaties met vast bundelvoordeel.", to: "/winkel/bundels", icon: Package },
+  { slug: "benodigdheden", name: "Onderzoeksbenodigdheden", tagline: "BAC-water, U100-spuiten en opslag.", to: "/winkel/benodigdheden", icon: Beaker },
 ];
 
-// Legacy exports voor backwards-compat met components die nog verwijzen
-export interface CategoryContent {
-  slug: string;
-  group: "anabolen" | "pct";
-  name: string;
-  aka: string[];
-  tagline: string;
-  heroImage: string;
-  heroImageAlt: string;
-  intro: string;
-  longIntro?: string;
-  keyFacts: { label: string; value: string }[];
-  sections: { heading: string; body: string }[];
-  faqs?: { q: string; a: string }[];
-  usps?: string[];
-  related?: string[];
-  knowledge?: string[];
-  resultImage?: string;
-  resultImageAlt?: string;
-}
-
-export const categoryContent: CategoryContent[] = [];
-
-export function findCategoryContent(slug: string): CategoryContent | undefined {
-  return categoryContent.find((c) => c.slug === slug);
-}
-
-export function findCategoryContentByGroup(group: "anabolen" | "pct") {
-  return categoryContent.filter((c) => c.group === group);
-}
-
-export function categoriesByGroup(_group: "anabolen" | "pct"): CategoryContent[] {
-  return [];
+export function categoryIcon(slug: string): LucideIcon | undefined {
+  return mainCategories.find((c) => c.slug === slug)?.icon;
 }
