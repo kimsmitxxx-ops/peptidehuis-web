@@ -12,7 +12,7 @@ const SB_SERVICE =
   process.env.SUPABASE_SECRET ||
   "";
 
-const ANABOLENPRO_SHOP_ID = "42ddf952-d3c1-4c81-8029-7b4c54a84913";
+const SHOP_ID = "42ddf952-d3c1-4c81-8029-7b4c54a84913"; // peptidehuis
 
 export async function POST(req: NextRequest) {
   let body: any;
@@ -45,17 +45,17 @@ export async function POST(req: NextRequest) {
 
   const sb = createClient(SB_URL, SB_SERVICE, { auth: { persistSession: false } });
 
-  // Verify product exists + zit in anabolenpro shop scope (geen cross-shop submissions)
+  // Verify product exists + zit in eigen shop scope (geen cross-shop submissions)
   const { data: product } = await sb
     .from("products")
     .select("id, shop_id")
     .eq("id", productId)
-    .eq("shop_id", ANABOLENPRO_SHOP_ID)
+    .eq("shop_id", SHOP_ID)
     .maybeSingle();
   if (!product) return NextResponse.json({ error: "product niet gevonden" }, { status: 404 });
 
   const { error } = await sb.from("product_reviews").insert({
-    shop_id: ANABOLENPRO_SHOP_ID,
+    shop_id: SHOP_ID,
     product_id: productId,
     rating: Math.round(rating),
     author_name: authorName,

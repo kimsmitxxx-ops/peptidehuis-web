@@ -1,17 +1,17 @@
 import { supabase, type Product, type Category, type BlogPost } from "./supabase";
 
-// Hardcoded shop_id voor anabolenpro - fallback voor scoped JWT die niet werkt.
-// RLS-policies in shop-dash migration 021 staan anon SELECT toe op deze shop.
+// Hardcoded shop_id voor peptidehuis. RLS-policies in shop-dash migration 049
+// staan anon SELECT toe op deze shop.
 const SHOP_ID = "42ddf952-d3c1-4c81-8029-7b4c54a84913";
 
-// Populariteits-volgorde van stoffen (eerst = bovenaan). UT-merk overrules dit.
+// Populariteits-volgorde van peptiden (eerst = bovenaan).
 const STOF_POPULARITY = [
-  "test", "sustanon", "winstrol", "winn", "boldenone", "bold", "tren", "trenbolone",
-  "anavar", "dianabol", "deca", "nandrolone", "masteron", "primobolan", "parabolan",
-  "anadrol", "oxymetholone", "turinabol",
-  "clomid", "nolvadex", "arimidex", "aromasin", "proviron", "hcg",
-  "clenbuterol", "t3", "t4",
-  "hgh", "melanotan", "bpc",
+  "retatrutide", "tirzepatide", "semaglutide",
+  "bpc-157", "tb-500", "wolverine",
+  "cjc-1295", "ipamorelin", "tesamorelin",
+  "ghk-cu", "melanotan", "glow",
+  "semax", "selank", "pt-141",
+  "igf-1", "mots-c", "nad", "epithalon", "glutathion",
 ];
 
 function popularityScore(name: string): number {
@@ -22,19 +22,9 @@ function popularityScore(name: string): number {
   return 999;
 }
 
-// Sorteer producten: UT eerst → UP daarna → overige merken, daarna op
-// stof-populariteit (test > win > bold > tren), daarna sort_order.
-function brandRank(tags: string[] | null | undefined): number {
-  if (tags?.includes("UT")) return 0;
-  if (tags?.includes("UP")) return 1;
-  return 2;
-}
-
+// Sorteer producten op stof-populariteit, daarna sort_order.
 export function sortProducts<T extends { name: string; tags: string[] | null; sort_order?: number | null }>(products: T[]): T[] {
   return [...products].sort((a, b) => {
-    const ba = brandRank(a.tags);
-    const bb = brandRank(b.tags);
-    if (ba !== bb) return ba - bb;
     const pa = popularityScore(a.name);
     const pb = popularityScore(b.name);
     if (pa !== pb) return pa - pb;

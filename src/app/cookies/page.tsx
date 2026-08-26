@@ -45,7 +45,7 @@ export default function CookiesPage() {
             zodat je de banner niet elke pagina opnieuw ziet.
           </li>
           <li>
-            <strong>apo_chat_id</strong> (localStorage) - als je de live-chat hebt gebruikt,
+            <strong>ph_chat_id</strong> (localStorage) - als je de live-chat hebt gebruikt,
             koppelt deze ID je terug aan het lopende gesprek bij een nieuwe sessie.
           </li>
         </ul>

@@ -14,7 +14,7 @@ Content-management gaat via het shop-dash sister-repo (`../shop-dash`).
 
 ## Wat dit is
 
-Publieke Next.js webshop voor **peptidehuis.nl** — 30+ onderzoeks-peptiden voor genezing, vetverlies, spiergroei, cognitie, libido, huid en longevity, plus bundels en onderzoeksbenodigdheden. Fork van anabolenpro-nextjs met een **clinical navy + kobaltblauw** palet (peptidecenter-inspiratie) en categorie-tegels met Lucide lijn-icons.
+Publieke Next.js webshop voor **peptidehuis.nl** — 30+ onderzoeks-peptiden voor genezing, vetverlies, spiergroei, cognitie, libido, huid en longevity, plus bundels en onderzoeksbenodigdheden. Gebouwd op het gedeelde webshop-theme van de andere shops, met een eigen **clinical navy + kobaltblauw** palet en categorie-tegels met Lucide lijn-icons. Het theme is volledig ontdaan van vorige-shop-vocabulaire en herbruikbaar voor nieuwe shops (palet = tokens in `globals.css`, categorieën + icons = `src/components/shop/data.ts`, shop_id op 3 plekken: `lib/queries.ts`, `api/orders`, `api/reviews`, `components/whatsapp-fab.tsx`).
 
 Data leeft in Supabase (`rexqfwibxawqnvrzbdoo` eu-west-1). Alle content (blogs, product-catalog, categorieën, shop-config incl. `payment_instructions`, order-flow) leest deze site direct uit die DB.
 
@@ -36,11 +36,11 @@ Productfoto's ontbreken nog; fallback is `/assets/vial-placeholder.jpg`
 
 Next.js 14 App Router, TypeScript strict, Tailwind. Path alias `@/*` → `./src/*`. UI is Nederlands.
 
-### Verwijderde routes (t.o.v. anabolenpro-basis)
+### Verwijderde routes (t.o.v. de theme-basis)
 
-- `/[stof]` — AAS-stof pagina's — niet van toepassing op peptiden
-- `/keuzehulp` — AAS kuur wizard
-- `/risicos-en-bijwerkingen` — anabolen-specifieke bloedwerk-copy
+- `/[stof]` — stof-pagina's van de vorige shop — niet van toepassing
+- `/keuzehulp` — wizard van de vorige shop
+- `/risicos-en-bijwerkingen` — shop-specifieke copy van de vorige shop
 
 ### Nog aan te vullen
 
@@ -59,7 +59,7 @@ Bedrijfsprofiel staat in `../shop-dash` → cron_schedules waar `slug=peptidehui
 
 ## Env vars
 
-Zelfde als anabolenpro-nextjs — Supabase URL + anon key + service role.
+Zelfde als de andere shop-repos — Supabase URL + anon key + service role (zie `.env.example`).
 
 ## Git
 

@@ -1,41 +1,31 @@
-# anabolenpro.com — Next.js productie site
+# peptidehuis.nl — Next.js productie site
 
-Next.js 14 App Router. Data live uit Supabase shop `anabolenpro` via scoped
-anon JWT (shop_id claim) — RLS isoleert deze site automatisch.
+Next.js 14 App Router. Data live uit Supabase shop `peptidehuis` via de anon
+key (RLS-policy migratie 049 in shop-dash staat publieke reads toe).
 
-## Architectuur
+## Stack
 
-- **ISR** op alle pages (`export const revalidate = 300/600/3600`)
-- **On-demand revalidate** via `/api/revalidate` (shop-dash POSTs hierheen na admin save)
-- **Clean URLs**:
-  - `/winkel` — full catalog
-  - `/winkel/[categorie]` — categorie listing
-  - `/product/[categorie]/[slug]` — product detail
-  - `/[stof]` — info-page per stof (anavar, dianabol, etc) met producten
-  - `/kennisbank` + `/kennisbank/[slug]` — blogs
-- **SEO** — `sitemap.xml` + `robots.txt` + `llms.txt` allemaal DB-driven
-- **Cart** — client-only (localStorage), checkout server-side naar Supabase orders
-- **Auth** — Supabase magic-link, long-session via cookie middleware
-- **Media** — `/media/*` rewrite naar Supabase Storage `product-media/anabolenpro/*`
+- Next.js 14 (App Router) + TypeScript strict + Tailwind
+- Supabase (gedeeld project met shop-dash) — producten, categorieën, blogs,
+  orders, analytics
+- Huisstijl: clinical navy + kobaltblauw, Lucide lijn-icons per categorie
 
-## Setup
+## Belangrijkste onderdelen
+
+- **Winkel** — `/winkel` + `/winkel/[categorie]` met filters, `/product/[categorie]/[slug]`
+- **Kennisbank** — `/kennisbank` leest blog_posts uit Supabase
+- **Lab** — `/lab` COA-opvraag per batchcode + eigen-test aanvraag
+- **Checkout** — orders via service-role key, betaalinstructies uit de shops-rij
+- **Media** — `/media/*` rewrite naar Supabase Storage `product-media/peptidehuis/*`
+
+## Lokaal draaien
 
 ```bash
-cp .env.example .env.local      # vul JWT in
 npm install
-npm run dev
+npm run dev   # http://localhost:3000
 ```
 
-## Deploy
+Content-management en seed-scripts leven in het sister-repo `../shop-dash`
+(`scripts/seed-peptidehuis-catalog.mjs`, `scripts/seed-peptidehuis-blogs.mjs`).
 
-1. Vercel: importeer repo
-2. Env vars uit `.env.example`
-3. Deploy
-4. Koppel domein anabolenpro.com via shop-dash
-
-## SEO
-
-- `robots.txt` leest `shops.noindex` uit DB — toggle live aan/uit via dashboard
-- `sitemap.xml` lijst alle products + categorieën + blogs auto-generated
-- `llms.txt` — manifest voor AI-crawlers (GPTBot, ClaudeBot, PerplexityBot)
-- Schema.org JSON-LD per product (`Product` + `Offer`) en categorie (`CollectionPage` + `ItemList`)
+Zie CLAUDE.md voor de volledige repo-briefing.

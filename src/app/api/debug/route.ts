@@ -21,7 +21,7 @@ export async function GET() {
   }
 
   const cats = await listCategories();
-  const kuurpakketten = await getCategory("kuurpakketten");
+  const genezing = await getCategory("genezing");
   const products = await listProducts({ limit: 3 });
 
   return NextResponse.json({
@@ -29,8 +29,8 @@ export async function GET() {
     raw_supabase_categories: raw,
     listCategories_count: cats.length,
     listCategories_first: cats.slice(0, 3).map((c) => c.slug),
-    getCategory_kuurpakketten_found: !!kuurpakketten,
-    getCategory_kuurpakketten_id: kuurpakketten?.id || null,
+    getCategory_genezing_found: !!genezing,
+    getCategory_genezing_id: genezing?.id || null,
     listProducts_count: products.length,
     listProducts_first: products.slice(0, 3).map((p) => ({ name: p.name, cat: p.categories?.slug })),
   });

@@ -2,8 +2,8 @@
  * Supabase server-side client voor data fetching in Next.js server components.
  *
  * Fallback URL + anon key zijn hardcoded - beide PUBLIC. RLS-policies in
- * shop-dash migration 021 scopen alle SELECT-queries naar anabolenpro shop_id.
- * Zonder env vars op Vercel werkt de shop dus alsnog.
+ * shop-dash migration 049 scopen alle SELECT-queries naar de peptidehuis
+ * shop_id. Zonder env vars op Vercel werkt de shop dus alsnog.
  */
 import { createClient } from "@supabase/supabase-js";
 

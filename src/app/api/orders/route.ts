@@ -4,7 +4,7 @@ import { unitDiscountPct } from "@/lib/bulk-discount";
 
 export const dynamic = "force-dynamic";
 
-const SHOP_ID = "42ddf952-d3c1-4c81-8029-7b4c54a84913"; // anabolenpro
+const SHOP_ID = "42ddf952-d3c1-4c81-8029-7b4c54a84913"; // peptidehuis
 const SHIPPING_FEE_CENTS = 1000; // EUR 10 per zending
 
 export async function POST(req: NextRequest) {
