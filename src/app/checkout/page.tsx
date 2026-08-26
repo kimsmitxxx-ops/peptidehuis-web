@@ -107,7 +107,7 @@ export default function CheckoutPage() {
                   <UserPlus size={14} className="text-accent" /> Maak meteen een account aan
                 </p>
                 <p className="mt-0.5 text-xs text-text-muted">
-                  Volg je bestellingen, herhaal eerdere kuren in 1 klik en zie je COA-archief terug.
+                  Volg je bestellingen, herhaal eerdere bestellingen in 1 klik en zie je COA-archief terug.
                 </p>
               </div>
             </label>

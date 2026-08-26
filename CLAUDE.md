@@ -42,10 +42,18 @@ Next.js 14 App Router, TypeScript strict, Tailwind. Path alias `@/*` → `./src/
 - `/keuzehulp` — wizard van de vorige shop
 - `/risicos-en-bijwerkingen` — shop-specifieke copy van de vorige shop
 
-### Nog aan te vullen
+### Stof-pagina's (/peptiden/[stof]) + calculator
 
-- Peptide-specifieke stof-pages (per top-20 peptide met werkingsmechanisme, halfwaardetijd, protocol)
-- Reconstitutie-calculator (BAC water + peptide mg -> U100 streepjes)
+- `/peptiden` = index; `/peptiden/<slug>` = per-stof SEO-gids (werking, onderzoek
+  met geverifieerde PubMed/NEJM-bronnen, protocol, reconstitutie, LLM-FAQ met
+  FAQPage JSON-LD, product-CTA's in de sidebar). Data in `src/lib/stoffen/`
+  (data-a.ts + data-b.ts, 12 stoffen). Productpagina's cross-linken automatisch
+  via `stofForProductSlug()`. In sitemap + llms.txt opgenomen.
+- Nog geen gids voor: KPV, Thymosin Alpha-1, HGH-frag, IGF-1 LR3, ACE-031,
+  MOTS-c, DSIP, P21, PE 22-28, SNAP-8, MT-1, Oxytocine, Epithalon, NAD+,
+  Humanin, Kisspeptin, SS-31, Glutathion - zelfde patroon, toevoegen in data-b.
+- `/reconstitutie-calculator` = client-side U100-rekentool
+  (`src/components/reconstitutie-calculator.tsx`).
 
 ## Content-tone
 

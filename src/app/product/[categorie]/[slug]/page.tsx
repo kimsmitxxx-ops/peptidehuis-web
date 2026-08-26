@@ -8,8 +8,9 @@ import { MedicalDisclaimer } from "@/components/medical-disclaimer";
 import { ProductGallery } from "@/components/shop/product-gallery";
 import { PaymentRow } from "@/components/payment-row";
 import { RestockNotifyForm } from "@/components/shop/restock-notify-form";
-import { ShieldCheck, Truck, FlaskConical, ArrowLeft, MapPin } from "lucide-react";
+import { ShieldCheck, Truck, FlaskConical, ArrowLeft, MapPin, BookOpen, ArrowRight } from "lucide-react";
 import { shippingMethodForTags, shippingLabel } from "@/lib/shipping";
+import { stofForProductSlug } from "@/lib/stoffen";
 import type { Metadata } from "next";
 
 export const revalidate = 300;
@@ -170,6 +171,25 @@ export default async function ProductDetailPage({ params }: { params: { categori
             <MapPin size={12} className="text-accent" />
             <strong>Verzonden vanuit:</strong> {shippingLabel(shippingMethodForTags(p.tags))}
           </p>
+
+          {/* Cross-link naar de stof-gids (SEO + hulp bij keuze) */}
+          {(() => {
+            const stof = stofForProductSlug(p.slug);
+            if (!stof) return null;
+            return (
+              <Link
+                href={`/peptiden/${stof.slug}`}
+                className="mt-6 flex items-center gap-3 rounded-lg border border-accent/30 bg-accent-soft/10 p-3 hover:border-accent transition-colors"
+              >
+                <BookOpen size={18} className="text-accent shrink-0" />
+                <span className="flex-1 text-sm">
+                  <span className="font-semibold text-text block">Alles over {stof.name}</span>
+                  <span className="text-xs text-text-muted">Werking, onderzoek, protocollen en FAQ in de peptide-gids</span>
+                </span>
+                <ArrowRight size={14} className="text-accent shrink-0" />
+              </Link>
+            );
+          })()}
 
           {/* Betaalopties - zelfde set als checkout zodat klant weet wat hij straks gaat zien */}
           <div className="mt-6 rounded-lg border border-border bg-paper-soft p-3">

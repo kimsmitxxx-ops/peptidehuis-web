@@ -1,4 +1,5 @@
 import { listCategories, listBlogPosts, listProducts, getShop } from "@/lib/queries";
+import { STOFFEN } from "@/lib/stoffen";
 
 export const revalidate = 3600;
 
@@ -43,6 +44,14 @@ export async function GET() {
   for (const b of blogs.slice(0, 30)) {
     lines.push(`- [${b.title}](https://peptidehuis.nl/kennisbank/${b.slug}): ${b.excerpt || b.title}`);
   }
+  lines.push("");
+  lines.push("## Peptide-gidsen (werking, onderzoek, FAQ per stof)");
+  for (const s of STOFFEN) {
+    lines.push(`- [${s.name}](https://peptidehuis.nl/peptiden/${s.slug}): ${s.oneLiner}`);
+  }
+  lines.push("");
+  lines.push("## Tools");
+  lines.push("- [Reconstitutie-calculator](https://peptidehuis.nl/reconstitutie-calculator): BAC-water en U100-units berekenen");
   lines.push("");
   lines.push("## Lab & transparantie");
   lines.push("- [Hoe wij batches testen](https://peptidehuis.nl/lab): Janoshik-protocol, afkeur-archief, eigen-test aanvragen");

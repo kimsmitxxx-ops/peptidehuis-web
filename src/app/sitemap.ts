@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { listProducts, listCategories, listBlogPosts } from "@/lib/queries";
+import { STOFFEN } from "@/lib/stoffen";
 
 const BASE = "https://peptidehuis.nl";
 
@@ -15,7 +16,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes = [
     { url: `${BASE}/`, changeFrequency: "daily" as const, priority: 1.0 },
     { url: `${BASE}/winkel`, changeFrequency: "daily" as const, priority: 0.9 },
+    { url: `${BASE}/peptiden`, changeFrequency: "weekly" as const, priority: 0.85 },
     { url: `${BASE}/kennisbank`, changeFrequency: "weekly" as const, priority: 0.8 },
+    { url: `${BASE}/reconstitutie-calculator`, changeFrequency: "monthly" as const, priority: 0.6 },
     { url: `${BASE}/begrippenlijst`, changeFrequency: "monthly" as const, priority: 0.6 },
     { url: `${BASE}/lab`, changeFrequency: "weekly" as const, priority: 0.7 },
     { url: `${BASE}/over-ons`, changeFrequency: "monthly" as const, priority: 0.4 },
@@ -23,14 +26,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/contact`, changeFrequency: "monthly" as const, priority: 0.3 },
   ];
 
+  const stofRoutes = STOFFEN.map((s) => ({
+    url: `${BASE}/peptiden/${s.slug}`,
+    changeFrequency: "weekly" as const,
+    priority: 0.85,
+  }));
+
   const categoryRoutes = categories.map((c) => ({
     url: `${BASE}/winkel/${c.slug}`,
     changeFrequency: "daily" as const,
     priority: 0.85,
   }));
 
-  // Alleen index-baar (UT-merk) producten in sitemap. noindex=true wordt
-  // expliciet uitgesloten zodat Google ze niet via sitemap ontdekt.
+  // noindex=true wordt expliciet uitgesloten zodat Google ze niet via de
+  // sitemap ontdekt.
   const productRoutes = products
     .filter((p: any) => p.noindex !== true)
     .map((p) => ({
@@ -46,5 +55,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...categoryRoutes, ...productRoutes, ...blogRoutes];
+  return [...staticRoutes, ...stofRoutes, ...categoryRoutes, ...productRoutes, ...blogRoutes];
 }

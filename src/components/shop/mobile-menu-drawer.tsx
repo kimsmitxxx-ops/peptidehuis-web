@@ -52,6 +52,11 @@ export function MobileMenuDrawer({ open, onOpenChange }: Props) {
                 </Link>
               </li>
               <li>
+                <Link href="/peptiden" onClick={close} className="flex items-center gap-3 px-2 py-2.5 rounded text-sm text-primary-foreground/85 hover:bg-primary-soft hover:text-accent">
+                  <FlaskConical size={16} className="text-accent" /> Peptiden A-Z
+                </Link>
+              </li>
+              <li>
                 <Link href="/kennisbank" onClick={close} className="flex items-center gap-3 px-2 py-2.5 rounded text-sm text-primary-foreground/85 hover:bg-primary-soft hover:text-accent">
                   <BookOpen size={16} className="text-accent" /> Kennisbank
                 </Link>

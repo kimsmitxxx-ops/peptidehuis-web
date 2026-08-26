@@ -66,7 +66,8 @@ export function Footer() {
           <div>
             <h4 className="font-display text-base mb-3 text-primary-foreground">Kennisbank</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/kennisbank" className="text-primary-foreground/70 hover:text-accent">Peptide-onderzoek</Link></li>
+              <li><Link href="/peptiden" className="text-primary-foreground/70 hover:text-accent">Peptiden A-Z</Link></li>
+              <li><Link href="/reconstitutie-calculator" className="text-primary-foreground/70 hover:text-accent">Reconstitutie-calculator</Link></li>
               <li><Link href="/kennisbank" className="text-accent hover:text-accent-soft">Alle artikelen →</Link></li>
             </ul>
           </div>
