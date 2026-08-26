@@ -14,7 +14,7 @@ Content-management gaat via het shop-dash sister-repo (`../shop-dash`).
 
 ## Wat dit is
 
-Publieke Next.js webshop voor **peptidehuis.nl** — de top 20 onderzoeks-peptiden voor genezing, vetverlies, spiergroei, cognitie en longevity. Fork van anabolenpro-nextjs met een warm cream + champagne gold palette (retakopen-verwant maar aparte identiteit).
+Publieke Next.js webshop voor **peptidehuis.nl** — 30+ onderzoeks-peptiden voor genezing, vetverlies, spiergroei, cognitie, libido, huid en longevity, plus bundels en onderzoeksbenodigdheden. Fork van anabolenpro-nextjs met een **clinical navy + kobaltblauw** palet (peptidecenter-inspiratie) en categorie-tegels met Lucide lijn-icons.
 
 Data leeft in Supabase (`rexqfwibxawqnvrzbdoo` eu-west-1). Alle content (blogs, product-catalog, categorieën, shop-config incl. `payment_instructions`, order-flow) leest deze site direct uit die DB.
 
@@ -22,13 +22,15 @@ Shop-slug: `peptidehuis` — shop_id = `42ddf952-d3c1-4c81-8029-7b4c54a84913`.
 
 ## Product-catalog
 
-20 peptiden geseed via `../shop-dash/scripts/seed-kamagra-peptide-shops.mjs`:
+Volledige catalogus (42 producten incl. bundels + benodigdheden) beheerd via
+`../shop-dash/scripts/seed-peptidehuis-catalog.mjs` — idempotent, upsert op slug.
+9 categorieën: genezing / vetverlies / spiergroei / cognitie / libido /
+huid-bruining / longevity / bundels / benodigdheden. Elk product heeft
+long_description, specifications (Record<string,string>), faqs, usps, meta.
+Blogs seeden via `../shop-dash/scripts/seed-peptidehuis-blogs.mjs`.
 
-**Genezing:** BPC-157, TB-500, KPV, GHK-Cu
-**Vetverlies:** Retatrutide, Semaglutide, Tirzepatide, HGH Fragment 176-191
-**Spiergroei / GH:** CJC-1295 no-DAC, Ipamorelin, MOTS-c
-**Cognitie / stemming:** Selank, Semax, DSIP, PT-141
-**Longevity:** Epithalon, Thymosin Alpha-1, NAD+, Humanin, Kisspeptin-10
+Productfoto's ontbreken nog; fallback is `/assets/vial-placeholder.jpg`
+(stijl A uit `/assets/style-samples/`).
 
 ## Architectuur
 
