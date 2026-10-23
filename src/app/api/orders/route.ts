@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createServiceClient } from "@/lib/supabase";
 import { unitDiscountPct } from "@/lib/bulk-discount";
+import { addonDeltaCents, addonSummary, normalizeAddons } from "@/lib/addons";
 
 export const dynamic = "force-dynamic";
 
@@ -42,6 +43,28 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: `Server-config fout: ${e.message}` }, { status: 500 });
   }
 
+  // Prijzen nooit van de browser overnemen: haal de productprijs uit de database
+  // en tel daar alleen de toeslag van de gekozen accessoires bij op.
+  const cartSkus = Array.from(new Set(items.map((it: any) => it.sku).filter(Boolean)));
+  const { data: priceRows } = await supabase
+    .from("products")
+    .select("sku, name, price_cents")
+    .eq("shop_id", SHOP_ID)
+    .in("sku", cartSkus);
+  const dbPrice = new Map((priceRows || []).map((r: any) => [r.sku, r.price_cents as number]));
+  const dbName = new Map((priceRows || []).map((r: any) => [r.sku, r.name as string]));
+
+  for (const it of items) {
+    const base = dbPrice.get(it.sku);
+    if (base == null) {
+      return NextResponse.json({ error: `Onbekend product: ${it.sku}` }, { status: 400 });
+    }
+    const expected = base + addonDeltaCents(normalizeAddons(it.addons));
+    if (it.price_cents !== expected) {
+      return NextResponse.json({ error: "Prijs klopt niet meer, ververs de winkelwagen" }, { status: 409 });
+    }
+  }
+
   let customerId: string | null = null;
   try {
     const { data } = await supabase.rpc("find_or_create_customer", {
@@ -76,7 +99,7 @@ export async function POST(req: NextRequest) {
     shipping_street: fullStreet, shipping_postal: postal, shipping_city: city, shipping_country: country,
     subtotal_cents: subtotal, shipping_cents: shipping, total_cents: total,
     status: "pending_payment",
-    reference: `AP-${Date.now().toString(36).toUpperCase()}`,
+    reference: `PH-${Date.now().toString(36).toUpperCase()}`,
   }).select().single();
 
   if (error || !order) {
@@ -92,7 +115,10 @@ export async function POST(req: NextRequest) {
     order_id: order.id,
     product_id: skuToId.get(it.sku) || null,
     sku: it.sku,
-    name: it.name,
+    // Naam uit de database, niet uit de browser; accessoires erachter.
+    name: [dbName.get(it.sku) || it.name, addonSummary(normalizeAddons(it.addons))]
+      .filter(Boolean)
+      .join(" + "),
     qty: it.qty,
     price_cents: it.applied_price_cents,
   })));

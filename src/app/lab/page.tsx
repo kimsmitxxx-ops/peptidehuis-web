@@ -21,7 +21,7 @@ import { LabRequestForm } from "@/components/shop/lab-request-form";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Labtesten & COA's - alle batches doorzoekbaar · Peptidehuis",
+  title: "Labtesten en COA's - alle batches doorzoekbaar",
   description: "Doorzoek elk HPLC-rapport per batchcode. Iedere flacon is traceerbaar naar een onafhankelijk lab - Janoshik, Anabolic Lab, Eurofins en SIMEC.",
   alternates: { canonical: "/lab" },
 };

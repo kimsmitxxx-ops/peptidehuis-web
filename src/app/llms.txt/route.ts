@@ -51,6 +51,7 @@ export async function GET() {
   }
   lines.push("");
   lines.push("## Tools");
+  lines.push("- [Keuzehulp](https://peptidehuis.nl/keuzehulp): drie vragen naar het best passende, leverbare peptide");
   lines.push("- [Reconstitutie-calculator](https://peptidehuis.nl/reconstitutie-calculator): BAC-water en U100-units berekenen");
   lines.push("");
   lines.push("## Lab & transparantie");

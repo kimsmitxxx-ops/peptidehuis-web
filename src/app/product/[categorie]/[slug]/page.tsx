@@ -9,7 +9,7 @@ import { ProductGallery } from "@/components/shop/product-gallery";
 import { PaymentRow } from "@/components/payment-row";
 import { RestockNotifyForm } from "@/components/shop/restock-notify-form";
 import { ShieldCheck, Truck, FlaskConical, ArrowLeft, MapPin, BookOpen, ArrowRight } from "lucide-react";
-import { shippingMethodForTags, shippingLabel } from "@/lib/shipping";
+import { shippingMethodForTags, shippingLabel, SHIPPING_FEE_CENTS } from "@/lib/shipping";
 import { stofForProductSlug } from "@/lib/stoffen";
 import type { Metadata } from "next";
 
@@ -26,7 +26,12 @@ export async function generateMetadata({ params }: { params: { categorie: string
     title: p.meta_title || `${p.name} kopen voor ${formatEUR(p.price_cents)}`,
     description: p.meta_description || p.subtitle || p.description || `${p.name} bij Peptidehuis - lab-getest, snelle verzending.`,
     alternates: { canonical },
-    robots: noindex ? { index: false, follow: false } : undefined,
+    robots: noindex
+      ? { index: false, follow: false }
+      // Expliciet index/follow: een `undefined` hier overschrijft de
+      // `robots`-metadata uit de root-layout, waardoor productpagina's
+      // helemaal zonder robots-meta de deur uit gingen.
+      : { index: true, follow: true },
     openGraph: {
       title: p.name,
       description: p.subtitle || undefined,
@@ -58,14 +63,25 @@ export default async function ProductDetailPage({ params }: { params: { categori
     name: p.name,
     sku: p.sku,
     description: p.subtitle || p.description,
-    image: gallery.map((m: any) => m.url),
-    brand: p.tags?.[0] ? { "@type": "Brand", name: p.tags[0] } : undefined,
+    image: gallery.map((m: any) => (m.url?.startsWith("/") ? `https://peptidehuis.nl${m.url}` : m.url)),
+    brand: { "@type": "Brand", name: p.schema_brand || "Peptidehuis" },
+    gtin: p.schema_gtin || undefined,
+    mpn: p.sku,
     offers: {
       "@type": "Offer",
-      url: `/product/${params.categorie}/${p.slug}`,
+      // Absolute URL: AI-assistenten en rich results lezen schema los van de pagina.
+      url: `https://peptidehuis.nl/product/${params.categorie}/${p.slug}`,
       priceCurrency: "EUR",
       price: (p.price_cents / 100).toFixed(2),
+      priceValidUntil: new Date(Date.now() + 365 * 24 * 3600 * 1000).toISOString().slice(0, 10),
+      itemCondition: `https://schema.org/${p.schema_condition || "NewCondition"}`,
       availability: p.availability === "OutOfStock" ? "https://schema.org/OutOfStock" : "https://schema.org/InStock",
+      seller: { "@type": "Organization", name: "Peptidehuis" },
+      shippingDetails: {
+        "@type": "OfferShippingDetails",
+        shippingRate: { "@type": "MonetaryAmount", value: (SHIPPING_FEE_CENTS / 100).toFixed(2), currency: "EUR" },
+        shippingDestination: { "@type": "DefinedRegion", addressCountry: "NL" },
+      },
     },
   };
 

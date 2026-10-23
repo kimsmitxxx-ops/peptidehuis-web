@@ -8,6 +8,7 @@ import { Footer } from "@/components/shop/footer";
 import { MobileTabBar } from "@/components/shop/mobile-tabbar";
 import { AnalyticsTracker } from "@/components/analytics-tracker";
 import { GA4 } from "@/components/ga4";
+import { getShop } from "@/lib/queries";
 
 // Measurement-ID per Vercel-project instellen; zonder ID laadt GA4 niet.
 const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID || "";
@@ -38,11 +39,21 @@ const WhatsAppFab = dynamic(
   { ssr: false },
 );
 
-export const metadata: Metadata = {
+// Indexeerbaarheid volgt shops.noindex in de dash, net als /robots.txt. Zolang
+// die aan staat mag de meta-tag niet alsnog "index" roepen.
+export async function generateMetadata(): Promise<Metadata> {
+  const shop = await getShop().catch(() => null);
+  const noindex = shop?.noindex ?? true;
+  return {
+    ...baseMetadata,
+    robots: noindex ? { index: false, follow: false } : { index: true, follow: true },
+  };
+}
+
+const baseMetadata: Metadata = {
   metadataBase: new URL("https://peptidehuis.nl"),
   title: { default: "Peptidehuis - onderzoeks-peptiden, ≥98% HPLC, COA per batch", template: "%s · Peptidehuis" },
   description: "20+ onderzoeks-peptiden: BPC-157, Retatrutide, CJC-1295, Semaglutide, Ipamorelin en meer. Lab-grade ≥98% HPLC, gevriesdroogd, COA per batchcode, discreet verzonden vanaf NL.",
-  robots: { index: true, follow: true },
   icons: {
     icon: [{ url: "/icon.png", type: "image/png" }],
     apple: [{ url: "/apple-icon.png", type: "image/png" }],

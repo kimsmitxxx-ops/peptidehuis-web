@@ -7,7 +7,7 @@ export const STOFFEN_A: Stof[] = [
     aka: ["LY3437943", "triple-agonist", "triple G"],
     categorySlug: "vetverlies",
     categoryName: "Vetverlies",
-    productSlugs: ["retatrutide-10mg", "bundel-retatrutide-3x"],
+    productSlugs: ["retatrutide-15mg", "bundel-retatrutide-3x"],
     oneLiner: "De eerste triple-agonist (GLP-1 + GIP + glucagon) met 24% gewichtsverlies in fase-2-onderzoek.",
     metaTitle: "Retatrutide: werking, onderzoek en kopen",
     metaDescription: "Alles over Retatrutide (LY3437943): hoe de triple-agonist werkt, wat de NEJM fase-2-studie liet zien, halfwaardetijd, reconstitutie en veelgestelde vragen. Lab-getest kopen met COA.",
@@ -20,7 +20,7 @@ export const STOFFEN_A: Stof[] = [
     protocol:
       "<p>In de studieprotocollen wordt retatrutide eenmaal per week subcutaan toegediend, met een langzame optitratie over meerdere weken naar de doeldosis. De halfwaardetijd van ongeveer zes dagen houdt de spiegel bij wekelijkse toediening stabiel; vaker doseren voegt niets toe. Onderzoekers combineren het niet met andere incretines: de drie routes zitten al in één molecuul.</p>",
     reconstitutie:
-      "<p>Voor een vial van 10 mg is 2 ml bacteriostatisch water gangbaar, wat 5 mg/ml geeft; 10 units op een U100-spuit komt dan overeen met 0,5 mg. Gebruik de <a href=\"/reconstitutie-calculator\">reconstitutie-calculator</a> voor je eigen verhouding. Na reconstitutie gekoeld bewaren (2-8 graden) en binnen ongeveer vier weken gebruiken.</p>",
+      "<p>Voor een vial van 15 mg is 2 ml bacteriostatisch water gangbaar, wat 7,5 mg/ml geeft; 10 units op een U100-spuit komt dan overeen met 0,75 mg. Gebruik de <a href=\"/reconstitutie-calculator\">reconstitutie-calculator</a> voor je eigen verhouding. Na reconstitutie gekoeld bewaren (2-8 graden) en binnen ongeveer vier weken gebruiken.</p>",
     faqs: [
       { q: "Wat is retatrutide precies?", a: "Een synthetisch onderzoekspeptide van Eli Lilly dat drie receptoren tegelijk activeert: GLP-1, GIP en glucagon. Het wordt onderzocht voor gewichtsverlies en metabole gezondheid en is nog niet als geneesmiddel geregistreerd." },
       { q: "Hoeveel gewichtsverlies liet retatrutide zien in onderzoek?", a: "In de NEJM fase-2-studie gemiddeld ongeveer 24% lichaamsgewicht na 48 weken bij de hoogste dosering, zonder plateau. Ter vergelijking: semaglutide haalde 15% en tirzepatide 21% in hun registratiestudies." },
@@ -71,7 +71,7 @@ export const STOFFEN_A: Stof[] = [
     aka: ["dual-agonist", "GLP-1/GIP", "Mounjaro-klasse", "Zepbound-klasse"],
     categorySlug: "vetverlies",
     categoryName: "Vetverlies",
-    productSlugs: ["tirzepatide-15mg"],
+    productSlugs: ["tirzepatide-10mg"],
     oneLiner: "De dual-agonist (GLP-1 + GIP) die in SURMOUNT-1 gemiddeld 21% gewichtsverlies liet zien.",
     metaTitle: "Tirzepatide: werking, onderzoek en kopen",
     metaDescription: "Alles over tirzepatide: hoe de GLP-1/GIP dual-agonist werkt, de SURMOUNT-1-resultaten, het verschil met semaglutide en retatrutide, reconstitutie en FAQ. Lab-getest kopen met COA.",
@@ -84,14 +84,14 @@ export const STOFFEN_A: Stof[] = [
     protocol:
       "<p>Klinische protocollen doseren eenmaal per week subcutaan, startend op 2,5 mg en per vier weken optitrerend tot maximaal 15 mg. De halfwaardetijd van ongeveer vijf dagen maakt wekelijkse toediening logisch.</p>",
     reconstitutie:
-      "<p>Voor een vial van 15 mg is 3 ml bacteriostatisch water gangbaar (5 mg/ml); 10 units op een U100-spuit komt dan overeen met 0,5 mg. Gebruik de <a href=\"/reconstitutie-calculator\">reconstitutie-calculator</a> voor andere verhoudingen en bewaar de opgeloste vial gekoeld.</p>",
+      "<p>Voor een vial van 10 mg is 2 ml bacteriostatisch water gangbaar (5 mg/ml); 10 units op een U100-spuit komt dan overeen met 0,5 mg. Gebruik de <a href=\"/reconstitutie-calculator\">reconstitutie-calculator</a> voor andere verhoudingen en bewaar de opgeloste vial gekoeld.</p>",
     faqs: [
       { q: "Wat is het verschil tussen tirzepatide en semaglutide?", a: "Semaglutide activeert alleen de GLP-1-receptor, tirzepatide ook de GIP-receptor. In de eigen registratiestudies haalde tirzepatide meer gewichtsverlies (21% versus 15%), mede doordat de GIP-component hogere doseringen verdraagbaar maakt." },
       { q: "Is dit hetzelfde als Mounjaro of Zepbound?", a: "Het molecuul is hetzelfde, maar dit is een gevriesdroogd onderzoekspeptide zonder registratie, bedoeld voor laboratoriumgebruik en niet voor menselijke consumptie." },
       { q: "Wat doet de GIP-receptor eigenlijk?", a: "GIP is het tweede incretine-hormoon: het versterkt de insulinerespons na een maaltijd en speelt een rol in vetmetabolisme. De combinatie met GLP-1 bleek in trials effectiever dan GLP-1 alleen en gaf minder misselijkheid per hoeveelheid effect." },
       { q: "Tirzepatide kopen: waar let je op?", a: "Op een per-batch COA van een onafhankelijk lab. Wij laten elke batch testen bij Janoshik en het rapport is per batchcode opvraagbaar. Uitsluitend voor onderzoeksdoeleinden." },
       { q: "Hoe lang blijft een gereconstitueerde vial goed?", a: "Gekoeld op 2-8 graden ongeveer vier weken, mits met bacteriostatisch water gereconstitueerd. Gevriesdroogd en ongeopend is de vial maandenlang stabiel." },
-      { q: "Waarom een vial van 15 mg?", a: "Dat is de hoogste dosering uit de klinische protocollen; met een 15 mg vial kun je elke onderzoeksdosering uit de literatuur afmeten, van 2,5 tot 15 mg." },
+      { q: "Waarom een vial van 10 mg?", a: "Met 10 mg dek je de doseringen af die in de klinische protocollen het meest worden onderzocht, van 2,5 tot 10 mg, zonder dat er na een onderzoeksreeks veel in de vial achterblijft." },
     ],
     bronnen: [
       { title: "NEJM (2022): SURMOUNT-1, tirzepatide bij obesitas", url: "https://www.nejm.org/doi/full/10.1056/NEJMoa2206038" },

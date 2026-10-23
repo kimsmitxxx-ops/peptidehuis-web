@@ -10,6 +10,8 @@ export type CartItem = {
   qty: number;
   /** "ut" voor UT-tagged producten, "rest" voor alle overige (default). */
   shipping_method?: "ut" | "rest";
+  /** Gekozen accessoires (water/spuiten/doekjes); bepaalt de toeslag in price_cents. */
+  addons?: Record<string, string>;
 };
 
 type Ctx = {

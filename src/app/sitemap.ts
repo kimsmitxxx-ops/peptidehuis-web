@@ -18,13 +18,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/winkel`, changeFrequency: "daily" as const, priority: 0.9 },
     { url: `${BASE}/peptiden`, changeFrequency: "weekly" as const, priority: 0.85 },
     { url: `${BASE}/kennisbank`, changeFrequency: "weekly" as const, priority: 0.8 },
+    { url: `${BASE}/keuzehulp`, changeFrequency: "monthly" as const, priority: 0.7 },
     { url: `${BASE}/reconstitutie-calculator`, changeFrequency: "monthly" as const, priority: 0.6 },
     { url: `${BASE}/begrippenlijst`, changeFrequency: "monthly" as const, priority: 0.6 },
     { url: `${BASE}/lab`, changeFrequency: "weekly" as const, priority: 0.7 },
     { url: `${BASE}/over-ons`, changeFrequency: "monthly" as const, priority: 0.4 },
     { url: `${BASE}/bezorging`, changeFrequency: "monthly" as const, priority: 0.4 },
     { url: `${BASE}/contact`, changeFrequency: "monthly" as const, priority: 0.3 },
-  ];
+    { url: `${BASE}/merken/getvital-peptides`, changeFrequency: "monthly" as const, priority: 0.6 },
+    ];
 
   const stofRoutes = STOFFEN.map((s) => ({
     url: `${BASE}/peptiden/${s.slug}`,

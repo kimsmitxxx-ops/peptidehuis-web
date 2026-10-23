@@ -7,7 +7,7 @@ export const STOFFEN_B: Stof[] = [
     aka: ["GH-secretagoog", "GHRP", "NNC 26-0161"],
     categorySlug: "spiergroei",
     categoryName: "Spiergroei & GH",
-    productSlugs: ["ipamorelin-5mg", "cjc-1295-ipamorelin-10mg", "tesamorelin-ipamorelin-15mg"],
+    productSlugs: ["ipamorelin-10mg", "cjc-1295-ipamorelin-10mg", "tesamorelin-ipamorelin-15mg"],
     oneLiner: "De meest selectieve GH-secretagoog: een schone GH-puls zonder effect op cortisol, prolactine of eetlust.",
     metaTitle: "Ipamorelin: werking, onderzoek en kopen",
     metaDescription: "Alles over Ipamorelin: hoe de selectieve GH-secretagoog werkt via de ghreline-receptor, het verschil met oudere GHRP's, de stack met CJC-1295, reconstitutie en FAQ. Lab-getest met COA.",
@@ -20,7 +20,7 @@ export const STOFFEN_B: Stof[] = [
     protocol:
       "<p>Onderzoeksprotocollen doseren in het microgram-bereik, subcutaan, een tot drie keer per dag, vaak voor de nacht en op een lege maag. De 1:1-combinatie met CJC-1295 no-DAC is kant-en-klaar verkrijgbaar als <a href=\"/product/spiergroei/cjc-1295-ipamorelin-10mg\">blend</a>; wie de klinisch best onderbouwde GHRH-variant wil, kiest de <a href=\"/product/spiergroei/tesamorelin-ipamorelin-15mg\">Tesamorelin-blend</a>.</p>",
     reconstitutie:
-      "<p>Voor een vial van 5 mg is 2 ml bacteriostatisch water gangbaar (2,5 mg/ml); 10 units op een U100-spuit is 250 mcg. Reken andere verhoudingen na met de <a href=\"/reconstitutie-calculator\">reconstitutie-calculator</a>.</p>",
+      "<p>Voor een vial van 10 mg is 2 ml bacteriostatisch water gangbaar (5 mg/ml); 10 units op een U100-spuit is 500 mcg. Reken andere verhoudingen na met de <a href=\"/reconstitutie-calculator\">reconstitutie-calculator</a>.</p>",
     faqs: [
       { q: "Wat maakt Ipamorelin selectiever dan GHRP-6 of GHRP-2?", a: "Het activeert vrijwel uitsluitend de GH-afgifte: geen relevante stijging van cortisol (stresshormoon), prolactine of eetlust, waar oudere GHRP's dat wel doen. Daarom is het de standaardkeuze in modern onderzoek." },
       { q: "Verhoogt Ipamorelin het groeihormoon permanent?", a: "Nee, het lokt een kortdurende puls uit die het natuurlijke patroon volgt; de lichaamseigen regulering (somatostatine) blijft intact. Binnen enkele uren is de spiegel weer op baseline." },

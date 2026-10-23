@@ -5,6 +5,15 @@ import { useCart } from "@/lib/cart-context";
 import { formatEUR } from "@/lib/queries";
 import { track } from "@/lib/analytics";
 import type { Product } from "@/lib/supabase";
+import {
+  ADDON_GROUPS,
+  DEFAULT_ADDONS,
+  addonDeltaCents,
+  addonKey,
+  addonSummary,
+  supportsAddons,
+  type AddonSelection,
+} from "@/lib/addons";
 
 const BULK_TIERS = [
   { qty: 1, discountPct: 0 },
@@ -15,6 +24,14 @@ const BULK_TIERS = [
 export function AddToCartButton({ product }: { product: Product }) {
   const cart = useCart();
   const [qty, setQty] = useState(1);
+  const withAddons = supportsAddons(product.categories?.slug);
+  const [addons, setAddons] = useState<AddonSelection>({ ...DEFAULT_ADDONS });
+
+  // Prijs per stuk inclusief de gekozen accessoires. Benodigdheden zelf hebben
+  // geen opties, daar blijft het gewoon de productprijs.
+  const delta = withAddons ? addonDeltaCents(addons) : 0;
+  const unitPrice = product.price_cents + delta;
+  const summary = withAddons ? addonSummary(addons) : null;
 
   const dec = () => setQty((q) => Math.max(1, q - 1));
   const inc = () => setQty((q) => q + 1);
@@ -22,15 +39,17 @@ export function AddToCartButton({ product }: { product: Product }) {
   function addToCart() {
     // Gebruik slug als cart-id (stabiel tussen productcard + productdetail).
     // Anders zag cart-context dezelfde stof als 2 verschillende items en werd
-    // de bulk-korting niet toegepast.
+    // de bulk-korting niet toegepast. Twee verschillende accessoire-keuzes zijn
+    // wel aparte regels, dus die sleutel hangt er achter.
     cart.add(
       {
-        id: product.slug,
+        id: withAddons && delta > 0 ? `${product.slug}#${addonKey(addons)}` : product.slug,
         sku: product.sku,
-        name: product.name,
-        price_cents: product.price_cents,
+        name: summary ? `${product.name} (${summary})` : product.name,
+        price_cents: unitPrice,
         image: product.image_url,
         shipping_method: "rest",
+        addons: withAddons ? addons : undefined,
       },
       qty,
     );
@@ -38,12 +57,49 @@ export function AddToCartButton({ product }: { product: Product }) {
       product_slug: product.slug,
       sku: product.sku,
       qty,
-      value_cents: product.price_cents * qty,
+      value_cents: unitPrice * qty,
     });
   }
 
   return (
     <div className="space-y-4">
+      {withAddons && (
+        <div className="rounded-md border border-border bg-surface p-3 space-y-3">
+          <p className="text-xs font-semibold text-text">Direct klaar voor gebruik</p>
+          {ADDON_GROUPS.map((group) => (
+            <div key={group.key}>
+              <div className="flex items-baseline justify-between gap-2">
+                <span className="text-[11px] font-medium uppercase tracking-wider text-text-subtle">{group.label}</span>
+              </div>
+              <div className="mt-1.5 flex flex-wrap gap-1.5">
+                {group.choices.map((choice) => {
+                  const active = (addons[group.key] ?? group.choices[0].value) === choice.value;
+                  return (
+                    <button
+                      type="button"
+                      key={choice.value}
+                      onClick={() => setAddons((a) => ({ ...a, [group.key]: choice.value }))}
+                      aria-pressed={active}
+                      className={`rounded-md border px-2.5 py-1.5 text-xs transition-all ${
+                        active
+                          ? "border-accent bg-accent-soft/25 font-semibold text-text ring-1 ring-accent/30"
+                          : "border-border bg-background text-text-muted hover:border-accent/60"
+                      }`}
+                    >
+                      {choice.label}
+                      {choice.priceDelta > 0 && (
+                        <span className="ml-1 tabular text-accent">+{formatEUR(choice.priceDelta)}</span>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+              {group.hint && <p className="mt-1 text-[11px] leading-snug text-text-subtle">{group.hint}</p>}
+            </div>
+          ))}
+        </div>
+      )}
+
       <div className="flex items-stretch gap-2">
         <div className="inline-flex items-center rounded-md border border-border bg-surface">
           <button
@@ -70,7 +126,7 @@ export function AddToCartButton({ product }: { product: Product }) {
           onClick={addToCart}
           className="flex-1 inline-flex items-center justify-center gap-2 rounded-md bg-accent px-5 h-12 text-sm font-semibold text-accent-foreground hover:bg-accent-soft active:scale-[0.99] transition-all"
         >
-          <ShoppingCart size={16} /> Toevoegen aan mand · {formatEUR(product.price_cents * qty)}
+          <ShoppingCart size={16} /> Toevoegen aan mand · {formatEUR(unitPrice * qty)}
         </button>
       </div>
 
@@ -80,9 +136,9 @@ export function AddToCartButton({ product }: { product: Product }) {
         </p>
         <div className="mt-2 space-y-2">
           {BULK_TIERS.map((t, i) => {
-            const unit = Math.round(product.price_cents * (1 - t.discountPct / 100));
+            const unit = Math.round(unitPrice * (1 - t.discountPct / 100));
             const lineSubtotal = unit * t.qty;
-            const baseSubtotal = product.price_cents * t.qty;
+            const baseSubtotal = unitPrice * t.qty;
             const savings = baseSubtotal - lineSubtotal;
             const next = BULK_TIERS[i + 1];
             const active = qty >= t.qty && (!next || qty < next.qty);

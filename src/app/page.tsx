@@ -255,16 +255,18 @@ export default async function HomePage() {
           </div>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {dbArticles.map((a: any) => (
-              <Link key={a.id} href={`/kennisbank/${a.slug}`} className="block group">
-                <ArticleCard
-                  title={a.title}
-                  image={a.image_url || "/assets/vial-placeholder.jpg"}
-                  excerpt={a.excerpt || ""}
-                  kindTag={a.category || "Onderzoek"}
-                  publishedAt={new Date(a.published_at).toLocaleDateString("nl-NL", { day: "numeric", month: "short", year: "numeric" })}
-                  author={{ name: a.author || "Redactie", credentials: "" }}
-                />
-              </Link>
+              // ArticleCard rendert zelf al de <a>; die niet nog eens in een
+              // <Link> wikkelen, dat gaf een hydration-fout op elke homepage-render.
+              <ArticleCard
+                key={a.id}
+                href={`/kennisbank/${a.slug}`}
+                title={a.title}
+                image={a.image_url || "/assets/vial-placeholder.jpg"}
+                excerpt={a.excerpt || ""}
+                kindTag={a.category || "Onderzoek"}
+                publishedAt={new Date(a.published_at).toLocaleDateString("nl-NL", { day: "numeric", month: "short", year: "numeric" })}
+                author={{ name: a.author || "Redactie", credentials: "" }}
+              />
             ))}
           </div>
         </section>

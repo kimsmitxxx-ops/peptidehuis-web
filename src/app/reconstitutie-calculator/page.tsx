@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Calculator } from "lucide-react";
 import { ReconstitutieCalculator } from "@/components/reconstitutie-calculator";
+import { listProducts } from "@/lib/queries";
+import { toReconstituteerbaar } from "@/lib/product-amount";
 
-export const revalidate = 86400;
+// Voorraad en assortiment bepalen welke producten in de keuzelijst staan.
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Reconstitutie-calculator: BAC-water en U100-units berekenen",
@@ -39,7 +42,8 @@ const FAQS = [
   },
 ];
 
-export default function CalculatorPage() {
+export default async function CalculatorPage() {
+  const producten = toReconstituteerbaar((await listProducts({ limit: 500 })) as any);
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -66,7 +70,7 @@ export default function CalculatorPage() {
       </div>
 
       <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_340px]">
-        <ReconstitutieCalculator />
+        <ReconstitutieCalculator products={producten} />
 
         <aside className="space-y-4 lg:sticky lg:top-32 lg:self-start">
           <div className="rounded-lg border border-border bg-surface p-4 text-sm space-y-2">
