@@ -7,6 +7,7 @@ import { CollapsibleIntro } from "@/components/shop/collapsible-intro";
 import { KNOWN_BRANDS, sortBrands } from "@/lib/brands";
 import type { Metadata } from "next";
 import { BookOpen, Truck, ShieldCheck, FlaskConical, Sparkles } from "lucide-react";
+import { MERCHANT_RETURN_POLICY } from "@/lib/return-policy";
 
 export const dynamic = "force-dynamic";
 
@@ -71,7 +72,7 @@ export default async function CategoryPage({
           name: p.name,
           sku: p.sku,
           image: p.image_url || undefined,
-          offers: { "@type": "Offer", price: (p.price_cents / 100).toFixed(2), priceCurrency: "EUR", availability: p.availability === "OutOfStock" ? "https://schema.org/OutOfStock" : "https://schema.org/InStock" },
+          offers: { "@type": "Offer", hasMerchantReturnPolicy: MERCHANT_RETURN_POLICY, price: (p.price_cents / 100).toFixed(2), priceCurrency: "EUR", availability: p.availability === "OutOfStock" ? "https://schema.org/OutOfStock" : "https://schema.org/InStock" },
         },
       })),
     },
@@ -146,7 +147,7 @@ export default async function CategoryPage({
               <p className="text-sm text-text-muted">{products.length} producten</p>
               <div className="mt-4 grid gap-5 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {products.map((p) => (
-                  <Link key={p.id} href={`/product/${p.categories?.slug || cat.slug}/${p.slug}`} className="block">
+                  <Link key={p.id} href={`/product/${p.slug}`} className="block">
                     <ProductCard
                       image={p.image_url || "/assets/vial-placeholder.jpg"}
                       name={p.name}
