@@ -23,8 +23,13 @@ function popularityScore(name: string): number {
 }
 
 // Sorteer producten op stof-populariteit, daarna sort_order.
-export function sortProducts<T extends { name: string; tags: string[] | null; sort_order?: number | null }>(products: T[]): T[] {
+export function sortProducts<T extends { name: string; tags: string[] | null; sort_order?: number | null; availability?: string | null }>(products: T[]): T[] {
   return [...products].sort((a, b) => {
+    // Wat niet leverbaar is zakt naar beneden: een bezoeker hoort eerst te zien
+    // wat hij vandaag kan bestellen.
+    const ua = a.availability === "OutOfStock" ? 1 : 0;
+    const ub = b.availability === "OutOfStock" ? 1 : 0;
+    if (ua !== ub) return ua - ub;
     const pa = popularityScore(a.name);
     const pb = popularityScore(b.name);
     if (pa !== pb) return pa - pb;

@@ -1,3 +1,5 @@
+const productRedirects = require("./product-redirects");
+
 /** @type {import('next').NextConfig} */
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://rexqfwibxawqnvrzbdoo.supabase.co";
 
@@ -21,6 +23,8 @@ module.exports = {
       // Blogs die van shop-dash 'buildInternalLinks' onderzoek/-slug krijgen: op deze
       // site heten ze /kennisbank/*. Redirect zodat oude bodies niet 404 geven.
       { source: "/onderzoek/:slug", destination: "/kennisbank/:slug", permanent: true },
+      // Product-URLs zijn plat getrokken; de stof-gids is in de productpagina opgegaan.
+      ...productRedirects.map((r) => ({ source: r.van, destination: r.naar, permanent: true })),
       { source: "/vergelijken/getvital-peptides", destination: "/merken/getvital-peptides", permanent: true },
       // Vialgrootte gelijkgetrokken met het inkoopadres; oude product-URLs blijven werken.
       { source: "/product/:cat/ipamorelin-5mg", destination: "/product/:cat/ipamorelin-10mg", permanent: true },

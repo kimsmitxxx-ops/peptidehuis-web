@@ -3,11 +3,12 @@ import type { Stof } from "./types";
 export const STOFFEN_B: Stof[] = [
   {
     slug: "ipamorelin",
+    bijgewerkt: "2026-10-22",
     name: "Ipamorelin",
     aka: ["GH-secretagoog", "GHRP", "NNC 26-0161"],
     categorySlug: "spiergroei",
     categoryName: "Spiergroei & GH",
-    productSlugs: ["ipamorelin-10mg", "cjc-1295-ipamorelin-10mg", "tesamorelin-ipamorelin-15mg"],
+    productSlugs: ["ipamorelin", "cjc-1295-ipamorelin", "tesamorelin-ipamorelin"],
     oneLiner: "De meest selectieve GH-secretagoog: een schone GH-puls zonder effect op cortisol, prolactine of eetlust.",
     metaTitle: "Ipamorelin: werking, onderzoek en kopen",
     metaDescription: "Alles over Ipamorelin: hoe de selectieve GH-secretagoog werkt via de ghreline-receptor, het verschil met oudere GHRP's, de stack met CJC-1295, reconstitutie en FAQ. Lab-getest met COA.",
@@ -18,7 +19,7 @@ export const STOFFEN_B: Stof[] = [
     onderzoek:
       "<p>Het peptide werd in 1998 beschreven als <a href=\"https://pubmed.ncbi.nlm.nih.gov/9849822/\" target=\"_blank\" rel=\"noopener\">de eerste selectieve GH-secretagoog</a> (Raun et al.), met een dosisafhankelijke GH-puls zonder relevante verstoring van andere hypofyse-hormonen. Het doorliep vroege klinische fases als middel tegen postoperatieve darmstilstand. In onderzoeksprotocollen is de combinatie met een GHRH-analoog de standaard geworden; zie ook onze pagina over <a href=\"/peptiden/cjc-1295\">CJC-1295</a>.</p>",
     protocol:
-      "<p>Onderzoeksprotocollen doseren in het microgram-bereik, subcutaan, een tot drie keer per dag, vaak voor de nacht en op een lege maag. De 1:1-combinatie met CJC-1295 no-DAC is kant-en-klaar verkrijgbaar als <a href=\"/product/spiergroei/cjc-1295-ipamorelin-10mg\">blend</a>; wie de klinisch best onderbouwde GHRH-variant wil, kiest de <a href=\"/product/spiergroei/tesamorelin-ipamorelin-15mg\">Tesamorelin-blend</a>.</p>",
+      "<p>Onderzoeksprotocollen doseren in het microgram-bereik, subcutaan, een tot drie keer per dag, vaak voor de nacht en op een lege maag. De 1:1-combinatie met CJC-1295 no-DAC is kant-en-klaar verkrijgbaar als blend; wie de klinisch best onderbouwde GHRH-variant wil, kiest de Tesamorelin-blend.</p>",
     reconstitutie:
       "<p>Voor een vial van 10 mg is 2 ml bacteriostatisch water gangbaar (5 mg/ml); 10 units op een U100-spuit is 500 mcg. Reken andere verhoudingen na met de <a href=\"/reconstitutie-calculator\">reconstitutie-calculator</a>.</p>",
     faqs: [
@@ -35,11 +36,12 @@ export const STOFFEN_B: Stof[] = [
   },
   {
     slug: "ghk-cu",
+    bijgewerkt: "2026-08-26",
     name: "GHK-Cu",
     aka: ["koper-peptide", "copper peptide", "GHK-koper"],
     categorySlug: "huid-bruining",
     categoryName: "Huid, haar & bruining",
-    productSlugs: ["ghk-cu-100mg", "glow-blend-70mg", "bundel-ghk-cu-melanotan-2"],
+    productSlugs: ["ghk-cu", "glow-blend", "bundel-ghk-cu-melanotan-2"],
     oneLiner: "Het lichaamseigen koper-peptide dat collageen en huidregeneratie aanstuurt en met de leeftijd afneemt.",
     metaTitle: "GHK-Cu (koper-peptide): werking, onderzoek en kopen",
     metaDescription: "Alles over GHK-Cu: hoe het koper-tripeptide collageen en weefsel-remodellering stimuleert, wat cosmetisch onderzoek toont, topische verwerking, reconstitutie en FAQ. Lab-getest met COA.",
@@ -50,7 +52,7 @@ export const STOFFEN_B: Stof[] = [
     onderzoek:
       "<p>Het dossier omvat decennia werk, samengevat in <a href=\"https://pubmed.ncbi.nlm.nih.gov/18644225/\" target=\"_blank\" rel=\"noopener\">Pickarts overzichtsartikel over GHK en weefsel-remodellering</a>: versnelde wondgenezing in diermodellen en verbeterde huiddichtheid, elasticiteit en fijne lijntjes in kleine humane cosmetische studies, meestal met topische toediening. Het is daarmee een van de best onderbouwde cosmetische peptiden.</p>",
     protocol:
-      "<p>GHK-Cu wordt in onderzoek zowel subcutaan als topisch toegepast. Voor topisch werk wordt het gereconstitueerde peptide verwerkt in een crème- of serumbasis; gangbare eindconcentraties in cosmetisch onderzoek liggen rond de 1 tot 3%. Voor gecombineerd huid- en herstelonderzoek bestaat de <a href=\"/product/huid-bruining/glow-blend-70mg\">GLOW-blend</a> met BPC-157 en TB-500.</p>",
+      "<p>GHK-Cu wordt in onderzoek zowel subcutaan als topisch toegepast. Voor topisch werk wordt het gereconstitueerde peptide verwerkt in een crème- of serumbasis; gangbare eindconcentraties in cosmetisch onderzoek liggen rond de 1 tot 3%. Voor gecombineerd huid- en herstelonderzoek bestaat de <a href=\"/product/glow-blend\">GLOW-blend</a> met BPC-157 en TB-500.</p>",
     reconstitutie:
       "<p>Voor de 100 mg vial is 5 ml bacteriostatisch water gangbaar (20 mg/ml). De oplossing hoort blauw te kleuren: dat is het intacte koper-complex. Reken verhoudingen na met de <a href=\"/reconstitutie-calculator\">reconstitutie-calculator</a>.</p>",
     faqs: [
@@ -67,11 +69,12 @@ export const STOFFEN_B: Stof[] = [
   },
   {
     slug: "melanotan-2",
+    bijgewerkt: "2026-08-26",
     name: "Melanotan-2",
     aka: ["MT-2", "MT2", "melanotan II"],
     categorySlug: "huid-bruining",
     categoryName: "Huid, haar & bruining",
-    productSlugs: ["melanotan-2-10mg", "bundel-ghk-cu-melanotan-2"],
+    productSlugs: ["melanotan-2", "bundel-ghk-cu-melanotan-2"],
     oneLiner: "Het bekendste bruiningspeptide: een cyclisch alfa-MSH-analoog dat melanineproductie aanstuurt, met een eerlijk verhaal over de nevenwerkingen.",
     metaTitle: "Melanotan-2 (MT-2): werking, onderzoek en kopen",
     metaDescription: "Alles over Melanotan-2: hoe het alfa-MSH-analoog bruining opwekt, het verschil met MT-1, de gedocumenteerde nevenwerkingen, reconstitutie en veelgestelde vragen. Lab-getest kopen met COA.",
@@ -99,11 +102,12 @@ export const STOFFEN_B: Stof[] = [
   },
   {
     slug: "semax",
+    bijgewerkt: "2026-08-26",
     name: "Semax",
     aka: ["ACTH(4-10)-analoog", "nootropic peptide"],
     categorySlug: "cognitie",
     categoryName: "Cognitie & focus",
-    productSlugs: ["semax-10mg", "bundel-selank-semax"],
+    productSlugs: ["semax", "bundel-selank-semax"],
     oneLiner: "Het Russische focus-peptide: een ACTH-fragment dat BDNF verhoogt, met decennia klinisch gebruik in Rusland.",
     metaTitle: "Semax: werking, onderzoek en kopen",
     metaDescription: "Alles over Semax: hoe het ACTH-fragment BDNF en neuroplasticiteit stimuleert, het Russische klinische dossier, het verschil met Selank, dosering in onderzoek en FAQ. Lab-getest met COA.",
@@ -114,7 +118,7 @@ export const STOFFEN_B: Stof[] = [
     onderzoek:
       "<p>Het Russische klinische dossier omvat toepassing bij beroerte, cognitieve klachten en onder hoge mentale belasting, met gerapporteerde verbeteringen in aandacht en werkgeheugen. Recenter pre-klinisch werk onderzoekt <a href=\"https://pubmed.ncbi.nlm.nih.gov/41479572/\" target=\"_blank\" rel=\"noopener\">neuroprotectie in Alzheimer-modellen</a>. Kanttekening die we eerlijk maken: vrijwel al het onderzoek komt uit Rusland en onafhankelijke westerse replicatie ontbreekt grotendeels.</p>",
     protocol:
-      "<p>In het Russische klinische gebruik is intranasale toediening de standaard; in peptide-onderzoek daarbuiten wordt ook subcutaan gewerkt. Doseringen liggen in het honderden-microgram-bereik, vaak in blokken van enkele weken. Voor gecombineerd focus- en stressonderzoek bestaat de <a href=\"/product/bundels/bundel-selank-semax\">bundel met Selank</a>.</p>",
+      "<p>In het Russische klinische gebruik is intranasale toediening de standaard; in peptide-onderzoek daarbuiten wordt ook subcutaan gewerkt. Doseringen liggen in het honderden-microgram-bereik, vaak in blokken van enkele weken. Voor gecombineerd focus- en stressonderzoek bestaat de bundel met Selank.</p>",
     reconstitutie:
       "<p>Voor een vial van 10 mg is 2 ml bacteriostatisch water gangbaar (5 mg/ml). Reken je verhouding na met de <a href=\"/reconstitutie-calculator\">reconstitutie-calculator</a>.</p>",
     faqs: [
@@ -131,11 +135,12 @@ export const STOFFEN_B: Stof[] = [
   },
   {
     slug: "selank",
+    bijgewerkt: "2026-08-26",
     name: "Selank",
     aka: ["tuftsine-analoog", "anxiolytisch peptide"],
     categorySlug: "cognitie",
     categoryName: "Cognitie & focus",
-    productSlugs: ["selank-10mg", "bundel-selank-semax"],
+    productSlugs: ["selank", "bundel-selank-semax"],
     oneLiner: "Het Russische anti-stress-peptide: angstdemping zonder sedatie of afhankelijkheid in de beschikbare studies.",
     metaTitle: "Selank: werking, onderzoek en kopen",
     metaDescription: "Alles over Selank: hoe het tuftsine-analoog stress dempt via GABA-modulatie en enkefalines, het Russische klinische dossier, het verschil met Semax en FAQ. Lab-getest kopen met COA.",
@@ -146,7 +151,7 @@ export const STOFFEN_B: Stof[] = [
     onderzoek:
       "<p>Russisch klinisch onderzoek bij gegeneraliseerde angststoornis rapporteerde effectiviteit vergelijkbaar met benzodiazepinen, maar zonder sufheid, geheugeneffecten of ontwenning. Daarnaast is er werk naar immuunmodulatie (de tuftsine-erfenis) en stress-gerelateerde cognitieve prestaties. Dezelfde kanttekening als bij Semax: de bewijsbasis is reëel maar smal en vrijwel volledig Russisch.</p>",
     protocol:
-      "<p>Klinisch gebruik in Rusland is intranasaal; laboratoriumonderzoek werkt ook subcutaan. Doseringen liggen in het honderden-microgram-bereik. Voor wie beide hoofdlijnen van het neuropeptide-onderzoek wil bestuderen is er de <a href=\"/product/bundels/bundel-selank-semax\">Selank + Semax bundel</a>.</p>",
+      "<p>Klinisch gebruik in Rusland is intranasaal; laboratoriumonderzoek werkt ook subcutaan. Doseringen liggen in het honderden-microgram-bereik. Voor wie beide hoofdlijnen van het neuropeptide-onderzoek wil bestuderen is er de Selank + Semax bundel.</p>",
     reconstitutie:
       "<p>Voor een vial van 10 mg is 2 ml bacteriostatisch water gangbaar (5 mg/ml). Reken je verhouding na met de <a href=\"/reconstitutie-calculator\">reconstitutie-calculator</a>.</p>",
     faqs: [
@@ -163,11 +168,12 @@ export const STOFFEN_B: Stof[] = [
   },
   {
     slug: "pt-141",
+    bijgewerkt: "2026-08-26",
     name: "PT-141",
     aka: ["Bremelanotide", "Vyleesi-klasse"],
     categorySlug: "libido",
     categoryName: "Libido & seksuele gezondheid",
-    productSlugs: ["pt-141-10mg"],
+    productSlugs: ["pt-141"],
     oneLiner: "Het libido-peptide met FDA-registratie: werkt centraal op verlangen via de melanocortine-receptoren.",
     metaTitle: "PT-141 (Bremelanotide): werking, onderzoek en kopen",
     metaDescription: "Alles over PT-141: hoe bremelanotide centraal op libido werkt, de RECONNECT fase-3-studies en FDA-registratie, de relatie met Melanotan-2, dosering en FAQ. Lab-getest met COA.",
@@ -195,11 +201,12 @@ export const STOFFEN_B: Stof[] = [
   },
   {
     slug: "tesamorelin",
+    bijgewerkt: "2026-08-26",
     name: "Tesamorelin",
     aka: ["GHRH-analoog", "Egrifta-klasse"],
     categorySlug: "spiergroei",
     categoryName: "Spiergroei & GH",
-    productSlugs: ["tesamorelin-10mg", "tesamorelin-ipamorelin-15mg"],
+    productSlugs: ["tesamorelin", "tesamorelin-ipamorelin"],
     oneLiner: "Het enige GHRH-analoog met een volledig fase-3-dossier: 15-18% minder visceraal buikvet in klinisch onderzoek.",
     metaTitle: "Tesamorelin: werking, onderzoek en kopen",
     metaDescription: "Alles over Tesamorelin: het klinisch geregistreerde GHRH-analoog, de fase-3-resultaten op visceraal vet, het verschil met CJC-1295, dosering en FAQ. Lab-getest kopen met COA.",
@@ -210,7 +217,7 @@ export const STOFFEN_B: Stof[] = [
     onderzoek:
       "<p>In fase-3-onderzoek verminderde Tesamorelin visceraal buikvet met 15 tot 18% over 26 tot 52 weken, met behoud van subcutaan vet; een recente <a href=\"https://pubmed.ncbi.nlm.nih.gov/42538058/\" target=\"_blank\" rel=\"noopener\">systematische review en meta-analyse</a> bevestigt dat beeld. Ook cognitie-onderzoek bij ouderen liet positieve signalen zien. Voor de GH-as is dit daarmee het klinisch best onderbouwde peptide.</p>",
     protocol:
-      "<p>Het klinische protocol doseert dagelijks subcutaan (2 mg in de geregistreerde toepassing). In onderzoekscombinaties wordt het net als CJC-1295 gepaard met een secretagoog; de <a href=\"/product/spiergroei/tesamorelin-ipamorelin-15mg\">Tesamorelin + Ipamorelin blend</a> levert die combinatie in één vial.</p>",
+      "<p>Het klinische protocol doseert dagelijks subcutaan (2 mg in de geregistreerde toepassing). In onderzoekscombinaties wordt het net als CJC-1295 gepaard met een secretagoog; de Tesamorelin + Ipamorelin blend levert die combinatie in één vial.</p>",
     reconstitutie:
       "<p>Voor een vial van 10 mg is 2 ml bacteriostatisch water gangbaar (5 mg/ml). Reken je verhouding na met de <a href=\"/reconstitutie-calculator\">reconstitutie-calculator</a>.</p>",
     faqs: [

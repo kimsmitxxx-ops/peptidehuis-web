@@ -35,7 +35,7 @@ export async function GET() {
     for (const p of indexableProducts) {
       const catSlug = (p as any).categories?.slug || "winkel";
       const blurb = p.subtitle || p.description || p.name;
-      lines.push(`- [${p.name}](https://peptidehuis.nl/product/${catSlug}/${p.slug}): ${blurb}`);
+      lines.push(`- [${p.name}](https://peptidehuis.nl/product/${p.slug}): ${blurb}`);
     }
   }
   lines.push("");

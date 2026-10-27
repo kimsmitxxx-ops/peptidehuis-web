@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { VERZENDKOSTEN_CENTS } from "@/lib/shipping";
 import { PageHero } from "@/components/shop/page-hero";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { Truck, PackageCheck, Clock, Globe2, ShieldCheck, MapPin } from "lucide-react";
@@ -13,11 +14,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "/bezorging" },
 };
 
+// Tarieven komen uit de centrale tabel, zodat de site nooit iets anders belooft
+// dan er bij het afrekenen wordt gerekend.
+const euro = (c) => "EUR " + (c / 100).toFixed(2).replace(".", ",");
+
 const carriers = [
-  { name: "PostNL Standaard NL", cost: "€10,00", note: "Betaling vóór 11:00 werkdag binnen = dezelfde dag verstuurd." },
-  { name: "PostNL België", cost: "€15,00", note: "1-3 werkdagen na verzending." },
-  { name: "DPD Nederland", cost: "€10,00", note: "Alternatief PostNL. Betaling vóór 11:00 = dezelfde dag verstuurd." },
-  { name: "DPD EU", cost: "€15,00", note: "Binnen 3-5 werkdagen naar DE, FR, AT, ES, IT, PL, SE." },
+  { name: "PostNL Standaard NL", cost: euro(VERZENDKOSTEN_CENTS.NL), note: "Betaling voor 11:00 op een werkdag = dezelfde dag verstuurd." },
+  { name: "PostNL Belgie", cost: euro(VERZENDKOSTEN_CENTS.BE), note: "1-3 werkdagen na verzending." },
+  { name: "DPD Duitsland", cost: euro(VERZENDKOSTEN_CENTS.DE), note: "2-4 werkdagen na verzending." },
+  { name: "DPD overig EU", cost: euro(VERZENDKOSTEN_CENTS.EU), note: "Binnen 3-5 werkdagen naar FR, AT, ES, IT, PL, SE en de rest van de EU." },
 ];
 
 const usps = [
@@ -100,7 +105,7 @@ export default function BezorgingPage() {
       <section className="mx-auto max-w-7xl px-4 pb-14">
         <h2 className="font-display text-2xl text-text">Bezorgopties &amp; tarieven</h2>
         <p className="mt-2 text-sm text-text-muted">
-          Verzending is altijd €10 (NL) of €15 (BE/EU). Wij rekenen deze kosten altijd door - geen gratis-verzending drempel.
+          Verzending kost {euro(VERZENDKOSTEN_CENTS.NL)} binnen Nederland en {euro(VERZENDKOSTEN_CENTS.BE)} naar Belgie. Wij rekenen deze kosten altijd door, er is geen drempel voor gratis verzending.
         </p>
         <div className="mt-6 overflow-hidden rounded-md border border-border">
           <table className="w-full text-sm">

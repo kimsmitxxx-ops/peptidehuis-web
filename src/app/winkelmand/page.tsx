@@ -86,7 +86,7 @@ export default function WinkelmandPage() {
                 Naar checkout
               </Link>
               <p className="mt-3 text-center text-[11px] text-text-subtle">
-                €10 verzending per bestelling, anoniem en discreet verpakt.
+                Verzendkosten vanaf {(VERZENDKOSTEN_CENTS.NL / 100).toFixed(2).replace(".", ",")} euro per bestelling, anoniem en discreet verpakt.
               </p>
             </div>
           </div>

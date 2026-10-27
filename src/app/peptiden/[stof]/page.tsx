@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
+import { productVoorStof } from "@/lib/stoffen/actief-product";
 import type { Metadata } from "next";
 import { STOFFEN, getStof } from "@/lib/stoffen";
 import { getProduct, formatEUR } from "@/lib/queries";
@@ -9,9 +11,9 @@ import { ArrowRight, FlaskConical, BookOpen, ExternalLink } from "lucide-react";
 
 export const revalidate = 3600;
 
-export function generateStaticParams() {
-  return STOFFEN.map((s) => ({ stof: s.slug }));
-}
+// Geen generateStaticParams: of deze pagina bestaat hangt af van de voorraad,
+// en die kan in de dash wijzigen zonder dat er opnieuw gebouwd wordt.
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: { stof: string } }): Promise<Metadata> {
   const stof = getStof(params.stof);
@@ -38,6 +40,9 @@ const PROSE =
 export default async function StofPage({ params }: { params: { stof: string } }) {
   const stof = getStof(params.stof);
   if (!stof) notFound();
+  // Is de stof weer leverbaar, dan is de productpagina de pagina voor deze stof.
+  const product = await productVoorStof(params.stof);
+  if (product) permanentRedirect(`/product/${product}`);
 
   const products = (await Promise.all(stof.productSlugs.map((s) => getProduct(s)))).filter(Boolean) as any[];
   const related = STOFFEN.filter((s) => s.categorySlug === stof.categorySlug && s.slug !== stof.slug);
@@ -143,7 +148,7 @@ export default async function StofPage({ params }: { params: { stof: string } })
                 {products.map((p) => (
                   <Link
                     key={p.id}
-                    href={`/product/${p.categories?.slug || stof.categorySlug}/${p.slug}`}
+                    href={`/product/${p.slug}`}
                     className="flex items-center gap-3 rounded-md border border-border bg-background p-3 hover:border-accent transition-colors"
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}

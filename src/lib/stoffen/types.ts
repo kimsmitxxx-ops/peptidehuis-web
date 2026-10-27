@@ -16,6 +16,8 @@ export type Stof = {
   /** Product-slugs die op deze pagina als koop-CTA getoond worden. */
   productSlugs: string[];
   oneLiner: string;
+  /** Datum waarop deze gids voor het laatst is nagelopen (JJJJ-MM-DD). */
+  bijgewerkt: string;
   metaTitle: string;
   metaDescription: string;
   /** HTML-secties. Interne links toegestaan; externe bronnen phrase-linked. */

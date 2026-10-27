@@ -102,7 +102,7 @@ export default async function WinkelIndexPage({
           <h2 className="font-display text-xl">{products.length} producten</h2>
           <div className="mt-5 grid gap-5 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {products.map((p) => (
-              <Link key={p.id} href={`/product/${p.categories?.slug || "winkel"}/${p.slug}`} className="block">
+              <Link key={p.id} href={`/product/${p.slug}`} className="block">
                 <ProductCard
                   image={p.image_url || "/assets/vial-placeholder.jpg"}
                   name={p.name}

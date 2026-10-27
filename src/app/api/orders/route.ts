@@ -2,11 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 import { createServiceClient } from "@/lib/supabase";
 import { unitDiscountPct } from "@/lib/bulk-discount";
 import { addonDeltaCents, addonSummary, normalizeAddons } from "@/lib/addons";
+import { verzendkostenVoorLand } from "@/lib/shipping";
 
 export const dynamic = "force-dynamic";
 
 const SHOP_ID = "42ddf952-d3c1-4c81-8029-7b4c54a84913"; // peptidehuis
-const SHIPPING_FEE_CENTS = 1000; // EUR 10 per zending
+
 
 export async function POST(req: NextRequest) {
   const body = await req.json().catch(() => ({} as any));
@@ -85,7 +86,8 @@ export async function POST(req: NextRequest) {
   // Shipping = EUR 10 per uniek shipping_method (ut/rest). Mix -> 2x EUR 10.
   const methods = new Set<string>();
   for (const it of items) methods.add(it.shipping_method || "rest");
-  const shipping = methods.size * SHIPPING_FEE_CENTS;
+  // Tarief volgt het bezorgland, zodat de klant betaalt wat hij op de site las.
+  const shipping = methods.size * verzendkostenVoorLand(country);
   const total = subtotal + shipping;
 
   const fullStreet = house_number ? `${street} ${house_number}` : street;

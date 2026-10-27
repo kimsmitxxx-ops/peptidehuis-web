@@ -136,7 +136,7 @@ export function ReconstitutieCalculator({ products = [] }: { products?: ProductA
         <p className="mt-4 text-sm text-text-muted">
           Berekening voor{" "}
           <Link
-            href={`/product/${gekozen.categorySlug ?? "winkel"}/${gekozen.slug}`}
+            href={`/product/${gekozen.slug}`}
             className="font-medium text-accent hover:underline"
           >
             {gekozen.name}

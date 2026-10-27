@@ -83,8 +83,11 @@ export default async function HomePage() {
         })
       : mainCategories.map((m) => ({ ...m, count: 0 }));
 
-  const bestsellers = dbProducts.slice(0, 4);
-  const featured = featuredProducts.slice(0, 8);
+  // Op de homepage tonen we alleen wat vandaag te bestellen is; uitverkochte
+  // producten houden hun eigen pagina maar horen niet in de etalage.
+  const leverbaar = (dbProducts as any[]).filter((p) => p.availability !== "OutOfStock");
+  const bestsellers = leverbaar.slice(0, 4);
+  const featured = (featuredProducts as any[]).filter((p) => p.availability !== "OutOfStock").slice(0, 8);
 
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -174,7 +177,7 @@ export default async function HomePage() {
           </div>
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {featured.map((p) => (
-              <Link key={p.id} href={`/product/${p.categories?.slug || "winkel"}/${p.slug}`} className="block">
+              <Link key={p.id} href={`/product/${p.slug}`} className="block">
                 <ProductCard
                   image={p.image_url || "/assets/vial-placeholder.jpg"}
                   name={p.name}
@@ -196,7 +199,7 @@ export default async function HomePage() {
           <h2 className="font-display text-3xl">Meest bestelde peptiden</h2>
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {bestsellers.map((p) => (
-              <Link key={p.id} href={`/product/${p.categories?.slug || "winkel"}/${p.slug}`} className="block">
+              <Link key={p.id} href={`/product/${p.slug}`} className="block">
                 <ProductCard
                   image={p.image_url || "/assets/vial-placeholder.jpg"}
                   name={p.name}

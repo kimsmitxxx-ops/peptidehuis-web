@@ -29,7 +29,6 @@ const EU_COUNTRIES = [
 
 export default function CheckoutPage() {
   const cart = useCart();
-  const totals = calcTotals(cart.items);
   const [form, setForm] = useState({
     email: "",
     name: "",
@@ -42,6 +41,8 @@ export default function CheckoutPage() {
     create_account: false,
     password: "",
   });
+  // Na de form-state, want het verzendtarief hangt af van het gekozen land.
+  const totals = calcTotals(cart.items, form.country);
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
 

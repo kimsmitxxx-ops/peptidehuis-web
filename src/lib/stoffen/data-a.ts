@@ -3,11 +3,12 @@ import type { Stof } from "./types";
 export const STOFFEN_A: Stof[] = [
   {
     slug: "retatrutide",
+    bijgewerkt: "2026-10-22",
     name: "Retatrutide",
     aka: ["LY3437943", "triple-agonist", "triple G"],
     categorySlug: "vetverlies",
     categoryName: "Vetverlies",
-    productSlugs: ["retatrutide-15mg", "bundel-retatrutide-3x"],
+    productSlugs: ["retatrutide", "bundel-retatrutide-3x"],
     oneLiner: "De eerste triple-agonist (GLP-1 + GIP + glucagon) met 24% gewichtsverlies in fase-2-onderzoek.",
     metaTitle: "Retatrutide: werking, onderzoek en kopen",
     metaDescription: "Alles over Retatrutide (LY3437943): hoe de triple-agonist werkt, wat de NEJM fase-2-studie liet zien, halfwaardetijd, reconstitutie en veelgestelde vragen. Lab-getest kopen met COA.",
@@ -35,11 +36,12 @@ export const STOFFEN_A: Stof[] = [
   },
   {
     slug: "semaglutide",
+    bijgewerkt: "2026-08-26",
     name: "Semaglutide",
     aka: ["GLP-1-agonist", "Ozempic-klasse", "Wegovy-klasse"],
     categorySlug: "vetverlies",
     categoryName: "Vetverlies",
-    productSlugs: ["semaglutide-5mg"],
+    productSlugs: ["semaglutide"],
     oneLiner: "De gevestigde GLP-1-referentie: 15% gewichtsverlies in het STEP-programma en het grootste klinische dossier van de klasse.",
     metaTitle: "Semaglutide: werking, onderzoek en kopen",
     metaDescription: "Alles over semaglutide: hoe de GLP-1-agonist werkt, wat het STEP-programma aantoonde, halfwaardetijd van een week, reconstitutie en veelgestelde vragen. Lab-getest kopen met COA.",
@@ -67,11 +69,12 @@ export const STOFFEN_A: Stof[] = [
   },
   {
     slug: "tirzepatide",
+    bijgewerkt: "2026-10-22",
     name: "Tirzepatide",
     aka: ["dual-agonist", "GLP-1/GIP", "Mounjaro-klasse", "Zepbound-klasse"],
     categorySlug: "vetverlies",
     categoryName: "Vetverlies",
-    productSlugs: ["tirzepatide-10mg"],
+    productSlugs: ["tirzepatide"],
     oneLiner: "De dual-agonist (GLP-1 + GIP) die in SURMOUNT-1 gemiddeld 21% gewichtsverlies liet zien.",
     metaTitle: "Tirzepatide: werking, onderzoek en kopen",
     metaDescription: "Alles over tirzepatide: hoe de GLP-1/GIP dual-agonist werkt, de SURMOUNT-1-resultaten, het verschil met semaglutide en retatrutide, reconstitutie en FAQ. Lab-getest kopen met COA.",
@@ -99,11 +102,12 @@ export const STOFFEN_A: Stof[] = [
   },
   {
     slug: "bpc-157",
+    bijgewerkt: "2026-08-26",
     name: "BPC-157",
     aka: ["Body Protection Compound", "pentadecapeptide", "PL 14736"],
     categorySlug: "genezing",
     categoryName: "Genezing & herstel",
-    productSlugs: ["bpc-157-5mg", "wolverine-blend-20mg", "bundel-bpc-157-tb-500"],
+    productSlugs: ["bpc-157", "wolverine-blend", "bundel-bpc-157-tb-500"],
     oneLiner: "Het meest onderzochte herstel-peptide: 15 aminozuren, afgeleid van maagsap, met een breed pre-klinisch dossier.",
     metaTitle: "BPC-157: werking, onderzoek en kopen",
     metaDescription: "Alles over BPC-157: hoe het herstel-peptide werkt (angiogenese, fibroblasten), wat dieronderzoek toont, combinatie met TB-500, reconstitutie en FAQ. Lab-getest kopen met COA.",
@@ -114,7 +118,7 @@ export const STOFFEN_A: Stof[] = [
     onderzoek:
       "<p>Het dossier is vrijwel volledig pre-klinisch maar opvallend consistent: in dierstudies versnelde BPC-157 het herstel van pezen, spieren, ligamenten, botten, maag- en darmweefsel en zelfs zenuwweefsel, over veel verschillende letselmodellen heen. Een recente <a href=\"https://pubmed.ncbi.nlm.nih.gov/41898733/\" target=\"_blank\" rel=\"noopener\">review over weefselherstel en pijnmanagement</a> vat het veld samen. Humane gecontroleerde trials ontbreken grotendeels; de populariteit loopt dus voor op het formele bewijs, en dat hoort een eerlijke leverancier erbij te zeggen.</p>",
     protocol:
-      "<p>In de onderzoeksliteratuur wordt BPC-157 subcutaan gedoseerd in het microgram-bereik, vaak dagelijks over vier tot zes weken, soms zo dicht mogelijk bij het onderzochte letsel. Vanwege de complementaire mechanismen wordt het in herstelonderzoek standaard gecombineerd met TB-500; daarvoor bestaan de <a href=\"/product/genezing/wolverine-blend-20mg\">blend in één vial</a> en de <a href=\"/product/bundels/bundel-bpc-157-tb-500\">bundel met losse vials</a>.</p>",
+      "<p>In de onderzoeksliteratuur wordt BPC-157 subcutaan gedoseerd in het microgram-bereik, vaak dagelijks over vier tot zes weken, soms zo dicht mogelijk bij het onderzochte letsel. Vanwege de complementaire mechanismen wordt het in herstelonderzoek standaard gecombineerd met TB-500; daarvoor bestaan de <a href=\"/product/wolverine-blend\">blend in één vial</a> en de <a href=\"/product/bundel-bpc-157-tb-500\">bundel met losse vials</a>.</p>",
     reconstitutie:
       "<p>Voor een vial van 5 mg is 2 ml bacteriostatisch water gangbaar (2,5 mg/ml); 10 units op een U100-spuit is dan 250 mcg. Reken andere verhoudingen na met de <a href=\"/reconstitutie-calculator\">reconstitutie-calculator</a>.</p>",
     faqs: [
@@ -131,11 +135,12 @@ export const STOFFEN_A: Stof[] = [
   },
   {
     slug: "tb-500",
+    bijgewerkt: "2026-08-26",
     name: "TB-500",
     aka: ["Thymosin Beta-4 fragment", "TB4", "Ac-LKKTETQ"],
     categorySlug: "genezing",
     categoryName: "Genezing & herstel",
-    productSlugs: ["tb-500-5mg", "wolverine-blend-20mg", "bundel-bpc-157-tb-500"],
+    productSlugs: ["tb-500", "wolverine-blend", "bundel-bpc-157-tb-500"],
     oneLiner: "Het actieve fragment van Thymosin Beta-4: stuurt celmigratie en actine-opbouw voor weefselherstel-onderzoek.",
     metaTitle: "TB-500: werking, onderzoek en kopen",
     metaDescription: "Alles over TB-500 (Thymosin Beta-4 fragment): actine-regulatie, celmigratie, de lange halfwaardetijd, combinatie met BPC-157, reconstitutie en FAQ. Lab-getest kopen met COA.",
@@ -146,7 +151,7 @@ export const STOFFEN_A: Stof[] = [
     onderzoek:
       "<p>Dieronderzoek toont versneld herstel van spier-, hart- en hoornvliesweefsel; Thymosin Beta-4 zelf is in kleine humane trials onderzocht voor wond- en hoornvliesgenezing. Een breed <a href=\"https://pubmed.ncbi.nlm.nih.gov/42635865/\" target=\"_blank\" rel=\"noopener\">overzichtsartikel over regeneratieve peptiden</a> plaatst het fragment binnen het bredere veld. Net als bij BPC-157 geldt: het humane bewijs is beperkt en dat vermelden we eerlijk.</p>",
     protocol:
-      "<p>Door de lange halfwaardetijd (dagen in plaats van uren) wordt TB-500 in onderzoeksprotocollen minder frequent gedoseerd dan BPC-157: vaak twee keer per week in een oplaadfase, daarna wekelijks. De combinatie met BPC-157 is de standaard in herstelonderzoek; zie de <a href=\"/product/genezing/wolverine-blend-20mg\">blend</a> of de <a href=\"/product/bundels/bundel-bpc-157-tb-500\">bundel</a>.</p>",
+      "<p>Door de lange halfwaardetijd (dagen in plaats van uren) wordt TB-500 in onderzoeksprotocollen minder frequent gedoseerd dan BPC-157: vaak twee keer per week in een oplaadfase, daarna wekelijks. De combinatie met BPC-157 is de standaard in herstelonderzoek; zie de <a href=\"/product/wolverine-blend\">blend</a> of de <a href=\"/product/bundel-bpc-157-tb-500\">bundel</a>.</p>",
     reconstitutie:
       "<p>Voor een vial van 5 mg is 2 ml bacteriostatisch water gangbaar (2,5 mg/ml). Reken je verhouding na met de <a href=\"/reconstitutie-calculator\">reconstitutie-calculator</a> en bewaar de opgeloste vial gekoeld.</p>",
     faqs: [
@@ -163,11 +168,12 @@ export const STOFFEN_A: Stof[] = [
   },
   {
     slug: "cjc-1295",
+    bijgewerkt: "2026-08-26",
     name: "CJC-1295 no-DAC",
     aka: ["Mod GRF 1-29", "GHRH-analoog", "CJC zonder DAC"],
     categorySlug: "spiergroei",
     categoryName: "Spiergroei & GH",
-    productSlugs: ["cjc-1295-no-dac-5mg", "cjc-1295-ipamorelin-10mg", "bundel-cjc-ipa-bpc-157"],
+    productSlugs: ["cjc-1295-no-dac", "cjc-1295-ipamorelin", "bundel-cjc-ipa-bpc-157"],
     oneLiner: "Het GHRH-analoog dat de lichaamseigen GH-puls versterkt, humaan onderzocht en standaard gecombineerd met Ipamorelin.",
     metaTitle: "CJC-1295 (no-DAC): werking, onderzoek en kopen",
     metaDescription: "Alles over CJC-1295 no-DAC (Mod GRF 1-29): hoe het GHRH-analoog de GH-puls verhoogt, het Teichman-onderzoek, DAC versus no-DAC, de stack met Ipamorelin en FAQ. Lab-getest met COA.",
@@ -178,7 +184,7 @@ export const STOFFEN_A: Stof[] = [
     onderzoek:
       "<p>CJC-1295 is een van de weinige onderzoekspeptiden met degelijke humane data: <a href=\"https://pubmed.ncbi.nlm.nih.gov/16352683/\" target=\"_blank\" rel=\"noopener\">Teichman et al. (2006)</a> toonden bij gezonde volwassenen een dosisafhankelijke stijging van GH- en IGF-1-spiegels die dagenlang aanhield. In onderzoeksprotocollen wordt het vrijwel altijd gecombineerd met een GH-secretagoog zoals Ipamorelin, omdat de twee routes elkaar versterken en samen een aanzienlijk grotere puls geven dan elk afzonderlijk.</p>",
     protocol:
-      "<p>Onderzoeksprotocollen doseren in het microgram-bereik, subcutaan, vaak voor het slapen (de grootste natuurlijke GH-puls valt in de eerste diepe slaap) en op een lege maag, omdat insuline en vetzuren de GH-afgifte dempen. De klassieke 1:1-combinatie met Ipamorelin is kant-en-klaar verkrijgbaar als <a href=\"/product/spiergroei/cjc-1295-ipamorelin-10mg\">blend in één vial</a>.</p>",
+      "<p>Onderzoeksprotocollen doseren in het microgram-bereik, subcutaan, vaak voor het slapen (de grootste natuurlijke GH-puls valt in de eerste diepe slaap) en op een lege maag, omdat insuline en vetzuren de GH-afgifte dempen. De klassieke 1:1-combinatie met Ipamorelin is kant-en-klaar verkrijgbaar als blend in één vial.</p>",
     reconstitutie:
       "<p>Voor een vial van 5 mg is 2 ml bacteriostatisch water gangbaar (2,5 mg/ml); 10 units is dan 250 mcg. Gebruik de <a href=\"/reconstitutie-calculator\">reconstitutie-calculator</a> voor andere verhoudingen.</p>",
     faqs: [

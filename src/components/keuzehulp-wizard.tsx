@@ -139,7 +139,7 @@ export function KeuzehulpWizard({
           {advies.length > 0 && (
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {advies.map((p) => (
-                <Link key={p.slug} href={`/product/${p.categorySlug}/${p.slug}`} className="block">
+                <Link key={p.slug} href={`/product/${p.slug}`} className="block">
                   <ProductCard
                     image={p.image}
                     name={p.name}
@@ -168,7 +168,7 @@ export function KeuzehulpWizard({
                 {benodigdheden.slice(0, 4).map((b) => (
                   <Link
                     key={b.slug}
-                    href={`/product/${b.categorySlug}/${b.slug}`}
+                    href={`/product/${b.slug}`}
                     className="inline-flex items-center gap-1.5 rounded-md border border-border bg-background px-3 py-1.5 text-xs text-text hover:border-accent"
                   >
                     {b.name}

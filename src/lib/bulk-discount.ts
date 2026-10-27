@@ -23,9 +23,9 @@ export interface CartLikeItem {
   shipping_method?: "ut" | "rest";
 }
 
-const SHIPPING_FEE_CENTS = 1000; // €10 per zending
+import { verzendkostenVoorLand, STANDAARD_LAND } from "@/lib/shipping";
 
-export function calcTotals(items: CartLikeItem[]) {
+export function calcTotals(items: CartLikeItem[], landcode: string = STANDAARD_LAND) {
   let subtotalRaw = 0;
   let subtotal = 0;
   let savings = 0;
@@ -35,10 +35,10 @@ export function calcTotals(items: CartLikeItem[]) {
     subtotal += sub;
   }
   savings = subtotalRaw - subtotal;
-  // Verzending = aantal unieke shipping-methodes in mand × €10
+  // Verzending = aantal unieke shipping-methodes in mand x het landtarief
   const methods = new Set<string>();
   for (const it of items) methods.add(it.shipping_method || "rest");
-  const shipping = methods.size * SHIPPING_FEE_CENTS;
+  const shipping = methods.size * verzendkostenVoorLand(landcode);
   const total = subtotal + shipping;
   return { subtotalRaw, subtotal, savings, shipping, total, shippingMethodCount: methods.size };
 }

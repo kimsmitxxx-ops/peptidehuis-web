@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { STOFFEN } from "@/lib/stoffen";
+import { stofStatussen, stofUrl } from "@/lib/stoffen/actief-product";
 import { mainCategories } from "@/components/shop/data";
 import { ArrowRight, FlaskConical } from "lucide-react";
 
@@ -13,7 +14,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "/peptiden" },
 };
 
-export default function PeptidenIndexPage() {
+// Welke stof waar staat hangt af van het assortiment, dus live ophalen.
+export const dynamic = "force-dynamic";
+
+export default async function PeptidenIndexPage() {
+  const urlVoorStof = new Map((await stofStatussen()).map((s) => [s.stof.slug, stofUrl(s)]));
   const byCategory = new Map<string, typeof STOFFEN>();
   for (const s of STOFFEN) {
     const list = byCategory.get(s.categorySlug) || [];
@@ -30,7 +35,7 @@ export default function PeptidenIndexPage() {
     hasPart: STOFFEN.map((s) => ({
       "@type": "Article",
       headline: s.metaTitle,
-      url: `https://peptidehuis.nl/peptiden/${s.slug}`,
+      url: `https://peptidehuis.nl${urlVoorStof.get(s.slug) ?? "/peptiden/" + s.slug}`,
     })),
   };
 
@@ -66,7 +71,7 @@ export default function PeptidenIndexPage() {
                 {stoffen.map((s) => (
                   <Link
                     key={s.slug}
-                    href={`/peptiden/${s.slug}`}
+                    href={urlVoorStof.get(s.slug) ?? `/peptiden/${s.slug}`}
                     className="group flex flex-col rounded-xl border border-border bg-surface p-5 hover:border-accent hover:shadow-lift transition-all"
                   >
                     <p className="font-display text-lg text-text group-hover:text-accent">{s.name}</p>

@@ -48,7 +48,7 @@ const faqItems = [
 
 export default function LabPage() {
   const avgPurity = 99.12;
-  const totalBatches = 186;
+  const totalBatches = 65;
 
   return (
     <>
@@ -78,7 +78,7 @@ export default function LabPage() {
             <dl className="mt-5 grid grid-cols-2 gap-5">
               <div><dt className="text-xs text-primary-foreground/60">Gemiddelde zuiverheid</dt><dd className="mt-1 font-display text-3xl text-accent-soft tabular">{avgPurity.toFixed(2)}%</dd></div>
               <div><dt className="text-xs text-primary-foreground/60">Producten online</dt><dd className="mt-1 font-display text-3xl text-primary-foreground tabular">{totalBatches}</dd></div>
-              <div><dt className="text-xs text-primary-foreground/60">Afgekeurde batches</dt><dd className="mt-1 font-display text-3xl text-primary-foreground tabular">7</dd></div>
+              <div><dt className="text-xs text-primary-foreground/60">Afgekeurde batches</dt><dd className="mt-1 font-display text-3xl text-primary-foreground tabular">3</dd></div>
               <div><dt className="text-xs text-primary-foreground/60">Partner-labs</dt><dd className="mt-1 font-display text-3xl text-primary-foreground tabular">4</dd></div>
             </dl>
           </div>

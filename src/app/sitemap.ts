@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 import { listProducts, listCategories, listBlogPosts } from "@/lib/queries";
 import { STOFFEN } from "@/lib/stoffen";
+import { stofStatussen } from "@/lib/stoffen/actief-product";
 
 const BASE = "https://peptidehuis.nl";
 
@@ -28,11 +29,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/merken/getvital-peptides`, changeFrequency: "monthly" as const, priority: 0.6 },
     ];
 
-  const stofRoutes = STOFFEN.map((s) => ({
-    url: `${BASE}/peptiden/${s.slug}`,
-    changeFrequency: "weekly" as const,
-    priority: 0.85,
-  }));
+
+  // Stoffen die we niet verkopen houden hun eigen gids-URL.
+  // Alleen stoffen zonder leverbaar product hebben een eigen gids-URL; de rest
+  // stuurt door naar het product en hoort dus niet in de sitemap.
+  const gidsRoutes = (await stofStatussen())
+    .filter((s) => !s.productSlug)
+    .map((s) => ({
+      url: `${BASE}/peptiden/${s.stof.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    }));
 
   const categoryRoutes = categories.map((c) => ({
     url: `${BASE}/winkel/${c.slug}`,
@@ -45,7 +52,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const productRoutes = products
     .filter((p: any) => p.noindex !== true)
     .map((p) => ({
-      url: `${BASE}/product/${p.categories?.slug || "winkel"}/${p.slug || p.sku}`,
+      url: `${BASE}/product/${p.slug || p.sku}`,
       changeFrequency: "weekly" as const,
       priority: 0.75,
     }));
@@ -57,5 +64,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...stofRoutes, ...categoryRoutes, ...productRoutes, ...blogRoutes];
+  return [...staticRoutes, ...gidsRoutes, ...categoryRoutes, ...productRoutes, ...blogRoutes];
 }

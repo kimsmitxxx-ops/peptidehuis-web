@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LaatstBijgewerkt } from "@/components/laatst-bijgewerkt";
 import { notFound } from "next/navigation";
 import { getBlogPost, listBlogPosts } from "@/lib/queries";
 import { ArrowLeft, BadgeCheck } from "lucide-react";
@@ -59,7 +60,7 @@ export default async function KennisbankDetail({ params }: { params: { slug: str
     description: p.excerpt,
     image: p.image_url ? [p.image_url] : undefined,
     datePublished: p.published_at,
-    dateModified: p.published_at,
+    dateModified: p.updated_at || p.published_at,
     author: authorPersonLd,
     publisher: {
       "@type": "Organization",
