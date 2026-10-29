@@ -7,10 +7,7 @@ import { createClient } from "@supabase/supabase-js";
 
 const SB_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://rexqfwibxawqnvrzbdoo.supabase.co";
 const SB_SERVICE =
-  process.env.SUPABASE_SERVICE_ROLE_KEY ||
-  process.env.SUPA_SECRET ||
-  process.env.SUPABASE_SECRET ||
-  "";
+  process.env.SUPABASE_SHOP_KEY || "";
 
 const SHOP_ID = "42ddf952-d3c1-4c81-8029-7b4c54a84913"; // peptidehuis
 
