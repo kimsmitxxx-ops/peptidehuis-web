@@ -69,7 +69,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="nl" data-shop="peptidehuis" className={`${manrope.variable} ${spaceGrotesk.variable}`}>
       <head>
-        <link rel="preconnect" href="https://rexqfwibxawqnvrzbdoo.supabase.co" />
+        {/* Hier stond een verbinding-vooraf naar de databasehost. Die regel stond
+            in de head van elke pagina en noemde het project bij naam. Beelden
+            lopen nu via ons eigen domein (/media, /img, /bestand), dus er valt
+            ook niets meer vooraf te openen. */}
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
       </head>
       <body>

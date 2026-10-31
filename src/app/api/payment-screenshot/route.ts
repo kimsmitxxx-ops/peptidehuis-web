@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { schoonFetch } from "@/lib/media";
 
 export const dynamic = "force-dynamic";
 
@@ -12,7 +13,9 @@ function getServiceClient() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || "";
   const key = process.env.SUPABASE_SHOP_KEY || "";
   if (!url || !key) throw new Error("Supabase env vars ontbreken (URL of service key)");
-  return createClient(url, key);
+  // schoonFetch ook hier: zie lib/media.ts. Elke client in de repo moet hem
+  // hebben, anders is één nieuwe query het lek weer terug.
+  return createClient(url, key, { global: { fetch: (u, init) => schoonFetch(u, init) } });
 }
 
 export async function POST(req: NextRequest) {
@@ -50,7 +53,9 @@ export async function POST(req: NextRequest) {
       upsert: false,
     });
     if (upErr) {
-      return NextResponse.json({ error: `Upload error: ${upErr.message}` }, { status: 500 });
+      // Geen melding van de opslagdienst naar de browser: die noemt zichzelf.
+      console.error("betaalbewijs uploaden mislukt", upErr);
+      return NextResponse.json({ error: "Uploaden lukte niet. Probeer het later opnieuw." }, { status: 500 });
     }
 
     // Privé bucket - genereer signed URL voor admin (valid 30 dagen)
@@ -68,7 +73,8 @@ export async function POST(req: NextRequest) {
       status: "pending",
     });
     if (insErr) {
-      return NextResponse.json({ error: `DB error: ${insErr.message}` }, { status: 500 });
+      console.error("betaalbewijs opslaan mislukt", insErr);
+      return NextResponse.json({ error: "Opslaan lukte niet. Probeer het later opnieuw." }, { status: 500 });
     }
 
     // Update order status (optioneel) - markeer dat klant heeft betaald
@@ -76,6 +82,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ ok: true });
   } catch (e: any) {
-    return NextResponse.json({ error: e.message || "Onbekende fout" }, { status: 500 });
+    console.error("betaalbewijs-route mislukt", e);
+    return NextResponse.json({ error: "Er ging iets mis. Probeer het later opnieuw." }, { status: 500 });
   }
 }

@@ -4,20 +4,29 @@ import { listCategories, listProducts, getCategory } from "@/lib/queries";
 
 export const dynamic = "force-dynamic";
 
+/**
+ * Deze route is openbaar bereikbaar. Hij noemde de volledige URL van het
+ * Supabase-project, de eerste 25 tekens van de anon-sleutel en de letterlijke
+ * namen van de omgevingsvariabelen: wie dit pad raadt, wist precies waar onze
+ * data staat. Nu meldt hij alleen of de verbinding werkt, zonder waar.
+ */
 export async function GET() {
   const env = {
-    NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL || null,
-    NEXT_PUBLIC_SUPABASE_ANON_KEY_present: !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
-    NEXT_PUBLIC_SUPABASE_ANON_KEY_prefix: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.slice(0, 25) || null,
-    REVALIDATE_TOKEN_present: !!process.env.REVALIDATE_TOKEN,
+    data_url_gezet: !!process.env.NEXT_PUBLIC_SUPABASE_URL,
+    data_sleutel_gezet: !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+    revalidate_token_gezet: !!process.env.REVALIDATE_TOKEN,
   };
 
   let raw: any = null;
   try {
     const r = await supabase.from("categories").select("slug, name").limit(20);
-    raw = { count: r.data?.length, error: r.error?.message, sample: r.data?.slice(0, 3) };
+    // Geen r.error.message: een PostgREST-melding noemt tabel, constraint en
+    // foutcode, en die horen niet in een openbaar antwoord.
+    if (r.error) console.error("debug: categories lezen mislukt", r.error);
+    raw = { count: r.data?.length, ok: !r.error, sample: r.data?.slice(0, 3) };
   } catch (e: any) {
-    raw = { exception: e.message };
+    console.error("debug: categories lezen wierp", e);
+    raw = { ok: false };
   }
 
   const cats = await listCategories();
@@ -26,7 +35,7 @@ export async function GET() {
 
   return NextResponse.json({
     env,
-    raw_supabase_categories: raw,
+    raw_categories: raw,
     listCategories_count: cats.length,
     listCategories_first: cats.slice(0, 3).map((c) => c.slug),
     getCategory_genezing_found: !!genezing,

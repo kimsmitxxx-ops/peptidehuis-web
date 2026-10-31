@@ -236,5 +236,7 @@ export async function getOrderForConfirmation(orderId: string) {
   }
 }
 
-export const formatEUR = (cents: number) =>
-  new Intl.NumberFormat("nl-NL", { style: "currency", currency: "EUR" }).format(cents / 100);
+// Staat nu in lib/format.ts, omdat client-componenten alleen dit functietje
+// nodig hadden en via dit bestand de hele Supabase-client meenamen. Hier
+// doorgezet zodat server-code niets hoeft te wijzigen.
+export { formatEUR } from "./format";

@@ -8,6 +8,7 @@
 import { createClient } from "@supabase/supabase-js";
 
 import { SB_URL, SB_ANON } from "./supabase-config";
+import { schoonFetch } from "./media";
 
 /**
  * READ-only client via anon key - voor product/blog/category listings.
@@ -18,9 +19,13 @@ export const supabase = createClient(SB_URL, SB_ANON, {
   // Next cachet fetch-resultaten standaard in de Data Cache, ook tussen builds
   // door. Dat leverde winkelpagina's op met oude namen, prijzen en voorraad.
   // Catalogusdata moet altijd live zijn, dus hier expliciet niet cachen.
+  //
+  // schoonFetch haalt bovendien de storage-URL's uit het antwoord, zodat geen
+  // enkele pagina de projectnaam van Supabase in de broncode kan zetten. Zie
+  // lib/media.ts voor waarom dat hier zit en niet per component.
   global: {
     fetch: (input: RequestInfo | URL, init?: RequestInit) =>
-      fetch(input, { ...init, cache: "no-store" }),
+      schoonFetch(input, { ...init, cache: "no-store" }),
   },
 });
 
@@ -36,7 +41,10 @@ export function createServiceClient() {
   if (!key) {
     throw new Error("SUPABASE_SHOP_KEY ontbreekt (per-shop Supabase-sleutel, rol shop_server)");
   }
-  return createClient(SB_URL, key, { auth: { persistSession: false, autoRefreshToken: false } });
+  return createClient(SB_URL, key, {
+    auth: { persistSession: false, autoRefreshToken: false },
+    global: { fetch: (url, init) => schoonFetch(url, init) },
+  });
 }
 
 export type Product = {

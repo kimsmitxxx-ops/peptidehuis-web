@@ -41,7 +41,10 @@ export async function POST(req: NextRequest) {
   try {
     supabase = createServiceClient();
   } catch (e: any) {
-    return NextResponse.json({ error: `Server-config fout: ${e.message}` }, { status: 500 });
+    // Alleen een eigen tekst naar buiten: de melding noemt de naam van de
+    // ontbrekende omgevingsvariabele, en die verraadt waar we zitten.
+    console.error("server-config onvolledig", e);
+    return NextResponse.json({ error: "Dit lukt nu niet. Probeer het later opnieuw." }, { status: 500 });
   }
 
   // Prijzen nooit van de browser overnemen: haal de productprijs uit de database
@@ -105,7 +108,10 @@ export async function POST(req: NextRequest) {
   }).select().single();
 
   if (error || !order) {
-    return NextResponse.json({ error: error?.message || "Order kon niet worden aangemaakt" }, { status: 500 });
+    // Geen databasemelding naar de browser: die noemt tabel, constraint en
+    // PostgREST-code.
+    console.error("order aanmaken mislukt", error);
+    return NextResponse.json({ error: "Order kon niet worden aangemaakt" }, { status: 500 });
   }
 
   // Resolve product_id by sku (cart items van ProductCard hebben slug-as-id)

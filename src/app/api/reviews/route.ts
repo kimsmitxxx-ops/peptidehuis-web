@@ -1,11 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { SB_URL } from "@/lib/supabase-config";
+import { schoonFetch } from "@/lib/media";
 
 // Service-role insert - bypasst RLS zodat status='pending' geschreven kan worden.
 // Geen auth check: publieke endpoint, anti-bot via honeypot + basic validation.
 // Admin keurt elke nieuwe review goed via shop-dash voordat hij zichtbaar wordt.
 
-const SB_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://rexqfwibxawqnvrzbdoo.supabase.co";
 const SB_SERVICE =
   process.env.SUPABASE_SHOP_KEY || "";
 
@@ -40,7 +41,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "server-config ontbreekt" }, { status: 500 });
   }
 
-  const sb = createClient(SB_URL, SB_SERVICE, { auth: { persistSession: false } });
+  const sb = createClient(SB_URL, SB_SERVICE, {
+    auth: { persistSession: false },
+    global: { fetch: (url, init) => schoonFetch(url, init) },
+  });
 
   // Verify product exists + zit in eigen shop scope (geen cross-shop submissions)
   const { data: product } = await sb

@@ -20,7 +20,10 @@ export async function POST(req: NextRequest) {
   try {
     sb = createServiceClient();
   } catch (e: any) {
-    return NextResponse.json({ error: `Server-config fout: ${e.message}` }, { status: 500 });
+    // Alleen een eigen tekst naar buiten: de melding noemt de naam van de
+    // ontbrekende omgevingsvariabele, en die verraadt waar we zitten.
+    console.error("server-config onvolledig", e);
+    return NextResponse.json({ error: "Dit lukt nu niet. Probeer het later opnieuw." }, { status: 500 });
   }
 
   // `leads` table exists per migration 003; UPSERT op unique (shop_id, email)
@@ -28,6 +31,11 @@ export async function POST(req: NextRequest) {
     { shop_id: SHOP_ID, email, source: "newsletter", subscribed: true },
     { onConflict: "shop_id,email" },
   );
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  // Alleen een eigen tekst naar buiten: de melding van de database noemt
+  // tabelnamen, constraints en PostgREST-codes, en dat verraadt waar we zitten.
+  if (error) {
+    console.error("nieuwsbrief-aanmelding mislukt", error);
+    return NextResponse.json({ error: "Aanmelden lukte niet. Probeer het later opnieuw." }, { status: 500 });
+  }
   return NextResponse.json({ ok: true });
 }
