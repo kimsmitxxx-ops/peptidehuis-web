@@ -25,7 +25,13 @@ export interface CartLikeItem {
 
 import { verzendkostenVoorLand, STANDAARD_LAND } from "@/lib/shipping";
 
-export function calcTotals(items: CartLikeItem[], landcode: string = STANDAARD_LAND) {
+/**
+ * `couponCents` is de korting van een ingevulde kortingscode. Die komt altijd
+ * van de server (app.coupon_korting in de database, via /api/coupon) en wordt
+ * hier alleen nog afgetrokken - de staffelkorting gaat er eerst af, de code
+ * daarna. Nooit meer dan het subtotaal, zodat verzending altijd betaald blijft.
+ */
+export function calcTotals(items: CartLikeItem[], landcode: string = STANDAARD_LAND, couponCents = 0) {
   let subtotalRaw = 0;
   let subtotal = 0;
   let savings = 0;
@@ -39,6 +45,7 @@ export function calcTotals(items: CartLikeItem[], landcode: string = STANDAARD_L
   const methods = new Set<string>();
   for (const it of items) methods.add(it.shipping_method || "rest");
   const shipping = methods.size * verzendkostenVoorLand(landcode);
-  const total = subtotal + shipping;
-  return { subtotalRaw, subtotal, savings, shipping, total, shippingMethodCount: methods.size };
+  const coupon = Math.min(Math.max(couponCents, 0), subtotal);
+  const total = subtotal - coupon + shipping;
+  return { subtotalRaw, subtotal, savings, coupon, shipping, total, shippingMethodCount: methods.size };
 }
