@@ -4,15 +4,17 @@ import { Calculator } from "lucide-react";
 import { ReconstitutieCalculator } from "@/components/reconstitutie-calculator";
 import { listProducts } from "@/lib/queries";
 import { toReconstituteerbaar } from "@/lib/product-amount";
+import { alternatesNL } from "@/lib/geo-nl";
+
+export const revalidate = 300;
 
 // Voorraad en assortiment bepalen welke producten in de keuzelijst staan.
-export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Reconstitutie-calculator: BAC-water en U100-units berekenen",
   description:
     "Bereken hoeveel BAC-water je gebruikt bij een peptide-vial en hoeveel units je op een U100-insulinespuit optrekt voor een gewenste dosis. Inclusief uitleg en veelgestelde vragen.",
-  alternates: { canonical: "/reconstitutie-calculator" },
+  alternates: alternatesNL("/reconstitutie-calculator"),
 };
 
 const FAQS = [

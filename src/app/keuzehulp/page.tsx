@@ -3,15 +3,17 @@ import Link from "next/link";
 import { PageHero } from "@/components/shop/page-hero";
 import { KeuzehulpWizard, type KeuzehulpProduct } from "@/components/keuzehulp-wizard";
 import { listProducts } from "@/lib/queries";
+import { alternatesNL } from "@/lib/geo-nl";
+
+export const revalidate = 300;
 
 // Advies mag nooit een uitverkocht product aanraden, dus altijd live voorraad.
-export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Keuzehulp: welk peptide past bij jouw onderzoek?",
   description:
     "Beantwoord drie vragen over je onderzoeksdoel, je ervaring en wat je al in huis hebt. De keuzehulp wijst je op basis daarvan de best passende, leverbare peptiden aan.",
-  alternates: { canonical: "/keuzehulp" },
+  alternates: alternatesNL("/keuzehulp"),
 };
 
 const FAQS = [

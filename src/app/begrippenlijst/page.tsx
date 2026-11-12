@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BookOpen } from "lucide-react";
+import { alternatesNL } from "@/lib/geo-nl";
 
 export const revalidate = 86400;
 
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
   title: "Begrippenlijst peptiden - HPLC, COA, reconstitutie, GLP-1, halfwaardetijd",
   description:
     "Uitleg van de begrippen die je tegenkomt op peptidehuis.nl en in de kennisbank: reconstitutie, BAC-water, HPLC, COA, GLP-1, GHRH, halfwaardetijd, subcutaan en meer. Voor onderzoekers en biohackers.",
-  alternates: { canonical: "/begrippenlijst" },
+  alternates: alternatesNL("/begrippenlijst"),
 };
 
 type Term = {

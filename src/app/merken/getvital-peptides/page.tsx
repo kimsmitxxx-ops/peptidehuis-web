@@ -3,15 +3,17 @@ import Link from "next/link";
 import { PageHero } from "@/components/shop/page-hero";
 import { listProducts } from "@/lib/queries";
 import { FlaskConical, Package, Truck, Calculator, ArrowRight } from "lucide-react";
+import { alternatesNL } from "@/lib/geo-nl";
+
+export const revalidate = 300;
 
 // Voorraad bepaalt wat we hier tonen, dus altijd live.
-export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "GetVital Peptides bestellen",
   description:
     "GetVital Peptides bestel je bij Peptidehuis: dezelfde vials, verzonden vanuit Nederland, met bacteriostatisch water inbegrepen en spuiten en doekjes bij te kiezen.",
-  alternates: { canonical: "/merken/getvital-peptides" },
+  alternates: alternatesNL("/merken/getvital-peptides"),
 };
 
 const FAQS = [

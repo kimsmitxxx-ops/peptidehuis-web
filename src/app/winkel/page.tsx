@@ -5,13 +5,14 @@ import { CatalogFilters } from "@/components/shop/catalog-filters";
 import { KNOWN_BRANDS, sortBrands } from "@/lib/brands";
 import type { Metadata } from "next";
 import { BookOpen, Truck, ShieldCheck, FlaskConical, Sparkles } from "lucide-react";
+import { alternatesNL } from "@/lib/geo-nl";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 export const metadata: Metadata = {
   title: "Winkel - alle onderzoekspeptiden",
   description: "Volledig overzicht van Peptidehuis: BPC-157, TB-500, Semaglutide, Tirzepatide, Retatrutide, CJC-1295, Ipamorelin en meer. Lab-getest per batch, COA op aanvraag.",
-  alternates: { canonical: "/winkel" },
+  alternates: alternatesNL("/winkel"),
 };
 
 export default async function WinkelIndexPage({

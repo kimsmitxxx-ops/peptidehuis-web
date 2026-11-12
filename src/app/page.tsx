@@ -9,7 +9,6 @@ import { mainCategories, categoryIcon } from "@/components/shop/data";
 import { Truck, ShieldCheck, PackageCheck, ArrowRight, FlaskConical, Beaker } from "lucide-react";
 
 export const revalidate = 300;
-export const dynamic = "force-dynamic";
 
 const HOMEPAGE_FAQ = [
   {
@@ -45,7 +44,7 @@ const HOMEPAGE_FAQ = [
   {
     question: "Hoe lang duurt de verzending?",
     answer:
-      "Betaling voor 15:00 op een werkdag = dezelfde dag verstuurd via PostNL. NL binnen 1 werkdag (gratis), BE 1-2 werkdagen (gratis), rest EU 3-5 werkdagen. Neutrale verpakking zonder productnaam op het label.",
+      "Zodra de betaling binnen is, maken we de bestelling klaar via PostNL. NL binnen 1 werkdag (gratis), BE 1-2 werkdagen (gratis), rest EU 3-5 werkdagen. Neutrale verpakking zonder productnaam op het label.",
   },
   {
     question: "Wat is een COA en waarom belangrijk?",
@@ -295,7 +294,7 @@ export default async function HomePage() {
             <Truck size={22} className="text-accent" />
             <h3 className="mt-4 font-display text-xl text-text">Snel verzonden</h3>
             <p className="mt-2 text-sm text-text-muted">
-              Betaling voor 15:00 werkdag = dezelfde dag verstuurd. NL &amp; BE gratis.
+              Verstuurd zodra je betaling binnen is. NL &amp; BE gratis.
             </p>
           </div>
         </div>

@@ -36,7 +36,7 @@ export function commercieleFaqs(p: {
   if (!uitverkocht) {
     faqs.push({
       q: `Hoe snel heb ik ${p.name} in huis?`,
-      a: "Betaal je op een werkdag voor 15:00, dan gaat het pakket dezelfde dag de deur uit. Nederland is daarna meestal een werkdag, Belgie 1 tot 3 werkdagen. Alles wordt neutraal verpakt verstuurd, zonder productnaam op het label.",
+      a: "Zodra je betaling binnen is gaat het pakket de deur uit. Nederland is daarna meestal een werkdag, Belgie 1 tot 3 werkdagen. Alles wordt neutraal verpakt verstuurd, zonder productnaam op het label.",
     });
   }
 

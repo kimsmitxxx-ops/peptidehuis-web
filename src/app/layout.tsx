@@ -11,6 +11,7 @@ import { CartAbandonTracker } from "@/components/cart-abandon-tracker";
 import { GA4 } from "@/components/ga4";
 import { ConsentNotice } from "@/components/consent-notice";
 import { getShop } from "@/lib/queries";
+import { hreflangVoor, OG_LOCALE } from "@/lib/geo-nl";
 
 // Measurement-ID per Vercel-project instellen; zonder ID laadt GA4 niet.
 const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID || "";
@@ -54,6 +55,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const baseMetadata: Metadata = {
   metadataBase: new URL("https://peptidehuis.nl"),
+    // Taal en land expliciet, zie lib/geo-nl.ts.
+    alternates: { languages: hreflangVoor("/") },
   title: { default: "Peptidehuis - onderzoeks-peptiden, ≥98% HPLC, COA per batch", template: "%s · Peptidehuis" },
   description: "20+ onderzoeks-peptiden: BPC-157, Retatrutide, CJC-1295, Semaglutide, Ipamorelin en meer. Lab-grade ≥98% HPLC, gevriesdroogd, COA per batchcode, discreet verzonden vanaf NL.",
   icons: {
@@ -61,6 +64,7 @@ const baseMetadata: Metadata = {
     apple: [{ url: "/apple-icon.png", type: "image/png" }],
   },
   openGraph: {
+      locale: OG_LOCALE,
     images: [{ url: "/opengraph-image.png", width: 1200, height: 630 }],
   },
 };

@@ -8,12 +8,12 @@ import { getProduct, formatEUR } from "@/lib/queries";
 import { MedicalDisclaimer } from "@/components/medical-disclaimer";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { ArrowRight, FlaskConical, BookOpen, ExternalLink } from "lucide-react";
+import { alternatesNL } from "@/lib/geo-nl";
 
-export const revalidate = 3600;
+export const revalidate = 300;
 
 // Geen generateStaticParams: of deze pagina bestaat hangt af van de voorraad,
 // en die kan in de dash wijzigen zonder dat er opnieuw gebouwd wordt.
-export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: { stof: string } }): Promise<Metadata> {
   const stof = getStof(params.stof);
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: { params: { stof: string } })
   return {
     title: stof.metaTitle,
     description: stof.metaDescription,
-    alternates: { canonical: `/peptiden/${stof.slug}` },
+    alternates: alternatesNL(`/peptiden/${stof.slug}`),
     openGraph: { title: stof.metaTitle, description: stof.oneLiner, type: "article" },
   };
 }

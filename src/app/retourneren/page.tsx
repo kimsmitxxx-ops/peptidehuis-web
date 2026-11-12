@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/shop/page-hero";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { ShieldCheck, FlaskConical, Mail, AlertTriangle } from "lucide-react";
+import { alternatesNL } from "@/lib/geo-nl";
 
 export const revalidate = 86400;
 
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
   title: "Retour en terugbetaling",
   description:
     "Retourzendingen zijn in onze branche niet mogelijk. Wat wél: 100% leveringsgarantie bij vertraging of vermissing en lab-vervanging bij batch-afwijking.",
-  alternates: { canonical: "/retourneren" },
+  alternates: alternatesNL("/retourneren"),
 };
 
 const cards = [

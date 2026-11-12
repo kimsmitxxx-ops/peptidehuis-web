@@ -12,12 +12,13 @@ import {
   MapPin,
   BadgeCheck,
 } from "lucide-react";
+import { alternatesNL } from "@/lib/geo-nl";
 
 export const metadata: Metadata = {
   title: "Over ons - team, lab-policy en transparantie",
   description:
     "Peptidehuis is een Nederlandse research-shop met Janoshik HPLC lab-test per batch. Lees over ons team van pro-atleten + medisch consultant, onze lab-policy en bedrijfsgegevens.",
-  alternates: { canonical: "/over-ons" },
+  alternates: alternatesNL("/over-ons"),
 };
 
 export const revalidate = 600;

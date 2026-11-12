@@ -8,8 +8,9 @@ import { KNOWN_BRANDS, sortBrands } from "@/lib/brands";
 import type { Metadata } from "next";
 import { BookOpen, Truck, ShieldCheck, FlaskConical, Sparkles } from "lucide-react";
 import { MERCHANT_RETURN_POLICY } from "@/lib/return-policy";
+import { alternatesNL } from "@/lib/geo-nl";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 export async function generateMetadata({ params }: { params: { categorie: string } }): Promise<Metadata> {
   const cat = await getCategory(params.categorie);
@@ -17,7 +18,7 @@ export async function generateMetadata({ params }: { params: { categorie: string
   return {
     title: cat.meta_title || `${cat.name} kopen`,
     description: cat.meta_description || cat.description || `${cat.name} bij Peptidehuis - lab-getest, snel uit Nederland.`,
-    alternates: { canonical: `/winkel/${cat.slug}` },
+    alternates: alternatesNL(`/winkel/${cat.slug}`),
     openGraph: { title: cat.name, description: cat.description || undefined, type: "website" },
   };
 }

@@ -17,13 +17,14 @@ import {
   Package,
 } from "lucide-react";
 import { LabRequestForm } from "@/components/shop/lab-request-form";
+import { alternatesNL } from "@/lib/geo-nl";
 
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Labtesten en COA's - alle batches doorzoekbaar",
   description: "Doorzoek elk HPLC-rapport per batchcode. Iedere flacon is traceerbaar naar een onafhankelijk lab - Janoshik, Anabolic Lab, Eurofins en SIMEC.",
-  alternates: { canonical: "/lab" },
+  alternates: alternatesNL("/lab"),
 };
 
 const labPartners = [

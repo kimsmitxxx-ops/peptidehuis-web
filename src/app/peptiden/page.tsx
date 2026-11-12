@@ -4,18 +4,18 @@ import { STOFFEN } from "@/lib/stoffen";
 import { stofStatussen, stofUrl } from "@/lib/stoffen/actief-product";
 import { mainCategories } from "@/components/shop/data";
 import { ArrowRight, FlaskConical } from "lucide-react";
+import { alternatesNL } from "@/lib/geo-nl";
 
-export const revalidate = 3600;
+export const revalidate = 300;
 
 export const metadata: Metadata = {
   title: "Peptiden A-Z: werking, onderzoek en kopen per stof",
   description:
     "Alle onderzoekspeptiden uitgelegd per stof: Retatrutide, Semaglutide, Tirzepatide, BPC-157, TB-500, CJC-1295, Ipamorelin, GHK-Cu, Melanotan-2, Semax, Selank en PT-141. Met bronnen, FAQ en lab-geteste producten.",
-  alternates: { canonical: "/peptiden" },
+  alternates: alternatesNL("/peptiden"),
 };
 
 // Welke stof waar staat hangt af van het assortiment, dus live ophalen.
-export const dynamic = "force-dynamic";
 
 export default async function PeptidenIndexPage() {
   const urlVoorStof = new Map((await stofStatussen()).map((s) => [s.stof.slug, stofUrl(s)]));
