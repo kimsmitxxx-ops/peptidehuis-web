@@ -11,7 +11,7 @@ import { CartAbandonTracker } from "@/components/cart-abandon-tracker";
 import { GA4 } from "@/components/ga4";
 import { ConsentNotice } from "@/components/consent-notice";
 import { getShop } from "@/lib/queries";
-import { hreflangVoor, OG_LOCALE } from "@/lib/geo-nl";
+import { hreflangVoor, OG_LOCALE, organisatieJsonLd } from "@/lib/geo-nl";
 
 // Measurement-ID per Vercel-project instellen; zonder ID laadt GA4 niet.
 const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID || "";
@@ -73,6 +73,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="nl" data-shop="peptidehuis" className={`${manrope.variable} ${spaceGrotesk.variable}`}>
       <head>
+        {/* Organization met areaServed NL en BE, inLanguage nl-NL en EUR.
+            Staat in de layout en dus op elke pagina: het gaat over de site
+            als geheel, niet over een losse pagina. */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organisatieJsonLd(null, String("https://peptidehuis.nl"))) }}
+        />
         {/* Hier stond een verbinding-vooraf naar de databasehost. Die regel stond
             in de head van elke pagina en noemde het project bij naam. Beelden
             lopen nu via ons eigen domein (/media, /img, /bestand), dus er valt
