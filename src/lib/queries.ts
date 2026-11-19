@@ -2,7 +2,7 @@ import { supabase, type Product, type Category, type BlogPost } from "./supabase
 
 // Hardcoded shop_id voor peptidehuis. RLS-policies in shop-dash migration 049
 // staan anon SELECT toe op deze shop.
-const SHOP_ID = "42ddf952-d3c1-4c81-8029-7b4c54a84913";
+export const SHOP_ID = "42ddf952-d3c1-4c81-8029-7b4c54a84913";
 
 // Populariteits-volgorde van peptiden (eerst = bovenaan).
 const STOF_POPULARITY = [
