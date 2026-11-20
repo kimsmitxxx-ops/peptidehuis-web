@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { AnalyticsTracker, CartAbandonTracker, GA4, ConsentNotice } from "@/components/uitgesteld";
+import { NaIdle } from "@/components/uitstellen";
 import dynamic from "next/dynamic";
 import { Manrope, Space_Grotesk } from "next/font/google";
 import "./globals.css";
@@ -6,10 +8,6 @@ import { CartProvider } from "@/components/shop/cart-store";
 import { Header } from "@/components/shop/header";
 import { Footer } from "@/components/shop/footer";
 import { MobileTabBar } from "@/components/shop/mobile-tabbar";
-import { AnalyticsTracker } from "@/components/analytics-tracker";
-import { CartAbandonTracker } from "@/components/cart-abandon-tracker";
-import { GA4 } from "@/components/ga4";
-import { ConsentNotice } from "@/components/consent-notice";
 import { getShop } from "@/lib/queries";
 import { hreflangVoor, OG_LOCALE, organisatieJsonLd } from "@/lib/geo-nl";
 
@@ -87,16 +85,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
       </head>
       <body>
-        <AnalyticsTracker />
-        <ConsentNotice />
+        <NaIdle>
+          <AnalyticsTracker />
+        </NaIdle>
+        <NaIdle>
+          <ConsentNotice />
+        </NaIdle>
         <CartProvider>
-          <CartAbandonTracker />
+          <NaIdle>
+            <CartAbandonTracker />
+          </NaIdle>
           <div className="min-h-screen flex flex-col bg-background text-text overflow-x-hidden">
             <Header />
             <main className="flex-1 pb-16 md:pb-0 min-w-0">{children}</main>
             <Footer />
-            <WhatsAppFab />
-            <GA4 measurementId={GA4_ID} />
+            <NaIdle bijInteractie>
+              <WhatsAppFab />
+            </NaIdle>
+            <NaIdle>
+              <GA4 measurementId={GA4_ID} />
+            </NaIdle>
             <CartDrawer />
             <MobileTabBar />
           </div>
