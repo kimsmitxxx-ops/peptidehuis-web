@@ -13,7 +13,7 @@
  */
 
 import { SB_URL } from "./supabase-config";
-import { isMaatVariant, zoekOrigineel, CACHE_TERUGVAL } from "./afbeelding-terugval";
+import { ontbreekt, mislukt, isMaatVariant, zoekOrigineel, CACHE_TERUGVAL, CACHE_FOUT } from "./afbeelding-terugval";
 
 // Beelden worden nooit onder dezelfde naam inhoudelijk gewijzigd; bij een
 // nieuwe foto komt er een nieuwe bestandsnaam. Dus mag dit lang blijven staan.
@@ -22,7 +22,7 @@ const CACHE = "public, max-age=86400, s-maxage=31536000, stale-while-revalidate=
 export async function proxyStorage(bucketPad: string, segmenten: string[]): Promise<Response> {
   const pad = (segmenten || []).map(encodeURIComponent).join("/");
   if (!pad || pad.includes("..")) {
-    return new Response("Niet gevonden", { status: 404 });
+    return new Response("Niet gevonden", { status: 404, headers: { "Cache-Control": CACHE_FOUT } });
   }
 
   const haal = (p: string) =>
@@ -41,7 +41,7 @@ export async function proxyStorage(bucketPad: string, segmenten: string[]): Prom
   // deze terugval breekt elk van die beelden zodra de browser een variant
   // kiest, en dat zie je pas op de pagina's die niemand toevallig opent.
   let terugval = false;
-  if ((!upstream || upstream.status === 404) && isMaatVariant(pad)) {
+  if (mislukt(upstream) && isMaatVariant(pad)) {
     const origineel = await zoekOrigineel(pad, haal);
     if (origineel) {
       upstream = origineel;
@@ -51,8 +51,12 @@ export async function proxyStorage(bucketPad: string, segmenten: string[]): Prom
 
   // Geen detail uit het antwoord van de bron doorgeven: een foutpagina van
   // Supabase noemt zichzelf, en dat is precies wat hier niet naar buiten mag.
+  //
+  // De Cache-Control hoort erbij: zonder eigen waarde erft dit antwoord de
+  // lange beeldcache uit next.config.js, en hangt een toevallige 502 een week
+  // aan de edge. Zie CACHE_FOUT.
   if (!upstream || !upstream.ok || !upstream.body) {
-    return new Response("Niet gevonden", { status: upstream?.status === 404 ? 404 : 502 });
+    return new Response("Niet gevonden", { status: ontbreekt(upstream) ? 404 : 502, headers: { "Cache-Control": CACHE_FOUT } });
   }
 
   const headers = new Headers();
