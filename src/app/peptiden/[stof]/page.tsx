@@ -9,6 +9,7 @@ import { MedicalDisclaimer } from "@/components/medical-disclaimer";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { ArrowRight, FlaskConical, BookOpen, ExternalLink } from "lucide-react";
 import { alternatesNL } from "@/lib/geo-nl";
+import { Afbeelding } from "@/components/afbeelding";
 
 export const revalidate = 300;
 
@@ -151,8 +152,15 @@ export default async function StofPage({ params }: { params: { stof: string } })
                     href={`/product/${p.slug}`}
                     className="flex items-center gap-3 rounded-md border border-border bg-background p-3 hover:border-accent transition-colors"
                   >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img loading="lazy" decoding="async" src={p.image_url || "/assets/vial-placeholder.jpg"} alt={p.name} className="h-14 w-14 rounded object-cover" />
+                    <Afbeelding
+                      src={p.image_url || "/assets/vial-placeholder.jpg"}
+                      alt={p.name}
+                      width={56}
+                      height={56}
+                      sizes="56px"
+                      maxBreedte={56}
+                      className="h-14 w-14 rounded object-cover"
+                    />
                     <span className="min-w-0 flex-1">
                       <span className="block text-sm font-medium text-text truncate">{p.name}</span>
                       <span className="block text-sm text-accent font-semibold tabular">{formatEUR(p.price_cents)}</span>

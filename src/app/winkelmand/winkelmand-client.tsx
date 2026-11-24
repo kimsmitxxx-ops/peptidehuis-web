@@ -7,6 +7,7 @@ import { calcTotals, unitDiscountPct } from "@/lib/bulk-discount";
 import { VERZENDKOSTEN_CENTS } from "@/lib/shipping";
 import { CouponField } from "@/components/shop/coupon-field";
 import { Trash2, Minus, Plus, ShoppingBag, Sparkles } from "lucide-react";
+import { Afbeelding } from "@/components/afbeelding";
 
 export function WinkelmandClient({ t }: { t: Teksten }) {
   const cart = useCart();
@@ -31,7 +32,15 @@ export function WinkelmandClient({ t }: { t: Teksten }) {
               const lineTotal = unit * it.qty;
               return (
               <div key={it.id} className="flex gap-4 rounded-xl border border-paper-border bg-paper-soft p-4">
-                {it.image && /* eslint-disable-next-line @next/next/no-img-element */ <img loading="lazy" decoding="async" src={it.image} alt={it.name} className="h-20 w-20 rounded object-cover" />}
+                {it.image && <Afbeelding
+                  src={it.image}
+                  alt={it.name}
+                  width={80}
+                  height={80}
+                  sizes="80px"
+                  maxBreedte={80}
+                  className="h-20 w-20 rounded object-cover"
+                />}
                 <div className="flex-1">
                   <p className="font-medium">{it.name}</p>
                   {pct > 0 ? (

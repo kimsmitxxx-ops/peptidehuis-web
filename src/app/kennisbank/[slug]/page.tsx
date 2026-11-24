@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 import { MedicalDisclaimer } from "@/components/medical-disclaimer";
 import { highlightGlossary } from "@/lib/glossary-highlight";
 import { alternatesNL } from "@/lib/geo-nl";
+import { Afbeelding } from "@/components/afbeelding";
 
 export const revalidate = 600;
 
@@ -105,10 +106,13 @@ export default async function KennisbankDetail({ params }: { params: { slug: str
       {/* Byline-row met auteur + credentials + datum */}
       <div className="mt-5 flex items-center gap-3 text-sm text-text-muted">
         {authorInfo?.avatar_url ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <Afbeelding
             src={authorInfo.avatar_url}
             alt={`Profielfoto ${authorInfo.name}`}
+            width={40}
+            height={40}
+            sizes="40px"
+            maxBreedte={40}
             className="h-10 w-10 rounded-full object-cover ring-2 ring-paper-border"
           />
         ) : authorName ? (
@@ -142,8 +146,14 @@ export default async function KennisbankDetail({ params }: { params: { slug: str
       </div>
 
       {p.image_url && (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img loading="lazy" decoding="async" src={p.image_url} alt={p.image_alt || p.title} className="mt-8 aspect-[16/9] w-full rounded-2xl object-cover" />
+        <Afbeelding
+          src={p.image_url}
+          alt={p.image_alt || p.title}
+          width={1200}
+          height={675}
+          sizes="(max-width: 768px) 100vw, 720px"
+          className="mt-8 aspect-[16/9] w-full rounded-2xl object-cover"
+        />
       )}
 
       {p.excerpt && <p className="mt-8 text-lg text-text-muted leading-relaxed">{p.excerpt}</p>}
@@ -167,10 +177,13 @@ export default async function KennisbankDetail({ params }: { params: { slug: str
           <p className="text-[10px] uppercase tracking-wider text-accent font-semibold">Over de schrijver</p>
           <div className="mt-3 flex items-start gap-4">
             {authorInfo.avatar_url ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
+              <Afbeelding
                 src={authorInfo.avatar_url}
                 alt={`Profielfoto ${authorInfo.name}`}
+                width={64}
+                height={64}
+                sizes="64px"
+                maxBreedte={64}
                 className="h-16 w-16 rounded-full object-cover ring-2 ring-paper-border shrink-0"
               />
             ) : (
