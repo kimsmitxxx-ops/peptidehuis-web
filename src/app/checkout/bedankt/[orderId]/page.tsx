@@ -86,6 +86,15 @@ export default async function BedanktPage({ params }: { params: { orderId: strin
               </div>
             )}
           </dl>
+          {/* Rood kader: alleen het ordernummer in de omschrijving. Zonder
+              deze regel staat er niets over wat er NIET bij mag. */}
+          <p className="mt-5 flex items-start gap-2 rounded-lg border-2 border-danger bg-danger-soft px-3 py-2 text-xs leading-relaxed text-text">
+            <AlertTriangle size={14} aria-hidden="true" className="mt-0.5 shrink-0 text-danger" />
+            <span>
+              Zet bij de omschrijving alleen <span className="font-mono">{ref}</span>. Geen productnaam, geen
+              winkelnaam en geen eigen opmerking erbij, anders wordt de betaling geweigerd.
+            </span>
+          </p>
         </section>
       )}
 
